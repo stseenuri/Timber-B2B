@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshMutton — Premium Organic Meat from Village Farms</title>
+    <title>FreshMutton — Premium Organic Mutton Direct from Village Farms</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;0,600;0,700;1,600&display=swap');
 
         * {
             margin: 0;
@@ -14,49 +14,43 @@
         }
 
         :root {
-            --luxury-black: #0A0A0A;
-            --luxury-dark: #1A1A1A;
-            --luxury-charcoal: #2A2A2A;
-            --luxury-gold: #D4AF37;
-            --luxury-gold-dark: #B8941F;
-            --luxury-cream: #F5F5DC;
-            --luxury-sage: #8B9A7C;
-            --luxury-white: #FAFAFA;
+            --primary-red: #8B2500;
+            --deep-red: #6B1D00;
+            --warm-cream: #FFF8F0;
+            --soft-beige: #F5EDE4;
+            --forest-green: #2D5016;
+            --sage-green: #7D9B6E;
+            --charcoal: #2C2C2C;
+            --warm-gray: #5A5A5A;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--luxury-black);
-            color: var(--luxury-white);
+            font-family: 'Outfit', sans-serif;
+            background: var(--warm-cream);
+            color: var(--charcoal);
             overflow-x: hidden;
         }
 
-        /* Luxury Navigation */
+        /* Modern Premium Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 10000;
-            padding: 30px 8%;
+            padding: 25px 7%;
             backdrop-filter: blur(20px);
-            background: rgba(10, 10, 10, 0.9);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            animation: navSlideDown 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            background: rgba(255, 248, 240, 0.95);
+            border-bottom: 1px solid rgba(139, 37, 0, 0.1);
+            animation: navSlide 1s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        @keyframes navSlideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        @keyframes navSlide {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .nav-container {
-            max-width: 1600px;
+            max-width: 1500px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -64,59 +58,54 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.9rem;
             font-weight: 700;
-            color: var(--luxury-gold);
-            letter-spacing: 2px;
+            color: var(--primary-red);
             display: flex;
             align-items: center;
-            gap: 15px;
-            text-transform: uppercase;
+            gap: 12px;
         }
 
-        .logo::before {
-            content: '◆';
-            font-size: 1.2rem;
-            animation: logoShine 3s ease-in-out infinite;
+        .logo-icon {
+            font-size: 1.8rem;
+            animation: iconBounce 2s ease-in-out infinite;
         }
 
-        @keyframes logoShine {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 50px;
+            gap: 45px;
             align-items: center;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--luxury-white);
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            color: var(--charcoal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -5px;
             left: 0;
             width: 0;
-            height: 1px;
-            background: var(--luxury-gold);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--luxury-gold);
+            color: var(--primary-red);
         }
 
         nav ul li a:hover::after {
@@ -124,551 +113,471 @@
         }
 
         .nav-cta {
-            padding: 14px 35px;
-            background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-dark) 100%);
-            color: var(--luxury-black) !important;
-            border-radius: 0;
+            padding: 12px 30px;
+            background: var(--primary-red);
+            color: white !important;
+            border-radius: 50px;
             font-weight: 700;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
-        }
-
-        .nav-cta:hover::before {
-            left: 100%;
+            box-shadow: 0 4px 15px rgba(139, 37, 0, 0.3);
+            transition: all 0.3s;
         }
 
         .nav-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            background: var(--deep-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 37, 0, 0.4);
         }
 
-        /* Luxury Hero Section */
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero Section - Fresh & Modern */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 140px 8% 80px;
+            padding: 120px 7% 80px;
+            background: linear-gradient(135deg, #FFF8F0 0%, #F5EDE4 100%);
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--luxury-black) 0%, #1a1510 100%);
         }
 
         .hero::before {
-            content: '';
+            content: '🌿';
             position: absolute;
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-            top: -300px;
-            right: -300px;
-            animation: heroGlow 10s ease-in-out infinite alternate;
+            font-size: 25rem;
+            opacity: 0.03;
+            top: -100px;
+            right: -100px;
+            animation: heroFloat 15s ease-in-out infinite;
         }
 
-        @keyframes heroGlow {
-            0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-            100% { transform: scale(1.3) rotate(45deg); opacity: 0.7; }
+        @keyframes heroFloat {
+            0%, 100% { transform: rotate(0deg) translate(0, 0); }
+            50% { transform: rotate(20deg) translate(-50px, 50px); }
         }
 
         .hero-grid {
-            max-width: 1600px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 120px;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 80px;
             align-items: center;
             position: relative;
             z-index: 2;
         }
 
         .hero-content {
-            animation: heroFadeInLeft 1.4s cubic-bezier(0.23, 1, 0.32, 1) 0.3s backwards;
+            animation: fadeInUp 1s ease 0.2s backwards;
         }
 
-        @keyframes heroFadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-label {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--luxury-gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .hero-label::before,
-        .hero-label::after {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--luxury-gold);
+            gap: 10px;
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 6.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 5.5rem;
             font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 35px;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 25px;
             letter-spacing: -2px;
-            color: var(--luxury-white);
         }
 
-        .hero h1 .highlight {
-            color: var(--luxury-gold);
+        .hero h1 .accent {
+            color: var(--primary-red);
             font-style: italic;
-            display: block;
-            animation: textShimmer 3s ease-in-out infinite;
         }
 
-        @keyframes textShimmer {
-            0%, 100% { opacity: 0.9; }
-            50% { opacity: 1; text-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-        }
-
-        .hero-description {
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: rgba(250, 250, 250, 0.75);
-            margin-bottom: 50px;
-            max-width: 600px;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            margin-bottom: 40px;
             font-weight: 400;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 45px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--charcoal);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 25px;
-            align-items: center;
+            gap: 20px;
         }
 
-        .luxury-btn-primary {
-            padding: 22px 55px;
-            background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-dark) 100%);
-            color: var(--luxury-black);
+        .btn-primary {
+            padding: 18px 45px;
+            background: var(--primary-red);
+            color: white;
             border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             cursor: pointer;
+            box-shadow: 0 8px 25px rgba(139, 37, 0, 0.3);
+            transition: all 0.4s;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .luxury-btn-primary::before {
+        .btn-primary::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.7s;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
-        .luxury-btn-primary:hover::before {
-            left: 100%;
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
-        .luxury-btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
-        }
-
-        .luxury-btn-secondary {
-            padding: 22px 55px;
-            background: transparent;
-            color: var(--luxury-white);
-            border: 2px solid var(--luxury-gold);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s;
-        }
-
-        .luxury-btn-secondary:hover {
-            background: var(--luxury-gold);
-            color: var(--luxury-black);
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 12px 35px rgba(139, 37, 0, 0.4);
         }
 
-        /* Luxury Hero Visual */
+        .btn-secondary {
+            padding: 18px 45px;
+            background: white;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Visual - Food Photography Style */
         .hero-visual {
             position: relative;
-            animation: heroFadeInRight 1.4s cubic-bezier(0.23, 1, 0.32, 1) 0.6s backwards;
+            animation: fadeInUp 1s ease 0.4s backwards;
         }
 
-        @keyframes heroFadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .hero-image-frame {
+        .hero-image-container {
             position: relative;
-            width: 100%;
-            aspect-ratio: 0.85;
-            background: linear-gradient(135deg, var(--luxury-charcoal) 0%, var(--luxury-dark) 100%);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            padding: 30px;
+            border-radius: 30px;
+            overflow: hidden;
             box-shadow: 
-                0 50px 100px rgba(0, 0, 0, 0.5),
-                inset 0 0 50px rgba(212, 175, 55, 0.05);
+                0 30px 80px rgba(0,0,0,0.15),
+                0 0 0 1px rgba(139, 37, 0, 0.1);
         }
 
-        .hero-image-frame::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            pointer-events: none;
-        }
-
-        .hero-image-frame img {
+        .hero-image-container img {
             width: 100%;
-            height: 100%;
+            height: 600px;
             object-fit: cover;
-            filter: contrast(1.1) saturate(1.1);
-            animation: imageFloat 6s ease-in-out infinite;
+            display: block;
         }
 
-        @keyframes imageFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .hero-badge {
+        .floating-badge {
             position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--luxury-black);
-            text-align: center;
-            line-height: 1.4;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
-            animation: badgeRotate 15s linear infinite;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: badgeFloat 3s ease-in-out infinite;
         }
 
-        @keyframes badgeRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .hero-badge span {
-            animation: badgeCounter 15s linear infinite reverse;
+        .floating-badge h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 5px;
         }
 
-        @keyframes badgeCounter {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Luxury Stats Bar */
-        .stats-section {
-            padding: 100px 8%;
-            background: var(--luxury-dark);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .stats-grid {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
-        }
-
-        .stat-item {
-            text-align: center;
-            opacity: 0;
-            animation: statFadeIn 1s ease forwards;
-        }
-
-        .stat-item:nth-child(1) { animation-delay: 0.2s; }
-        .stat-item:nth-child(2) { animation-delay: 0.4s; }
-        .stat-item:nth-child(3) { animation-delay: 0.6s; }
-        .stat-item:nth-child(4) { animation-delay: 0.8s; }
-
-        @keyframes statFadeIn {
-            to { opacity: 1; }
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: var(--luxury-gold);
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: rgba(250, 250, 250, 0.6);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .floating-badge p {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
             font-weight: 600;
         }
 
-        /* Luxury USP Section */
+        /* Trust Indicators */
+        .trust-section {
+            padding: 80px 7%;
+            background: white;
+        }
+
+        .trust-grid {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+        }
+
+        .trust-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--soft-beige);
+            transition: transform 0.3s;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .trust-number {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .trust-label {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            font-weight: 600;
+        }
+
+        /* USP Section - Modern & Clean */
         .usp-section {
-            padding: 140px 8%;
-            background: var(--luxury-black);
-            position: relative;
+            padding: 120px 7%;
+            background: var(--warm-cream);
         }
 
         .section-header {
-            max-width: 900px;
-            margin: 0 auto 100px;
+            max-width: 700px;
+            margin: 0 auto 80px;
             text-align: center;
         }
 
         .section-label {
-            font-size: 0.75rem;
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--sage-green);
+            color: white;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--luxury-gold);
-            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            display: block;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 4rem;
             font-weight: 700;
-            line-height: 1.15;
-            color: var(--luxury-white);
-            margin-bottom: 30px;
-            letter-spacing: -2px;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
         .section-description {
             font-size: 1.15rem;
-            color: rgba(250, 250, 250, 0.65);
-            line-height: 1.9;
-            font-weight: 400;
+            color: var(--warm-gray);
+            line-height: 1.8;
         }
 
         .usp-grid {
-            max-width: 1600px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
+            gap: 40px;
         }
 
         .usp-card {
-            background: linear-gradient(135deg, var(--luxury-charcoal) 0%, var(--luxury-dark) 100%);
-            padding: 60px 45px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            opacity: 0;
-            transform: translateY(60px);
-        }
-
-        .usp-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--luxury-gold), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.8s;
-        }
-
-        .usp-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .usp-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            background: white;
+            padding: 45px 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.4s;
+            border: 2px solid transparent;
         }
 
         .usp-card:hover {
             transform: translateY(-10px);
-            border-color: var(--luxury-gold);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border-color: var(--sage-green);
         }
 
         .usp-icon {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            display: inline-block;
-            filter: grayscale(1) brightness(1.2);
-            opacity: 0.9;
+            width: 70px;
+            height: 70px;
+            background: var(--soft-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
         }
 
         .usp-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.7rem;
             font-weight: 600;
-            color: var(--luxury-white);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
         }
 
         .usp-card p {
             font-size: 1rem;
-            color: rgba(250, 250, 250, 0.65);
-            line-height: 1.8;
+            color: var(--warm-gray);
+            line-height: 1.7;
         }
 
-        /* Luxury Products Section */
+        /* Products Section - Gourmet Style */
         .products-section {
-            padding: 140px 8%;
-            background: linear-gradient(180deg, #0f0f0a 0%, var(--luxury-dark) 100%);
+            padding: 120px 7%;
+            background: linear-gradient(180deg, white 0%, var(--soft-beige) 100%);
         }
 
         .products-grid {
-            max-width: 1600px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
+            gap: 50px;
         }
 
         .product-card {
-            background: var(--luxury-charcoal);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: white;
+            border-radius: 30px;
             overflow: hidden;
-            position: relative;
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        .product-card.visible {
-            opacity: 1;
-            transform: scale(1);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            transition: all 0.5s;
         }
 
         .product-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--luxury-gold);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
         }
 
         .product-image {
-            height: 450px;
+            height: 380px;
             overflow: hidden;
             position: relative;
-            background: var(--luxury-dark);
+            background: var(--soft-beige);
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: contrast(1.15) saturate(1.1);
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.6s;
         }
 
         .product-card:hover .product-image img {
-            transform: scale(1.15);
+            transform: scale(1.08);
         }
 
         .organic-badge {
             position: absolute;
-            top: 30px;
-            right: 30px;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-dark) 100%);
-            color: var(--luxury-black);
-            font-size: 0.75rem;
+            top: 25px;
+            right: 25px;
+            padding: 10px 22px;
+            background: var(--sage-green);
+            color: white;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .product-content {
-            padding: 50px 45px;
+            padding: 40px;
         }
 
         .product-category {
-            font-size: 0.75rem;
-            color: var(--luxury-gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--sage-green);
             font-weight: 700;
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
         }
 
         .product-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
             font-weight: 600;
-            color: var(--luxury-white);
-            margin-bottom: 18px;
-            letter-spacing: -1px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
         }
 
         .product-content p {
             font-size: 1rem;
-            color: rgba(250, 250, 250, 0.65);
-            line-height: 1.8;
-            margin-bottom: 35px;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
 
         .product-footer {
@@ -676,132 +585,122 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 25px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: 2px solid var(--soft-beige);
         }
 
         .product-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--luxury-gold);
-            letter-spacing: -1px;
+            color: var(--primary-red);
         }
 
         .product-price span {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: rgba(250, 250, 250, 0.5);
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            font-weight: 500;
         }
 
         .add-cart-btn {
-            padding: 16px 40px;
-            background: transparent;
-            color: var(--luxury-gold);
-            border: 2px solid var(--luxury-gold);
-            font-size: 0.85rem;
+            padding: 14px 35px;
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
 
         .add-cart-btn:hover {
-            background: var(--luxury-gold);
-            color: var(--luxury-black);
+            background: var(--deep-red);
             transform: translateX(5px);
         }
 
-        /* Luxury CTA Section */
+        /* CTA Section */
         .cta-section {
-            padding: 140px 8%;
-            background: linear-gradient(135deg, var(--luxury-black) 0%, #1a1510 100%);
+            padding: 120px 7%;
+            background: var(--primary-red);
+            color: white;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .cta-section::before {
-            content: '';
+            content: '🥩';
             position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            font-size: 30rem;
+            opacity: 0.05;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            animation: ctaPulse 8s ease-in-out infinite;
-        }
-
-        @keyframes ctaPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            transform: translate(-50%, -50%) rotate(-15deg);
         }
 
         .cta-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
             position: relative;
             z-index: 2;
         }
 
         .cta-container h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 4.5rem;
             font-weight: 700;
-            color: var(--luxury-white);
-            margin-bottom: 35px;
-            letter-spacing: -2px;
-            line-height: 1.15;
-        }
-
-        .cta-container h2 span {
-            color: var(--luxury-gold);
-            font-style: italic;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
         }
 
         .cta-container p {
-            font-size: 1.2rem;
-            color: rgba(250, 250, 250, 0.7);
-            line-height: 1.9;
-            margin-bottom: 60px;
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            line-height: 1.8;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
+        .cta-btn {
+            padding: 20px 55px;
+            background: white;
+            color: var(--primary-red);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         footer {
-            padding: 80px 8%;
-            background: var(--luxury-dark);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 7%;
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.8);
             text-align: center;
         }
 
-        footer .logo {
-            margin-bottom: 25px;
-            justify-content: center;
-        }
-
         footer p {
-            font-size: 0.9rem;
-            color: rgba(250, 250, 250, 0.5);
+            font-size: 1rem;
             line-height: 1.8;
-            letter-spacing: 1px;
         }
 
         /* Responsive */
         @media (max-width: 1200px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 80px;
+                gap: 60px;
             }
 
             .hero h1 {
-                font-size: 5rem;
+                font-size: 4.5rem;
             }
 
             .usp-grid {
@@ -814,14 +713,6 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 20px 5%;
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-
             .hero h1 {
                 font-size: 3.5rem;
             }
@@ -831,20 +722,21 @@
             }
 
             .usp-grid,
-            .stats-grid {
+            .trust-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta-container h2 {
-                font-size: 3rem;
+            .hero-features {
+                flex-direction: column;
+                gap: 20px;
             }
         }
 
-        /* Scroll Reveal Animation */
+        /* Scroll Animations */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
 
         .scroll-reveal.visible {
@@ -857,12 +749,15 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">FreshMutton</div>
+            <div class="logo">
+                <span class="logo-icon">🥩</span>
+                FreshMutton
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">Heritage</a></li>
-                <li><a href="#products">Collection</a></li>
-                <li><a href="#contact" class="nav-cta">Reserve Now</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#contact" class="nav-cta">Order Now</a></li>
             </ul>
         </div>
     </nav>
@@ -871,51 +766,68 @@
     <section class="hero" id="home">
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-label">
-                    <span>Premium Organic Meat</span>
+                <div class="hero-badge">
+                    🌿 100% Certified Organic
                 </div>
                 <h1>
-                    The Finest
-                    <span class="highlight">Organic Mutton</span>
-                    From Village Farms
+                    Premium <span class="accent">Organic</span> Mutton Straight from Village Farms
                 </h1>
-                <p class="hero-description">
-                    Experience unparalleled quality. Our heritage mutton comes from organically raised sheep in pristine village farms, where traditional methods meet modern standards. Each cut is a testament to purity, flavor, and sustainable farming.
+                <p class="hero-subtitle">
+                    Experience the authentic taste of organically raised mutton, sourced directly from trusted village farmers. No chemicals, no middlemen—just pure, fresh quality delivered to your door.
                 </p>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚜</div>
+                        <span class="feature-text">Farm Direct</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">❄️</div>
+                        <span class="feature-text">24hr Delivery</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">100% Fresh</span>
+                    </div>
+                </div>
                 <div class="hero-buttons">
-                    <button class="luxury-btn-primary" onclick="scrollTo('products')">Explore Collection</button>
-                    <button class="luxury-btn-secondary">Our Story</button>
+                    <button class="btn-primary" onclick="scrollTo('products')">Shop Premium Cuts</button>
+                    <button class="btn-secondary">Learn More</button>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-image-frame">
-                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=700&fit=crop" alt="Premium Organic Farm">
-                    <div class="hero-badge">
-                        <span>100%<br>Certified<br>Organic</span>
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1580583693689-9e34d6336c19?w=700&h=600&fit=crop" alt="Fresh Organic Lamb">
+                    <div class="floating-badge">
+                        <h4>₹650/kg</h4>
+                        <p>Starting from</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Organic Certified</div>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-icon">🌾</div>
+                <div class="trust-number">100%</div>
+                <div class="trust-label">Organic Certified</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Partner Farms</div>
+            <div class="trust-card">
+                <div class="trust-icon">🚜</div>
+                <div class="trust-number">50+</div>
+                <div class="trust-label">Village Farms</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">5K+</div>
-                <div class="stat-label">Discerning Clients</div>
+            <div class="trust-card">
+                <div class="trust-icon">⭐</div>
+                <div class="trust-number">5000+</div>
+                <div class="trust-label">Happy Customers</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">24h</div>
-                <div class="stat-label">Farm to Table</div>
+            <div class="trust-card">
+                <div class="trust-icon">🚚</div>
+                <div class="trust-number">24hr</div>
+                <div class="trust-label">Fresh Delivery</div>
             </div>
         </div>
     </section>
@@ -923,42 +835,42 @@
     <!-- USP Section -->
     <section class="usp-section" id="about">
         <div class="section-header">
-            <span class="section-label">Our Heritage</span>
-            <h2 class="section-title">Uncompromising Excellence</h2>
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">Farm-Fresh Excellence</h2>
             <p class="section-description">
-                Every aspect of our process reflects our commitment to quality, sustainability, and the time-honored traditions of organic farming.
+                We're committed to bringing you the finest organic mutton through ethical farming and direct sourcing.
             </p>
         </div>
         <div class="usp-grid">
             <div class="usp-card scroll-reveal">
                 <div class="usp-icon">🌾</div>
-                <h3>Pure Organic</h3>
-                <p>Raised on pristine pastures with natural grass and grains. Zero antibiotics, hormones, or chemicals. Certified organic at every stage.</p>
+                <h3>100% Organic</h3>
+                <p>Our sheep are raised on natural pastures, fed organic grass and grains without any antibiotics, hormones, or chemicals.</p>
             </div>
             <div class="usp-card scroll-reveal">
-                <div class="usp-icon">🏔️</div>
-                <h3>Village Sourced</h3>
-                <p>Direct partnerships with traditional village farmers who practice sustainable, ethical farming methods passed through generations.</p>
+                <div class="usp-icon">🚜</div>
+                <h3>Direct Sourcing</h3>
+                <p>We partner directly with village farmers, ensuring fair prices for them and the freshest quality for you.</p>
             </div>
             <div class="usp-card scroll-reveal">
                 <div class="usp-icon">✨</div>
-                <h3>Premium Grade</h3>
-                <p>Rigorous quality control ensures only the finest cuts. Each piece is hand-selected and prepared by master butchers.</p>
+                <h3>Premium Quality</h3>
+                <p>Every cut is hand-selected, meticulously cleaned, and packaged to maintain the highest standards.</p>
             </div>
             <div class="usp-card scroll-reveal">
                 <div class="usp-icon">❄️</div>
                 <h3>Cold Chain</h3>
-                <p>Temperature-controlled logistics from farm to doorstep. Delivered fresh within 24 hours of processing.</p>
+                <p>Temperature-controlled delivery ensures your mutton arrives farm-fresh within 24 hours.</p>
             </div>
             <div class="usp-card scroll-reveal">
                 <div class="usp-icon">🌍</div>
                 <h3>Sustainable</h3>
-                <p>Committed to regenerative farming practices that restore soil health and support biodiversity.</p>
+                <p>Supporting ethical farming practices and promoting sustainable agriculture in rural communities.</p>
             </div>
             <div class="usp-card scroll-reveal">
-                <div class="usp-icon">👨‍🌾</div>
+                <div class="usp-icon">💚</div>
                 <h3>Fair Trade</h3>
-                <p>Direct sourcing ensures fair compensation for farmers while offering exceptional value to our clients.</p>
+                <p>No middlemen means better prices for you and better income for our farming partners.</p>
             </div>
         </div>
     </section>
@@ -966,70 +878,70 @@
     <!-- Products Section -->
     <section class="products-section" id="products">
         <div class="section-header">
-            <span class="section-label">Premium Selection</span>
-            <h2 class="section-title">Our Signature Collection</h2>
+            <span class="section-label">Our Selection</span>
+            <h2 class="section-title">Premium Organic Cuts</h2>
             <p class="section-description">
-                Each cut is a masterpiece—carefully selected, expertly prepared, and delivered to perfection.
+                Choose from our carefully curated selection of premium organic mutton cuts.
             </p>
         </div>
         <div class="products-grid">
             <div class="product-card scroll-reveal">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1588347818036-4c0b5e3c4443?w=800&h=450&fit=crop" alt="Premium Curry Cut">
-                    <span class="organic-badge">Certified Organic</span>
+                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=700&h=380&fit=crop" alt="Premium Mutton Curry Cut">
+                    <span class="organic-badge">🌿 Organic</span>
                 </div>
                 <div class="product-content">
-                    <div class="product-category">Heritage Cuts</div>
+                    <div class="product-category">Best Seller</div>
                     <h3>Premium Curry Cut</h3>
-                    <p>Bone-in pieces perfect for traditional slow-cooked curries. Rich marbling ensures deep, complex flavors that develop beautifully with spices.</p>
+                    <p>Perfect for traditional curries and slow-cooked dishes. Bone-in pieces with optimal marbling for rich, deep flavors.</p>
                     <div class="product-footer">
                         <div class="product-price">₹650 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart →</button>
+                        <button class="add-cart-btn">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <div class="product-card scroll-reveal">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1603048719539-9ecb4aa395e3?w=800&h=450&fit=crop" alt="Tender Boneless">
-                    <span class="organic-badge">Certified Organic</span>
+                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=700&h=380&fit=crop" alt="Boneless Mutton">
+                    <span class="organic-badge">🌿 Organic</span>
                 </div>
                 <div class="product-content">
-                    <div class="product-category">Signature Selection</div>
+                    <div class="product-category">Premium</div>
                     <h3>Tender Boneless</h3>
-                    <p>Hand-cut boneless pieces of exceptional tenderness. Ideal for gourmet kebabs, fine dining preparations, and quick sears.</p>
+                    <p>Hand-cut boneless pieces ideal for kebabs, stir-fries, and quick cooking. Restaurant-quality tenderness.</p>
                     <div class="product-footer">
                         <div class="product-price">₹750 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart →</button>
+                        <button class="add-cart-btn">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <div class="product-card scroll-reveal">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&h=450&fit=crop" alt="Signature Chops">
-                    <span class="organic-badge">Certified Organic</span>
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&h=380&fit=crop" alt="Mutton Chops">
+                    <span class="organic-badge">🌿 Organic</span>
                 </div>
                 <div class="product-content">
-                    <div class="product-category">Premium Reserve</div>
+                    <div class="product-category">Signature</div>
                     <h3>Signature Chops</h3>
-                    <p>Perfectly portioned chops with optimal fat marbling. Restaurant-quality cuts for grilling, pan-searing, or charcoal roasting.</p>
+                    <p>Juicy chops perfect for grilling, pan-frying, or BBQ. Cut to perfection for even cooking and maximum flavor.</p>
                     <div class="product-footer">
                         <div class="product-price">₹700 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart →</button>
+                        <button class="add-cart-btn">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <div class="product-card scroll-reveal">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&h=450&fit=crop" alt="Fresh Keema">
-                    <span class="organic-badge">Certified Organic</span>
+                    <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=700&h=380&fit=crop" alt="Fresh Mutton Keema">
+                    <span class="organic-badge">🌿 Organic</span>
                 </div>
                 <div class="product-content">
-                    <div class="product-category">Chef's Choice</div>
-                    <h3>Fresh Ground Keema</h3>
-                    <p>Expertly minced mutton ground fresh upon order. Perfect for authentic keema curry, seekh kebabs, and specialty preparations.</p>
+                    <div class="product-category">Fresh Ground</div>
+                    <h3>Fresh Keema</h3>
+                    <p>Finely minced mutton ground fresh on order. Perfect for keema curry, seekh kebabs, and specialty dishes.</p>
                     <div class="product-footer">
                         <div class="product-price">₹680 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart →</button>
+                        <button class="add-cart-btn">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -1039,21 +951,17 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-container">
-            <h2>Experience <span>Unmatched Quality</span></h2>
-            <p>Join our community of discerning clients who demand nothing but the finest. Limited availability—reserve your premium organic mutton today.</p>
-            <div class="cta-buttons">
-                <button class="luxury-btn-primary">Reserve Your Order</button>
-                <button class="luxury-btn-secondary">Contact Concierge</button>
-            </div>
+            <h2>Ready to Experience Farm-Fresh Quality?</h2>
+            <p>Join thousands of families who trust us for premium organic mutton. Order now and taste the difference that organic farming makes.</p>
+            <button class="cta-btn">Order Now & Get 15% Off</button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="logo">FreshMutton</div>
         <p>
-            Premium Organic Mutton | Direct from Village Farms<br>
-            Hyderabad, India | +91-XXXXXXXXXX | concierge@freshmutton.com
+            © 2024 FreshMutton - Premium Organic Mutton Direct from Village Farms<br>
+            Hyderabad, India | +91-XXXXXXXXXX | hello@freshmutton.com
         </p>
     </footer>
 
@@ -1066,42 +974,35 @@
             });
         }
 
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add('visible');
-                    }, index * 150);
+                    }, index * 100);
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-        document.querySelectorAll('.scroll-reveal, .usp-card, .product-card').forEach(el => {
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
         });
 
-        // Add to Cart with Luxury Feedback
+        // Add to Cart
         document.querySelectorAll('.add-cart-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const originalText = this.textContent;
-                this.textContent = '✓ Reserved';
-                this.style.background = 'var(--luxury-gold)';
-                this.style.color = 'var(--luxury-black)';
-                this.style.borderColor = 'var(--luxury-gold)';
+                this.textContent = '✓ Added!';
+                this.style.background = 'var(--sage-green)';
                 
                 setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.background = 'transparent';
-                    this.style.color = 'var(--luxury-gold)';
-                    this.style.borderColor = 'var(--luxury-gold)';
-                }, 3000);
+                    this.textContent = 'Add to Cart';
+                    this.style.background = 'var(--primary-red)';
+                }, 2500);
             });
         });
 
@@ -1114,15 +1015,6 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroVisual = document.querySelector('.hero-visual');
-            if (heroVisual) {
-                heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
         });
     </script>
 </body>
