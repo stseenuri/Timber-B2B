@@ -1,179 +1,3 @@
-Library
-
-Account
-
-Upgrade
-In the given code I want screenshot of current code
-
-2 attachments
-I can see the code you've provided is a complete HTML file for "Fresh Mutton Telangana" - an organic mutton delivery website with sophisticated design and animations. Looking at your screenshot, I can see you're working in what appears to be a code editor with a file structure panel.​
-
-However, I cannot directly generate a screenshot of your current code in the editor. To get a screenshot of how your code currently looks when rendered in a browser, you have a few options:
-
-How to Screenshot Your Code
-Option 1: View in Browser
-Save your index.html file
-
-Open it in a web browser (Chrome, Firefox, etc.)
-
-Take a screenshot using:
-
-Windows: Windows Key + Shift + S or PrtScn
-
-Mac: Cmd + Shift + 4
-
-Browser DevTools: F12 → Device toolbar for responsive views
-
-Option 2: Use Live Server Extension
-If you're using VS Code (which your screenshot suggests), you can:
-
-Install the "Live Server" extension
-
-Right-click on index.html → "Open with Live Server"
-
-This will open your webpage in real-time
-
-Then capture the screenshot
-
-Option 3: Deploy Online
-For a shareable live version:
-
-Host on GitHub Pages, Netlify, or Vercel
-
-These services provide a live URL you can view and screenshot
-
-What Your Code Contains
-Your HTML includes a complete single-page website with:​
-
-Preloader animation with progress bar
-
-Custom cursor effects
-
-Sticky navigation
-
-Hero section with split-screen imagery
-
-Farmers showcase section
-
-Product catalog with pricing
-
-Testimonials and comparison tables
-
-Exit-intent popup with 25% discount offer
-
-WhatsApp float button
-
-FOMO notifications system
-
-Would you like help with viewing or modifying any specific part of this code?
-
-You got screenshot in the above attachments, i want you change the images in webpage accordingly
-Perfect! I can see from your screenshot that you have image files in your project folder. Now I'll update the HTML code to use your actual image files instead of the Unsplash placeholder images.​
-
-Based on your file structure, I can see these image files:
-
-hero-image.webp
-
-bonless-mutton.webp (boneless)
-
-curry-cut-image.webp
-
-full-goat.jpg
-
-mutton-kheema.jpg
-
-mutton-liver.jpg
-
-Here are the key changes you need to make in your HTML code to use your local images:
-
-Hero Section Split Screen
-Replace lines with Unsplash URLs:
-
-xml
-<!-- OLD -->
-<img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=600&fit=crop" alt="Telangana Village Farm">
-<img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&h=600&fit=crop" alt="Modern West Hyderabad Home">
-
-<!-- NEW -->
-<img src="hero-image.webp" alt="Telangana Village Farm">
-<img src="hero-image.webp" alt="Modern West Hyderabad Home">
-Products Section Images
-xml
-<!-- Premium Curry Cut -->
-<img src="curry-cut-image.webp" alt="Premium Curry Cut">
-
-<!-- Tender Boneless -->
-<img src="bonless-mutton.webp" alt="Tender Boneless">
-
-<!-- Signature Chops (use curry cut or create new image) -->
-<img src="curry-cut-image.webp" alt="Signature Chops">
-
-<!-- Fresh Keema -->
-<img src="mutton-kheema.jpg" alt="Fresh Keema">
-
-<!-- Premium Liver -->
-<img src="mutton-liver.jpg" alt="Premium Liver">
-
-<!-- Whole Goat -->
-<img src="full-goat.jpg" alt="Whole Goat">
-Farmers Section Images
-Since you don't have farmer photos, you can either:
-
-Keep the Unsplash images temporarily
-
-Use the hero-image.webp or full-goat.jpg for all farmers
-
-Replace with proper farmer photos later
-
-xml
-<!-- Example for all 4 farmer cards -->
-<img src="hero-image.webp" alt="Farmer Ramesh">
-<img src="hero-image.webp" alt="Farmer Lakshmi">
-<img src="hero-image.webp" alt="Farmer Naresh">
-<img src="hero-image.webp" alt="Farmer Venkat">
-Would you like me to provide the complete updated HTML code with all your local image paths properly integrated?
-
-I want full code
-index.html
-Generated File
-
-Perfect! I've created your complete updated HTML file with all the local image paths from your project folder.​
-
-Changes Made
-All Unsplash placeholder images have been replaced with your local files:
-
-Hero Section
-Both split-screen images → hero-image.webp
-
-Farmers Section
-All 4 farmer photos → hero-image.webp (you can replace these with actual farmer photos later)
-
-Products Section
-Premium Curry Cut → curry-cut-image.webp
-
-Tender Boneless → bonless-mutton.webp
-
-Signature Chops → curry-cut-image.webp
-
-Fresh Keema → mutton-kheema.jpg
-
-Premium Liver → mutton-liver.jpg
-
-Whole Goat → full-goat.jpg
-
-How to Use
-Download the index.html file I've created
-
-Place it in the same folder as your images (the "main" folder shown in your screenshot)
-
-Open index.html in your browser to see the website with your actual images
-
-The file is ready to use! All your local image files will now display correctly on the website.​
-
-
-
-
-index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1054,6 +878,99 @@ index.html
 
         .farmers-cta .btn-primary:hover {
             box-shadow: 0 12px 35px rgba(255, 184, 77, 0.5);
+        }
+
+        
+        /* ========== ABOUT US SECTION ========== */
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .about-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .about-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-color: var(--golden-yellow);
+        }
+
+        .about-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+
+        .about-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .about-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .about-mission {
+            max-width: 900px;
+            margin: 80px auto 0;
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .about-mission h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--golden-yellow);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .about-mission p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .about-cta {
+            margin-top: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .about-content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ========== HOW IT WORKS ========== */
@@ -2003,7 +1920,7 @@ index.html
             </div>
             <ul>
                 <li><a href="#home">HOME</a></li>
-                <li><a href="#farmers">OUR FARMERS</a></li>
+                <li><a href="#about">ABOUT US</a></li>
                 <li><a href="#how-it-works">HOW IT WORKS</a></li>
                 <li><a href="#products">SHOP NOW</a></li>
                 <li><a href="#testimonials">REVIEWS</a></li>
@@ -2126,100 +2043,61 @@ index.html
         </div>
     </section>
 
-    <!-- Farmers Section -->
-    <section class="farmers-section" id="farmers">
+    <!-- About Us Section -->
+    <section class="farmers-section" id="about">
         <div class="farmers-content">
             <div class="farmers-header section-header">
-                <div class="section-subtitle">MEET THE HEROES</div>
-                <h2 class="section-title">The 50 Farmers Behind Your Dinner</h2>
+                <div class="section-subtitle">OUR STORY</div>
+                <h2 class="section-title">Connecting Villages to Your Kitchen</h2>
                 <p class="section-description">
-                    "Real farmers. Real villages. Real transparency. Each one has been farming for over a decade."
+                    We're not just a meat delivery service. We're a bridge between Telangana's honest farmers and modern families who care about what they eat.
                 </p>
             </div>
-            <div class="farmers-grid">
-                <div class="farmer-card">
-                    <div class="farmer-image">
-                        <img src="hero-image.webp" alt="Farmer Ramesh">
-                        <div class="farmer-badge">15 YRS EXP</div>
-                    </div>
-                    <div class="farmer-info">
-                        <h3>Ramesh Goud</h3>
-                        <div class="farmer-location">📍 Warangal District</div>
-                        <div class="farmer-stats">
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">25</div>
-                                <div class="farmer-stat-label">Goats</div>
-                            </div>
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">100%</div>
-                                <div class="farmer-stat-label">Organic</div>
-                            </div>
-                        </div>
-                    </div>
+
+            <div class="about-content-grid">
+                <div class="about-card reveal">
+                    <div class="about-icon">🤝</div>
+                    <h3>Direct Partnership with 50+ Farmers</h3>
+                    <p>We work directly with village farmers across Warangal, Karimnagar, Nalgonda, and Medak districts. No middlemen means fair prices for farmers and fresh quality for you. Each farmer is carefully selected and has been raising goats organically for over a decade.</p>
                 </div>
-                <div class="farmer-card">
-                    <div class="farmer-image">
-                        <img src="hero-image.webp" alt="Farmer Lakshmi">
-                        <div class="farmer-badge">12 YRS EXP</div>
-                    </div>
-                    <div class="farmer-info">
-                        <h3>Lakshmi Devi</h3>
-                        <div class="farmer-location">📍 Karimnagar Village</div>
-                        <div class="farmer-stats">
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">30</div>
-                                <div class="farmer-stat-label">Goats</div>
-                            </div>
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">100%</div>
-                                <div class="farmer-stat-label">Organic</div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">🌾</div>
+                    <h3>100% Natural Farming Methods</h3>
+                    <p>Our farmers follow traditional, chemical-free methods passed down through generations. The goats roam freely, graze on natural grass, and are fed organic grains. Zero growth hormones. Zero steroids. Zero antibiotics. Just the way nature intended.</p>
                 </div>
-                <div class="farmer-card">
-                    <div class="farmer-image">
-                        <img src="hero-image.webp" alt="Farmer Naresh">
-                        <div class="farmer-badge">18 YRS EXP</div>
-                    </div>
-                    <div class="farmer-info">
-                        <h3>Naresh Reddy</h3>
-                        <div class="farmer-location">📍 Nalgonda Region</div>
-                        <div class="farmer-stats">
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">35</div>
-                                <div class="farmer-stat-label">Goats</div>
-                            </div>
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">100%</div>
-                                <div class="farmer-stat-label">Organic</div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">❄️</div>
+                    <h3>Farm to Door in 24 Hours</h3>
+                    <p>We've built a complete cold chain infrastructure to ensure what leaves the farm reaches your kitchen at peak freshness. Every order is processed in FSSAI-certified facilities, vacuum-sealed immediately, and transported in temperature-controlled vehicles.</p>
                 </div>
-                <div class="farmer-card">
-                    <div class="farmer-image">
-                        <img src="hero-image.webp" alt="Farmer Venkat">
-                        <div class="farmer-badge">20 YRS EXP</div>
-                    </div>
-                    <div class="farmer-info">
-                        <h3>Venkat Rao</h3>
-                        <div class="farmer-location">📍 Medak District</div>
-                        <div class="farmer-stats">
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">40</div>
-                                <div class="farmer-stat-label">Goats</div>
-                            </div>
-                            <div class="farmer-stat">
-                                <div class="farmer-stat-number">100%</div>
-                                <div class="farmer-stat-label">Organic</div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">🏡</div>
+                    <h3>Serving West Hyderabad Families</h3>
+                    <p>We started in Gachibowli and now proudly serve over 400 families across Kondapur, HITEC City, Madhapur, and surrounding areas. Every delivery is a promise of quality, transparency, and the peace of mind that comes from knowing exactly where your food comes from.</p>
+                </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">✅</div>
+                    <h3>Certified & Transparent</h3>
+                    <p>Every animal is certified healthy by qualified veterinarians before processing. We maintain complete documentation and traceability - you can literally trace your meat back to the specific farm and farmer. We invite customers to visit our partner farms anytime.</p>
+                </div>
+
+                <div class="about-card reveal">
+                    <div class="about-icon">💚</div>
+                    <h3>Empowering Rural Communities</h3>
+                    <p>By buying directly from farmers, you're supporting rural livelihoods and sustainable agriculture. Our farmers earn 40% more than traditional market rates, allowing them to invest in better farming practices and provide quality education for their children.</p>
                 </div>
             </div>
-            <div class="farmers-cta">
-                <button class="btn-primary"><span>MEET ALL 50 FARMERS</span></button>
+
+            <div class="about-mission">
+                <h3>Our Mission</h3>
+                <p>To make premium, organic, and ethically-sourced mutton accessible to every family in Hyderabad. We believe that knowing your farmer should be as easy as knowing your doctor. That's why we're committed to complete transparency - from the village pastures of Telangana to your dining table.</p>
+                <div class="about-cta">
+                    <button class="btn-primary" onclick="scrollToSection('products')"><span>SHOP FRESH MUTTON NOW</span></button>
+                </div>
             </div>
         </div>
     </section>
@@ -2315,7 +2193,7 @@ index.html
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="curry-cut-image.webp" alt="Signature Chops">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=320&fit=crop" alt="Signature Chops">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
