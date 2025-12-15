@@ -1,1021 +1,874 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshMutton — Premium Organic Mutton Direct from Village Farms</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;0,600;0,700;1,600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-red: #8B2500;
-            --deep-red: #6B1D00;
-            --warm-cream: #FFF8F0;
-            --soft-beige: #F5EDE4;
-            --forest-green: #2D5016;
-            --sage-green: #7D9B6E;
-            --charcoal: #2C2C2C;
-            --warm-gray: #5A5A5A;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--warm-cream);
-            color: var(--charcoal);
-            overflow-x: hidden;
-        }
-
-        /* Modern Premium Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 10000;
-            padding: 25px 7%;
-            backdrop-filter: blur(20px);
-            background: rgba(255, 248, 240, 0.95);
-            border-bottom: 1px solid rgba(139, 37, 0, 0.1);
-            animation: navSlide 1s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes navSlide {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .nav-container {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Fraunces', serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 1.8rem;
-            animation: iconBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes iconBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 45px;
-            align-items: center;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-red);
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-red);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            padding: 12px 30px;
-            background: var(--primary-red);
-            color: white !important;
-            border-radius: 50px;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(139, 37, 0, 0.3);
-            transition: all 0.3s;
-        }
-
-        .nav-cta:hover {
-            background: var(--deep-red);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 37, 0, 0.4);
-        }
-
-        .nav-cta::after {
-            display: none;
-        }
-
-        /* Hero Section - Fresh & Modern */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 7% 80px;
-            background: linear-gradient(135deg, #FFF8F0 0%, #F5EDE4 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '🌿';
-            position: absolute;
-            font-size: 25rem;
-            opacity: 0.03;
-            top: -100px;
-            right: -100px;
-            animation: heroFloat 15s ease-in-out infinite;
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: rotate(0deg) translate(0, 0); }
-            50% { transform: rotate(20deg) translate(-50px, 50px); }
-        }
-
-        .hero-grid {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 25px;
-            background: white;
-            border: 2px solid var(--sage-green);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .hero h1 {
-            font-family: 'Fraunces', serif;
-            font-size: 5.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            color: var(--charcoal);
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 .accent {
-            color: var(--primary-red);
-            font-style: italic;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: var(--warm-gray);
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .hero-features {
-            display: flex;
-            gap: 35px;
-            margin-bottom: 45px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .feature-text {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--charcoal);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn-primary {
-            padding: 18px 45px;
-            background: var(--primary-red);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(139, 37, 0, 0.3);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(139, 37, 0, 0.4);
-        }
-
-        .btn-secondary {
-            padding: 18px 45px;
-            background: white;
-            color: var(--primary-red);
-            border: 2px solid var(--primary-red);
-            border-radius: 50px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-red);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Visual - Food Photography Style */
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .hero-image-container {
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 
-                0 30px 80px rgba(0,0,0,0.15),
-                0 0 0 1px rgba(139, 37, 0, 0.1);
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .floating-badge {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            background: white;
-            padding: 20px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            animation: badgeFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes badgeFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating-badge h4 {
-            font-family: 'Fraunces', serif;
-            font-size: 1.8rem;
-            color: var(--primary-red);
-            margin-bottom: 5px;
-        }
-
-        .floating-badge p {
-            font-size: 0.9rem;
-            color: var(--warm-gray);
-            font-weight: 600;
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            padding: 80px 7%;
-            background: white;
-        }
-
-        .trust-grid {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 50px;
-        }
-
-        .trust-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 20px;
-            background: var(--soft-beige);
-            transition: transform 0.3s;
-        }
-
-        .trust-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .trust-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .trust-number {
-            font-family: 'Fraunces', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            margin-bottom: 10px;
-        }
-
-        .trust-label {
-            font-size: 0.95rem;
-            color: var(--warm-gray);
-            font-weight: 600;
-        }
-
-        /* USP Section - Modern & Clean */
-        .usp-section {
-            padding: 120px 7%;
-            background: var(--warm-cream);
-        }
-
-        .section-header {
-            max-width: 700px;
-            margin: 0 auto 80px;
-            text-align: center;
-        }
-
-        .section-label {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--sage-green);
-            color: white;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-family: 'Fraunces', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .section-description {
-            font-size: 1.15rem;
-            color: var(--warm-gray);
-            line-height: 1.8;
-        }
-
-        .usp-grid {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .usp-card {
-            background: white;
-            padding: 45px 35px;
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            transition: all 0.4s;
-            border: 2px solid transparent;
-        }
-
-        .usp-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-            border-color: var(--sage-green);
-        }
-
-        .usp-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--soft-beige);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 25px;
-        }
-
-        .usp-card h3 {
-            font-family: 'Fraunces', serif;
-            font-size: 1.7rem;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 15px;
-        }
-
-        .usp-card p {
-            font-size: 1rem;
-            color: var(--warm-gray);
-            line-height: 1.7;
-        }
-
-        /* Products Section - Gourmet Style */
-        .products-section {
-            padding: 120px 7%;
-            background: linear-gradient(180deg, white 0%, var(--soft-beige) 100%);
-        }
-
-        .products-grid {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
-            transition: all 0.5s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
-        }
-
-        .product-image {
-            height: 380px;
-            overflow: hidden;
-            position: relative;
-            background: var(--soft-beige);
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.08);
-        }
-
-        .organic-badge {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            padding: 10px 22px;
-            background: var(--sage-green);
-            color: white;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .product-content {
-            padding: 40px;
-        }
-
-        .product-category {
-            font-size: 0.8rem;
-            color: var(--sage-green);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-
-        .product-content h3 {
-            font-family: 'Fraunces', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 15px;
-        }
-
-        .product-content p {
-            font-size: 1rem;
-            color: var(--warm-gray);
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 25px;
-            border-top: 2px solid var(--soft-beige);
-        }
-
-        .product-price {
-            font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-red);
-        }
-
-        .product-price span {
-            font-size: 1.1rem;
-            color: var(--warm-gray);
-            font-weight: 500;
-        }
-
-        .add-cart-btn {
-            padding: 14px 35px;
-            background: var(--primary-red);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .add-cart-btn:hover {
-            background: var(--deep-red);
-            transform: translateX(5px);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 7%;
-            background: var(--primary-red);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '🥩';
-            position: absolute;
-            font-size: 30rem;
-            opacity: 0.05;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-15deg);
-        }
-
-        .cta-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-container h2 {
-            font-family: 'Fraunces', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-        }
-
-        .cta-container p {
-            font-size: 1.25rem;
-            margin-bottom: 50px;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        .cta-btn {
-            padding: 20px 55px;
-            background: white;
-            color: var(--primary-red);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            transition: all 0.4s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 7%;
-            background: var(--charcoal);
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-
-            .usp-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .section-title {
-                font-size: 3rem;
-            }
-
-            .usp-grid,
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-features {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        /* Scroll Animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshMutton — Premium Organic Mutton Direct from Village Farms</title>
+
+  <!-- Type: editorial serif + clean grotesk (premium + modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+      Clay-ish approach: strong tokens, generous spacing,
+      low-noise motion, crisp type hierarchy.
+      (Principles: consistent UI standards, typography system)
+    ========================================================== */
+    :root{
+      /* Colors */
+      --bg: #FFF8F0;
+      --surface: #FFFFFF;
+      --surface-2: #F6EEE6;
+      --ink: #1F1F1F;
+      --muted: rgba(31,31,31,.68);
+
+      --brand: #8B2500;
+      --brand-2: #6B1D00;
+
+      --green: #2D5016;
+      --sage: #7D9B6E;
+
+      --stroke: rgba(139,37,0,.14);
+
+      /* Typography scale */
+      --font-sans: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+      --h1: clamp(2.6rem, 4.6vw, 4.75rem);
+      --h2: clamp(2.1rem, 3.4vw, 3.4rem);
+      --h3: 1.35rem;
+      --body: 1rem;
+      --lead: 1.15rem;
+
+      /* Spacing scale */
+      --s-1: 8px;
+      --s-2: 12px;
+      --s-3: 16px;
+      --s-4: 20px;
+      --s-5: 28px;
+      --s-6: 36px;
+      --s-7: 48px;
+      --s-8: 64px;
+      --s-9: 84px;
+      --s-10: 110px;
+
+      /* Radius + shadow */
+      --r-1: 14px;
+      --r-2: 20px;
+      --r-3: 28px;
+      --shadow-1: 0 10px 35px rgba(0,0,0,.08);
+      --shadow-2: 0 18px 70px rgba(0,0,0,.12);
+      --shadow-3: 0 30px 90px rgba(0,0,0,.18);
+
+      /* Container */
+      --max: 1180px;
+
+      /* Motion */
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --dur: 240ms;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display: block; }
+
+    /* Accessibility / Premium UX */
+    :focus-visible{
+      outline: 3px solid rgba(125,155,110,.45);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+
+    /* Top nav */
+    nav{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255,248,240,.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav-wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--brand);
+      font-size: 1.35rem;
+      white-space: nowrap;
+    }
+    .brand .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      box-shadow: 0 8px 22px rgba(139,37,0,.25);
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 26px;
+      list-style:none;
+      padding:0; margin:0;
+    }
+    .nav-links a{
+      font-weight: 700;
+      font-size: .92rem;
+      color: rgba(31,31,31,.88);
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+    }
+    .nav-links a:hover{
+      background: rgba(139,37,0,.07);
+      color: var(--brand);
+    }
+    .nav-cta{
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      color: #fff !important;
+      box-shadow: 0 14px 40px rgba(139,37,0,.22);
+      padding: 12px 16px !important;
+    }
+    .nav-cta:hover{ background: linear-gradient(180deg, var(--brand-2), var(--brand)); }
+
+    /* Layout helpers */
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .section{
+      padding: var(--s-10) 0;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(125,155,110,.45);
+      background: rgba(255,255,255,.7);
+      color: var(--green);
+      font-weight: 800;
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+    .section-head{
+      max-width: 760px;
+      margin: 0 auto var(--s-8);
+      text-align: center;
+    }
+    .section-head h2{
+      margin: var(--s-4) 0 var(--s-3);
+      font-family: var(--font-serif);
+      font-size: var(--h2);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+      font-size: var(--lead);
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero{
+      padding-top: 92px; /* space for nav */
+      min-height: 92vh;
+      background:
+        radial-gradient(1000px 420px at 12% 18%, rgba(125,155,110,.16), transparent 55%),
+        radial-gradient(900px 420px at 88% 20%, rgba(139,37,0,.12), transparent 60%),
+        linear-gradient(135deg, #FFF8F0 0%, #F6EEE6 100%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: var(--s-9);
+      align-items:center;
+      padding: var(--s-9) 0 var(--s-8);
+    }
+    .hero h1{
+      margin: var(--s-5) 0 var(--s-4);
+      font-family: var(--font-serif);
+      font-size: var(--h1);
+      letter-spacing: -.045em;
+      line-height: 1.02;
+      max-width: 18ch;
+    }
+    .hero h1 em{
+      font-style: italic;
+      color: var(--brand);
+    }
+    .hero .lead{
+      margin: 0 0 var(--s-6);
+      color: var(--muted);
+      font-size: var(--lead);
+      line-height: 1.75;
+      max-width: 58ch;
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 var(--s-6);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 28px rgba(0,0,0,.06);
+      font-weight: 750;
+      color: rgba(31,31,31,.86);
+      font-size: .92rem;
+    }
+    .pill span{
+      width: 26px; height: 26px;
+      border-radius: 10px;
+      display:grid;
+      place-items:center;
+      background: rgba(139,37,0,.08);
+      color: var(--brand);
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items:center;
+    }
+    .btn{
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-weight: 850;
+      font-size: 1rem;
+      cursor:pointer;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(139,37,0,.26);
+    }
+    .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 26px 70px rgba(139,37,0,.28); }
+    .btn-secondary{
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(139,37,0,.18);
+      color: var(--brand);
+    }
+    .btn-secondary:hover{ transform: translateY(-2px); box-shadow: var(--shadow-1); }
+
+    /* Hero visual */
+    .hero-visual{
+      position: relative;
+      border-radius: var(--r-3);
+      overflow: hidden;
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(139,37,0,.12);
+      box-shadow: var(--shadow-2);
+    }
+    .hero-visual img{
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.02);
+      transform: scale(1.02);
+    }
+    .price-badge{
+      position:absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(0,0,0,.06);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 55px rgba(0,0,0,.18);
+      max-width: 240px;
+    }
+    .price-badge .price{
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      letter-spacing: -.02em;
+      color: var(--brand);
+      margin: 0 0 2px;
+    }
+    .price-badge .sub{
+      margin:0;
+      color: rgba(31,31,31,.68);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    /* Trust row */
+    .trust{
+      padding: var(--s-8) 0;
+      background: var(--surface);
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .trust-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .trust-card{
+      border-radius: var(--r-2);
+      padding: 22px 18px;
+      background: linear-gradient(180deg, rgba(246,238,230,.9), rgba(246,238,230,.55));
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .trust-card .k{
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: -.03em;
+      margin: 10px 0 4px;
+      color: var(--brand);
+    }
+    .trust-card .l{
+      margin:0;
+      color: var(--muted);
+      font-weight: 750;
+      font-size: .95rem;
+    }
+
+    /* USP grid */
+    .usp-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card{
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: var(--r-2);
+      padding: 22px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 22px 65px rgba(0,0,0,.10);
+      border-color: rgba(125,155,110,.35);
+    }
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: rgba(139,37,0,.08);
+      color: var(--brand);
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+    }
+    .card h3{
+      margin: 0 0 10px;
+      font-family: var(--font-serif);
+      font-size: var(--h3);
+      letter-spacing: -.02em;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Products */
+    .products{
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+    }
+    .products-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .product{
+      overflow:hidden;
+      border-radius: var(--r-3);
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 18px 55px rgba(0,0,0,.08);
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    .product:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 26px 80px rgba(0,0,0,.14);
+    }
+    .product-media{
+      height: 340px;
+      background: rgba(0,0,0,.03);
+      position: relative;
+    }
+    .product-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 420ms var(--ease);
+    }
+    .product:hover .product-media img{ transform: scale(1.06); }
+
+    .badge{
+      position:absolute;
+      top: 16px;
+      left: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .78rem;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(0,0,0,.06);
+      color: var(--green);
+      backdrop-filter: blur(10px);
+    }
+
+    .product-body{
+      padding: 20px;
+    }
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .category{
+      font-weight: 900;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(125,155,110,.95);
+    }
+    .product-body h3{
+      margin: 0 0 10px;
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      letter-spacing: -.02em;
+    }
+    .product-body p{
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .product-foot{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .price{
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--brand);
+      letter-spacing: -.02em;
+      margin:0;
+    }
+    .price small{
+      font-family: var(--font-sans);
+      font-size: .95rem;
+      color: rgba(31,31,31,.55);
+      font-weight: 800;
+    }
+    .cart{
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(139,37,0,.18);
+      background: linear-gradient(180deg, rgba(139,37,0,.08), rgba(139,37,0,.04));
+      color: var(--brand);
+      font-weight: 900;
+      cursor:pointer;
+      transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+      white-space: nowrap;
+    }
+    .cart:hover{ transform: translateY(-2px); background: rgba(139,37,0,.10); }
+
+    /* CTA */
+    .cta{
+      background: radial-gradient(900px 380px at 30% 10%, rgba(255,255,255,.16), transparent 60%),
+                  linear-gradient(180deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: #fff;
+      text-align:center;
+      padding: var(--s-10) 0;
+      position: relative;
+      overflow:hidden;
+    }
+    .cta h2{
+      margin: 0 0 14px;
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+    .cta p{
+      margin: 0 auto var(--s-6);
+      max-width: 62ch;
+      opacity: .92;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .cta .btn{
+      background: rgba(255,255,255,.94);
+      color: var(--brand);
+      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+    }
+    .cta .btn:hover{ transform: translateY(-3px); }
+
+    /* Footer */
+    footer{
+      background: #171717;
+      color: rgba(255,255,255,.78);
+      padding: var(--s-8) 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    footer p{
+      margin:0;
+      line-height: 1.9;
+      font-weight: 600;
+      text-align:center;
+    }
+    footer a{ color: rgba(255,255,255,.88); text-decoration: underline; }
+
+    /* Reveal (subtle) */
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+    }
+    .reveal.is-in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1020px){
+      .hero-grid{ grid-template-columns: 1fr; gap: var(--s-7); }
+      .hero h1{ max-width: 22ch; }
+      .trust-grid{ grid-template-columns: repeat(2, 1fr); }
+      .usp-grid{ grid-template-columns: repeat(2, 1fr); }
+      .products-grid{ grid-template-columns: 1fr; }
+      .hero-visual img{ height: 460px; }
+    }
+    @media (max-width: 640px){
+      .nav-links{ display:none; }
+      .trust-grid, .usp-grid{ grid-template-columns: 1fr; }
+      .hero{ min-height: auto; }
+      .hero-visual img{ height: 380px; }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">🥩</span>
-                FreshMutton
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Our Story</a></li>
-                <li><a href="#products">Shop</a></li>
-                <li><a href="#contact" class="nav-cta">Order Now</a></li>
-            </ul>
+  <!-- Nav -->
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand" aria-label="FreshMutton">
+        <span class="dot" aria-hidden="true"></span>
+        FreshMutton
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a class="nav-cta" href="#contact">Order Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">🌿 100% Certified Organic</div>
+          <h1>Premium <em>Organic</em> Mutton, Direct from Village Farms</h1>
+          <p class="lead">
+            Authentic taste from organically raised sheep—no chemicals, no middlemen.
+            Clean cuts, premium handling, delivered fresh to your door.
+          </p>
+
+          <div class="hero-pills" role="list">
+            <div class="pill" role="listitem"><span>🚜</span>Farm-direct sourcing</div>
+            <div class="pill" role="listitem"><span>❄️</span>Cold-chain delivery</div>
+            <div class="pill" role="listitem"><span>✓</span>Fresh, hygienic cuts</div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" data-scroll="#products">Shop Premium Cuts</button>
+            <button class="btn btn-secondary" data-scroll="#about">Learn More</button>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    🌿 100% Certified Organic
-                </div>
-                <h1>
-                    Premium <span class="accent">Organic</span> Mutton Straight from Village Farms
-                </h1>
-                <p class="hero-subtitle">
-                    Experience the authentic taste of organically raised mutton, sourced directly from trusted village farmers. No chemicals, no middlemen—just pure, fresh quality delivered to your door.
-                </p>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">🚜</div>
-                        <span class="feature-text">Farm Direct</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">❄️</div>
-                        <span class="feature-text">24hr Delivery</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">✓</div>
-                        <span class="feature-text">100% Fresh</span>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="scrollTo('products')">Shop Premium Cuts</button>
-                    <button class="btn-secondary">Learn More</button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="hero-image.webp" alt="Fresh Organic Lamb">
-                    <div class="floating-badge">
-                        <h4>₹1250/kg</h4>
-                        <p>Starting from</p>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-visual" aria-label="Fresh organic lamb image">
+          <img src="hero-image.webp" alt="Fresh Organic Lamb">
+          <div class="price-badge">
+            <p class="price">₹1250/kg</p>
+            <p class="sub">Starting from • Farm-direct</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="trust-grid">
-            <div class="trust-card">
-                <div class="trust-icon">🌾</div>
-                <div class="trust-number">100%</div>
-                <div class="trust-label">Organic Certified</div>
-            </div>
-            <div class="trust-card">
-                <div class="trust-icon">🚜</div>
-                <div class="trust-number">50+</div>
-                <div class="trust-label">Village Farms</div>
-            </div>
-            <div class="trust-card">
-                <div class="trust-icon">⭐</div>
-                <div class="trust-number">5000+</div>
-                <div class="trust-label">Happy Customers</div>
-            </div>
-            <div class="trust-card">
-                <div class="trust-icon">🚚</div>
-                <div class="trust-number">24hr</div>
-                <div class="trust-label">Fresh Delivery</div>
-            </div>
+  <!-- Trust -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card reveal">
+          <div aria-hidden="true" style="font-size:1.35rem;">🌾</div>
+          <div class="k">100%</div>
+          <p class="l">Organic certified</p>
         </div>
-    </section>
-
-    <!-- USP Section -->
-    <section class="usp-section" id="about">
-        <div class="section-header">
-            <span class="section-label">Why Choose Us</span>
-            <h2 class="section-title">Farm-Fresh Excellence</h2>
-            <p class="section-description">
-                We're committed to bringing you the finest organic mutton through ethical farming and direct sourcing.
-            </p>
+        <div class="trust-card reveal">
+          <div aria-hidden="true" style="font-size:1.35rem;">🚜</div>
+          <div class="k">50+</div>
+          <p class="l">Village farms</p>
         </div>
-        <div class="usp-grid">
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">🌾</div>
-                <h3>100% Organic</h3>
-                <p>Our sheep are raised on natural pastures, fed organic grass and grains without any antibiotics, hormones, or chemicals.</p>
-            </div>
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">🚜</div>
-                <h3>Direct Sourcing</h3>
-                <p>We partner directly with village farmers, ensuring fair prices for them and the freshest quality for you.</p>
-            </div>
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">✨</div>
-                <h3>Premium Quality</h3>
-                <p>Every cut is hand-selected, meticulously cleaned, and packaged to maintain the highest standards.</p>
-            </div>
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">❄️</div>
-                <h3>Cold Chain</h3>
-                <p>Temperature-controlled delivery ensures your mutton arrives farm-fresh within 24 hours.</p>
-            </div>
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">🌍</div>
-                <h3>Sustainable</h3>
-                <p>Supporting ethical farming practices and promoting sustainable agriculture in rural communities.</p>
-            </div>
-            <div class="usp-card scroll-reveal">
-                <div class="usp-icon">💚</div>
-                <h3>Fair Trade</h3>
-                <p>No middlemen means better prices for you and better income for our farming partners.</p>
-            </div>
+        <div class="trust-card reveal">
+          <div aria-hidden="true" style="font-size:1.35rem;">⭐</div>
+          <div class="k">5000+</div>
+          <p class="l">Happy customers</p>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <div class="section-header">
-            <span class="section-label">Our Selection</span>
-            <h2 class="section-title">Premium Organic Cuts</h2>
-            <p class="section-description">
-                Choose from our carefully curated selection of premium organic mutton cuts.
-            </p>
+        <div class="trust-card reveal">
+          <div aria-hidden="true" style="font-size:1.35rem;">🚚</div>
+          <div class="k">24hr</div>
+          <p class="l">Fresh delivery</p>
         </div>
-        <div class="products-grid">
-            <div class="product-card scroll-reveal">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=700&h=380&fit=crop" alt="Premium Mutton Curry Cut">
-                    <span class="organic-badge">🌿 Organic</span>
-                </div>
-                <div class="product-content">
-                    <div class="product-category">Best Seller</div>
-                    <h3>Premium Curry Cut</h3>
-                    <p>Perfect for traditional curries and slow-cooked dishes. Bone-in pieces with optimal marbling for rich, deep flavors.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹1250 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why choose us</div>
+        <h2>Farm-fresh, handled like a premium product</h2>
+        <p>Ethical sourcing, consistent quality, and delivery that protects freshness—not just promises it.</p>
+      </div>
+
+      <div class="usp-grid">
+        <article class="card reveal">
+          <div class="icon">🌾</div>
+          <h3>100% Organic</h3>
+          <p>Pasture-raised, organic feed, and no antibiotics, hormones, or chemical treatments.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🚜</div>
+          <h3>Direct sourcing</h3>
+          <p>Partnered village farmers, transparent procurement, and fair pricing—without middlemen.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">✨</div>
+          <h3>Premium quality</h3>
+          <p>Hand-selected cuts, clean trimming, and packaging designed to preserve texture and taste.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">❄️</div>
+          <h3>Cold chain</h3>
+          <p>Temperature-controlled delivery so the product arrives fresh and safe within 24 hours.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🌍</div>
+          <h3>Sustainable</h3>
+          <p>Supports ethical farming practices and stronger rural livelihoods through stable demand.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">💚</div>
+          <h3>Fair trade</h3>
+          <p>Better income for farmers and better value for customers, because the chain stays short.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section products" id="products">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Our selection</div>
+        <h2>Premium organic cuts</h2>
+        <p>Curated cuts for everyday cooking and special meals—clean, fresh, and consistently handled.</p>
+      </div>
+
+      <div class="products-grid">
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=700&h=380&fit=crop" alt="Premium Mutton Curry Cut">
+            <span class="badge">🌿 Organic</span>
+          </div>
+          <div class="product-body">
+            <div class="meta">
+              <div class="category">Best Seller</div>
             </div>
-            <div class="product-card scroll-reveal">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=700&h=380&fit=crop" alt="Boneless Mutton">
-                    <span class="organic-badge">🌿 Organic</span>
-                </div>
-                <div class="product-content">
-                    <div class="product-category">Premium</div>
-                    <h3>Tender Boneless</h3>
-                    <p>Hand-cut boneless pieces ideal for kebabs, stir-fries, and quick cooking. Restaurant-quality tenderness.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹1400 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
+            <h3>Premium Curry Cut</h3>
+            <p>Bone-in pieces with balanced marbling—ideal for slow cooking and traditional curries.</p>
+            <div class="product-foot">
+              <p class="price">₹1250 <small>/kg</small></p>
+              <button class="cart" data-cart>Add to cart</button>
             </div>
-            <div class="product-card scroll-reveal">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&h=380&fit=crop" alt="Mutton Chops">
-                    <span class="organic-badge">🌿 Organic</span>
-                </div>
-                <div class="product-content">
-                    <div class="product-category">Signature</div>
-                    <h3>Signature Chops</h3>
-                    <p>Juicy chops perfect for grilling, pan-frying, or BBQ. Cut to perfection for even cooking and maximum flavor.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹700 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
+          </div>
+        </article>
+
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=700&h=380&fit=crop" alt="Boneless Mutton">
+            <span class="badge">🌿 Organic</span>
+          </div>
+          <div class="product-body">
+            <div class="meta">
+              <div class="category">Premium</div>
             </div>
-            <div class="product-card scroll-reveal">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=700&h=380&fit=crop" alt="Fresh Mutton Keema">
-                    <span class="organic-badge">🌿 Organic</span>
-                </div>
-                <div class="product-content">
-                    <div class="product-category">Fresh Ground</div>
-                    <h3>Fresh Keema</h3>
-                    <p>Finely minced mutton ground fresh on order. Perfect for keema curry, seekh kebabs, and specialty dishes.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹680 <span>/kg</span></div>
-                        <button class="add-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
+            <h3>Tender Boneless</h3>
+            <p>Hand-cut boneless pieces for kebabs, stir-fries, and quicker cooking.</p>
+            <div class="product-foot">
+              <p class="price">₹1400 <small>/kg</small></p>
+              <button class="cart" data-cart>Add to cart</button>
             </div>
-        </div>
-    </section>
+          </div>
+        </article>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Experience Farm-Fresh Quality?</h2>
-            <p>Join thousands of families who trust us for premium organic mutton. Order now and taste the difference that organic farming makes.</p>
-            <button class="cta-btn">Order Now & Get 15% Off</button>
-        </div>
-    </section>
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&h=380&fit=crop" alt="Mutton Chops">
+            <span class="badge">🌿 Organic</span>
+          </div>
+          <div class="product-body">
+            <div class="meta">
+              <div class="category">Signature</div>
+            </div>
+            <h3>Signature Chops</h3>
+            <p>Juicy chops for grilling or pan-frying—cut for even cooking and maximum flavor.</p>
+            <div class="product-foot">
+              <p class="price">₹700 <small>/kg</small></p>
+              <button class="cart" data-cart>Add to cart</button>
+            </div>
+          </div>
+        </article>
 
-    <!-- Footer -->
-    <footer>
-        <p>
-            © 2024 FreshMutton - Premium Organic Mutton Direct from Village Farms<br>
-            Hyderabad, India | +91-XXXXXXXXXX | hello@freshmutton.com
-        </p>
-    </footer>
+        <article class="product reveal">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=700&h=380&fit=crop" alt="Fresh Mutton Keema">
+            <span class="badge">🌿 Organic</span>
+          </div>
+          <div class="product-body">
+            <div class="meta">
+              <div class="category">Fresh Ground</div>
+            </div>
+            <h3>Fresh Keema</h3>
+            <p>Fresh-ground on order—perfect for keema curry, seekh kebabs, and wraps.</p>
+            <div class="product-foot">
+              <p class="price">₹680 <small>/kg</small></p>
+              <button class="cart" data-cart>Add to cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth Scroll
-        function scrollTo(id) {
-            document.getElementById(id).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Ready for farm-fresh quality?</h2>
+      <p>Order today and experience premium organic mutton with handling you can trust.</p>
+      <button class="btn" id="ctaOrder">Order now & get 15% off</button>
+    </div>
+  </section>
 
-        // Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        © 2024 FreshMutton — Premium Organic Mutton Direct from Village Farms<br/>
+        Hyderabad, India · +91-XXXXXXXXXX · <a href="mailto:hello@freshmutton.com">hello@freshmutton.com</a>
+      </p>
+    </div>
+  </footer>
 
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
+  <script>
+    // Smooth scroll (clean + minimal)
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = document.querySelector(btn.getAttribute("data-scroll"));
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
 
-        // Add to Cart
-        document.querySelectorAll('.add-cart-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                this.textContent = '✓ Added!';
-                this.style.background = 'var(--sage-green)';
-                
-                setTimeout(() => {
-                    this.textContent = 'Add to Cart';
-                    this.style.background = 'var(--primary-red)';
-                }, 2500);
-            });
-        });
+    // Subtle reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("is-in");
+      });
+    }, { threshold: 0.12 });
 
-        // Smooth Navigation
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    // Add to cart micro-feedback (low noise)
+    document.querySelectorAll("[data-cart]").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const old = btn.textContent;
+        btn.textContent = "Added";
+        btn.style.background = "rgba(125,155,110,.18)";
+        btn.style.borderColor = "rgba(125,155,110,.55)";
+        btn.style.color = "rgba(31,31,31,.9)";
+        setTimeout(() => {
+          btn.textContent = old;
+          btn.removeAttribute("style");
+        }, 1400);
+      });
+    });
+
+    // CTA example hook (replace with WhatsApp / checkout)
+    document.getElementById("ctaOrder").addEventListener("click", () => {
+      document.querySelector("#products").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Nav anchor smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        const t = document.querySelector(id);
+        if (!t) return;
+        e.preventDefault();
+        t.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
 </body>
 </html>
