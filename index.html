@@ -1,3 +1,179 @@
+Library
+
+Account
+
+Upgrade
+In the given code I want screenshot of current code
+
+2 attachments
+I can see the code you've provided is a complete HTML file for "Fresh Mutton Telangana" - an organic mutton delivery website with sophisticated design and animations. Looking at your screenshot, I can see you're working in what appears to be a code editor with a file structure panel.​
+
+However, I cannot directly generate a screenshot of your current code in the editor. To get a screenshot of how your code currently looks when rendered in a browser, you have a few options:
+
+How to Screenshot Your Code
+Option 1: View in Browser
+Save your index.html file
+
+Open it in a web browser (Chrome, Firefox, etc.)
+
+Take a screenshot using:
+
+Windows: Windows Key + Shift + S or PrtScn
+
+Mac: Cmd + Shift + 4
+
+Browser DevTools: F12 → Device toolbar for responsive views
+
+Option 2: Use Live Server Extension
+If you're using VS Code (which your screenshot suggests), you can:
+
+Install the "Live Server" extension
+
+Right-click on index.html → "Open with Live Server"
+
+This will open your webpage in real-time
+
+Then capture the screenshot
+
+Option 3: Deploy Online
+For a shareable live version:
+
+Host on GitHub Pages, Netlify, or Vercel
+
+These services provide a live URL you can view and screenshot
+
+What Your Code Contains
+Your HTML includes a complete single-page website with:​
+
+Preloader animation with progress bar
+
+Custom cursor effects
+
+Sticky navigation
+
+Hero section with split-screen imagery
+
+Farmers showcase section
+
+Product catalog with pricing
+
+Testimonials and comparison tables
+
+Exit-intent popup with 25% discount offer
+
+WhatsApp float button
+
+FOMO notifications system
+
+Would you like help with viewing or modifying any specific part of this code?
+
+You got screenshot in the above attachments, i want you change the images in webpage accordingly
+Perfect! I can see from your screenshot that you have image files in your project folder. Now I'll update the HTML code to use your actual image files instead of the Unsplash placeholder images.​
+
+Based on your file structure, I can see these image files:
+
+hero-image.webp
+
+bonless-mutton.webp (boneless)
+
+curry-cut-image.webp
+
+full-goat.jpg
+
+mutton-kheema.jpg
+
+mutton-liver.jpg
+
+Here are the key changes you need to make in your HTML code to use your local images:
+
+Hero Section Split Screen
+Replace lines with Unsplash URLs:
+
+xml
+<!-- OLD -->
+<img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=600&fit=crop" alt="Telangana Village Farm">
+<img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&h=600&fit=crop" alt="Modern West Hyderabad Home">
+
+<!-- NEW -->
+<img src="hero-image.webp" alt="Telangana Village Farm">
+<img src="hero-image.webp" alt="Modern West Hyderabad Home">
+Products Section Images
+xml
+<!-- Premium Curry Cut -->
+<img src="curry-cut-image.webp" alt="Premium Curry Cut">
+
+<!-- Tender Boneless -->
+<img src="bonless-mutton.webp" alt="Tender Boneless">
+
+<!-- Signature Chops (use curry cut or create new image) -->
+<img src="curry-cut-image.webp" alt="Signature Chops">
+
+<!-- Fresh Keema -->
+<img src="mutton-kheema.jpg" alt="Fresh Keema">
+
+<!-- Premium Liver -->
+<img src="mutton-liver.jpg" alt="Premium Liver">
+
+<!-- Whole Goat -->
+<img src="full-goat.jpg" alt="Whole Goat">
+Farmers Section Images
+Since you don't have farmer photos, you can either:
+
+Keep the Unsplash images temporarily
+
+Use the hero-image.webp or full-goat.jpg for all farmers
+
+Replace with proper farmer photos later
+
+xml
+<!-- Example for all 4 farmer cards -->
+<img src="hero-image.webp" alt="Farmer Ramesh">
+<img src="hero-image.webp" alt="Farmer Lakshmi">
+<img src="hero-image.webp" alt="Farmer Naresh">
+<img src="hero-image.webp" alt="Farmer Venkat">
+Would you like me to provide the complete updated HTML code with all your local image paths properly integrated?
+
+I want full code
+index.html
+Generated File
+
+Perfect! I've created your complete updated HTML file with all the local image paths from your project folder.​
+
+Changes Made
+All Unsplash placeholder images have been replaced with your local files:
+
+Hero Section
+Both split-screen images → hero-image.webp
+
+Farmers Section
+All 4 farmer photos → hero-image.webp (you can replace these with actual farmer photos later)
+
+Products Section
+Premium Curry Cut → curry-cut-image.webp
+
+Tender Boneless → bonless-mutton.webp
+
+Signature Chops → curry-cut-image.webp
+
+Fresh Keema → mutton-kheema.jpg
+
+Premium Liver → mutton-liver.jpg
+
+Whole Goat → full-goat.jpg
+
+How to Use
+Download the index.html file I've created
+
+Place it in the same folder as your images (the "main" folder shown in your screenshot)
+
+Open index.html in your browser to see the website with your actual images
+
+The file is ready to use! All your local image files will now display correctly on the website.​
+
+
+
+
+index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1875,11 +2051,11 @@
         <div class="hero-visual">
             <div class="split-screen">
                 <div class="screen-half">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=600&fit=crop" alt="Telangana Village Farm">
+                    <img src="hero-image.webp" alt="Telangana Village Farm">
                     <div class="screen-label">🌾 Telangana Villages</div>
                 </div>
                 <div class="screen-half">
-                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&h=600&fit=crop" alt="Modern West Hyderabad Home">
+                    <img src="hero-image.webp" alt="Modern West Hyderabad Home">
                     <div class="screen-label">🏠 Your Gachibowli Home</div>
                 </div>
             </div>
@@ -1963,7 +2139,7 @@
             <div class="farmers-grid">
                 <div class="farmer-card">
                     <div class="farmer-image">
-                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=400&h=280&fit=crop" alt="Farmer Ramesh">
+                        <img src="hero-image.webp" alt="Farmer Ramesh">
                         <div class="farmer-badge">15 YRS EXP</div>
                     </div>
                     <div class="farmer-info">
@@ -1983,7 +2159,7 @@
                 </div>
                 <div class="farmer-card">
                     <div class="farmer-image">
-                        <img src="https://images.unsplash.com/photo-1564758866663-8c73425cc362?w=400&h=280&fit=crop" alt="Farmer Lakshmi">
+                        <img src="hero-image.webp" alt="Farmer Lakshmi">
                         <div class="farmer-badge">12 YRS EXP</div>
                     </div>
                     <div class="farmer-info">
@@ -2003,7 +2179,7 @@
                 </div>
                 <div class="farmer-card">
                     <div class="farmer-image">
-                        <img src="https://images.unsplash.com/photo-1560563002-25b1659cec24?w=400&h=280&fit=crop" alt="Farmer Naresh">
+                        <img src="hero-image.webp" alt="Farmer Naresh">
                         <div class="farmer-badge">18 YRS EXP</div>
                     </div>
                     <div class="farmer-info">
@@ -2023,7 +2199,7 @@
                 </div>
                 <div class="farmer-card">
                     <div class="farmer-image">
-                        <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=400&h=280&fit=crop" alt="Farmer Venkat">
+                        <img src="hero-image.webp" alt="Farmer Venkat">
                         <div class="farmer-badge">20 YRS EXP</div>
                     </div>
                     <div class="farmer-info">
@@ -2099,7 +2275,7 @@
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=320&fit=crop" alt="Premium Curry Cut">
+                    <img src="curry-cut-image.webp" alt="Premium Curry Cut">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
@@ -2119,7 +2295,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=600&h=320&fit=crop" alt="Tender Boneless">
+                    <img src="bonless-mutton.webp" alt="Tender Boneless">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
@@ -2139,7 +2315,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=320&fit=crop" alt="Signature Chops">
+                    <img src="curry-cut-image.webp" alt="Signature Chops">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
@@ -2159,7 +2335,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=600&h=320&fit=crop" alt="Fresh Keema">
+                    <img src="mutton-kheema.jpg" alt="Fresh Keema">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
@@ -2179,7 +2355,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=600&h=320&fit=crop" alt="Premium Liver">
+                    <img src="mutton-liver.jpg" alt="Premium Liver">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
@@ -2199,7 +2375,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=320&fit=crop" alt="Whole Goat">
+                    <img src="full-goat.jpg" alt="Whole Goat">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
