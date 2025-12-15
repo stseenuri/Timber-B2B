@@ -882,96 +882,21 @@
 
         
         /* ========== ABOUT US SECTION ========== */
-        .about-content-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .about-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .about-card.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-color: var(--golden-yellow);
-        }
-
-        .about-icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
-        }
-
-        .about-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
-            color: var(--white);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        .about-card p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .about-mission {
-            max-width: 900px;
-            margin: 80px auto 0;
-            text-align: center;
-            padding: 50px 40px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 25px;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .about-mission h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: var(--golden-yellow);
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-        }
-
-        .about-mission p {
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: var(--white);
-            margin-bottom: 40px;
-        }
-
-        .about-cta {
-            margin-top: 30px;
-        }
-
-        @media (max-width: 1200px) {
-            .about-content-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .about-content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 60px; }
+        .about-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.5s ease; opacity: 0; transform: translateY(40px); }
+        .about-card.reveal { opacity: 1; transform: translateY(0); }
+        .about-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-color: var(--golden-yellow); }
+        .about-icon { font-size: 4rem; margin-bottom: 25px; }
+        .about-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--white); margin-bottom: 20px; letter-spacing: 1px; line-height: 1.3; }
+        .about-card p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.85); }
+        .about-mission { max-width: 900px; margin: 80px auto 0; text-align: center; padding: 50px 40px; background: rgba(255,255,255,0.15); border-radius: 25px; border: 2px solid rgba(255,255,255,0.3); }
+        .about-mission h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--golden-yellow); margin-bottom: 25px; }
+        .about-mission p { font-size: 1.15rem; line-height: 1.9; color: var(--white); margin-bottom: 40px; }
+        .hero-image-container { width: 100%; max-width: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); transition: transform 0.4s ease; }
+        .hero-image-container:hover { transform: scale(1.05); }
+        .hero-image-container img { width: 100%; height: auto; display: block; object-fit: cover; }
+        @media (max-width: 1200px) { .about-content-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .about-content-grid { grid-template-columns: 1fr; } }
 
         /* ========== HOW IT WORKS ========== */
         .how-it-works {
@@ -1966,17 +1891,11 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="split-screen">
-                <div class="screen-half">
-                    <img src="hero-image.webp" alt="Telangana Village Farm">
-                    <div class="screen-label">🌾 Telangana Villages</div>
-                </div>
-                <div class="screen-half">
-                    <img src="hero-image.webp" alt="Modern West Hyderabad Home">
-                    <div class="screen-label">🏠 Your Gachibowli Home</div>
-                </div>
+            <div class="hero-image-container">
+                <img src="hero-image.webp" alt="Fresh Organic Mutton">
             </div>
         </div>
+        
     </section>
 
     <!-- Trust Bar -->
@@ -2036,10 +1955,7 @@
             <p>
                 Our goats roam freely in Telangana villages, eating organic grass and grains. Every animal is certified healthy by veterinarians. Processing happens in FSSAI-certified facilities with strict hygiene protocols. You can even visit our farms and meet the farmers who raise them.
             </p>
-            <button class="video-btn" onclick="playVideo()">
-                <span class="play-icon">▶</span>
-                WATCH OUR FARMING PROCESS
-            </button>
+            
         </div>
     </section>
 
@@ -2053,48 +1969,41 @@
                     We're not just a meat delivery service. We're a bridge between Telangana's honest farmers and modern families who care about what they eat.
                 </p>
             </div>
-
             <div class="about-content-grid">
                 <div class="about-card reveal">
                     <div class="about-icon">🤝</div>
                     <h3>Direct Partnership with 50+ Farmers</h3>
-                    <p>We work directly with village farmers across Warangal, Karimnagar, Nalgonda, and Medak districts. No middlemen means fair prices for farmers and fresh quality for you. Each farmer is carefully selected and has been raising goats organically for over a decade.</p>
+                    <p>We work directly with village farmers across Telangana. No middlemen means fair prices for farmers and fresh quality for you.</p>
                 </div>
-
                 <div class="about-card reveal">
                     <div class="about-icon">🌾</div>
                     <h3>100% Natural Farming Methods</h3>
-                    <p>Our farmers follow traditional, chemical-free methods passed down through generations. The goats roam freely, graze on natural grass, and are fed organic grains. Zero growth hormones. Zero steroids. Zero antibiotics. Just the way nature intended.</p>
+                    <p>Our farmers follow traditional, chemical-free methods. The goats roam freely, graze on natural grass. Zero growth hormones. Zero steroids.</p>
                 </div>
-
                 <div class="about-card reveal">
                     <div class="about-icon">❄️</div>
                     <h3>Farm to Door in 24 Hours</h3>
-                    <p>We've built a complete cold chain infrastructure to ensure what leaves the farm reaches your kitchen at peak freshness. Every order is processed in FSSAI-certified facilities, vacuum-sealed immediately, and transported in temperature-controlled vehicles.</p>
+                    <p>Complete cold chain infrastructure. FSSAI-certified facilities, vacuum-sealed immediately, temperature-controlled vehicles.</p>
                 </div>
-
                 <div class="about-card reveal">
                     <div class="about-icon">🏡</div>
                     <h3>Serving West Hyderabad Families</h3>
-                    <p>We started in Gachibowli and now proudly serve over 400 families across Kondapur, HITEC City, Madhapur, and surrounding areas. Every delivery is a promise of quality, transparency, and the peace of mind that comes from knowing exactly where your food comes from.</p>
+                    <p>Over 400 families across Gachibowli, Kondapur, HITEC City, Madhapur. Quality, transparency, and peace of mind.</p>
                 </div>
-
                 <div class="about-card reveal">
                     <div class="about-icon">✅</div>
                     <h3>Certified & Transparent</h3>
-                    <p>Every animal is certified healthy by qualified veterinarians before processing. We maintain complete documentation and traceability - you can literally trace your meat back to the specific farm and farmer. We invite customers to visit our partner farms anytime.</p>
+                    <p>Every animal is certified healthy by veterinarians. Complete documentation and traceability. Visit our farms anytime.</p>
                 </div>
-
                 <div class="about-card reveal">
                     <div class="about-icon">💚</div>
                     <h3>Empowering Rural Communities</h3>
-                    <p>By buying directly from farmers, you're supporting rural livelihoods and sustainable agriculture. Our farmers earn 40% more than traditional market rates, allowing them to invest in better farming practices and provide quality education for their children.</p>
+                    <p>Supporting rural livelihoods. Our farmers earn 40% more than traditional market rates.</p>
                 </div>
             </div>
-
             <div class="about-mission">
                 <h3>Our Mission</h3>
-                <p>To make premium, organic, and ethically-sourced mutton accessible to every family in Hyderabad. We believe that knowing your farmer should be as easy as knowing your doctor. That's why we're committed to complete transparency - from the village pastures of Telangana to your dining table.</p>
+                <p>To make premium, organic, and ethically-sourced mutton accessible to every family in Hyderabad. Complete transparency from village pastures to your dining table.</p>
                 <div class="about-cta">
                     <button class="btn-primary" onclick="scrollToSection('products')"><span>SHOP FRESH MUTTON NOW</span></button>
                 </div>
@@ -2159,7 +2068,7 @@
                 <div class="product-content">
                     <div class="product-category">THE CLASSIC</div>
                     <h3>Premium Curry Cut</h3>
-                    <div class="product-source">From Warangal & Karimnagar farms</div>
+                    <div class="product-source">From certified organic farms</div>
                     <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani. Slow-cooked perfection that melts in your mouth.</p>
                     <div class="product-footer">
                         <div class="product-pricing">
@@ -2179,7 +2088,7 @@
                 <div class="product-content">
                     <div class="product-category">THE PREMIUM</div>
                     <h3>Tender Boneless</h3>
-                    <div class="product-source">From Nalgonda region farms</div>
+                    <div class="product-source">From certified organic farms</div>
                     <p>Premium boneless cuts for quick cooking. Perfect for kebabs, grills, and busy weeknight dinners. Restaurant-quality at home.</p>
                     <div class="product-footer">
                         <div class="product-pricing">
@@ -2193,13 +2102,13 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=320&fit=crop" alt="Signature Chops">
+                    <img src="curry-cut-image.webp" alt="Signature Chops">
                     <div class="product-badge">🌿 ORGANIC</div>
                 </div>
                 <div class="product-content">
                     <div class="product-category">THE SIGNATURE</div>
                     <h3>Signature Chops</h3>
-                    <div class="product-source">From Medak district farms</div>
+                    <div class="product-source">From certified organic farms</div>
                     <p>Perfectly portioned chops with optimal marbling. Ideal for pan-frying, grilling, or weekend barbecues with family.</p>
                     <div class="product-footer">
                         <div class="product-pricing">
