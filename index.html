@@ -1846,11 +1846,11 @@
             <ul>
                 <li><a href="#home">HOME</a></li>
                 <li><a href="about-us.html">ABOUT US</a></li>
-                <li><a href="#how-it-works">HOW IT WORKS</a></li>
-                <li><a href="#products">SHOP NOW</a></li>
+                <li><a href="locations.html">HOW IT WORKS</a></li>
+                <li><a href="pricing.html">SHOP NOW</a></li>
                 <li><a href="#testimonials">REVIEWS</a></li>
             </ul>
-            <button class="nav-cta" onclick="scrollToSection('products')">ORDER NOW</button>
+            <button class="nav-cta" onclick="window.location.href='pricing.html'">ORDER NOW</button>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
@@ -1886,7 +1886,7 @@
                 </div>
             </div>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="scrollToSection('products')"><span>ORDER NOW - 25% OFF</span></button>
+                <button class="btn-primary" onclick="window.location.href='pricing.html'"><span>ORDER NOW - 25% OFF</span></button>
                 <button class="btn-secondary" onclick="playVideo()">MEET OUR FARMERS ▶</button>
             </div>
         </div>
@@ -2009,7 +2009,7 @@
                 <h3>Our Mission</h3>
                 <p>To make premium, organic, ethically-sourced mutton accessible to every family in Hyderabad.</p>
                 <div class="about-cta">
-                    <button class="btn-primary" onclick="scrollToSection('products')"><span>SHOP FRESH MUTTON NOW</span></button>
+                    <button class="btn-primary" onclick="window.location.href='pricing.html'"><span>SHOP FRESH MUTTON NOW</span></button>
                 </div>
             </div>
         </div>
@@ -2318,7 +2318,7 @@
             </p>
             <div class="cta-urgency">⏰ LIMITED DAILY SUPPLY - ORDER BEFORE 10 AM</div>
             <div class="cta-buttons">
-                <button class="btn-primary" onclick="scrollToSection('products')"><span>ORDER NOW - 25% OFF</span></button>
+                <button class="btn-primary" onclick="window.location.href='pricing.html'"><span>ORDER NOW - 25% OFF</span></button>
                 <button class="btn-secondary">CALL +91-XXXXXXXXXX</button>
             </div>
         </div>
@@ -2344,8 +2344,8 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#farmers">Our Farmers</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#products">Shop Now</a></li>
+                    <li><a href="locations.html">How It Works</a></li>
+                    <li><a href="pricing.html">Shop Now</a></li>
                     <li><a href="#testimonials">Reviews</a></li>
                 </ul>
             </div>
@@ -2516,7 +2516,7 @@
         }
 
         function claimOffer() {
-            scrollToSection('products');
+            window.location.href='pricing.html';
             closePopup();
             setTimeout(() => {
                 alert('🎉 25% OFF ACTIVATED! Your discount will be applied at checkout. Start shopping now!');
