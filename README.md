@@ -24,12 +24,14 @@ Simply open the application in a web browser to start using Timber-B2B. The inte
 
 ## Project Structure
 ```
-Timber-B2B/
-├── index.html
-├── styles.css
-├── script.js
-└── images/
-```
+your-website/
+├── index.html (updated from index-5.html)
+├── about-us.html
+├── locations.html  
+├── pricing.html
+└── [all image files]
+
+``
 
 ## Author
 Created by stseenuri
