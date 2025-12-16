@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pricing - Fresh Mutton Telangana | Organic Mutton Delivery</title>
+    <meta name="description" content="Fresh organic mutton pricing. Order tender, fresh cuts from certified farms. Available in 500g, 1kg, 2kg.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --village-green: #2D5016;
+            --meat-red: #C41E3A;
+            --golden-yellow: #FFB84D;
+            --cream-bg: #F9F5F0;
+            --dark-text: #2C2C2C;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream-bg);
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            padding: 20px 6%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon { font-size: 2.5rem; }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--village-green);
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .logo-text .brand-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--meat-red);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover { color: var(--meat-red); }
+
+        .nav-cta {
+            padding: 12px 28px;
+            background: var(--meat-red);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Hero Section */
+        .pricing-hero {
+            padding: 100px 6% 80px;
+            background: linear-gradient(135deg, var(--village-green) 0%, #1a3a0e 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-hero::before {
+            content: '🍖';
+            position: absolute;
+            font-size: 30rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+
+        .pricing-hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--golden-yellow);
+            color: var(--dark-text);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .pricing-hero p {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 120px 6%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--meat-red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--village-green);
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .section-description {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--dark-text);
+            font-style: italic;
+        }
+
+        .products-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .product-card {
+            background: var(--cream-bg);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            border: 3px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+            border-color: var(--meat-red);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(45, 80, 22, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px solid var(--golden-yellow);
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 40px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed var(--village-green);
+            padding-bottom: 20px;
+        }
+
+        .product-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--village-green);
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            text-align: right;
+        }
+
+        .price-amount {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--meat-red);
+            line-height: 1;
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 15px;
+            border-left: 5px solid var(--meat-red);
+        }
+
+        .product-description p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .product-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quality-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .quality-badge {
+            padding: 6px 14px;
+            background: var(--village-green);
+            color: var(--white);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quality-badge.organic {
+            background: var(--golden-yellow);
+            color: var(--dark-text);
+        }
+
+        /* Quantity Selector */
+        .quantity-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 15px;
+            border: 2px solid var(--golden-yellow);
+        }
+
+        .quantity-label {
+            font-weight: 700;
+            color: var(--village-green);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .quantity-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quantity-btn {
+            padding: 15px 30px;
+            background: var(--cream-bg);
+            border: 3px solid var(--village-green);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--village-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover,
+        .quantity-btn.active {
+            background: var(--village-green);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .order-button {
+            width: 100%;
+            padding: 20px;
+            background: var(--meat-red);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+            margin-top: 20px;
+        }
+
+        .order-button:hover {
+            background: #9a1629;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Info Banner */
+        .info-banner {
+            max-width: 1600px;
+            margin: 60px auto 0;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--village-green), #1a3a0e);
+            border-radius: 20px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .info-banner h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--golden-yellow);
+        }
+
+        .info-banner p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 6% 30px;
+            background: var(--village-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .product-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .quantity-options {
+                justify-content: center;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🐐</span>
+                <div class="logo-text">
+                    <span class="brand-name">FRESH MUTTON</span>
+                    <span class="brand-tagline">From Telangana Farms</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about-us.html">ABOUT US</a></li>
+                <li><a href="locations.html">LOCATIONS</a></li>
+                <li><a href="pricing.html">PRICING</a></li>
+                <li><a href="index.html#testimonials">REVIEWS</a></li>
+            </ul>
+            <a href="#products" class="nav-cta">ORDER NOW</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="pricing-hero-content">
+            <div class="pricing-badge">100% ORGANIC</div>
+            <h1>FRESH MUTTON PRICING</h1>
+            <p>
+                Premium tender organic mutton from certified Telangana farms. 
+                Fresh cut daily. Available in 500g, 1kg, and 2kg portions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <div class="section-subtitle">OUR PRODUCTS</div>
+            <h2 class="section-title">Tender & Fresh Organic Mutton</h2>
+            <p class="section-description">
+                Every cut is sourced from healthy, organically-raised goats. No hormones, no steroids, just natural tender meat.
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <!-- 1. Premium Curry Cut -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="curry-cut-image.webp" alt="Premium Curry Cut">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Premium Curry Cut</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹650</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Classic bone-in mutton pieces with perfect meat-to-bone ratio. Each piece is carefully cut from premium portions to ensure tender, juicy meat with flavorful bone marrow.</p>
+                        <p>Sourced daily from certified organic farms. The goats are grass-fed and raised without antibiotics or growth hormones, resulting in naturally tender and flavorful meat.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">Fresh Cut</span>
+                            <span class="quality-badge">Tender</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-options">
+                            <button class="quantity-btn">500g</button>
+                            <button class="quantity-btn active">1 kg</button>
+                            <button class="quantity-btn">2 kg</button>
+                        </div>
+                    </div>
+
+                    <button class="order-button">Order Now - ₹650</button>
+                </div>
+            </div>
+
+            <!-- 2. Tender Boneless -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="bonless-mutton.webp" alt="Tender Boneless">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Tender Boneless</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹750</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Premium boneless mutton pieces from shoulder and leg cuts. Carefully deboned to give you 100% pure tender meat with no waste. Each piece is hand-selected for quality and tenderness.</p>
+                        <p>Freshly cut from organically raised goats. The meat is naturally tender due to the goats' free-range lifestyle and chemical-free diet. Perfect for quick cooking and consistent results.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">No Bones</span>
+                            <span class="quality-badge">Extra Tender</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-options">
+                            <button class="quantity-btn">500g</button>
+                            <button class="quantity-btn active">1 kg</button>
+                            <button class="quantity-btn">2 kg</button>
+                        </div>
+                    </div>
+
+                    <button class="order-button">Order Now - ₹750</button>
+                </div>
+            </div>
+
+            <!-- 3. Fresh Keema -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mutton-kheema.jpg" alt="Fresh Keema">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Fresh Keema</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹680</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Freshly minced mutton from premium cuts. Ground to perfect consistency only after you order - never pre-ground or stored. This ensures maximum freshness and flavor retention.</p>
+                        <p>Made from 100% organic, tender mutton pieces. The meat is minced with optimal fat content for rich flavor and juicy texture. High in protein and cooks faster than whole pieces.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">Ground Fresh</span>
+                            <span class="quality-badge">High Protein</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-options">
+                            <button class="quantity-btn">500g</button>
+                            <button class="quantity-btn active">1 kg</button>
+                            <button class="quantity-btn">2 kg</button>
+                        </div>
+                    </div>
+
+                    <button class="order-button">Order Now - ₹680</button>
+                </div>
+            </div>
+
+            <!-- 4. Premium Liver -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mutton-liver.jpg" alt="Premium Liver">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Premium Liver</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹450</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Fresh mutton liver (kaleji) from healthy, organically-raised goats. Cleaned and trimmed to perfection. Exceptionally tender when cooked properly with quick, high-heat methods.</p>
+                        <p>Nutrient-rich organ meat packed with iron, protein, vitamin A, and B vitamins. Sourced from certified healthy animals. Best consumed within 24 hours of cutting for optimal freshness and taste.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">Iron Rich</span>
+                            <span class="quality-badge">Ultra Fresh</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-options">
+                            <button class="quantity-btn active">500g</button>
+                            <button class="quantity-btn">1 kg</button>
+                            <button class="quantity-btn">2 kg</button>
+                        </div>
+                    </div>
+
+                    <button class="order-button">Order Now - ₹225</button>
+                </div>
+            </div>
+
+            <!-- 5. Signature Chops -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="curry-cut-image.webp" alt="Signature Chops">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Signature Chops</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹800</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Premium rib chops and thick-cut bone-in pieces. Each chop is cut to ideal thickness for grilling and roasting. Natural marbling ensures juicy, tender meat with incredible flavor.</p>
+                        <p>Hand-selected from the finest portions of organically-raised goats. The bone adds depth of flavor while the tender meat cooks to perfection. Restaurant-quality cuts delivered to your home.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">Premium Cut</span>
+                            <span class="quality-badge">Well Marbled</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-options">
+                            <button class="quantity-btn">500g</button>
+                            <button class="quantity-btn active">1 kg</button>
+                            <button class="quantity-btn">2 kg</button>
+                        </div>
+                    </div>
+
+                    <button class="order-button">Order Now - ₹800</button>
+                </div>
+            </div>
+
+            <!-- 6. Whole Goat -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="full-goat.jpg" alt="Whole Goat">
+                </div>
+                <div class="product-content">
+                    <div class="product-header">
+                        <h3 class="product-name">Whole Goat</h3>
+                        <div class="product-price">
+                            <div class="price-amount">₹600</div>
+                            <div class="price-unit">Per KG</div>
+                        </div>
+                    </div>
+
+                    <div class="product-description">
+                        <p>Complete organic goat sourced directly from certified village farms. Typically weighs 15-25kg live weight. Every animal is veterinarian-certified healthy before processing.</p>
+                        <p>Can be custom-cut to your specifications - curry cut, boneless, keema, chops, liver, and other parts. Fresh, tender meat from grass-fed goats raised naturally without chemicals. Requires 2-3 days advance booking for sourcing and preparation.</p>
+                        <div class="quality-badges">
+                            <span class="quality-badge organic">100% Organic</span>
+                            <span class="quality-badge">Certified Healthy</span>
+                            <span class="quality-badge">Custom Cut</span>
+                        </div>
+                    </div>
+
+                    <div class="quantity-section">
+                        <div class="quantity-label">Pre-Order Required (2-3 Days Advance)</div>
+                        <p style="font-size: 0.95rem; color: #666; margin-top: 10px; line-height: 1.7;">
+                            Whole goat weighs 15-25kg. Half goat available (8-12kg). Contact us for custom requirements and bulk orders.
+                        </p>
+                    </div>
+
+                    <button class="order-button">Contact for Whole Goat</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Banner -->
+        <div class="info-banner">
+            <h3>🎯 Same-Day Fresh Cutting & Delivery</h3>
+            <p>
+                Order by 10 AM for evening delivery. All meat is cut fresh at our FSSAI-certified warehouses. 
+                Free delivery on orders above ₹500. 100% Organic, Tender, and Fresh.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved. | Fresh, Never Frozen | 100% Organic</p>
+    </footer>
+
+    <script>
+        // Quantity button interaction
+        document.querySelectorAll('.quantity-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.quantity-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
