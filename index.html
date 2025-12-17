@@ -1018,6 +1018,13 @@
                 <span></span>
                 <span></span>
             </div>
+        
+        <!-- Cart Icon -->
+        <div class="cart-icon" onclick="window.location.href='cart.html'" style="cursor: pointer; position: relative; font-size: 1.5rem;">
+            🛒
+            <span class="cart-count" id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--meat-red); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">0</span>
+        </div>
+    
         </div>
     </nav>
 
@@ -1161,7 +1168,10 @@
                             <div class="product-price">₹937<span>/kg</span></div>
                             <div class="discount-badge">25% OFF</div>
                         </div>
-                        <button class="add-to-cart">ADD TO CART</button>
+                        <button class="add-to-cart" 
+            data-name="Premium Curry Cut" 
+            data-price="937" 
+            onclick="addToCart(this)">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1182,7 +1192,10 @@
                             <div class="product-price">₹1,050<span>/kg</span></div>
                             <div class="discount-badge">25% OFF</div>
                         </div>
-                        <button class="add-to-cart">ADD TO CART</button>
+                        <button class="add-to-cart" 
+            data-name="Tender Boneless" 
+            data-price="900" 
+            onclick="addToCart(this)">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1203,7 +1216,10 @@
                             <div class="product-price">₹900<span>/kg</span></div>
                             <div class="discount-badge">25% OFF</div>
                         </div>
-                        <button class="add-to-cart">ADD TO CART</button>
+                        <button class="add-to-cart" 
+            data-name="Tender Boneless" 
+            data-price="900" 
+            onclick="addToCart(this)">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1224,7 +1240,10 @@
                             <div class="product-price">₹600<span>/kg</span></div>
                             <div class="discount-badge">25% OFF</div>
                         </div>
-                        <button class="add-to-cart">ADD TO CART</button>
+                        <button class="add-to-cart" 
+            data-name="Premium Liver" 
+            data-price="600" 
+            onclick="addToCart(this)">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1245,7 +1264,10 @@
                             <div class="product-price">₹975<span>/kg</span></div>
                             <div class="discount-badge">25% OFF</div>
                         </div>
-                        <button class="add-to-cart">ADD TO CART</button>
+                        <button class="add-to-cart" 
+            data-name="Signature Chops" 
+            data-price="975" 
+            onclick="addToCart(this)">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1439,5 +1461,73 @@
             });
         });
     </script>
+
+    <!-- Cart Functionality -->
+    <script>
+        // Cart Management Functions
+        function getCart() {
+            const cart = localStorage.getItem('freshMuttonCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('freshMuttonCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const countElement = document.getElementById('cart-count');
+            if (countElement) {
+                countElement.textContent = totalItems;
+                if (totalItems > 0) {
+                    countElement.style.display = 'flex';
+                } else {
+                    countElement.style.display = 'none';
+                }
+            }
+        }
+
+        function addToCart(button) {
+            const productCard = button.closest('.product-card');
+            const name = button.getAttribute('data-name');
+            const price = parseInt(button.getAttribute('data-price'));
+            const image = productCard.querySelector('.product-image img').src;
+
+            const cart = getCart();
+
+            // Check if item already exists
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+
+            saveCart(cart);
+
+            // Visual feedback
+            button.textContent = 'ADDED! ✓';
+            button.style.background = 'var(--village-green)';
+
+            setTimeout(() => {
+                button.textContent = 'ADD TO CART';
+                button.style.background = '';
+            }, 1500);
+        }
+
+        // Initialize cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+
 </body>
 </html>
