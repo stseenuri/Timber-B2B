@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Fresh Mutton Telangana</title>
+    <meta name="description" content="Review your Fresh Mutton order. Organic goat meat from Telangana farmers.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --village-green: #2D5016;
+            --meat-red: #C41E3A;
+            --golden-yellow: #FFB84D;
+            --cream-bg: #F9F5F0;
+            --dark-text: #2C2C2C;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            z-index: 100;
+            padding: 15px 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--village-green);
+            letter-spacing: 2px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--village-green);
+            border: 2px solid var(--village-green);
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: var(--village-green);
+            color: var(--white);
+        }
+
+        /* ========== CART HEADER ========== */
+        .cart-header {
+            padding: 40px 5% 30px;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .cart-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--village-green);
+            margin-bottom: 10px;
+        }
+
+        .cart-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ========== CART CONTAINER ========== */
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* ========== CART ITEMS ========== */
+        .cart-items {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .cart-items h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--village-green);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-count {
+            background: var(--meat-red);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 15px;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--cream-bg);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+
+        .item-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--village-green);
+            margin-bottom: 5px;
+        }
+
+        .item-category {
+            font-size: 0.75rem;
+            color: var(--meat-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--meat-red);
+            cursor: pointer;
+            font-size: 1.3rem;
+            padding: 5px;
+            transition: transform 0.3s;
+        }
+
+        .remove-btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* Quality & Quantity Selectors */
+        .item-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .control-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quality-selector, .quantity-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .quality-btn, .weight-btn {
+            padding: 8px 16px;
+            background: var(--cream-bg);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quality-btn.active, .weight-btn.active {
+            background: var(--village-green);
+            color: var(--white);
+            border-color: var(--village-green);
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--cream-bg);
+            border-radius: 25px;
+            padding: 5px;
+            width: fit-content;
+        }
+
+        .qty-btn {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: var(--village-green);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .qty-btn:active {
+            transform: scale(0.9);
+        }
+
+        .qty-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .item-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #e0e0e0;
+        }
+
+        .price-details {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .original-price {
+            font-size: 0.85rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--meat-red);
+            line-height: 1;
+        }
+
+        .discount-tag {
+            background: var(--golden-yellow);
+            color: var(--dark-text);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* ========== EMPTY CART ========== */
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-cart h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--village-green);
+            margin-bottom: 15px;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* ========== ORDER SUMMARY ========== */
+        .order-summary {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .order-summary h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--village-green);
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-label {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .summary-value {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .discount-row {
+            color: var(--meat-red);
+        }
+
+        .discount-row .summary-value {
+            color: var(--meat-red);
+        }
+
+        .total-row {
+            padding: 20px 0 0;
+            margin-top: 15px;
+            border-top: 2px solid var(--village-green);
+        }
+
+        .total-row .summary-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .total-row .summary-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--village-green);
+        }
+
+        .savings-banner {
+            background: linear-gradient(135deg, var(--golden-yellow) 0%, #FFD700 100%);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--meat-red);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background: #A01628;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        .checkout-btn:active {
+            transform: scale(0.98);
+        }
+
+        .secure-checkout {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .secure-checkout::before {
+            content: "🔒 ";
+        }
+
+        /* ========== EXIT INTENT POPUP ========== */
+        .exit-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .exit-popup-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .exit-popup {
+            position: relative;
+            max-width: 450px;
+            width: 90%;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            animation: popupSlide 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popupSlide {
+            0% {
+                transform: scale(0.5) translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popup-close:hover {
+            color: var(--meat-red);
+            transform: rotate(90deg);
+        }
+
+        .popup-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .popup-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--village-green);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .popup-discount {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--meat-red);
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        .popup-subtitle {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark-text);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .timer-container {
+            background: var(--cream-bg);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .timer {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--meat-red);
+            line-height: 1;
+        }
+
+        .popup-cta {
+            width: 100%;
+            padding: 18px;
+            background: var(--meat-red);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+            margin-top: 10px;
+        }
+
+        .popup-cta:hover {
+            background: #A01628;
+            transform: translateY(-2px);
+        }
+
+        .popup-decline {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            color: #666;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: underline;
+        }
+
+        .popup-terms {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (min-width: 768px) {
+            .cart-container {
+                grid-template-columns: 1fr 400px;
+            }
+
+            .cart-item {
+                grid-template-columns: 120px 1fr;
+            }
+
+            .item-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .item-controls {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cart-header h1 {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span style="font-size: 2rem;">🐐</span>
+                <span class="brand-name">FRESH MUTTON</span>
+            </a>
+            <a href="pricing.html" class="back-btn">← Continue Shopping</a>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <div class="cart-header">
+        <h1>Your Cart</h1>
+        <p>Review your items and proceed to checkout</p>
+    </div>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <h2>
+                <span>Cart Items</span>
+                <span class="item-count" id="itemCount">0</span>
+            </h2>
+
+            <div id="cartItemsContainer">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty Cart Message -->
+            <div class="empty-cart" id="emptyCart" style="display: none;">
+                <div class="empty-cart-icon">🛒</div>
+                <h3>Your Cart is Empty</h3>
+                <p>Add some delicious organic mutton to get started!</p>
+                <a href="pricing.html" class="checkout-btn" style="max-width: 300px; margin: 0 auto; display: block;">
+                    Browse Products
+                </a>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+                <span class="summary-label">Subtotal</span>
+                <span class="summary-value" id="subtotalValue">₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="summary-label">25% OFF Discount</span>
+                <span class="summary-value discount-row" id="discountValue">-₹0</span>
+            </div>
+
+            <div class="summary-row" id="exitDiscountRow" style="display: none;">
+                <span class="summary-label">Extra 5% OFF 🎉</span>
+                <span class="summary-value discount-row" id="exitDiscountValue">-₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="summary-label">Delivery</span>
+                <span class="summary-value" id="deliveryValue">₹50</span>
+            </div>
+
+            <div class="summary-row total-row">
+                <span class="summary-label">Total</span>
+                <span class="summary-value" id="totalValue">₹0</span>
+            </div>
+
+            <div class="savings-banner" id="savingsBanner">
+                🎉 You're saving ₹<span id="totalSavings">0</span> on this order!
+            </div>
+
+            <button class="checkout-btn" onclick="proceedToCheckout()">
+                PROCEED TO CHECKOUT
+            </button>
+
+            <div class="secure-checkout">
+                Secure Checkout · SSL Encrypted
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup-overlay" id="exitPopup">
+        <div class="exit-popup">
+            <button class="popup-close" onclick="closeExitPopup()">×</button>
+
+            <div class="popup-icon">😮</div>
+            <h2 class="popup-title">WAIT! DON'T LEAVE YET!</h2>
+            <div class="popup-discount">EXTRA 5% OFF</div>
+            <p class="popup-subtitle">
+                Complete your order now and get an additional 5% discount on top of your existing 25% OFF!
+            </p>
+
+            <div class="timer-container">
+                <div class="timer-label">⏰ Offer Expires In</div>
+                <div class="timer" id="countdownTimer">15:00</div>
+            </div>
+
+            <button class="popup-cta" onclick="applyExitDiscount()">
+                YES! APPLY EXTRA 5% OFF
+            </button>
+            <button class="popup-decline" onclick="closeExitPopup()">
+                No thanks, I'll pay full price
+            </button>
+
+            <p class="popup-terms">
+                Valid for 15 minutes. Cannot be combined with other offers.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Sample product data (in real app, this would come from backend)
+        const products = [
+            {
+                id: 1,
+                name: "Premium Curry Cut",
+                category: "THE CLASSIC",
+                image: "curry-cut-image.webp",
+                originalPrice: 1250,
+                discountPrice: 937,
+                pricePerKg: 937
+            },
+            {
+                id: 2,
+                name: "Tender Boneless",
+                category: "THE PREMIUM",
+                image: "bonless-mutton.webp",
+                originalPrice: 1400,
+                discountPrice: 1050,
+                pricePerKg: 1050
+            },
+            {
+                id: 3,
+                name: "Fresh Keema",
+                category: "THE GROUND",
+                image: "mutton-kheema.jpg",
+                originalPrice: 1200,
+                discountPrice: 900,
+                pricePerKg: 900
+            },
+            {
+                id: 4,
+                name: "Premium Liver",
+                category: "THE NUTRITIOUS",
+                image: "mutton-liver.jpg",
+                originalPrice: 800,
+                discountPrice: 600,
+                pricePerKg: 600
+            }
+        ];
+
+        // Cart state
+        let cart = [];
+        let exitDiscountApplied = false;
+        let exitPopupShown = false;
+        let timerInterval = null;
+
+        // Initialize cart from localStorage or add sample items
+        function initializeCart() {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            } else {
+                // Add 3 sample items for demo
+                cart = [
+                    { ...products[0], quality: "Premium", weight: 1, quantity: 1 },
+                    { ...products[1], quality: "Standard", weight: 1, quantity: 2 },
+                    { ...products[2], quality: "Premium", weight: 0.5, quantity: 1 }
+                ];
+            }
+            renderCart();
+            updateSummary();
+        }
+
+        // Render cart items
+        function renderCart() {
+            const container = document.getElementById('cartItemsContainer');
+            const emptyCart = document.getElementById('emptyCart');
+            const itemCount = document.getElementById('itemCount');
+
+            if (cart.length === 0) {
+                container.style.display = 'none';
+                emptyCart.style.display = 'block';
+                itemCount.textContent = '0';
+                return;
+            }
+
+            container.style.display = 'block';
+            emptyCart.style.display = 'none';
+            itemCount.textContent = cart.length;
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-category">${item.category}</div>
+                                <div class="item-name">${item.name}</div>
+                            </div>
+                            <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                        </div>
+
+                        <div class="item-controls">
+                            <div class="control-group">
+                                <div class="control-label">Quality</div>
+                                <div class="quality-selector">
+                                    <button class="quality-btn ${item.quality === 'Standard' ? 'active' : ''}" 
+                                            onclick="updateQuality(${index}, 'Standard')">
+                                        Standard
+                                    </button>
+                                    <button class="quality-btn ${item.quality === 'Premium' ? 'active' : ''}" 
+                                            onclick="updateQuality(${index}, 'Premium')">
+                                        Premium
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">Weight</div>
+                                <div class="quantity-selector">
+                                    <button class="weight-btn ${item.weight === 0.5 ? 'active' : ''}" 
+                                            onclick="updateWeight(${index}, 0.5)">
+                                        500g
+                                    </button>
+                                    <button class="weight-btn ${item.weight === 1 ? 'active' : ''}" 
+                                            onclick="updateWeight(${index}, 1)">
+                                        1kg
+                                    </button>
+                                    <button class="weight-btn ${item.weight === 2 ? 'active' : ''}" 
+                                            onclick="updateWeight(${index}, 2)">
+                                        2kg
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">Quantity</div>
+                                <div class="quantity-control">
+                                    <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
+                                    <span class="qty-value">${item.quantity}</span>
+                                    <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-price">
+                            <div class="price-details">
+                                <div class="original-price">₹${(item.originalPrice * item.weight * item.quantity).toFixed(0)}</div>
+                                <div class="current-price">₹${calculateItemPrice(item)}</div>
+                            </div>
+                            <div class="discount-tag">25% OFF</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            saveCart();
+        }
+
+        // Calculate item price with quality premium
+        function calculateItemPrice(item) {
+            let basePrice = item.discountPrice * item.weight * item.quantity;
+            if (item.quality === 'Premium') {
+                basePrice *= 1.15; // 15% premium for Premium quality
+            }
+            return Math.round(basePrice);
+        }
+
+        // Update quality
+        function updateQuality(index, quality) {
+            cart[index].quality = quality;
+            renderCart();
+            updateSummary();
+        }
+
+        // Update weight
+        function updateWeight(index, weight) {
+            cart[index].weight = weight;
+            renderCart();
+            updateSummary();
+        }
+
+        // Update quantity
+        function updateQuantity(index, change) {
+            cart[index].quantity = Math.max(1, cart[index].quantity + change);
+            renderCart();
+            updateSummary();
+        }
+
+        // Remove item
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+            updateSummary();
+        }
+
+        // Update order summary
+        function updateSummary() {
+            let subtotal = 0;
+            let originalTotal = 0;
+
+            cart.forEach(item => {
+                originalTotal += item.originalPrice * item.weight * item.quantity;
+                subtotal += calculateItemPrice(item);
+            });
+
+            const discount25 = originalTotal - subtotal;
+            let exitDiscount = 0;
+
+            if (exitDiscountApplied) {
+                exitDiscount = subtotal * 0.05;
+                subtotal -= exitDiscount;
+            }
+
+            const deliveryFee = subtotal >= 500 ? 0 : 50;
+            const total = subtotal + deliveryFee;
+            const totalSavings = discount25 + exitDiscount + (subtotal >= 500 ? 50 : 0);
+
+            document.getElementById('subtotalValue').textContent = `₹${Math.round(subtotal + (exitDiscountApplied ? exitDiscount : 0))}`;
+            document.getElementById('discountValue').textContent = `-₹${Math.round(discount25)}`;
+            document.getElementById('deliveryValue').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
+            document.getElementById('totalValue').textContent = `₹${Math.round(total)}`;
+            document.getElementById('totalSavings').textContent = Math.round(totalSavings);
+
+            if (exitDiscountApplied) {
+                document.getElementById('exitDiscountRow').style.display = 'flex';
+                document.getElementById('exitDiscountValue').textContent = `-₹${Math.round(exitDiscount)}`;
+            }
+
+            // Show free delivery message
+            if (subtotal >= 500) {
+                document.getElementById('deliveryValue').innerHTML = '<span style="color: var(--village-green); font-weight: 700;">FREE 🎉</span>';
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Exit intent detection
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 10 && !exitIntentTriggered && cart.length >= 3 && !exitDiscountApplied) {
+                showExitPopup();
+                exitIntentTriggered = true;
+            }
+        });
+
+        // Show exit popup
+        function showExitPopup() {
+            if (exitPopupShown) return;
+
+            document.getElementById('exitPopup').classList.add('active');
+            exitPopupShown = true;
+            startTimer();
+        }
+
+        // Close exit popup
+        function closeExitPopup() {
+            document.getElementById('exitPopup').classList.remove('active');
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        }
+
+        // Apply exit discount
+        function applyExitDiscount() {
+            exitDiscountApplied = true;
+            updateSummary();
+            closeExitPopup();
+
+            // Show success message
+            alert('🎉 Extra 5% discount applied! Complete your order within 15 minutes.');
+        }
+
+        // Start 15-minute countdown timer
+        function startTimer() {
+            let timeLeft = 15 * 60; // 15 minutes in seconds
+            const timerElement = document.getElementById('countdownTimer');
+
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                timeLeft--;
+
+                if (timeLeft < 0) {
+                    clearInterval(timerInterval);
+                    closeExitPopup();
+                }
+            }, 1000);
+        }
+
+        // Proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add items before checkout.');
+                return;
+            }
+            alert('🎉 Proceeding to checkout...
+
+In production, this would redirect to payment page.');
+            // window.location.href = 'checkout.html';
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            initializeCart();
+        };
+    </script>
+</body>
+</html>
