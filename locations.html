@@ -4,11 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Delivery Locations - Fresh Mutton Telangana | Mehadipatnam to Narsingi</title>
-    <meta name="description" content="Fresh organic mutton delivery across West Hyderabad. Serving Mehadipatnam, Gachibowli, Kondapur, HITEC City, Madhapur, Narsingi and more.">
+    <title>Delivery Locations - Fresh Mutton Telangana | West Hyderabad Coverage</title>
+    <meta name="description" content="Fresh organic mutton delivery across West Hyderabad. Serving Gachibowli, HITEC City, Kondapur, Madhapur, Manikonda, Narsingi and more. Same-day delivery.">
+
+    <link rel="icon" type="image/webp" href="fm-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="fm-logo.webp">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg-white: #FFFFFF;
+            --bg-cream: #FFFCF8;
+            --bg-light: #F9F7F4;
+            
+            /* Red Palette - Meat */
+            --red-primary: #C41E3A;
+            --red-dark: #A01628;
+            --red-bright: #E63950;
+            --red-light: #FFE8EC;
+            
+            /* Green Palette - Organic */
+            --green-primary: #2D5016;
+            --green-bright: #4A7C2C;
+            --green-light: #6B9B4E;
+            --green-neon: #7FD858;
+            --green-mint: #E8F5E1;
+            
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --border-light: #E8E8E8;
+            --shadow-sm: rgba(0, 0, 0, 0.06);
+            --shadow-md: rgba(0, 0, 0, 0.12);
+            --glow-red: rgba(196, 30, 58, 0.25);
+            --glow-green: rgba(45, 80, 22, 0.25);
+        }
 
         * {
             margin: 0;
@@ -16,36 +48,107 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --village-green: #2D5016;
-            --meat-red: #C41E3A;
-            --golden-yellow: #FFB84D;
-            --cream-bg: #F9F5F0;
-            --dark-text: #2C2C2C;
-            --white: #FFFFFF;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--cream-bg);
-            color: var(--dark-text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-dark);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(45, 80, 22, 0.015) 2px, rgba(45, 80, 22, 0.015) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--red-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 5%;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 1001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--bg-white);
+        }
+
+        .status-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green-neon);
+        }
+
+        .status-indicator::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--green-neon);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--green-neon);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .promo-tag {
+            color: var(--bg-white);
+            font-weight: 700;
         }
 
         /* Navigation */
         nav {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 10000;
-            padding: 20px 6%;
-            background: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.99);
+            padding: 15px 5%;
+            box-shadow: 0 4px 20px var(--shadow-sm);
         }
 
         .nav-container {
-            max-width: 1600px;
+            max-width: 1800px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -55,12 +158,42 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             text-decoration: none;
         }
 
-        .logo-icon {
-            font-size: 2.5rem;
+        .logo-mark {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--red-primary), var(--red-bright));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--bg-white);
+            box-shadow: 0 4px 16px var(--glow-red);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background: var(--green-neon);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--green-neon);
+        }
+
+        .logo-mark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--glow-red);
         }
 
         .logo-text {
@@ -68,82 +201,185 @@
             flex-direction: column;
         }
 
-        .logo-text .brand-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--village-green);
-            letter-spacing: 3px;
+        .logo-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: 2px;
             line-height: 1;
         }
 
-        .logo-text .brand-tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            color: var(--meat-red);
-            font-weight: 600;
+        .logo-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: var(--green-primary);
             letter-spacing: 2px;
             text-transform: uppercase;
+            margin-top: 4px;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 45px;
-            align-items: center;
+        .nav-menu {
+            display: none;
+            gap: 8px;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-size: 0.95rem;
+        .nav-btn {
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--meat-red);
-        }
-
-        .nav-cta {
-            padding: 12px 28px;
-            background: var(--meat-red);
-            color: var(--white);
-            border: none;
-            border-radius: 30px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
             letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
             text-decoration: none;
+            display: inline-block;
         }
 
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(196, 30, 58, 0.4);
+        .nav-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .nav-btn.active {
+            color: var(--red-primary);
+        }
+
+        .nav-btn.primary {
+            background: var(--green-primary);
+            color: var(--bg-white);
+            border-color: var(--green-primary);
+        }
+
+        .nav-btn.primary:hover {
+            background: var(--green-bright);
+            box-shadow: 0 4px 16px var(--glow-green);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            margin-left: auto;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+            background: var(--red-primary);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+            background: var(--red-primary);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 90%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-white);
+            border-right: 1px solid var(--border-light);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+            padding: 120px 40px 40px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 30px;
+        }
+
+        .mobile-menu ul li a {
+            font-family: 'JetBrains Mono', monospace;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--red-primary);
+            transform: translateX(10px);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 1001;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: all;
         }
 
         /* Hero Section */
         .locations-hero {
-            padding: 100px 6% 80px;
-            background: linear-gradient(135deg, var(--meat-red) 0%, #8a1628 100%);
-            color: var(--white);
+            padding: 160px 5% 100px;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            color: var(--bg-white);
             text-align: center;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .locations-hero::before {
-            content: '📍';
+            content: '';
             position: absolute;
-            font-size: 35rem;
-            opacity: 0.05;
-            top: 50%;
-            right: -5%;
-            transform: translateY(-50%) rotate(15deg);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 80px);
+            pointer-events: none;
         }
 
         .locations-hero-content {
@@ -155,64 +391,83 @@
 
         .locations-badge {
             display: inline-block;
-            padding: 8px 20px;
-            background: var(--golden-yellow);
-            color: var(--dark-text);
-            font-size: 0.85rem;
+            padding: 10px 24px;
+            background: var(--green-neon);
+            color: var(--text-dark);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border-radius: 20px;
+            border-radius: 50px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(127, 216, 88, 0.3);
         }
 
         .locations-hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 5rem;
-            letter-spacing: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(36px, 7vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
             margin-bottom: 30px;
             line-height: 1.1;
         }
 
         .locations-hero p {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            line-height: 1.8;
-            font-style: italic;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 22px);
+            line-height: 1.7;
             opacity: 0.95;
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto 50px;
         }
 
         .coverage-stats {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .coverage-stat {
-            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .coverage-stat:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
         }
 
         .coverage-stat-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: var(--golden-yellow);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(32px, 5vw, 48px);
+            color: var(--green-neon);
             line-height: 1;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
 
         .coverage-stat-label {
-            font-size: 0.9rem;
-            margin-top: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            color: var(--bg-white);
         }
 
-        /* Main Locations Grid */
+        /* Main Locations Section */
         .locations-section {
-            padding: 120px 6%;
-            background: var(--white);
+            padding: 120px 5%;
+            background: var(--bg-white);
+            position: relative;
+            z-index: 1;
         }
 
         .section-header {
@@ -221,48 +476,52 @@
             margin: 0 auto 80px;
         }
 
-        .section-subtitle {
-            font-size: 0.9rem;
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
             font-weight: 700;
-            color: var(--meat-red);
-            text-transform: uppercase;
             letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--green-primary);
             margin-bottom: 20px;
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--green-mint);
+            border-radius: 50px;
         }
 
         .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: var(--village-green);
-            letter-spacing: 2px;
-            line-height: 1.2;
-            margin-bottom: 25px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            color: var(--text-dark);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
         }
 
         .section-description {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: var(--dark-text);
-            font-style: italic;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.7;
+            color: var(--text-gray);
         }
 
         .locations-grid {
-            max-width: 1600px;
+            max-width: 1800px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr;
             gap: 30px;
         }
 
         .location-card {
-            background: var(--cream-bg);
-            padding: 40px 30px;
+            background: var(--bg-light);
+            padding: 40px;
             border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.5s ease;
-            border: 3px solid transparent;
+            border: 2px solid var(--border-light);
+            box-shadow: 0 8px 24px var(--shadow-sm);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
@@ -272,135 +531,174 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--meat-red), var(--golden-yellow));
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red-primary), var(--green-primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .location-card:hover::before {
+            transform: scaleX(1);
         }
 
         .location-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            border-color: var(--meat-red);
+            border-color: var(--green-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px var(--shadow-md);
+            background: var(--bg-white);
         }
 
         .location-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
+            display: inline-block;
         }
 
         .location-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--village-green);
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
         }
 
         .location-card p {
-            font-size: 0.95rem;
+            font-size: 15px;
             line-height: 1.7;
-            color: #666;
+            color: var(--text-gray);
             margin-bottom: 20px;
         }
 
         .delivery-time {
             display: inline-block;
-            padding: 8px 18px;
-            background: var(--village-green);
-            color: var(--white);
-            font-size: 0.85rem;
+            padding: 8px 20px;
+            background: var(--green-primary);
+            color: var(--bg-white);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
             font-weight: 700;
-            border-radius: 20px;
+            border-radius: 50px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .featured-location {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(45, 80, 22, 0.1));
-            border-color: var(--meat-red);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.05), rgba(45, 80, 22, 0.05));
+            border-color: var(--red-primary);
+        }
+
+        .featured-location .delivery-time {
+            background: var(--red-primary);
+        }
+
+        /* Service Features */
+        .service-features {
+            max-width: 1800px;
+            margin: 80px auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow-sm);
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            border-color: var(--green-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-box h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .feature-box p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-gray);
         }
 
         /* Map Section */
         .map-section {
-            padding: 120px 6%;
-            background: linear-gradient(135deg, var(--cream-bg) 0%, var(--white) 100%);
+            padding: 120px 5%;
+            background: var(--bg-cream);
+            position: relative;
+            z-index: 1;
         }
 
         .map-container {
             max-width: 1400px;
             margin: 80px auto 0;
-            background: var(--white);
+            background: var(--bg-white);
             padding: 60px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 16px 48px var(--shadow-md);
             text-align: center;
+            border: 2px solid var(--border-light);
         }
 
         .map-placeholder {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, rgba(45, 80, 22, 0.1), rgba(196, 30, 58, 0.05));
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--green-mint), var(--red-light));
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             gap: 20px;
-            border: 3px dashed var(--village-green);
+            border: 2px dashed var(--green-primary);
         }
 
         .map-icon {
-            font-size: 8rem;
+            font-size: 6rem;
         }
 
         .map-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--village-green);
-            letter-spacing: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(24px, 4vw, 40px);
+            color: var(--text-dark);
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        /* Service Features */
-        .service-features {
-            max-width: 1400px;
-            margin: 80px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .feature-box {
-            background: var(--white);
-            padding: 50px 40px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
-        }
-
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
-        }
-
-        .feature-box h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--village-green);
-            margin-bottom: 15px;
-        }
-
-        .feature-box p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #666;
+        .map-placeholder p {
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.7;
+            color: var(--text-gray);
+            max-width: 600px;
+            padding: 0 20px;
         }
 
         /* CTA Section */
         .locations-cta {
-            padding: 100px 6%;
-            background: var(--village-green);
-            color: var(--white);
+            padding: 120px 5%;
+            background: var(--green-primary);
+            color: var(--bg-white);
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .locations-cta-content {
@@ -409,122 +707,184 @@
         }
 
         .locations-cta h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            line-height: 1.1;
         }
 
         .locations-cta p {
-            font-size: 1.3rem;
-            line-height: 1.8;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.7;
             margin-bottom: 40px;
             opacity: 0.95;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 20px 50px;
-            background: var(--golden-yellow);
-            color: var(--dark-text);
+            padding: 18px 40px;
+            background: var(--bg-white);
+            color: var(--green-primary);
             border: none;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            background: var(--red-primary);
+            color: var(--bg-white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         footer {
-            padding: 60px 6% 30px;
-            background: var(--village-green);
-            color: var(--white);
+            padding: 60px 5% 30px;
+            background: var(--green-primary);
+            color: var(--bg-white);
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         footer p {
-            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
             opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-bright));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px var(--glow-green);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 12px 32px var(--glow-green);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--bg-white);
         }
 
         /* Responsive */
-        @media (max-width: 1200px) {
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
             .locations-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .service-features {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .whatsapp-float {
+                right: 40px;
+                left: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .locations-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .locations-hero h1 {
-                font-size: 3rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .locations-grid {
-                grid-template-columns: 1fr;
-            }
-
             .coverage-stats {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .service-features {
                 grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-indicator">100% ORGANIC</div>
+            <div class="promo-tag">SAME-DAY DELIVERY AVAILABLE</div>
+        </div>
+        <div>FRI DEC 19, 2025 / 19:52 IST</div>
+    </div>
+
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon">🐐</span>
+                <div class="logo-mark">FM</div>
                 <div class="logo-text">
-                    <span class="brand-name">FRESH MUTTON</span>
-                    <span class="brand-tagline">From Telangana Farms</span>
+                    <div class="logo-title">FRESH MUTTON</div>
+                    <div class="logo-subtitle">100% Organic</div>
                 </div>
             </a>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about-us.html">ABOUT US</a></li>
-                <li><a href="locations.html">LOCATIONS</a></li>
-                <li><a href="index.html#products">SHOP NOW</a></li>
-                <li><a href="index.html#testimonials">REVIEWS</a></li>
-            </ul>
-            <a href="index.html#products" class="nav-cta">ORDER NOW</a>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-btn">HOME</a>
+                <a href="about-us.html" class="nav-btn">ABOUT</a>
+                <a href="locations.html" class="nav-btn active">LOCATIONS</a>
+                <a href="pricing.html" class="nav-btn primary">ORDER NOW</a>
+            </div>
+
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about-us.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
+            <li><a href="pricing.html" onclick="toggleMenu()">Order Now</a></li>
+        </ul>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
 
     <!-- Hero Section -->
     <section class="locations-hero">
         <div class="locations-hero-content">
-            <div class="locations-badge">WE DELIVER TO</div>
+            <div class="locations-badge">DELIVERY COVERAGE</div>
             <h1>SERVING WEST HYDERABAD</h1>
             <p>
-                From Mehadipatnam to Narsingi, we bring fresh organic mutton to your doorstep. 
-                Same-day delivery. No freezing. Just freshness.
+                From Gachibowli to Narsingi, we bring fresh organic mutton to your doorstep. 
+                Same-day delivery. No freezing. Just freshness within 24 hours.
             </p>
 
             <div class="coverage-stats">
@@ -533,12 +893,12 @@
                     <div class="coverage-stat-label">Locations</div>
                 </div>
                 <div class="coverage-stat">
-                    <div class="coverage-stat-number">Same Day</div>
+                    <div class="coverage-stat-number">24H</div>
                     <div class="coverage-stat-label">Delivery</div>
                 </div>
                 <div class="coverage-stat">
                     <div class="coverage-stat-number">100%</div>
-                    <div class="coverage-stat-label">Fresh Cut</div>
+                    <div class="coverage-stat-label">Fresh</div>
                 </div>
             </div>
         </div>
@@ -547,15 +907,15 @@
     <!-- Main Locations Grid -->
     <section class="locations-section">
         <div class="section-header">
-            <div class="section-subtitle">DELIVERY ZONES</div>
+            <div class="section-eyebrow">DELIVERY ZONES</div>
             <h2 class="section-title">Where We Deliver Fresh Mutton</h2>
             <p class="section-description">
-                Covering all major areas in West Hyderabad with same-day fresh meat delivery.
+                Comprehensive coverage across West Hyderabad with same-day fresh meat delivery.
             </p>
         </div>
 
         <div class="locations-grid">
-            <!-- Row 1 - Featured Locations -->
+            <!-- Featured Locations -->
             <div class="location-card featured-location">
                 <div class="location-icon">🏢</div>
                 <h3>Gachibowli</h3>
@@ -584,7 +944,7 @@
                 <span class="delivery-time">Same Day</span>
             </div>
 
-            <!-- Row 2 -->
+            <!-- Regular Locations -->
             <div class="location-card">
                 <div class="location-icon">📍</div>
                 <h3>Mehadipatnam</h3>
@@ -613,7 +973,6 @@
                 <span class="delivery-time">Same Day</span>
             </div>
 
-            <!-- Row 3 -->
             <div class="location-card">
                 <div class="location-icon">🏢</div>
                 <h3>Financial District</h3>
@@ -642,7 +1001,6 @@
                 <span class="delivery-time">Same Day</span>
             </div>
 
-            <!-- Row 4 -->
             <div class="location-card">
                 <div class="location-icon">🏠</div>
                 <h3>Jubilee Hills</h3>
@@ -674,12 +1032,12 @@
     </section>
 
     <!-- Service Features -->
-    <section class="locations-section" style="background: var(--cream-bg); padding-top: 0;">
+    <section class="locations-section" style="background: var(--bg-cream); padding-top: 80px;">
         <div class="service-features">
             <div class="feature-box">
                 <div class="feature-icon">⚡</div>
                 <h3>Order by 10 AM</h3>
-                <p>Place your order before 10 AM for guaranteed same-day evening delivery. Fresh cutting at our city warehouse.</p>
+                <p>Place your order before 10 AM for guaranteed same-day evening delivery. Fresh cutting at our FSSAI-certified facility.</p>
             </div>
 
             <div class="feature-box">
@@ -699,7 +1057,7 @@
     <!-- Map Section -->
     <section class="map-section">
         <div class="section-header">
-            <div class="section-subtitle">COVERAGE AREA</div>
+            <div class="section-eyebrow">COVERAGE AREA</div>
             <h2 class="section-title">Our Service Zone</h2>
             <p class="section-description">
                 Comprehensive coverage across West Hyderabad's IT corridor and residential areas.
@@ -709,10 +1067,10 @@
         <div class="map-container">
             <div class="map-placeholder">
                 <div class="map-icon">🗺️</div>
-                <div class="map-text">Mehadipatnam to Narsingi Coverage</div>
-                <p style="font-size: 1.1rem; color: #666; max-width: 600px;">
+                <div class="map-text">West Hyderabad Coverage</div>
+                <p>
                     Complete West Hyderabad coverage including Gachibowli, HITEC City, Kondapur, Madhapur, 
-                    Manikonda, Narsingi, Financial District, and surrounding areas.
+                    Manikonda, Narsingi, Financial District, and surrounding areas. Daily fresh delivery from our city facility.
                 </p>
             </div>
         </div>
@@ -721,19 +1079,50 @@
     <!-- CTA Section -->
     <section class="locations-cta">
         <div class="locations-cta-content">
-            <h2>NOT IN YOUR AREA YET?</h2>
+            <h2>Not in Your Area Yet?</h2>
             <p>
                 We're expanding rapidly! Drop us a message with your location and we'll notify you 
                 when we start delivering to your area.
             </p>
-            <a href="index.html#products" class="cta-button">CHECK AVAILABILITY & ORDER</a>
+            <a href="pricing.html" class="cta-button">CHECK AVAILABILITY</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved. | Serving West Hyderabad: Mehadipatnam to Narsingi</p>
+        <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved.</p>
     </footer>
 
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
 </body>
 </html>
