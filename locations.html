@@ -834,8 +834,8 @@
             <div class="status-indicator">100% ORGANIC</div>
             <div class="promo-tag">SAME-DAY DELIVERY AVAILABLE</div>
         </div>
-        <div>FRI DEC 19, 2025 / 22:09 IST</div>
-    </div>
+      <div id="liveTime">Loading...</div>
+  </div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1120,6 +1120,32 @@
             
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
+        // Live Clock
+function updateClock() {
+    const now = new Date();
+    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    const day = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const date = now.getDate();
+    const year = now.getFullYear();
+    
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    
+    // Format with leading zeros
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    
+    const timeString = `${day} ${month} ${date}, ${year} / ${hours}:${minutes} IST`;
+    document.getElementById('liveTime').textContent = timeString;
+}
+
+// Update immediately and then every second
+updateClock();
+setInterval(updateClock, 1000);
+
     </script>
 </body>
 </html>
