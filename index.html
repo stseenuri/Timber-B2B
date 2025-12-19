@@ -11,6 +11,8 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="fm-logo.webp">
+    <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
+    <link rel="apple-touch-icon" href="fm-logo.webp">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Fresh Mutton Telangana - Pure Organic Goat Meat">
@@ -77,6 +79,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
         }
 
         .logo {
@@ -84,11 +87,25 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-container {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #F9F5F0 0%, #FFFFFF 100%);
+            border-radius: 12px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .logo img {
-            height: 50px;
-            width: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .brand-text {
@@ -98,18 +115,20 @@
 
         .brand-name {
             font-family: 'Sora', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--village-green);
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .brand-tagline {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: var(--meat-red);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
+            margin-top: 2px;
         }
 
         /* Desktop Navigation */
@@ -133,23 +152,63 @@
             color: var(--meat-red);
         }
 
-        .nav-cta {
-            padding: 10px 24px;
+        /* Desktop CTA */
+        .nav-cta-desktop {
+            padding: 12px 28px;
             background: var(--meat-red);
             color: var(--white);
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: 700;
             font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
             letter-spacing: 0.5px;
+            display: none;
+            white-space: nowrap;
         }
 
-        .nav-cta:hover {
+        .nav-cta-desktop:hover {
             background: #A01628;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+
+        /* Mobile CTA - Clay Design Style */
+        .nav-cta-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: var(--meat-red);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(196, 30, 58, 0.25);
+            flex-shrink: 0;
+        }
+
+        .nav-cta-mobile:active {
+            transform: scale(0.96);
+            box-shadow: 0 1px 4px rgba(196, 30, 58, 0.3);
+        }
+
+        .nav-cta-mobile .cta-icon {
+            font-size: 0.85rem;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* Mobile Menu Toggle */
@@ -162,14 +221,15 @@
             background: transparent;
             border: none;
             z-index: 1001;
+            flex-shrink: 0;
         }
 
         .menu-toggle span {
-            width: 25px;
-            height: 3px;
+            width: 24px;
+            height: 2.5px;
             background: var(--dark-text);
             border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: block;
         }
 
@@ -189,24 +249,33 @@
         .cart-icon {
             cursor: pointer;
             position: relative;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             display: none;
+            flex-shrink: 0;
+            padding: 8px;
+            transition: transform 0.2s;
+        }
+
+        .cart-icon:active {
+            transform: scale(0.9);
         }
 
         .cart-count {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: 2px;
+            right: 2px;
             background: var(--meat-red);
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            min-width: 18px;
+            height: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            padding: 0 4px;
         }
 
         /* Mobile Menu */
@@ -214,8 +283,8 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 80%;
-            max-width: 320px;
+            width: 85%;
+            max-width: 340px;
             height: 100vh;
             background: var(--white);
             box-shadow: 4px 0 20px rgba(0,0,0,0.1);
@@ -240,13 +309,14 @@
         .mobile-menu ul li a {
             text-decoration: none;
             color: var(--dark-text);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             display: block;
             transition: color 0.3s;
+            letter-spacing: 0.3px;
         }
 
-        .mobile-menu ul li a:hover {
+        .mobile-menu ul li a:active {
             color: var(--meat-red);
         }
 
@@ -961,6 +1031,14 @@
                 display: none;
             }
 
+            .nav-cta-mobile {
+                display: none;
+            }
+
+            .nav-cta-desktop {
+                display: block;
+            }
+
             .cart-icon {
                 display: block;
             }
@@ -1101,8 +1179,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#home" class="logo">
-                <img src="fm-logo.webp" alt="Fresh Mutton Logo">
+            <a href="index.html" class="logo">
+                <div class="logo-container">
+                    <img src="fm-logo.webp" alt="Fresh Mutton Logo">
+                </div>
                 <div class="brand-text">
                     <div class="brand-name">FRESH MUTTON</div>
                     <div class="brand-tagline">From Telangana Villages</div>
@@ -1110,14 +1190,19 @@
             </a>
 
             <ul class="nav-menu">
-                <li><a href="#home">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="about-us.html">ABOUT US</a></li>
                 <li><a href="locations.html">LOCATIONS</a></li>
                 <li><a href="pricing.html">SHOP NOW</a></li>
-                <li><a href="#testimonials">REVIEWS</a></li>
+                <li><a href="index.html#testimonials">REVIEWS</a></li>
             </ul>
 
-            <button class="nav-cta" onclick="window.location.href='pricing.html'">ORDER NOW</button>
+            <button class="nav-cta-desktop" onclick="window.location.href='pricing.html'">ORDER NOW</button>
+
+            <button class="nav-cta-mobile" onclick="window.location.href='pricing.html'">
+                <span class="cta-icon">🛍️</span>
+                <span>ORDER</span>
+            </button>
 
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
                 <span></span>
@@ -1136,11 +1221,11 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#home" onclick="toggleMenu()">HOME</a></li>
-            <li><a href="about-us.html">ABOUT US</a></li>
-            <li><a href="locations.html">LOCATIONS</a></li>
-            <li><a href="pricing.html">SHOP NOW</a></li>
-            <li><a href="#testimonials" onclick="toggleMenu()">REVIEWS</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">HOME</a></li>
+            <li><a href="about-us.html" onclick="toggleMenu()">ABOUT US</a></li>
+            <li><a href="locations.html" onclick="toggleMenu()">LOCATIONS</a></li>
+            <li><a href="pricing.html" onclick="toggleMenu()">SHOP NOW</a></li>
+            <li><a href="index.html#testimonials" onclick="toggleMenu()">REVIEWS</a></li>
         </ul>
     </div>
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
@@ -1480,7 +1565,7 @@
                     <li><a href="about-us.html">About Us</a></li>
                     <li><a href="locations.html">Service Areas</a></li>
                     <li><a href="pricing.html">Shop Now</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="index.html#testimonials">Reviews</a></li>
                 </ul>
             </div>
 
