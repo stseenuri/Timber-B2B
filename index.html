@@ -5,39 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Fresh Mutton Telangana | 100% Organic Goat Meat Delivery to West Hyderabad</title>
-    <meta name="description" content="Pure Fresh Mutton from 50 Telangana farmers. Zero steroids. 100% organic. Delivered fresh to Gachibowli, Kondapur, HITEC City in 24 hours.">
-    <meta name="keywords" content="organic mutton hyderabad, village goat meat, chemical free mutton, gachibowli meat delivery, kondapur mutton">
-
-    <!-- Favicon - Multiple formats for better compatibility -->
+    <title>Fresh Mutton Telangana | 100% Organic Goat Meat Delivery</title>
+    <meta name="description" content="Pure Fresh Mutton from 50 Telangana farmers. Zero steroids. 100% organic. Delivered fresh to West Hyderabad in 24 hours.">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="fm-logo.webp">
     <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="fm-logo.webp">
-    <link rel="icon" type="image/webp" sizes="32x32" href="fm-logo.webp">
-    <link rel="icon" type="image/webp" sizes="16x16" href="fm-logo.webp">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Fresh Mutton Telangana - Pure Organic Goat Meat">
-    <meta property="og:description" content="50 farmers. 0 steroids. 100% organic. Fresh Mutton delivered to West Hyderabad.">
-    <meta property="og:image" content="https://yourdomain.com/fm-logo.webp">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-dark: #1A1A1A;
+            --primary-green: #2D5016;
+            --accent-red: #C41E3A;
+            --accent-gold: #D4AF37;
+            --cream: #FAF8F5;
+            --light-gray: #F5F5F5;
+            --medium-gray: #666;
+            --white: #FFFFFF;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --village-green: #2D5016;
-            --meat-red: #C41E3A;
-            --golden-yellow: #FFB84D;
-            --cream-bg: #F9F5F0;
-            --dark-text: #2C2C2C;
-            --light-gray: #F5F5F5;
-            --white: #FFFFFF;
         }
 
         html {
@@ -46,90 +39,120 @@
         }
 
         body {
-            font-family: 'Sora', sans-serif;
-            background: var(--cream-bg);
-            color: var(--dark-text);
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--primary-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* ========== ANNOUNCEMENT BAR ========== */
-        .announcement-bar {
-            background: var(--meat-red);
-            color: var(--white);
-            text-align: center;
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-red);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            mix-blend-mode: difference;
+            display: none;
         }
 
-        /* ========== NAVIGATION ========== */
-        nav {
-            position: sticky;
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 14px 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-bar::before {
+            content: '';
+            position: absolute;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            to { left: 100%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
+            padding: 20px 5%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav.scrolled {
             padding: 15px 5%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
-            flex-shrink: 0;
+            transition: transform 0.3s ease;
         }
 
-        /* Enhanced Logo Container with Visible Background */
+        .logo:hover {
+            transform: translateX(5px);
+        }
+
         .logo-container {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #e8dcc8 0%, #f5eee3 25%, #faf7f2 50%, #ffffff 100%);
-            border-radius: 18px;
-            padding: 10px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e8dcc8 0%, #faf7f2 50%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 6px 16px rgba(45, 80, 22, 0.18),
-                0 2px 4px rgba(45, 80, 22, 0.12),
-                inset 0 1px 2px rgba(255,255,255,0.8);
-            border: 2.5px solid rgba(45, 80, 22, 0.15);
+                0 8px 20px rgba(45, 80, 22, 0.15),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 2px solid rgba(45, 80, 22, 0.1);
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .logo-container::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.9), transparent 60%);
-            border-radius: 16px;
-            pointer-events: none;
-        }
-
-        .logo-container::after {
-            content: '';
-            position: absolute;
             inset: 0;
-            border-radius: 16px;
-            background: linear-gradient(145deg, transparent 40%, rgba(45, 80, 22, 0.05) 100%);
-            pointer-events: none;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent);
+            border-radius: 18px;
         }
 
         .logo img {
@@ -138,7 +161,7 @@
             object-fit: contain;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
         }
 
         .brand-text {
@@ -147,88 +170,116 @@
         }
 
         .brand-name {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--village-green);
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
         }
 
         .brand-tagline {
-            font-size: 0.62rem;
-            color: var(--meat-red);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            color: var(--accent-red);
             font-weight: 600;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-top: 2px;
         }
 
-        /* Desktop Navigation */
+        /* Desktop Nav */
         .nav-menu {
             display: none;
             list-style: none;
-            gap: 35px;
+            gap: 45px;
             align-items: center;
         }
 
         .nav-menu li a {
+            font-family: 'Space Grotesk', sans-serif;
             text-decoration: none;
-            color: var(--dark-text);
+            color: var(--primary-dark);
             font-size: 0.85rem;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-weight: 500;
             letter-spacing: 0.5px;
+            position: relative;
+            transition: color 0.3s ease;
         }
 
-        .nav-menu li a:hover {
-            color: var(--meat-red);
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-red);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Desktop CTA */
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
         .nav-cta-desktop {
-            padding: 12px 28px;
-            background: var(--meat-red);
+            padding: 14px 32px;
+            background: var(--primary-dark);
             color: var(--white);
             border: none;
-            border-radius: 30px;
-            font-weight: 700;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
             font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: none;
-            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav-cta-desktop:hover {
-            background: #A01628;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        .nav-cta-desktop::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-red);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
         }
 
-        /* Mobile Menu Toggle - NOW ALWAYS VISIBLE */
+        .nav-cta-desktop:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-cta-desktop span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Menu Toggle */
         .menu-toggle {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
             padding: 10px;
             background: transparent;
             border: none;
             z-index: 1003;
-            flex-shrink: 0;
             margin-left: auto;
         }
 
         .menu-toggle span {
-            width: 26px;
-            height: 3px;
-            background: var(--dark-text);
+            width: 28px;
+            height: 2px;
+            background: var(--primary-dark);
             border-radius: 2px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block;
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -248,14 +299,14 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 85%;
-            max-width: 340px;
+            width: 90%;
+            max-width: 400px;
             height: 100vh;
             background: var(--white);
-            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 4px 0 40px rgba(0,0,0,0.1);
+            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1002;
-            padding: 100px 30px 30px;
+            padding: 120px 40px 40px;
             overflow-y: auto;
         }
 
@@ -268,21 +319,37 @@
         }
 
         .mobile-menu ul li {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
         }
+
+        .mobile-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-menu.active ul li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.active ul li:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.active ul li:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.active ul li:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.active ul li:nth-child(5) { transition-delay: 0.3s; }
 
         .mobile-menu ul li a {
+            font-family: 'Space Grotesk', sans-serif;
             text-decoration: none;
-            color: var(--dark-text);
-            font-size: 1.15rem;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
             font-weight: 600;
-            display: block;
-            transition: color 0.3s;
-            letter-spacing: 0.3px;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .mobile-menu ul li a:active {
-            color: var(--meat-red);
+        .mobile-menu ul li a:hover {
+            color: var(--accent-red);
+            transform: translateX(10px);
         }
 
         .mobile-overlay {
@@ -291,10 +358,11 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.5s ease;
             z-index: 1001;
         }
 
@@ -303,382 +371,366 @@
             pointer-events: all;
         }
 
-        /* ========== HERO SECTION ========== */
+        /* Hero Section - Award-Winning Style */
         .hero {
-            padding: 40px 5% 30px;
-            background: var(--cream-bg);
-            text-align: center;
+            min-height: 100vh;
+            padding: 140px 5% 80px;
+            background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
         }
 
-        .hero-badge {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(196, 30, 58, 0.03), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            margin-bottom: 25px;
             display: inline-block;
             padding: 8px 20px;
-            background: var(--white);
-            color: var(--meat-red);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 30px;
-            margin-bottom: 20px;
-            border: 2px solid var(--meat-red);
+            border: 1.5px solid var(--accent-red);
+            border-radius: 50px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            line-height: 1.2;
-            color: var(--village-green);
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s 0.2s ease backwards;
         }
 
         .hero h1 .highlight {
-            color: var(--meat-red);
+            color: var(--accent-red);
+            font-style: italic;
             display: block;
+            margin-top: 10px;
         }
 
         .hero-subtitle {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.8;
+            color: var(--medium-gray);
             max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 50px;
+            font-weight: 400;
+            animation: fadeInUp 0.8s 0.4s ease backwards;
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            background: var(--white);
-            padding: 25px 15px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            gap: 30px;
+            max-width: 700px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s 0.6s ease backwards;
         }
 
         .stat-item {
-            text-align: center;
+            text-align: left;
+            padding: 25px 0;
+            border-top: 2px solid var(--primary-dark);
         }
 
         .stat-number {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.8rem;
-            color: var(--meat-red);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--accent-red);
             line-height: 1;
-            font-weight: 800;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .stat-label {
-            font-size: 0.65rem;
-            color: var(--dark-text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            color: var(--primary-dark);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
+            letter-spacing: 1.5px;
         }
 
-        .hero-buttons {
+        .hero-cta {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 400px;
-            margin: 0 auto 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s 0.8s ease backwards;
         }
 
         .btn-primary {
-            padding: 15px 40px;
-            background: var(--meat-red);
+            padding: 18px 45px;
+            background: var(--primary-dark);
             color: var(--white);
-            border: none;
+            border: 2px solid var(--primary-dark);
             border-radius: 50px;
-            font-family: 'Sora', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-primary:active {
-            transform: scale(0.98);
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-red);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
         }
 
         .btn-secondary {
-            padding: 15px 40px;
+            padding: 18px 45px;
             background: transparent;
-            color: var(--village-green);
-            border: 2px solid var(--village-green);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
             border-radius: 50px;
-            font-family: 'Sora', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
         }
 
-        .btn-secondary:active {
-            transform: scale(0.98);
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
+        /* Hero Image */
         .hero-image {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            max-width: 600px;
+            display: none;
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
-            display: block;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
 
-        /* ========== CAROUSEL STYLES WITH PROPER OVERFLOW ========== */
-        .carousel-section {
-            padding: 50px 0;
-            overflow: hidden;
+        /* Trust Section - Minimal & Bold */
+        .trust-section {
+            padding: 100px 5%;
+            background: var(--primary-dark);
+            color: var(--white);
         }
 
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .carousel-track {
-            padding: 0 5%;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .carousel-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .carousel-wrapper {
-            display: flex;
-            gap: 20px;
-            transition: none;
-        }
-
-        .carousel-wrapper > * {
-            scroll-snap-align: start;
-            flex-shrink: 0;
-            width: calc(100% - 10%);
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 25px;
-            padding: 0 5%;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--meat-red);
-            width: 24px;
-            border-radius: 4px;
-        }
-
-        /* ========== TRUST BAR ========== */
-        .trust-bar {
-            padding: 40px 5%;
-            background: var(--white);
-        }
-
-        .trust-grid {
-            max-width: 1200px;
+        .trust-content {
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 40px;
         }
 
-        .trust-card {
-            text-align: center;
-            padding: 25px 15px;
-            background: var(--cream-bg);
-            border-radius: 15px;
-            transition: all 0.3s;
+        .trust-item {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
         }
 
-        .trust-card:active {
-            transform: scale(0.98);
-        }
-
-        .trust-icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
+        .trust-item:hover {
+            border-top-color: var(--accent-gold);
         }
 
         .trust-number {
-            font-family: 'Sora', sans-serif;
-            font-size: 2.2rem;
-            color: var(--meat-red);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--accent-gold);
             line-height: 1;
-            font-weight: 800;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         .trust-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-        }
-
-        /* ========== ABOUT SECTION ========== */
-        .about-section {
-            background: var(--cream-bg);
-        }
-
-        .about-statement {
-            text-align: center;
-            margin-bottom: 35px;
-            padding: 0 5%;
-        }
-
-        .statement-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.8rem;
-            line-height: 1.3;
-            color: var(--village-green);
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-
-        .statement-subtitle {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #666;
-            font-style: italic;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 35px 25px;
-            background: var(--white);
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.06);
-            transition: all 0.3s;
-        }
-
-        .value-card:active {
-            transform: scale(0.98);
-        }
-
-        .value-number {
-            font-family: 'Sora', sans-serif;
-            font-size: 3rem;
-            line-height: 1;
-            color: var(--meat-red);
-            margin-bottom: 18px;
-            font-weight: 800;
-        }
-
-        .value-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--village-green);
-            margin-bottom: 12px;
-        }
-
-        .value-description {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.9rem;
-            line-height: 1.6;
-            color: #666;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
         }
 
-        .about-cta {
-            text-align: center;
-            margin-top: 35px;
-            padding: 0 5%;
+        /* About Section - Split Screen */
+        .about-section {
+            padding: 120px 5%;
+            background: var(--cream);
         }
 
-        /* ========== PRODUCTS SECTION ========== */
-        .products-section {
-            background: var(--white);
+        .about-content {
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 35px;
-            padding: 0 5%;
+            margin-bottom: 80px;
         }
 
-        .section-subtitle {
+        .section-eyebrow {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--meat-red);
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            color: var(--accent-red);
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            color: var(--village-green);
-            margin-bottom: 12px;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--primary-dark);
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -1px;
+            max-width: 900px;
         }
 
-        .section-description {
-            font-family: 'Crimson Pro', serif;
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .value-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 50px;
+            background: var(--white);
+            border-radius: 30px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .value-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 8vw, 7rem);
+            color: var(--accent-red);
+            line-height: 1;
+            font-weight: 700;
+            opacity: 0.15;
+        }
+
+        .value-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .value-description {
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            line-height: 1.6;
-            color: #666;
-            font-style: italic;
-            max-width: 700px;
+            line-height: 1.8;
+            color: var(--medium-gray);
+        }
+
+        /* Products Section - Grid Layout */
+        .products-section {
+            padding: 120px 5%;
+            background: var(--white);
+        }
+
+        .products-grid {
+            max-width: 1600px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .product-card {
-            background: var(--cream-bg);
-            border-radius: 20px;
+            background: var(--cream);
+            border-radius: 30px;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06);
-            transition: all 0.3s;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
         }
 
-        .product-card:active {
-            transform: scale(0.98);
+        .product-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
         }
 
         .product-image {
-            height: 220px;
+            height: 350px;
             overflow: hidden;
             position: relative;
             background: var(--white);
@@ -688,202 +740,192 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
         }
 
         .product-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 6px 16px;
-            background: var(--golden-yellow);
-            color: var(--dark-text);
-            font-size: 0.65rem;
+            top: 25px;
+            right: 25px;
+            padding: 8px 20px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
             font-weight: 700;
-            border-radius: 20px;
+            border-radius: 50px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .product-content {
-            padding: 25px 20px;
+            padding: 40px;
         }
 
         .product-category {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: var(--meat-red);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-red);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         .product-content h3 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.35rem;
-            color: var(--village-green);
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary-dark);
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         .product-content p {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
         }
 
         .product-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 18px;
-            border-top: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .product-pricing {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .original-price {
-            font-size: 0.8rem;
-            color: #999;
-            text-decoration: line-through;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.1);
         }
 
         .product-price {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.6rem;
-            color: var(--meat-red);
-            line-height: 1;
-            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-red);
+            font-weight: 700;
         }
 
         .product-price span {
-            font-size: 0.9rem;
-            font-family: 'Sora', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
-        }
-
-        .discount-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            background: var(--meat-red);
-            color: var(--white);
-            font-size: 0.6rem;
-            font-weight: 700;
-            border-radius: 12px;
-            text-transform: uppercase;
+            color: var(--medium-gray);
         }
 
         .add-to-cart {
-            padding: 10px 20px;
-            background: var(--village-green);
+            padding: 14px 32px;
+            background: var(--primary-dark);
             color: var(--white);
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
         }
 
-        .add-to-cart:active {
-            transform: scale(0.95);
+        .add-to-cart:hover {
+            background: var(--accent-red);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
         }
 
-        /* ========== TESTIMONIALS ========== */
+        /* Testimonials - Minimal Cards */
         .testimonials-section {
-            background: var(--cream-bg);
+            padding: 120px 5%;
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .testimonial-card {
-            padding: 30px 25px;
-            background: var(--white);
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.06);
+            padding: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
         }
 
-        .quote-icon {
-            font-size: 1.8rem;
-            color: var(--meat-red);
-            opacity: 0.3;
-            margin-bottom: 12px;
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--accent-gold);
         }
 
         .testimonial-text {
-            font-family: 'Crimson Pro', serif;
-            font-size: 0.95rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
             line-height: 1.7;
-            color: var(--dark-text);
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .author-avatar {
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: var(--village-green);
-            color: var(--white);
+            background: var(--accent-gold);
+            color: var(--primary-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Sora', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            flex-shrink: 0;
         }
 
         .author-info h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--village-green);
-            margin-bottom: 3px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .author-location {
-            font-size: 0.8rem;
-            color: #888;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
         }
 
-        .rating {
-            margin-top: 8px;
-            color: var(--golden-yellow);
-            font-size: 0.9rem;
-        }
-
-        /* ========== CTA SECTION ========== */
+        /* CTA Section */
         .cta-section {
-            padding: 50px 5%;
-            background: linear-gradient(135deg, var(--meat-red) 0%, #A01628 100%);
+            padding: 120px 5%;
+            background: var(--accent-red);
             color: var(--white);
             text-align: center;
         }
 
         .cta-content h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
             line-height: 1.2;
         }
 
         .cta-content p {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            line-height: 1.7;
-            font-style: italic;
-            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 50px;
             opacity: 0.95;
             max-width: 700px;
             margin-left: auto;
@@ -892,15 +934,19 @@
 
         .cta-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 450px;
-            margin: 0 auto;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-buttons .btn-primary {
             background: var(--white);
-            color: var(--meat-red);
+            color: var(--accent-red);
+            border-color: var(--white);
+        }
+
+        .cta-buttons .btn-primary::before {
+            background: var(--primary-dark);
         }
 
         .cta-buttons .btn-secondary {
@@ -908,35 +954,37 @@
             color: var(--white);
         }
 
-        /* ========== FOOTER ========== */
+        /* Footer */
         footer {
-            padding: 40px 5% 25px;
-            background: var(--village-green);
+            padding: 80px 5% 40px;
+            background: var(--primary-dark);
             color: var(--white);
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 35px;
-            margin-bottom: 35px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         .footer-column h3 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 18px;
-            color: var(--golden-yellow);
+            margin-bottom: 25px;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
         }
 
-        .footer-column p {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 15px;
+        .footer-column p,
+        .footer-column ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
         }
 
         .footer-column ul {
@@ -944,86 +992,71 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-column ul li a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .footer-column ul li a:hover {
-            color: var(--golden-yellow);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .social-link {
-            width: 42px;
-            height: 42px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
-
-        .social-link:active {
-            transform: scale(0.95);
+            color: var(--accent-gold);
         }
 
         .footer-bottom {
-            padding-top: 25px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
         }
 
-        /* ========== WHATSAPP FLOAT - LEFT SIDE ========== */
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 60px;
-            height: 60px;
+            bottom: 40px;
+            left: 40px;
+            width: 65px;
+            height: 65px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
             z-index: 999;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .whatsapp-float:active {
-            transform: scale(0.95);
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
         }
 
         .whatsapp-float svg {
-            width: 32px;
-            height: 32px;
+            width: 35px;
+            height: 35px;
             fill: white;
         }
 
-        /* ========== DESKTOP STYLES (768px+) ========== */
-        @media (min-width: 768px) {
-            html {
-                font-size: 17px;
-            }
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
             .nav-menu {
                 display: flex;
             }
@@ -1036,182 +1069,90 @@
                 display: block;
             }
 
-            .hero {
-                padding: 80px 6% 70px;
+            .hero-image {
+                display: block;
             }
 
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-                max-width: 700px;
-                padding: 40px 30px;
-            }
-
-            .stat-number {
-                font-size: 3rem;
-            }
-
-            .hero-buttons {
-                flex-direction: row;
-                justify-content: center;
-                max-width: 600px;
-            }
-
-            .trust-grid {
+            .trust-content {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 30px;
             }
 
-            .statement-title {
-                font-size: 3.2rem;
-            }
-
-            .statement-subtitle {
-                font-size: 1.3rem;
-            }
-
-            /* Desktop Grid Layout (no carousel) */
-            .carousel-track {
-                overflow: visible;
-                padding: 0;
-            }
-
-            .carousel-wrapper {
-                display: grid;
+            .values-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 35px;
-                max-width: 1400px;
-                margin: 0 auto;
-                padding: 0 6%;
             }
 
-            .carousel-wrapper > * {
-                width: auto;
+            .value-item {
+                grid-template-columns: 1fr;
             }
 
-            .carousel-dots {
-                display: none;
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .section-title {
-                font-size: 3rem;
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-content {
                 grid-template-columns: 2fr 1fr 1fr 1fr;
-                gap: 60px;
             }
 
-            .cta-content h2 {
-                font-size: 3.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: row;
-                justify-content: center;
-            }
-
-            /* WhatsApp on right for desktop */
             .whatsapp-float {
+                right: 40px;
                 left: auto;
-                right: 25px;
             }
         }
 
-        /* ========== LARGE DESKTOP (1024px+) ========== */
-        @media (min-width: 1024px) {
-            .product-image {
-                height: 280px;
+        @media (min-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .value-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .product-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-            }
-
-            .btn-primary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(196, 30, 58, 0.35);
-            }
-
-            .btn-secondary:hover {
-                background: var(--village-green);
-                color: var(--white);
-            }
-
-            .trust-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            }
-
-            .add-to-cart:hover {
-                background: #244010;
-                transform: translateY(-2px);
-            }
-
-            .social-link:hover {
-                background: rgba(255,255,255,0.2);
-                transform: translateY(-3px);
-            }
-
-            .logo-container:hover {
-                transform: translateY(-2px);
-                box-shadow: 
-                    0 8px 20px rgba(45, 80, 22, 0.22),
-                    0 4px 8px rgba(45, 80, 22, 0.15),
-                    inset 0 1px 2px rgba(255,255,255,0.9);
-            }
-
-            .whatsapp-float:hover {
-                transform: scale(1.05);
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            .custom-cursor {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
     <!-- Announcement Bar -->
     <div class="announcement-bar">
-        🎉 GRAND OPENING: 25% OFF + FREE DELIVERY on Orders Above ₹500!
+        🎉 GRAND OPENING — 25% OFF + FREE DELIVERY ON ORDERS ABOVE ₹500
     </div>
 
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-container">
-                    <img src="fm-logo.webp" alt="Fresh Mutton Logo">
+                    <img src="fm-logo.webp" alt="Fresh Mutton">
                 </div>
                 <div class="brand-text">
                     <div class="brand-name">FRESH MUTTON</div>
-                    <div class="brand-tagline">From Telangana Villages</div>
+                    <div class="brand-tagline">Telangana Villages</div>
                 </div>
             </a>
 
             <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="about-us.html">ABOUT US</a></li>
+                <li><a href="about-us.html">ABOUT</a></li>
                 <li><a href="locations.html">LOCATIONS</a></li>
-                <li><a href="pricing.html">SHOP NOW</a></li>
-                <li><a href="index.html#testimonials">REVIEWS</a></li>
+                <li><a href="pricing.html">SHOP</a></li>
+                <li><a href="#testimonials">REVIEWS</a></li>
             </ul>
 
-            <button class="nav-cta-desktop" onclick="window.location.href='pricing.html'">ORDER NOW</button>
+            <button class="nav-cta-desktop" onclick="window.location.href='pricing.html'">
+                <span>ORDER NOW</span>
+            </button>
 
-            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+            <button class="menu-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1222,51 +1163,53 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html" onclick="toggleMenu()">HOME</a></li>
-            <li><a href="about-us.html" onclick="toggleMenu()">ABOUT US</a></li>
-            <li><a href="locations.html" onclick="toggleMenu()">LOCATIONS</a></li>
-            <li><a href="pricing.html" onclick="toggleMenu()">SHOP NOW</a></li>
-            <li><a href="index.html#testimonials" onclick="toggleMenu()">REVIEWS</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about-us.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
+            <li><a href="pricing.html" onclick="toggleMenu()">Shop</a></li>
+            <li><a href="#testimonials" onclick="toggleMenu()">Reviews</a></li>
         </ul>
     </div>
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-badge">100% ORGANIC • 0 STEROIDS</div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">100% Organic • 0 Steroids</div>
+            
+            <h1>
+                Pure Fresh Mutton
+                <span class="highlight">From Telangana Farms</span>
+            </h1>
 
-        <h1>
-            PURE FRESH MUTTON
-            <span class="highlight">FROM TELANGANA FARMS</span>
-        </h1>
+            <p class="hero-subtitle">
+                Direct from 50 village farmers to your table. No chemicals. No middlemen. 
+                Just honest, organic mutton delivered fresh to West Hyderabad in 24 hours.
+            </p>
 
-        <p class="hero-subtitle">
-            50 village farmers. 400+ happy families. No chemicals. No middlemen. 
-            Just honest, organic mutton delivered fresh to West Hyderabad in 24 hours.
-        </p>
-
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number">50</div>
-                <div class="stat-label">Farmers</div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">Farmers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Families</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Organic</div>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">400+</div>
-                <div class="stat-label">Families</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Organic</div>
-            </div>
-        </div>
 
-        <div class="hero-buttons">
-            <button class="btn-primary" onclick="window.location.href='pricing.html'">
-                ORDER NOW - 25% OFF
-            </button>
-            <button class="btn-secondary" onclick="window.location.href='about-us.html'">
-                OUR STORY
-            </button>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="window.location.href='pricing.html'">
+                    <span>ORDER NOW</span>
+                </button>
+                <button class="btn-secondary" onclick="window.location.href='about-us.html'">
+                    <span>OUR STORY</span>
+                </button>
+            </div>
         </div>
 
         <div class="hero-image">
@@ -1274,276 +1217,229 @@
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="trust-grid">
-            <div class="trust-card">
-                <div class="trust-icon">👨‍🌾</div>
+    <!-- Trust Section -->
+    <section class="trust-section reveal">
+        <div class="trust-content">
+            <div class="trust-item">
                 <div class="trust-number">50</div>
                 <div class="trust-label">Village Farmers</div>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">⚡</div>
+            <div class="trust-item">
                 <div class="trust-number">24h</div>
                 <div class="trust-label">Fresh Delivery</div>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">🚫</div>
+            <div class="trust-item">
                 <div class="trust-number">0%</div>
                 <div class="trust-label">Steroids</div>
             </div>
-            <div class="trust-card">
-                <div class="trust-icon">✅</div>
+            <div class="trust-item">
                 <div class="trust-number">100%</div>
                 <div class="trust-label">Organic</div>
             </div>
         </div>
     </section>
 
-    <!-- About Section with Carousel -->
-    <section class="about-section carousel-section" id="about">
-        <div class="about-statement">
-            <h2 class="statement-title">We're Building a Bridge</h2>
-            <p class="statement-subtitle">Between Telangana's Honest Farmers and Modern Families Who Care</p>
-        </div>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">OUR MISSION</div>
+                <h2 class="section-title">Building a Bridge Between Farms and Families</h2>
+            </div>
 
-        <div class="carousel-container">
-            <div class="carousel-track" id="valueTrack">
-                <div class="carousel-wrapper">
-                    <div class="value-card">
-                        <div class="value-number">50</div>
+            <div class="values-grid">
+                <div class="value-item reveal">
+                    <div class="value-number">50</div>
+                    <div>
                         <h3 class="value-title">Village Farmers</h3>
                         <p class="value-description">Direct partnerships across Telangana. No middlemen. Fair prices for farmers, fresh quality for you.</p>
                     </div>
+                </div>
 
-                    <div class="value-card">
-                        <div class="value-number">0%</div>
-                        <h3 class="value-title">Steroids & Hormones</h3>
-                        <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero chemicals. Just traditional methods.</p>
+                <div class="value-item reveal">
+                    <div class="value-number">0%</div>
+                    <div>
+                        <h3 class="value-title">Zero Chemicals</h3>
+                        <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero steroids. Just traditional methods.</p>
                     </div>
+                </div>
 
-                    <div class="value-card">
-                        <div class="value-number">24h</div>
+                <div class="value-item reveal">
+                    <div class="value-number">24h</div>
+                    <div>
                         <h3 class="value-title">Farm to Door</h3>
-                        <p class="value-description">FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness delivered to West Hyderabad.</p>
+                        <p class="value-description">FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness delivered to you.</p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-dots" id="valueDots"></div>
-        </div>
-
-        <div class="about-cta">
-            <button class="btn-primary" onclick="window.location.href='about-us.html'">
-                READ OUR COMPLETE STORY
-            </button>
         </div>
     </section>
 
-    <!-- Products Section with Carousel -->
-    <section class="products-section carousel-section" id="products">
-        <div class="section-header">
-            <div class="section-subtitle">PREMIUM CUTS</div>
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">PREMIUM CUTS</div>
             <h2 class="section-title">Choose Your Perfect Cut</h2>
-            <p class="section-description">Hand-selected cuts from our village farms. Each piece tells a story of quality and care.</p>
         </div>
 
-        <div class="carousel-container">
-            <div class="carousel-track" id="productTrack">
-                <div class="carousel-wrapper">
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="curry-cut-image.webp" alt="Premium Curry Cut">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE CLASSIC</div>
-                            <h3>Premium Curry Cut</h3>
-                            <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹1,250/kg</div>
-                                    <div class="product-price">₹937<span>/kg</span></div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Premium Curry Cut" data-price="937" onclick="addToCart(this)">ADD TO CART</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="bonless-mutton.webp" alt="Tender Boneless">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE PREMIUM</div>
-                            <h3>Tender Boneless</h3>
-                            <p>Premium boneless cuts for quick cooking. Perfect for kebabs, grills, and busy dinners.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹1,400/kg</div>
-                                    <div class="product-price">₹1,050<span>/kg</span></div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Tender Boneless" data-price="1050" onclick="addToCart(this)">ADD TO CART</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="mutton-kheema.jpg" alt="Fresh Keema">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE GROUND</div>
-                            <h3>Fresh Keema</h3>
-                            <p>Freshly ground minced mutton. Perfect for authentic keema curry and seekh kebabs.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹1,200/kg</div>
-                                    <div class="product-price">₹900<span>/kg</span></div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Fresh Keema" data-price="900" onclick="addToCart(this)">ADD TO CART</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="mutton-liver.jpg" alt="Premium Liver">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE NUTRITIOUS</div>
-                            <h3>Premium Liver</h3>
-                            <p>Nutrient-rich organ meat high in iron and protein. Perfect for liver fry or curry.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹800/kg</div>
-                                    <div class="product-price">₹600<span>/kg</span></div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Premium Liver" data-price="600" onclick="addToCart(this)">ADD TO CART</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="mutton-chops.webp" alt="Signature Chops">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE SIGNATURE</div>
-                            <h3>Signature Chops</h3>
-                            <p>Perfectly portioned chops. Ideal for pan-frying, grilling, or weekend barbecues.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹1,300/kg</div>
-                                    <div class="product-price">₹975<span>/kg</span></div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Signature Chops" data-price="975" onclick="addToCart(this)">ADD TO CART</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="full-goat.jpg" alt="Whole Goat">
-                            <div class="product-badge">ORGANIC</div>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-category">THE CELEBRATION</div>
-                            <h3>Whole Goat</h3>
-                            <p>Complete goat for special occasions. Cut as per your requirements. Perfect for festivals.</p>
-                            <div class="product-footer">
-                                <div class="product-pricing">
-                                    <div class="original-price">₹12,000</div>
-                                    <div class="product-price">₹9,000</div>
-                                    <div class="discount-badge">25% OFF</div>
-                                </div>
-                                <button class="add-to-cart" data-name="Whole Goat" data-price="9000" onclick="addToCart(this)">PRE-ORDER</button>
-                            </div>
-                        </div>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="curry-cut-image.webp" alt="Premium Curry Cut">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE CLASSIC</div>
+                    <h3>Premium Curry Cut</h3>
+                    <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹937<span>/kg</span></div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Premium Curry Cut" data-price="937">ADD TO CART</button>
                     </div>
                 </div>
             </div>
-            <div class="carousel-dots" id="productDots"></div>
+
+            <!-- Product 2 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="bonless-mutton.webp" alt="Tender Boneless">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE PREMIUM</div>
+                    <h3>Tender Boneless</h3>
+                    <p>Premium boneless cuts for quick cooking. Perfect for kebabs and grills.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹1,050<span>/kg</span></div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1050">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="mutton-kheema.jpg" alt="Fresh Keema">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE GROUND</div>
+                    <h3>Fresh Keema</h3>
+                    <p>Freshly ground minced mutton. Perfect for authentic keema curry.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹900<span>/kg</span></div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="900">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="mutton-chops.webp" alt="Signature Chops">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE SIGNATURE</div>
+                    <h3>Signature Chops</h3>
+                    <p>Perfectly portioned chops. Ideal for grilling or weekend barbecues.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹975<span>/kg</span></div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="975">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="mutton-liver.jpg" alt="Premium Liver">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE NUTRITIOUS</div>
+                    <h3>Premium Liver</h3>
+                    <p>Nutrient-rich organ meat high in iron and protein.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹600<span>/kg</span></div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="600">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <img src="full-goat.jpg" alt="Whole Goat">
+                    <div class="product-badge">Organic</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE CELEBRATION</div>
+                    <h3>Whole Goat</h3>
+                    <p>Complete goat for special occasions. Cut as per your requirements.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₹9,000</div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9000">PRE-ORDER</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Testimonials with Carousel -->
-    <section class="testimonials-section carousel-section" id="testimonials">
-        <div class="section-header">
-            <div class="section-subtitle">CUSTOMER REVIEWS</div>
-            <h2 class="section-title">What Our Families Say</h2>
-            <p class="section-description">Real stories from real families who trust our farmers for their daily meals.</p>
-        </div>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="about-content">
+            <div class="section-header reveal">
+                <div class="section-eyebrow" style="color: var(--accent-gold);">CUSTOMER REVIEWS</div>
+                <h2 class="section-title" style="color: var(--white);">What Our Families Say</h2>
+            </div>
 
-        <div class="carousel-container">
-            <div class="carousel-track" id="testimonialTrack">
-                <div class="carousel-wrapper">
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">
-                            "Finally found mutton that tastes like my childhood. You can actually taste the difference in organic farming. My kids love it!"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">PR</div>
-                            <div class="author-info">
-                                <h4>Priya Rao</h4>
-                                <p class="author-location">Gachibowli, Hyderabad</p>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
-                            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Finally found mutton that tastes like my childhood. You can actually taste the difference in organic farming. My kids love it!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PR</div>
+                        <div class="author-info">
+                            <h4>Priya Rao</h4>
+                            <p class="author-location">Gachibowli, Hyderabad</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">
-                            "Exceptional quality. The boneless cuts are perfect for our weekend barbecues. Delivery is always on time."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AK</div>
-                            <div class="author-info">
-                                <h4>Arun Kumar</h4>
-                                <p class="author-location">HITEC City, Hyderabad</p>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
-                            </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Exceptional quality. The boneless cuts are perfect for our weekend barbecues. Delivery is always on time."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Arun Kumar</h4>
+                            <p class="author-location">HITEC City, Hyderabad</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="testimonial-card">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">
-                            "Supporting local farmers while getting premium quality meat—it's a win-win. The curry cut is perfect for biryani!"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ST</div>
-                            <div class="author-info">
-                                <h4>Sneha Tiwari</h4>
-                                <p class="author-location">Kondapur, Hyderabad</p>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
-                            </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Supporting local farmers while getting premium quality meat—it's a win-win. The curry cut is perfect for biryani!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ST</div>
+                        <div class="author-info">
+                            <h4>Sneha Tiwari</h4>
+                            <p class="author-location">Kondapur, Hyderabad</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-dots" id="testimonialDots"></div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <div class="cta-content">
             <h2>Ready to Taste the Difference?</h2>
             <p>
@@ -1552,10 +1448,10 @@
             </p>
             <div class="cta-buttons">
                 <button class="btn-primary" onclick="window.location.href='pricing.html'">
-                    ORDER NOW
+                    <span>ORDER NOW</span>
                 </button>
                 <button class="btn-secondary" onclick="window.location.href='about-us.html'">
-                    LEARN MORE
+                    <span>LEARN MORE</span>
                 </button>
             </div>
         </div>
@@ -1567,12 +1463,6 @@
             <div class="footer-column">
                 <h3>FRESH MUTTON</h3>
                 <p>Connecting Telangana's organic farmers with modern families. 100% chemical-free, farm-fresh mutton delivered in 24 hours.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">📘</a>
-                    <a href="#" class="social-link">📷</a>
-                    <a href="#" class="social-link">🐦</a>
-                    <a href="#" class="social-link">📱</a>
-                </div>
             </div>
 
             <div class="footer-column">
@@ -1581,7 +1471,7 @@
                     <li><a href="about-us.html">About Us</a></li>
                     <li><a href="locations.html">Service Areas</a></li>
                     <li><a href="pricing.html">Shop Now</a></li>
-                    <li><a href="index.html#testimonials">Reviews</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
                 </ul>
             </div>
 
@@ -1598,20 +1488,20 @@
             <div class="footer-column">
                 <h3>Contact</h3>
                 <ul>
-                    <li>📞 +91 98765 43210</li>
-                    <li>📧 hello@freshmutton.in</li>
-                    <li>📍 West Hyderabad, Telangana</li>
-                    <li>⏰ Mon-Sun: 7 AM - 9 PM</li>
+                    <li>+91 98765 43210</li>
+                    <li>hello@freshmutton.in</li>
+                    <li>West Hyderabad, Telangana</li>
+                    <li>Mon-Sun: 7 AM - 9 PM</li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms of Service</a></p>
+            <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button - LEFT SIDE on Mobile -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/919876543210?text=Hi%2C%20I%27d%20like%20to%20order%20fresh%20organic%20mutton" class="whatsapp-float" target="_blank">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.417-5.267-0.321-0.524c-1.307-2.133-2.005-4.601-2.005-7.122 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.42 18.253c-0.288-0.144-1.709-0.844-1.974-0.94-0.265-0.097-0.458-0.144-0.651 0.144s-0.749 0.94-0.919 1.134c-0.17 0.193-0.34 0.218-0.628 0.073s-1.224-0.451-2.33-1.437c-0.861-0.768-1.442-1.716-1.611-2.004s-0.018-0.444 0.127-0.588c0.13-0.13 0.288-0.34 0.433-0.509s0.193-0.288 0.288-0.481c0.097-0.193 0.048-0.361-0.024-0.505s-0.651-1.567-0.892-2.149c-0.234-0.567-0.473-0.49-0.651-0.499-0.169-0.008-0.361-0.010-0.554-0.010s-0.505 0.072-0.77 0.361c-0.265 0.288-1.012 0.988-1.012 2.411s1.036 2.798 1.18 2.991c0.144 0.193 2.043 3.118 4.947 4.372 0.691 0.299 1.23 0.478 1.651 0.612 0.694 0.221 1.326 0.19 1.826 0.115 0.557-0.083 1.709-0.698 1.95-1.372s0.241-1.252 0.169-1.372c-0.073-0.12-0.265-0.193-0.554-0.337z"/>
@@ -1619,100 +1509,43 @@
     </a>
 
     <script>
-        // Smooth Scroll Carousel System
-        class ScrollCarousel {
-            constructor(trackId, dotsId) {
-                this.track = document.getElementById(trackId);
-                if (!this.track) return;
+        // Scroll Reveal
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
                 
-                this.dotsContainer = document.getElementById(dotsId);
-                this.wrapper = this.track.querySelector('.carousel-wrapper');
-                this.items = this.wrapper.children;
-                this.totalItems = this.items.length;
-                this.currentIndex = 0;
-                this.isDesktop = window.innerWidth >= 768;
-                
-                if (!this.isDesktop) {
-                    this.init();
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
                 }
-                
-                window.addEventListener('resize', () => {
-                    const wasDesktop = this.isDesktop;
-                    this.isDesktop = window.innerWidth >= 768;
-                    if (wasDesktop !== this.isDesktop) {
-                        if (this.isDesktop) {
-                            this.destroy();
-                        } else {
-                            this.init();
-                        }
-                    }
-                });
-            }
-            
-            init() {
-                this.createDots();
-                this.setupScrollListener();
-            }
-            
-            destroy() {
-                this.dotsContainer.innerHTML = '';
-                this.track.removeEventListener('scroll', this.handleScroll);
-            }
-            
-            createDots() {
-                this.dotsContainer.innerHTML = '';
-                for (let i = 0; i < this.totalItems; i++) {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => this.scrollToSlide(i));
-                    this.dotsContainer.appendChild(dot);
-                }
-            }
-            
-            setupScrollListener() {
-                this.track.addEventListener('scroll', () => {
-                    clearTimeout(this.scrollTimeout);
-                    this.scrollTimeout = setTimeout(() => {
-                        this.updateActiveDot();
-                    }, 100);
-                });
-            }
-            
-            updateActiveDot() {
-                const scrollLeft = this.track.scrollLeft;
-                const itemWidth = this.items[0].offsetWidth + 20; // including gap
-                const newIndex = Math.round(scrollLeft / itemWidth);
-                
-                if (newIndex !== this.currentIndex && newIndex >= 0 && newIndex < this.totalItems) {
-                    this.currentIndex = newIndex;
-                    const dots = this.dotsContainer.querySelectorAll('.dot');
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === this.currentIndex);
-                    });
-                }
-            }
-            
-            scrollToSlide(index) {
-                const itemWidth = this.items[0].offsetWidth + 20;
-                this.track.scrollTo({
-                    left: itemWidth * index,
-                    behavior: 'smooth'
-                });
-                this.currentIndex = index;
-            }
+            });
         }
-        
-        // Initialize carousels
-        document.addEventListener('DOMContentLoaded', function() {
-            new ScrollCarousel('valueTrack', 'valueDots');
-            new ScrollCarousel('productTrack', 'productDots');
-            new ScrollCarousel('testimonialTrack', 'testimonialDots');
-            
-            updateCartCount();
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Mobile Menu Toggle
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        }
+
+        // Mobile Menu
         function toggleMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileOverlay = document.getElementById('mobileOverlay');
@@ -1722,20 +1555,15 @@
             mobileOverlay.classList.toggle('active');
             menuToggle.classList.toggle('active');
             
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
 
-        // Cart functionality
+        // Cart Functionality
         function addToCart(button) {
             const productName = button.getAttribute('data-name');
             const productPrice = button.getAttribute('data-price');
             
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
             cart.push({
                 name: productName,
                 price: parseFloat(productPrice),
@@ -1743,10 +1571,9 @@
             });
             
             localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
             
             button.textContent = 'ADDED!';
-            button.style.background = '#1a3a0f';
+            button.style.background = 'var(--accent-gold)';
             
             setTimeout(() => {
                 button.textContent = 'ADD TO CART';
@@ -1754,15 +1581,8 @@
             }, 1500);
         }
 
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartCount = document.getElementById('cart-count');
-            if (cartCount) {
-                cartCount.textContent = cart.length;
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
+        // ESC key to close menu
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 const mobileMenu = document.getElementById('mobileMenu');
                 if (mobileMenu.classList.contains('active')) {
