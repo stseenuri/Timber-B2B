@@ -9,10 +9,12 @@
     <meta name="description" content="Pure Fresh Mutton from 50 Telangana farmers. Zero steroids. 100% organic. Delivered fresh to Gachibowli, Kondapur, HITEC City in 24 hours.">
     <meta name="keywords" content="organic mutton hyderabad, village goat meat, chemical free mutton, gachibowli meat delivery, kondapur mutton">
 
-    <!-- Favicon -->
+    <!-- Favicon - Multiple formats for better compatibility -->
     <link rel="icon" type="image/webp" href="fm-logo.webp">
     <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
-    <link rel="apple-touch-icon" href="fm-logo.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="fm-logo.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="fm-logo.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="fm-logo.webp">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Fresh Mutton Telangana - Pure Organic Goat Meat">
@@ -79,7 +81,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo {
@@ -90,18 +92,23 @@
             flex-shrink: 0;
         }
 
+        /* Enhanced Logo Container with Visible Background */
         .logo-container {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #f0e8dc 0%, #faf7f2 50%, #ffffff 100%);
-            border-radius: 16px;
-            padding: 8px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #e8dcc8 0%, #f5eee3 25%, #faf7f2 50%, #ffffff 100%);
+            border-radius: 18px;
+            padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.15), inset 0 1px 0 rgba(255,255,255,0.5);
-            border: 2px solid rgba(45, 80, 22, 0.1);
+            box-shadow: 
+                0 6px 16px rgba(45, 80, 22, 0.18),
+                0 2px 4px rgba(45, 80, 22, 0.12),
+                inset 0 1px 2px rgba(255,255,255,0.8);
+            border: 2.5px solid rgba(45, 80, 22, 0.15);
             position: relative;
+            transition: all 0.3s ease;
         }
 
         .logo-container::before {
@@ -111,8 +118,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent);
-            border-radius: 14px;
+            background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.9), transparent 60%);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: linear-gradient(145deg, transparent 40%, rgba(45, 80, 22, 0.05) 100%);
             pointer-events: none;
         }
 
@@ -122,7 +138,7 @@
             object-fit: contain;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
         }
 
         .brand-text {
@@ -229,7 +245,7 @@
             50% { transform: scale(1.1); }
         }
 
-        /* Mobile Menu Toggle */
+        /* Mobile Menu Toggle - ALWAYS VISIBLE ON MOBILE */
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -238,8 +254,9 @@
             padding: 8px;
             background: transparent;
             border: none;
-            z-index: 1001;
+            z-index: 1003;
             flex-shrink: 0;
+            order: 10;
         }
 
         .menu-toggle span {
@@ -466,18 +483,42 @@
             display: block;
         }
 
-        /* ========== CAROUSEL STYLES ========== */
+        /* ========== CAROUSEL STYLES WITH PROPER OVERFLOW ========== */
+        .carousel-section {
+            padding: 50px 0;
+            overflow: hidden;
+        }
+
         .carousel-container {
             position: relative;
             width: 100%;
             overflow: hidden;
+        }
+
+        .carousel-track {
             padding: 0 5%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
         }
 
         .carousel-wrapper {
             display: flex;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             gap: 20px;
+            transition: none;
+        }
+
+        .carousel-wrapper > * {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: calc(100% - 10%);
         }
 
         .carousel-dots {
@@ -485,6 +526,7 @@
             justify-content: center;
             gap: 8px;
             margin-top: 25px;
+            padding: 0 5%;
         }
 
         .dot {
@@ -552,13 +594,13 @@
 
         /* ========== ABOUT SECTION ========== */
         .about-section {
-            padding: 50px 5%;
             background: var(--cream-bg);
         }
 
         .about-statement {
             text-align: center;
             margin-bottom: 35px;
+            padding: 0 5%;
         }
 
         .statement-title {
@@ -587,8 +629,6 @@
             border-radius: 20px;
             border: 1px solid rgba(0,0,0,0.06);
             transition: all 0.3s;
-            min-width: 100%;
-            flex-shrink: 0;
         }
 
         .value-card:active {
@@ -621,17 +661,18 @@
         .about-cta {
             text-align: center;
             margin-top: 35px;
+            padding: 0 5%;
         }
 
         /* ========== PRODUCTS SECTION ========== */
         .products-section {
-            padding: 50px 5%;
             background: var(--white);
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 35px;
+            padding: 0 5%;
         }
 
         .section-subtitle {
@@ -667,8 +708,6 @@
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.06);
             transition: all 0.3s;
-            min-width: 100%;
-            flex-shrink: 0;
         }
 
         .product-card:active {
@@ -794,7 +833,6 @@
 
         /* ========== TESTIMONIALS ========== */
         .testimonials-section {
-            padding: 50px 5%;
             background: var(--cream-bg);
         }
 
@@ -803,8 +841,6 @@
             background: var(--white);
             border-radius: 20px;
             border: 1px solid rgba(0,0,0,0.06);
-            min-width: 100%;
-            flex-shrink: 0;
         }
 
         .quote-icon {
@@ -1030,7 +1066,7 @@
             }
 
             .menu-toggle {
-                display: none;
+                display: none !important;
             }
 
             .nav-cta-mobile {
@@ -1084,16 +1120,22 @@
             }
 
             /* Desktop Grid Layout (no carousel) */
+            .carousel-track {
+                overflow: visible;
+                padding: 0;
+            }
+
             .carousel-wrapper {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 35px;
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 0 6%;
             }
 
-            .value-card,
-            .product-card,
-            .testimonial-card {
-                min-width: auto;
+            .carousel-wrapper > * {
+                width: auto;
             }
 
             .carousel-dots {
@@ -1158,6 +1200,14 @@
             .social-link:hover {
                 background: rgba(255,255,255,0.2);
                 transform: translateY(-3px);
+            }
+
+            .logo-container:hover {
+                transform: translateY(-2px);
+                box-shadow: 
+                    0 8px 20px rgba(45, 80, 22, 0.22),
+                    0 4px 8px rgba(45, 80, 22, 0.15),
+                    inset 0 1px 2px rgba(255,255,255,0.9);
             }
         }
     </style>
@@ -1286,30 +1336,32 @@
     </section>
 
     <!-- About Section with Carousel -->
-    <section class="about-section" id="about">
+    <section class="about-section carousel-section" id="about">
         <div class="about-statement">
             <h2 class="statement-title">We're Building a Bridge</h2>
             <p class="statement-subtitle">Between Telangana's Honest Farmers and Modern Families Who Care</p>
         </div>
 
         <div class="carousel-container">
-            <div class="carousel-wrapper" id="valueCarousel">
-                <div class="value-card">
-                    <div class="value-number">50</div>
-                    <h3 class="value-title">Village Farmers</h3>
-                    <p class="value-description">Direct partnerships across Telangana. No middlemen. Fair prices for farmers, fresh quality for you.</p>
-                </div>
+            <div class="carousel-track" id="valueTrack">
+                <div class="carousel-wrapper">
+                    <div class="value-card">
+                        <div class="value-number">50</div>
+                        <h3 class="value-title">Village Farmers</h3>
+                        <p class="value-description">Direct partnerships across Telangana. No middlemen. Fair prices for farmers, fresh quality for you.</p>
+                    </div>
 
-                <div class="value-card">
-                    <div class="value-number">0%</div>
-                    <h3 class="value-title">Steroids & Hormones</h3>
-                    <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero chemicals. Just traditional methods.</p>
-                </div>
+                    <div class="value-card">
+                        <div class="value-number">0%</div>
+                        <h3 class="value-title">Steroids & Hormones</h3>
+                        <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero chemicals. Just traditional methods.</p>
+                    </div>
 
-                <div class="value-card">
-                    <div class="value-number">24h</div>
-                    <h3 class="value-title">Farm to Door</h3>
-                    <p class="value-description">FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness delivered to West Hyderabad.</p>
+                    <div class="value-card">
+                        <div class="value-number">24h</div>
+                        <h3 class="value-title">Farm to Door</h3>
+                        <p class="value-description">FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness delivered to West Hyderabad.</p>
+                    </div>
                 </div>
             </div>
             <div class="carousel-dots" id="valueDots"></div>
@@ -1323,7 +1375,7 @@
     </section>
 
     <!-- Products Section with Carousel -->
-    <section class="products-section" id="products">
+    <section class="products-section carousel-section" id="products">
         <div class="section-header">
             <div class="section-subtitle">PREMIUM CUTS</div>
             <h2 class="section-title">Choose Your Perfect Cut</h2>
@@ -1331,129 +1383,131 @@
         </div>
 
         <div class="carousel-container">
-            <div class="carousel-wrapper" id="productCarousel">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="curry-cut-image.webp" alt="Premium Curry Cut">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE CLASSIC</div>
-                        <h3>Premium Curry Cut</h3>
-                        <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹1,250/kg</div>
-                                <div class="product-price">₹937<span>/kg</span></div>
-                                <div class="discount-badge">25% OFF</div>
+            <div class="carousel-track" id="productTrack">
+                <div class="carousel-wrapper">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="curry-cut-image.webp" alt="Premium Curry Cut">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE CLASSIC</div>
+                            <h3>Premium Curry Cut</h3>
+                            <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹1,250/kg</div>
+                                    <div class="product-price">₹937<span>/kg</span></div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Premium Curry Cut" data-price="937" onclick="addToCart(this)">ADD TO CART</button>
                             </div>
-                            <button class="add-to-cart" data-name="Premium Curry Cut" data-price="937" onclick="addToCart(this)">ADD TO CART</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="bonless-mutton.webp" alt="Tender Boneless">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE PREMIUM</div>
-                        <h3>Tender Boneless</h3>
-                        <p>Premium boneless cuts for quick cooking. Perfect for kebabs, grills, and busy dinners.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹1,400/kg</div>
-                                <div class="product-price">₹1,050<span>/kg</span></div>
-                                <div class="discount-badge">25% OFF</div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="bonless-mutton.webp" alt="Tender Boneless">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE PREMIUM</div>
+                            <h3>Tender Boneless</h3>
+                            <p>Premium boneless cuts for quick cooking. Perfect for kebabs, grills, and busy dinners.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹1,400/kg</div>
+                                    <div class="product-price">₹1,050<span>/kg</span></div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Tender Boneless" data-price="1050" onclick="addToCart(this)">ADD TO CART</button>
                             </div>
-                            <button class="add-to-cart" data-name="Tender Boneless" data-price="1050" onclick="addToCart(this)">ADD TO CART</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-kheema.jpg" alt="Fresh Keema">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE GROUND</div>
-                        <h3>Fresh Keema</h3>
-                        <p>Freshly ground minced mutton. Perfect for authentic keema curry and seekh kebabs.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹1,200/kg</div>
-                                <div class="product-price">₹900<span>/kg</span></div>
-                                <div class="discount-badge">25% OFF</div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="mutton-kheema.jpg" alt="Fresh Keema">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE GROUND</div>
+                            <h3>Fresh Keema</h3>
+                            <p>Freshly ground minced mutton. Perfect for authentic keema curry and seekh kebabs.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹1,200/kg</div>
+                                    <div class="product-price">₹900<span>/kg</span></div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Fresh Keema" data-price="900" onclick="addToCart(this)">ADD TO CART</button>
                             </div>
-                            <button class="add-to-cart" data-name="Fresh Keema" data-price="900" onclick="addToCart(this)">ADD TO CART</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-liver.jpg" alt="Premium Liver">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE NUTRITIOUS</div>
-                        <h3>Premium Liver</h3>
-                        <p>Nutrient-rich organ meat high in iron and protein. Perfect for liver fry or curry.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹800/kg</div>
-                                <div class="product-price">₹600<span>/kg</span></div>
-                                <div class="discount-badge">25% OFF</div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="mutton-liver.jpg" alt="Premium Liver">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE NUTRITIOUS</div>
+                            <h3>Premium Liver</h3>
+                            <p>Nutrient-rich organ meat high in iron and protein. Perfect for liver fry or curry.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹800/kg</div>
+                                    <div class="product-price">₹600<span>/kg</span></div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Premium Liver" data-price="600" onclick="addToCart(this)">ADD TO CART</button>
                             </div>
-                            <button class="add-to-cart" data-name="Premium Liver" data-price="600" onclick="addToCart(this)">ADD TO CART</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-chops.webp" alt="Signature Chops">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE SIGNATURE</div>
-                        <h3>Signature Chops</h3>
-                        <p>Perfectly portioned chops. Ideal for pan-frying, grilling, or weekend barbecues.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹1,300/kg</div>
-                                <div class="product-price">₹975<span>/kg</span></div>
-                                <div class="discount-badge">25% OFF</div>
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="mutton-chops.webp" alt="Signature Chops">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE SIGNATURE</div>
+                            <h3>Signature Chops</h3>
+                            <p>Perfectly portioned chops. Ideal for pan-frying, grilling, or weekend barbecues.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹1,300/kg</div>
+                                    <div class="product-price">₹975<span>/kg</span></div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Signature Chops" data-price="975" onclick="addToCart(this)">ADD TO CART</button>
                             </div>
-                            <button class="add-to-cart" data-name="Signature Chops" data-price="975" onclick="addToCart(this)">ADD TO CART</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="full-goat.jpg" alt="Whole Goat">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE CELEBRATION</div>
-                        <h3>Whole Goat</h3>
-                        <p>Complete goat for special occasions. Cut as per your requirements. Perfect for festivals.</p>
-                        <div class="product-footer">
-                            <div class="product-pricing">
-                                <div class="original-price">₹12,000</div>
-                                <div class="product-price">₹9,000</div>
-                                <div class="discount-badge">25% OFF</div>
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="full-goat.jpg" alt="Whole Goat">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">THE CELEBRATION</div>
+                            <h3>Whole Goat</h3>
+                            <p>Complete goat for special occasions. Cut as per your requirements. Perfect for festivals.</p>
+                            <div class="product-footer">
+                                <div class="product-pricing">
+                                    <div class="original-price">₹12,000</div>
+                                    <div class="product-price">₹9,000</div>
+                                    <div class="discount-badge">25% OFF</div>
+                                </div>
+                                <button class="add-to-cart" data-name="Whole Goat" data-price="9000" onclick="addToCart(this)">PRE-ORDER</button>
                             </div>
-                            <button class="add-to-cart" data-name="Whole Goat" data-price="9000" onclick="addToCart(this)">PRE-ORDER</button>
                         </div>
                     </div>
                 </div>
@@ -1463,7 +1517,7 @@
     </section>
 
     <!-- Testimonials with Carousel -->
-    <section class="testimonials-section" id="testimonials">
+    <section class="testimonials-section carousel-section" id="testimonials">
         <div class="section-header">
             <div class="section-subtitle">CUSTOMER REVIEWS</div>
             <h2 class="section-title">What Our Families Say</h2>
@@ -1471,48 +1525,50 @@
         </div>
 
         <div class="carousel-container">
-            <div class="carousel-wrapper" id="testimonialCarousel">
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        "Finally found mutton that tastes like my childhood. You can actually taste the difference in organic farming. My kids love it!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">PR</div>
-                        <div class="author-info">
-                            <h4>Priya Rao</h4>
-                            <p class="author-location">Gachibowli, Hyderabad</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="carousel-track" id="testimonialTrack">
+                <div class="carousel-wrapper">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            "Finally found mutton that tastes like my childhood. You can actually taste the difference in organic farming. My kids love it!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">PR</div>
+                            <div class="author-info">
+                                <h4>Priya Rao</h4>
+                                <p class="author-location">Gachibowli, Hyderabad</p>
+                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        "Exceptional quality. The boneless cuts are perfect for our weekend barbecues. Delivery is always on time."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AK</div>
-                        <div class="author-info">
-                            <h4>Arun Kumar</h4>
-                            <p class="author-location">HITEC City, Hyderabad</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            "Exceptional quality. The boneless cuts are perfect for our weekend barbecues. Delivery is always on time."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AK</div>
+                            <div class="author-info">
+                                <h4>Arun Kumar</h4>
+                                <p class="author-location">HITEC City, Hyderabad</p>
+                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">
-                        "Supporting local farmers while getting premium quality meat—it's a win-win. The curry cut is perfect for biryani!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ST</div>
-                        <div class="author-info">
-                            <h4>Sneha Tiwari</h4>
-                            <p class="author-location">Kondapur, Hyderabad</p>
-                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            "Supporting local farmers while getting premium quality meat—it's a win-win. The curry cut is perfect for biryani!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ST</div>
+                            <div class="author-info">
+                                <h4>Sneha Tiwari</h4>
+                                <p class="author-location">Kondapur, Hyderabad</p>
+                                <div class="rating">⭐⭐⭐⭐⭐</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1598,14 +1654,17 @@
     </a>
 
     <script>
-        // Carousel System
-        class Carousel {
-            constructor(carouselId, dotsId) {
-                this.carousel = document.getElementById(carouselId);
+        // Smooth Scroll Carousel System
+        class ScrollCarousel {
+            constructor(trackId, dotsId) {
+                this.track = document.getElementById(trackId);
+                if (!this.track) return;
+                
                 this.dotsContainer = document.getElementById(dotsId);
-                this.currentIndex = 0;
-                this.items = this.carousel.children;
+                this.wrapper = this.track.querySelector('.carousel-wrapper');
+                this.items = this.wrapper.children;
                 this.totalItems = this.items.length;
+                this.currentIndex = 0;
                 this.isDesktop = window.innerWidth >= 768;
                 
                 if (!this.isDesktop) {
@@ -1627,13 +1686,12 @@
             
             init() {
                 this.createDots();
-                this.setupSwipe();
-                this.updateCarousel();
+                this.setupScrollListener();
             }
             
             destroy() {
                 this.dotsContainer.innerHTML = '';
-                this.carousel.style.transform = 'translateX(0)';
+                this.track.removeEventListener('scroll', this.handleScroll);
             }
             
             createDots() {
@@ -1642,71 +1700,49 @@
                     const dot = document.createElement('div');
                     dot.classList.add('dot');
                     if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => this.goToSlide(i));
+                    dot.addEventListener('click', () => this.scrollToSlide(i));
                     this.dotsContainer.appendChild(dot);
                 }
             }
             
-            setupSwipe() {
-                let startX = 0;
-                let currentX = 0;
-                let isDragging = false;
-                
-                this.carousel.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                });
-                
-                this.carousel.addEventListener('touchmove', (e) => {
-                    if (!isDragging) return;
-                    currentX = e.touches[0].clientX;
-                });
-                
-                this.carousel.addEventListener('touchend', () => {
-                    if (!isDragging) return;
-                    const diff = startX - currentX;
-                    if (Math.abs(diff) > 50) {
-                        if (diff > 0 && this.currentIndex < this.totalItems - 1) {
-                            this.next();
-                        } else if (diff < 0 && this.currentIndex > 0) {
-                            this.prev();
-                        }
-                    }
-                    isDragging = false;
+            setupScrollListener() {
+                this.track.addEventListener('scroll', () => {
+                    clearTimeout(this.scrollTimeout);
+                    this.scrollTimeout = setTimeout(() => {
+                        this.updateActiveDot();
+                    }, 100);
                 });
             }
             
-            updateCarousel() {
-                const offset = -this.currentIndex * 100;
-                this.carousel.style.transform = `translateX(${offset}%)`;
+            updateActiveDot() {
+                const scrollLeft = this.track.scrollLeft;
+                const itemWidth = this.items[0].offsetWidth + 20; // including gap
+                const newIndex = Math.round(scrollLeft / itemWidth);
                 
-                const dots = this.dotsContainer.querySelectorAll('.dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentIndex);
-                });
+                if (newIndex !== this.currentIndex && newIndex >= 0 && newIndex < this.totalItems) {
+                    this.currentIndex = newIndex;
+                    const dots = this.dotsContainer.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === this.currentIndex);
+                    });
+                }
             }
             
-            goToSlide(index) {
+            scrollToSlide(index) {
+                const itemWidth = this.items[0].offsetWidth + 20;
+                this.track.scrollTo({
+                    left: itemWidth * index,
+                    behavior: 'smooth'
+                });
                 this.currentIndex = index;
-                this.updateCarousel();
-            }
-            
-            next() {
-                this.currentIndex = (this.currentIndex + 1) % this.totalItems;
-                this.updateCarousel();
-            }
-            
-            prev() {
-                this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
-                this.updateCarousel();
             }
         }
         
         // Initialize carousels
         document.addEventListener('DOMContentLoaded', function() {
-            new Carousel('valueCarousel', 'valueDots');
-            new Carousel('productCarousel', 'productDots');
-            new Carousel('testimonialCarousel', 'testimonialDots');
+            new ScrollCarousel('valueTrack', 'valueDots');
+            new ScrollCarousel('productTrack', 'productDots');
+            new ScrollCarousel('testimonialTrack', 'testimonialDots');
             
             updateCartCount();
         });
