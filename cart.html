@@ -10,8 +10,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Fresh Mutton Telangana</title>
-    <meta name="description" content="Review your Fresh Mutton order. Organic goat meat from Telangana farmers.">
+    <title>Shopping Cart | Farm Mutton Telangana</title>
+    <meta name="description" content="Review your Farm Mutton order. Organic goat meat from Telangana farmers.">
+    <link rel="icon" type="image/webp" href="fm-logo.webp">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
@@ -62,6 +63,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             gap: 10px;
             text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .brand-name {
@@ -240,6 +258,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .quality-selector, .quantity-selector {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .quality-btn, .weight-btn {
@@ -447,6 +466,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: all 0.3s;
             box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
             margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .checkout-btn:hover {
@@ -459,6 +482,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: scale(0.98);
         }
 
+        .whatsapp-icon {
+            font-size: 1.5rem;
+        }
+
         .secure-checkout {
             text-align: center;
             margin-top: 15px;
@@ -467,7 +494,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .secure-checkout::before {
-            content: "🔒 ";
+            content: "✓ ";
+            color: var(--village-green);
         }
 
         /* ========== EXIT INTENT POPUP ========== */
@@ -654,16 +682,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-                <span style="font-size: 2rem;">🐐</span>
-                <span class="brand-name">FRESH MUTTON</span>
+                <div class="logo-mark">
+                    <img src="fm-logo.webp" alt="Farm Mutton Logo">
+                </div>
+                <span class="brand-name">FARM MUTTON</span>
             </a>
             <a href="pricing.html" class="back-btn">← Continue Shopping</a>
         </div>
@@ -672,7 +703,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Cart Header -->
     <div class="cart-header">
         <h1>Your Cart</h1>
-        <p>Review your items and proceed to checkout</p>
+        <p>Review your items and complete order on WhatsApp</p>
     </div>
 
     <!-- Cart Container -->
@@ -732,12 +763,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 🎉 You're saving ₹<span id="totalSavings">0</span> on this order!
             </div>
 
-            <button class="checkout-btn" onclick="proceedToCheckout()">
-                PROCEED TO CHECKOUT
+            <button class="checkout-btn" onclick="proceedToWhatsApp()">
+                <span class="whatsapp-icon">📱</span>
+                COMPLETE ORDER ON WHATSAPP
             </button>
 
             <div class="secure-checkout">
-                Secure Checkout · SSL Encrypted
+                Order via WhatsApp · Instant Confirmation
             </div>
         </div>
     </div>
@@ -773,7 +805,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <script>
-        // Sample product data (in real app, this would come from backend)
+        // WhatsApp number
+        const WHATSAPP_NUMBER = '919494051840';
+
+        // Sample product data
         const products = [
             {
                 id: 1,
@@ -810,6 +845,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 originalPrice: 800,
                 discountPrice: 600,
                 pricePerKg: 600
+            },
+            {
+                id: 5,
+                name: "Signature Chops",
+                category: "THE SIGNATURE",
+                image: "mutton-chops.webp",
+                originalPrice: 1218,
+                discountPrice: 975,
+                pricePerKg: 975
+            },
+            {
+                id: 6,
+                name: "Whole Goat",
+                category: "THE CELEBRATION",
+                image: "full-goat.jpg",
+                originalPrice: 11250,
+                discountPrice: 9000,
+                pricePerKg: 9000,
+                isWholeGoat: true
             }
         ];
 
@@ -819,18 +873,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         let exitPopupShown = false;
         let timerInterval = null;
 
-        // Initialize cart from localStorage or add sample items
+        // Initialize cart from localStorage
         function initializeCart() {
             const savedCart = localStorage.getItem('cart');
             if (savedCart) {
                 cart = JSON.parse(savedCart);
-            } else {
-                // Add 3 sample items for demo
-                cart = [
-                    { ...products[0], quality: "Premium", weight: 1, quantity: 1 },
-                    { ...products[1], quality: "Standard", weight: 1, quantity: 2 },
-                    { ...products[2], quality: "Premium", weight: 0.5, quantity: 1 }
-                ];
+                // Add default quality and weight if not present
+                cart = cart.map(item => ({
+                    ...item,
+                    quality: item.quality || 'Standard',
+                    weight: item.weight || 1,
+                    quantity: item.quantity || 1
+                }));
             }
             renderCart();
             updateSummary();
@@ -853,21 +907,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             emptyCart.style.display = 'none';
             itemCount.textContent = cart.length;
 
-            container.innerHTML = cart.map((item, index) => `
+            container.innerHTML = cart.map((item, index) => {
+                const isWholeGoat = item.isWholeGoat || item.name === 'Whole Goat';
+                
+                return `
                 <div class="cart-item">
                     <div class="item-image">
-                        <img src="${item.image}" alt="${item.name}">
+                        <img src="${item.image || 'placeholder.jpg'}" alt="${item.name}">
                     </div>
                     <div class="item-details">
                         <div class="item-header">
                             <div>
-                                <div class="item-category">${item.category}</div>
+                                <div class="item-category">${item.category || 'PRODUCT'}</div>
                                 <div class="item-name">${item.name}</div>
                             </div>
                             <button class="remove-btn" onclick="removeItem(${index})">×</button>
                         </div>
 
                         <div class="item-controls">
+                            ${!isWholeGoat ? `
                             <div class="control-group">
                                 <div class="control-label">Quality</div>
                                 <div class="quality-selector">
@@ -889,193 +947,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             onclick="updateWeight(${index}, 0.5)">
                                         500g
                                     </button>
-                                    <button class="weight-btn ${item.weight === 1 ? 'active' : ''}" 
-                                            onclick="updateWeight(${index}, 1)">
-                                        1kg
-                                    </button>
-                                    <button class="weight-btn ${item.weight === 2 ? 'active' : ''}" 
-                                            onclick="updateWeight(${index}, 2)">
-                                        2kg
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <div class="control-label">Quantity</div>
-                                <div class="quantity-control">
-                                    <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
-                                    <span class="qty-value">${item.quantity}</span>
-                                    <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item-price">
-                            <div class="price-details">
-                                <div class="original-price">₹${(item.originalPrice * item.weight * item.quantity).toFixed(0)}</div>
-                                <div class="current-price">₹${calculateItemPrice(item)}</div>
-                            </div>
-                            <div class="discount-tag">25% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            saveCart();
-        }
-
-        // Calculate item price with quality premium
-        function calculateItemPrice(item) {
-            let basePrice = item.discountPrice * item.weight * item.quantity;
-            if (item.quality === 'Premium') {
-                basePrice *= 1.15; // 15% premium for Premium quality
-            }
-            return Math.round(basePrice);
-        }
-
-        // Update quality
-        function updateQuality(index, quality) {
-            cart[index].quality = quality;
-            renderCart();
-            updateSummary();
-        }
-
-        // Update weight
-        function updateWeight(index, weight) {
-            cart[index].weight = weight;
-            renderCart();
-            updateSummary();
-        }
-
-        // Update quantity
-        function updateQuantity(index, change) {
-            cart[index].quantity = Math.max(1, cart[index].quantity + change);
-            renderCart();
-            updateSummary();
-        }
-
-        // Remove item
-        function removeItem(index) {
-            cart.splice(index, 1);
-            renderCart();
-            updateSummary();
-        }
-
-        // Update order summary
-        function updateSummary() {
-            let subtotal = 0;
-            let originalTotal = 0;
-
-            cart.forEach(item => {
-                originalTotal += item.originalPrice * item.weight * item.quantity;
-                subtotal += calculateItemPrice(item);
-            });
-
-            const discount25 = originalTotal - subtotal;
-            let exitDiscount = 0;
-
-            if (exitDiscountApplied) {
-                exitDiscount = subtotal * 0.05;
-                subtotal -= exitDiscount;
-            }
-
-            const deliveryFee = subtotal >= 500 ? 0 : 50;
-            const total = subtotal + deliveryFee;
-            const totalSavings = discount25 + exitDiscount + (subtotal >= 500 ? 50 : 0);
-
-            document.getElementById('subtotalValue').textContent = `₹${Math.round(subtotal + (exitDiscountApplied ? exitDiscount : 0))}`;
-            document.getElementById('discountValue').textContent = `-₹${Math.round(discount25)}`;
-            document.getElementById('deliveryValue').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
-            document.getElementById('totalValue').textContent = `₹${Math.round(total)}`;
-            document.getElementById('totalSavings').textContent = Math.round(totalSavings);
-
-            if (exitDiscountApplied) {
-                document.getElementById('exitDiscountRow').style.display = 'flex';
-                document.getElementById('exitDiscountValue').textContent = `-₹${Math.round(exitDiscount)}`;
-            }
-
-            // Show free delivery message
-            if (subtotal >= 500) {
-                document.getElementById('deliveryValue').innerHTML = '<span style="color: var(--village-green); font-weight: 700;">FREE 🎉</span>';
-            }
-        }
-
-        // Save cart to localStorage
-        function saveCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-        // Exit intent detection
-        let exitIntentTriggered = false;
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 10 && !exitIntentTriggered && cart.length >= 3 && !exitDiscountApplied) {
-                showExitPopup();
-                exitIntentTriggered = true;
-            }
-        });
-
-        // Show exit popup
-        function showExitPopup() {
-            if (exitPopupShown) return;
-
-            document.getElementById('exitPopup').classList.add('active');
-            exitPopupShown = true;
-            startTimer();
-        }
-
-        // Close exit popup
-        function closeExitPopup() {
-            document.getElementById('exitPopup').classList.remove('active');
-            if (timerInterval) {
-                clearInterval(timerInterval);
-            }
-        }
-
-        // Apply exit discount
-        function applyExitDiscount() {
-            exitDiscountApplied = true;
-            updateSummary();
-            closeExitPopup();
-
-            // Show success message
-            alert('🎉 Extra 5% discount applied! Complete your order within 15 minutes.');
-        }
-
-        // Start 15-minute countdown timer
-        function startTimer() {
-            let timeLeft = 15 * 60; // 15 minutes in seconds
-            const timerElement = document.getElementById('countdownTimer');
-
-            timerInterval = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-                timeLeft--;
-
-                if (timeLeft < 0) {
-                    clearInterval(timerInterval);
-                    closeExitPopup();
-                }
-            }, 1000);
-        }
-
-        // Proceed to checkout
-        function proceedToCheckout() {
-            if (cart.length === 0) {
-                alert('Your cart is empty. Add items before checkout.');
-                return;
-            }
-            alert('🎉 Proceeding to checkout...
-
-In production, this would redirect to payment page.');
-            // window.location.href = 'checkout.html';
-        }
-
-        // Initialize on page load
-        window.onload = function() {
-            initializeCart();
-        };
-    </script>
-</body>
-</html>
+                                    <button class="
