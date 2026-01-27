@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N37KNVQ9');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Delivery Locations - Fresh Mutton Telangana | West Hyderabad Coverage</title>
+    <title>Delivery Locations - Farm Mutton Telangana | West Hyderabad Coverage</title>
     <meta name="description" content="Fresh organic mutton delivery across West Hyderabad. Serving Gachibowli, HITEC City, Kondapur, Madhapur, Manikonda, Narsingi and more. Same-day delivery.">
 
     <link rel="icon" type="image/webp" href="fm-logo.webp">
@@ -127,10 +134,60 @@
             font-weight: 700;
         }
 
+        /* Scrolling Service Notice */
+        .service-notice {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--red-bright), var(--red-primary));
+            color: var(--bg-white);
+            padding: 12px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .service-notice-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-notice 20s linear infinite;
+        }
+
+        .service-notice-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-notice-item::before {
+            content: '⚠️';
+            font-size: 14px;
+        }
+
+        @keyframes scroll-notice {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .service-notice:hover .service-notice-content {
+            animation-play-state: paused;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
-            top: 36px;
+            top: 84px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
@@ -165,18 +222,23 @@
         .logo-mark {
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, var(--red-primary), var(--red-bright));
+            background: var(--bg-white);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 800;
-            font-size: 22px;
-            color: var(--bg-white);
-            box-shadow: 0 4px 16px var(--glow-red);
+            box-shadow: 0 4px 16px var(--shadow-md);
             transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .logo-mark::after {
@@ -361,7 +423,7 @@
 
         /* Hero Section */
         .locations-hero {
-            padding: 160px 5% 100px;
+            padding: 200px 5% 100px;
             background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
             color: var(--bg-white);
             text-align: center;
@@ -773,20 +835,21 @@
             right: 40px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--green-primary), var(--green-bright));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px var(--glow-green);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
             z-index: 999;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 12px 32px var(--glow-green);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
         }
 
         .whatsapp-float svg {
@@ -828,22 +891,41 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Status Bar -->
     <div class="status-bar">
         <div class="status-left">
             <div class="status-indicator">100% ORGANIC</div>
-            <div class="promo-tag">SAME-DAY DELIVERY AVAILABLE</div>
+            <div class="promo-tag">25% OFF + FREE DELIVERY ₹500+</div>
         </div>
       <div id="liveTime">Loading...</div>
   </div>
+
+    <!-- Service Notice Banner -->
+    <div class="service-notice">
+        <div class="service-notice-content">
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-mark">FM</div>
+                <div class="logo-mark">
+                    <img src="fm-logo.webp" alt="Farm Mutton Logo">
+                </div>
                 <div class="logo-text">
-                    <div class="logo-title">FRESH MUTTON</div>
+                    <div class="logo-title">Farm Mutton</div>
                     <div class="logo-subtitle">100% Organic</div>
                 </div>
             </a>
@@ -881,7 +963,7 @@
             <h1>SERVING WEST HYDERABAD</h1>
             <p>
                 From Gachibowli to Narsingi, we bring fresh organic mutton to your doorstep. 
-                Same-day delivery. No freezing. Just freshness within 24 hours.
+                Sunday delivery. No freezing. Just freshness within 24 hours.
             </p>
 
             <div class="coverage-stats">
@@ -905,9 +987,9 @@
     <section class="locations-section">
         <div class="section-header">
             <div class="section-eyebrow">DELIVERY ZONES</div>
-            <h2 class="section-title">Where We Deliver Fresh Mutton</h2>
+            <h2 class="section-title">Where We Deliver Farm Mutton</h2>
             <p class="section-description">
-                Comprehensive coverage across West Hyderabad with same-day fresh meat delivery. Click on any location for detailed info.
+                Comprehensive coverage across West Hyderabad with Sunday fresh meat delivery. Click on any location for detailed info.
             </p>
         </div>
 
@@ -917,28 +999,28 @@
                 <div class="location-icon">🏢</div>
                 <h3>Gachibowli</h3>
                 <p>DLF Cyber City, Nanakramguda, Gopanpally, Silicon Valley</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="hitec-city.html" class="location-card featured-location">
                 <div class="location-icon">💼</div>
                 <h3>HITEC City</h3>
                 <p>Cyber Towers, Raheja Mindspace, Inorbit Mall Area</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="kondapur.html" class="location-card featured-location">
                 <div class="location-icon">🏙️</div>
                 <h3>Kondapur</h3>
                 <p>Aparna Towers, Ayyappa Society, Kothaguda</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="madhapur.html" class="location-card featured-location">
                 <div class="location-icon">🏘️</div>
                 <h3>Madhapur</h3>
                 <p>Hitech City Main Road, Kavuri Hills, Image Gardens</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <!-- Regular Locations with Links -->
@@ -946,84 +1028,84 @@
                 <div class="location-icon">📍</div>
                 <h3>Mehadipatnam</h3>
                 <p>Asif Nagar, Humayun Nagar, Shaikpet</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="tolichowki.html" class="location-card">
                 <div class="location-icon">🏛️</div>
                 <h3>Tolichowki</h3>
                 <p>Langar Houz, Noor Khan Bazar, New Malakpet</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="manikonda.html" class="location-card">
                 <div class="location-icon">🏗️</div>
                 <h3>Manikonda</h3>
                 <p>Lanco Hills, Puppalaguda, Nakshatra Colony</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="narsingi.html" class="location-card">
                 <div class="location-icon">🌳</div>
                 <h3>Narsingi</h3>
                 <p>Kollur, Nanakramguda Junction, Kokapet</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="financial-district.html" class="location-card">
                 <div class="location-icon">🏢</div>
                 <h3>Financial District</h3>
                 <p>Gachibowli-Kokapet Road, Nanakramguda</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="hafeezpet.html" class="location-card">
                 <div class="location-icon">🏡</div>
                 <h3>Hafeezpet</h3>
                 <p>Chandanagar, Miyapur, Allwyn Colony</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="kukatpally.html" class="location-card">
                 <div class="location-icon">🏘️</div>
                 <h3>Kukatpally</h3>
                 <p>KPHB, Moosapet, Balanagar</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="banjara-hills.html" class="location-card">
                 <div class="location-icon">🌆</div>
                 <h3>Banjara Hills</h3>
                 <p>Road No 12, Jubilee Hills Border, Film Nagar</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="jubilee-hills.html" class="location-card">
                 <div class="location-icon">🏠</div>
                 <h3>Jubilee Hills</h3>
                 <p>Road No 36, Journalist Colony, Peddamma Temple</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="lingampally.html" class="location-card">
                 <div class="location-icon">🏢</div>
                 <h3>Lingampally</h3>
                 <p>Botanical Garden, Osman Nagar, Nallagandla</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
             <a href="tellapur.html" class="location-card">
                 <div class="location-icon">🌿</div>
                 <h3>Tellapur</h3>
                 <p>Kollur Village, Gopanpally Extension</p>
-                <span class="delivery-time">Same Day</span>
+                <span class="delivery-time">Sundays</span>
             </a>
 
            <a href="serilingampally.html" class="location-card">
    <div class="location-icon">🏞️</div>
     <h3>Serilingampally</h3>
     <p>Nallagandla, Gowlidoddy, BHEL Area</p>
-    <span class="delivery-time">Same Day</span>
+    <span class="delivery-time">Sundays</span>
 </a>
         </div>
     </section>
@@ -1033,8 +1115,8 @@
         <div class="service-features">
             <div class="feature-box">
                 <div class="feature-icon">⚡</div>
-                <h3>Order by 10 AM</h3>
-                <p>Place your order before 10 AM for guaranteed same-day evening delivery. Fresh cutting at our FSSAI-certified facility.</p>
+                <h3>Pre-Order by Saturday</h3>
+                <p>Place your order by Saturday 8 PM for guaranteed Sunday delivery. Fresh cutting at our FSSAI-certified facility.</p>
             </div>
 
             <div class="feature-box">
@@ -1067,7 +1149,7 @@
                 <div class="map-text">West Hyderabad Coverage</div>
                 <p>
                     Complete West Hyderabad coverage including Gachibowli, HITEC City, Kondapur, Madhapur, 
-                    Manikonda, Narsingi, Financial District, and surrounding areas. Daily fresh delivery from our city facility.
+                    Manikonda, Narsingi, Financial District, and surrounding areas. Fresh delivery every Sunday from our city facility.
                 </p>
             </div>
         </div>
@@ -1087,13 +1169,13 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fresh Mutton Telangana. All rights reserved.</p>
+        <p>&copy; 2025 Farm Mutton Telangana. All rights reserved.</p>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919494051840" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
         <svg viewBox="0 0 32 32">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16z"/>
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.030c-2.475 0-4.818-0.679-6.815-1.863l-0.488-0.282-5.053 1.353 1.35-5.024-0.31-0.506c-1.302-2.067-1.991-4.46-1.991-6.918 0-7.176 5.841-13.017 13.017-13.017s13.017 5.841 13.017 13.017-5.841 13.017-13.017 13.017zM22.339 18.849c-0.397-0.199-2.349-1.159-2.713-1.292-0.364-0.133-0.629-0.199-0.894 0.199s-1.027 1.292-1.259 1.558c-0.232 0.266-0.463 0.299-0.86 0.1s-1.677-0.618-3.193-1.972c-1.18-1.053-1.977-2.353-2.209-2.75s-0.025-0.612 0.174-0.81c0.179-0.178 0.397-0.463 0.596-0.695 0.199-0.232 0.266-0.397 0.397-0.662 0.133-0.266 0.066-0.497-0.033-0.695s-0.894-2.153-1.225-2.948c-0.322-0.774-0.649-0.669-0.894-0.682-0.232-0.012-0.497-0.015-0.762-0.015s-0.695 0.1-1.059 0.497c-0.364 0.397-1.391 1.359-1.391 3.314s1.424 3.844 1.623 4.109c0.199 0.266 2.807 4.287 6.8 6.011 0.95 0.41 1.691 0.655 2.269 0.838 0.957 0.304 1.827 0.261 2.515 0.158 0.767-0.115 2.349-0.96 2.68-1.888s0.331-1.723 0.232-1.888c-0.1-0.166-0.364-0.266-0.762-0.463z"/>
         </svg>
     </a>
 
@@ -1120,32 +1202,32 @@
             
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
+
         // Live Clock
-function updateClock() {
-    const now = new Date();
-    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    
-    const day = days[now.getDay()];
-    const month = months[now.getMonth()];
-    const date = now.getDate();
-    const year = now.getFullYear();
-    
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    
-    // Format with leading zeros
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    
-    const timeString = `${day} ${month} ${date}, ${year} / ${hours}:${minutes} IST`;
-    document.getElementById('liveTime').textContent = timeString;
-}
+        function updateClock() {
+            const now = new Date();
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            
+            const day = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const date = now.getDate();
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            
+            // Format with leading zeros
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            const timeString = `${day} ${month} ${date}, ${year} / ${hours}:${minutes} IST`;
+            document.getElementById('liveTime').textContent = timeString;
+        }
 
-// Update immediately and then every second
-updateClock();
-setInterval(updateClock, 1000);
-
+        // Update immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
