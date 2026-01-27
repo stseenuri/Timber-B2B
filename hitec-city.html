@@ -12,17 +12,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fresh Mutton Delivery in HITEC City | Same-Day Organic Meat - Fresh Mutton Telangana</title>
-    <meta name="description" content="Fresh organic mutton delivery in HITEC City, Cyber Towers, Raheja Mindspace, Inorbit Mall. Same-day delivery from certified farms. Order by 10 AM.">
+    <meta name="description" content="Fresh organic mutton delivery in HITEC City, Cyber Towers, Raheja Mindspace, Inorbit Mall. Same-day delivery from certified farms. Order by Saturday for Sunday delivery.">
 
     <link rel="icon" type="image/webp" href="fm-logo.webp">
     <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="fm-logo.webp">
 
     <style>
-        <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
@@ -135,10 +131,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             font-weight: 700;
         }
 
+        /* Scrolling Service Notice */
+        .service-notice {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--red-bright), var(--red-primary));
+            color: var(--bg-white);
+            padding: 12px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .service-notice-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-notice 20s linear infinite;
+        }
+
+        .service-notice-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-notice-item::before {
+            content: '⚠️';
+            font-size: 14px;
+        }
+
+        @keyframes scroll-notice {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .service-notice:hover .service-notice-content {
+            animation-play-state: paused;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
-            top: 36px;
+            top: 84px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
@@ -173,18 +219,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .logo-mark {
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, var(--red-primary), var(--red-bright));
+            background: var(--bg-white);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 800;
-            font-size: 22px;
-            color: var(--bg-white);
-            box-shadow: 0 4px 16px var(--glow-red);
+            box-shadow: 0 4px 16px var(--shadow-md);
             transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .logo-mark::after {
@@ -289,9 +340,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             transition: all 0.3s ease;
         }
 
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+            background: var(--red-primary);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+            background: var(--red-primary);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 90%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-white);
+            border-right: 1px solid var(--border-light);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+            padding: 120px 40px 40px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 30px;
+        }
+
+        .mobile-menu ul li a {
+            font-family: 'JetBrains Mono', monospace;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--red-primary);
+            transform: translateX(10px);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 1001;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
         /* Hero Section */
         .location-hero {
-            padding: 160px 5% 100px;
+            padding: 200px 5% 100px;
             background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
             color: var(--bg-white);
             text-align: center;
@@ -555,20 +684,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             right: 40px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--green-primary), var(--green-bright));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px var(--glow-green);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
             z-index: 999;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 12px 32px var(--glow-green);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
         }
 
         .whatsapp-float svg {
@@ -598,21 +728,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Status Bar -->
     <div class="status-bar">
         <div class="status-left">
             <div class="status-indicator">100% ORGANIC</div>
             <div class="promo-tag">FREE DELIVERY ON ₹500+</div>
         </div>
-        <div><div id="liveTime">Loading...</div>
-</div>
+        <div id="liveTime">Loading...</div>
+    </div>
+
+    <!-- Service Notice Banner -->
+    <div class="service-notice">
+        <div class="service-notice-content">
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+        </div>
     </div>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-mark">FM</div>
+                <div class="logo-mark">
+                    <img src="fm-logo.webp" alt="Fresh Mutton Logo">
+                </div>
                 <div class="logo-text">
                     <div class="logo-title">FRESH MUTTON</div>
                     <div class="logo-subtitle">100% Organic</div>
@@ -634,6 +782,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about-us.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
+            <li><a href="pricing.html" onclick="toggleMenu()">Order Now</a></li>
+        </ul>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
     <!-- Hero Section -->
     <section class="location-hero">
         <div class="hero-content">
@@ -651,8 +810,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="info-grid">
             <div class="info-card">
                 <div class="info-icon">⚡</div>
-                <h3>Same-Day Delivery</h3>
-                <p>Order by 10 AM for guaranteed evening delivery to your office or home. Fresh cutting at our FSSAI-certified facility. Complete cold chain maintained from farm to your doorstep in HITEC City.</p>
+                <h3>Sunday Delivery</h3>
+                <p>Pre-order by Saturday 8 PM for guaranteed Sunday delivery to your office or home. Fresh cutting at our FSSAI-certified facility. Complete cold chain maintained from farm to your doorstep in HITEC City.</p>
             </div>
 
             <div class="info-card">
@@ -670,7 +829,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="info-card">
                 <div class="info-icon">📞</div>
                 <h3>Easy Ordering</h3>
-                <p>Order via WhatsApp or phone during work hours. Multiple payment options including UPI, cards, and cash. Instant order confirmation. Dedicated customer support for HITEC City residents and corporates.</p>
+                <p>Order via WhatsApp or phone. Multiple payment options including UPI, cards, and cash. Instant order confirmation. Dedicated customer support for HITEC City residents and corporates.</p>
             </div>
         </div>
     </section>
@@ -731,10 +890,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cta-content">
             <h2>Ready to Order?</h2>
             <p>
-                Get fresh organic mutton delivered to your doorstep in HITEC City. 
-                Perfect for busy professionals. Order now and enjoy same-day delivery with 25% OFF on your first order!
+                Get fresh organic mutton delivered to your doorstep in HITEC City every Sunday. 
+                Perfect for busy professionals. Pre-order now and enjoy 25% OFF on your first order!
             </p>
-            <a href="pricing.html" class="cta-button">ORDER NOW</a>
+            <a href="../pricing.html" class="cta-button">ORDER NOW</a>
         </div>
     </section>
 
@@ -744,9 +903,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/919876543210?text=Hi! I want to order fresh mutton in HITEC City" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919494051840?text=Hi! I want to order fresh mutton in HITEC City" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
         <svg viewBox="0 0 32 32">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16z"/>
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.030c-2.475 0-4.818-0.679-6.815-1.863l-0.488-0.282-5.053 1.353 1.35-5.024-0.31-0.506c-1.302-2.067-1.991-4.46-1.991-6.918 0-7.176 5.841-13.017 13.017-13.017s13.017 5.841 13.017 13.017-5.841 13.017-13.017 13.017zM22.339 18.849c-0.397-0.199-2.349-1.159-2.713-1.292-0.364-0.133-0.629-0.199-0.894 0.199s-1.027 1.292-1.259 1.558c-0.232 0.266-0.463 0.299-0.86 0.1s-1.677-0.618-3.193-1.972c-1.18-1.053-1.977-2.353-2.209-2.75s-0.025-0.612 0.174-0.81c0.179-0.178 0.397-0.463 0.596-0.695 0.199-0.232 0.266-0.397 0.397-0.662 0.133-0.266 0.066-0.497-0.033-0.695s-0.894-2.153-1.225-2.948c-0.322-0.774-0.649-0.669-0.894-0.682-0.232-0.012-0.497-0.015-0.762-0.015s-0.695 0.1-1.059 0.497c-0.364 0.397-1.391 1.359-1.391 3.314s1.424 3.844 1.623 4.109c0.199 0.266 2.807 4.287 6.8 6.011 0.95 0.41 1.691 0.655 2.269 0.838 0.957 0.304 1.827 0.261 2.515 0.158 0.767-0.115 2.349-0.96 2.68-1.888s0.331-1.723 0.232-1.888c-0.1-0.166-0.364-0.266-0.762-0.463z"/>
         </svg>
     </a>
 
@@ -771,31 +930,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
-        // Live Clock
-function updateClock() {
-    const now = new Date();
-    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    
-    const day = days[now.getDay()];
-    const month = months[now.getMonth()];
-    const date = now.getDate();
-    const year = now.getFullYear();
-    
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    
-    // Format with leading zeros
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    
-    const timeString = `${day} ${month} ${date}, ${year} / ${hours}:${minutes} IST`;
-    document.getElementById('liveTime').textContent = timeString;
-}
 
-// Update immediately and then every second
-updateClock();
-setInterval(updateClock, 1000);S
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            
+            const day = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const date = now.getDate();
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            
+            // Format with leading zeros
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            const timeString = `${day} ${month} ${date}, ${year} / ${hours}:${minutes} IST`;
+            document.getElementById('liveTime').textContent = timeString;
+        }
+
+        // Update immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
