@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FARM MUTTON — Premium Organic Meat from Telangana Villages</title>
+    <title>Fresh Mutton Telangana — Premium Organic Meat from Telangana Villages</title>
     
     <link rel="icon" type="image/webp" href="fm-logo.webp">
     <link rel="shortcut icon" type="image/webp" href="fm-logo.webp">
@@ -132,10 +132,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-weight: 700;
         }
 
+        /* Scrolling Service Notice */
+        .service-notice {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--red-bright), var(--red-primary));
+            color: var(--bg-white);
+            padding: 12px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .service-notice-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-notice 20s linear infinite;
+        }
+
+        .service-notice-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-notice-item::before {
+            content: '⚠️';
+            font-size: 14px;
+        }
+
+        @keyframes scroll-notice {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .service-notice:hover .service-notice-content {
+            animation-play-state: paused;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
-            top: 36px;
+            top: 84px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
@@ -179,12 +229,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--border-light);
         }
 
         .logo-mark img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background: var(--green-neon);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--green-neon);
         }
 
         .logo-mark:hover {
@@ -354,7 +418,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            padding: 160px 5% 80px;
+            padding: 200px 5% 80px;
             position: relative;
             display: flex;
             align-items: center;
@@ -957,20 +1021,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             left: 40px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--green-primary), var(--green-bright));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 24px var(--glow-green);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
             z-index: 999;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 12px 32px var(--glow-green);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
         }
 
         .whatsapp-float svg {
@@ -1037,15 +1102,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div id="liveTime">Loading...</div>
     </div>
 
+    <!-- Service Notice Banner -->
+    <div class="service-notice">
+        <div class="service-notice-content">
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-mark">
-                    <img src="fm-logo.webp" alt="Farm Mutton Logo">
+                    <img src="fm-logo.webp" alt="Fresh Mutton Logo">
                 </div>
                 <div class="logo-text">
-                    <div class="logo-title">FARM MUTTON</div>
+                    <div class="logo-title">FRESH MUTTON</div>
                     <div class="logo-subtitle">100% Organic</div>
                 </div>
             </a>
@@ -1321,7 +1398,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>FARM MUTTON</h3>
+                <h3>FRESH MUTTON</h3>
                 <p>Connecting Telangana's organic farmers with modern families. 100% chemical-free, farm-fresh mutton delivered in 24 hours.</p>
             </div>
 
@@ -1347,21 +1424,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <h3>CONTACT</h3>
                 <ul>
                     <li><a href="tel:+919494051840">+91 94940 51840</a></li>
-                    <li><a href="mailto:contact@farmmutton.com">contact@farmmutton.com</a></li>
+                    <li><a href="mailto:contact@freshmutton.com">contact@freshmutton.com</a></li>
                     <li>West Hyderabad</li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 FARM MUTTON TELANGANA. ALL RIGHTS RESERVED.</p>
+            <p>© 2025 FRESH MUTTON TELANGANA. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/919494051840" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
         <svg viewBox="0 0 32 32">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16z"/>
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.030c-2.475 0-4.818-0.679-6.815-1.863l-0.488-0.282-5.053 1.353 1.35-5.024-0.31-0.506c-1.302-2.067-1.991-4.46-1.991-6.918 0-7.176 5.841-13.017 13.017-13.017s13.017 5.841 13.017 13.017-5.841 13.017-13.017 13.017zM22.339 18.849c-0.397-0.199-2.349-1.159-2.713-1.292-0.364-0.133-0.629-0.199-0.894 0.199s-1.027 1.292-1.259 1.558c-0.232 0.266-0.463 0.299-0.86 0.1s-1.677-0.618-3.193-1.972c-1.18-1.053-1.977-2.353-2.209-2.75s-0.025-0.612 0.174-0.81c0.179-0.178 0.397-0.463 0.596-0.695 0.199-0.232 0.266-0.397 0.397-0.662 0.133-0.266 0.066-0.497-0.033-0.695s-0.894-2.153-1.225-2.948c-0.322-0.774-0.649-0.669-0.894-0.682-0.232-0.012-0.497-0.015-0.762-0.015s-0.695 0.1-1.059 0.497c-0.364 0.397-1.391 1.359-1.391 3.314s1.424 3.844 1.623 4.109c0.199 0.266 2.807 4.287 6.8 6.011 0.95 0.41 1.691 0.655 2.269 0.838 0.957 0.304 1.827 0.261 2.515 0.158 0.767-0.115 2.349-0.96 2.68-1.888s0.331-1.723 0.232-1.888c-0.1-0.166-0.364-0.266-0.762-0.463z"/>
         </svg>
     </a>
 
