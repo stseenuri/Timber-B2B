@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="icon" type="image/webp" href="fm-logo.webp">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap');
 
         * {
             margin: 0;
@@ -24,30 +24,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         :root {
-            --village-green: #2D5016;
-            --meat-red: #C41E3A;
-            --golden-yellow: #FFB84D;
-            --cream-bg: #F9F5F0;
-            --dark-text: #2C2C2C;
-            --white: #FFFFFF;
+            --bg-white: #FFFFFF;
+            --bg-cream: #FFFCF8;
+            --bg-light: #F9F7F4;
+            --red-primary: #C41E3A;
+            --red-dark: #A01628;
+            --red-bright: #E63950;
+            --green-primary: #2D5016;
+            --green-bright: #4A7C2C;
+            --green-neon: #7FD858;
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --border-light: #E8E8E8;
+            --shadow-sm: rgba(0, 0, 0, 0.06);
+            --shadow-md: rgba(0, 0, 0, 0.12);
+            --glow-red: rgba(196, 30, 58, 0.25);
+            --glow-green: rgba(45, 80, 22, 0.25);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--cream-bg);
-            color: var(--dark-text);
+            background: var(--bg-cream);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* ========== NAVIGATION ========== */
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 15px var(--shadow-sm);
             z-index: 100;
-            padding: 15px 5%;
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .nav-container {
@@ -61,42 +72,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
             text-decoration: none;
         }
 
         .logo-mark {
-            width: 45px;
-            height: 45px;
-            background: var(--white);
-            border-radius: 8px;
+            width: 52px;
+            height: 52px;
+            background: var(--bg-white);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 16px var(--shadow-md);
+            border: 2px solid var(--border-light);
         }
 
         .logo-mark img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
-        .brand-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            color: var(--village-green);
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-dark);
             letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: var(--green-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
         }
 
         .back-btn {
-            padding: 10px 20px;
+            padding: 12px 28px;
             background: transparent;
-            color: var(--village-green);
-            border: 2px solid var(--village-green);
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            color: var(--green-primary);
+            border: 2px solid var(--green-primary);
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -104,75 +136,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .back-btn:hover {
-            background: var(--village-green);
-            color: var(--white);
+            background: var(--green-primary);
+            color: var(--bg-white);
+            box-shadow: 0 4px 16px var(--glow-green);
         }
 
-        /* ========== CART HEADER ========== */
+        /* Cart Header */
         .cart-header {
-            padding: 40px 5% 30px;
+            padding: 60px 5% 40px;
             text-align: center;
-            background: var(--white);
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .cart-header h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: var(--village-green);
-            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
         }
 
         .cart-header p {
-            color: #666;
-            font-size: 0.95rem;
+            font-size: 16px;
+            color: var(--text-gray);
         }
 
-        /* ========== CART CONTAINER ========== */
+        /* Cart Container */
         .cart-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 60px 5%;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
-        /* ========== CART ITEMS ========== */
+        /* Cart Items */
         .cart-items {
-            background: var(--white);
+            background: var(--bg-white);
             border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            box-shadow: 0 10px 30px var(--shadow-md);
+            border: 2px solid var(--border-light);
         }
 
         .cart-items h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--village-green);
-            margin-bottom: 25px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .item-count {
-            background: var(--meat-red);
-            color: var(--white);
-            width: 30px;
-            height: 30px;
+            background: var(--red-primary);
+            color: var(--bg-white);
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px var(--glow-red);
         }
 
         .cart-item {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 15px;
-            padding: 20px 0;
-            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            gap: 25px;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--border-light);
         }
 
         .cart-item:last-child {
@@ -180,11 +221,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .item-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 12px;
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--cream-bg);
+            background: var(--bg-light);
+            flex-shrink: 0;
         }
 
         .item-image img {
@@ -194,9 +236,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .item-details {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
         .item-header {
@@ -206,96 +249,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .item-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--village-green);
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--text-dark);
             margin-bottom: 5px;
+            letter-spacing: -0.5px;
         }
 
         .item-category {
-            font-size: 0.75rem;
-            color: var(--meat-red);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--red-primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .remove-btn {
-            background: none;
+            background: var(--red-primary);
             border: none;
-            color: var(--meat-red);
+            color: var(--bg-white);
             cursor: pointer;
-            font-size: 1.3rem;
-            padding: 5px;
-            transition: transform 0.3s;
+            font-size: 20px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 700;
         }
 
         .remove-btn:hover {
-            transform: scale(1.2);
+            background: var(--red-dark);
+            transform: scale(1.1);
         }
 
-        /* Quality & Quantity Selectors */
-        .item-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .control-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .quality-selector, .quantity-selector {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .quality-btn, .weight-btn {
-            padding: 8px 16px;
-            background: var(--cream-bg);
-            border: 2px solid transparent;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .quality-btn.active, .weight-btn.active {
-            background: var(--village-green);
-            color: var(--white);
-            border-color: var(--village-green);
-        }
-
-        .quantity-control {
+        /* Quantity Controls */
+        .quantity-controls {
             display: flex;
             align-items: center;
             gap: 15px;
-            background: var(--cream-bg);
-            border-radius: 25px;
-            padding: 5px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 8px;
             width: fit-content;
         }
 
         .qty-btn {
-            width: 35px;
-            height: 35px;
+            width: 36px;
+            height: 36px;
             border: none;
-            background: var(--village-green);
-            color: var(--white);
+            background: var(--green-primary);
+            color: var(--bg-white);
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -303,102 +310,107 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: all 0.3s;
         }
 
+        .qty-btn:hover {
+            background: var(--green-bright);
+            transform: scale(1.1);
+        }
+
         .qty-btn:active {
-            transform: scale(0.9);
+            transform: scale(0.95);
         }
 
         .qty-value {
-            min-width: 40px;
+            min-width: 50px;
             text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--text-dark);
         }
 
         .item-price {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed #e0e0e0;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed var(--border-light);
         }
 
         .price-details {
             display: flex;
             flex-direction: column;
-            gap: 3px;
-        }
-
-        .original-price {
-            font-size: 0.85rem;
-            color: #999;
-            text-decoration: line-through;
+            gap: 5px;
         }
 
         .current-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--meat-red);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            color: var(--red-primary);
+            font-weight: 800;
             line-height: 1;
         }
 
-        .discount-tag {
-            background: var(--golden-yellow);
-            color: var(--dark-text);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
+        .price-label {
+            font-size: 12px;
+            color: var(--text-gray);
+            font-weight: 600;
         }
 
-        /* ========== EMPTY CART ========== */
+        /* Empty Cart */
         .empty-cart {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         .empty-cart-icon {
-            font-size: 5rem;
-            margin-bottom: 20px;
+            font-size: 80px;
+            margin-bottom: 30px;
             opacity: 0.3;
         }
 
         .empty-cart h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--village-green);
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-dark);
             margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
         .empty-cart p {
-            color: #666;
-            margin-bottom: 25px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 16px;
         }
 
-        /* ========== ORDER SUMMARY ========== */
+        /* Order Summary */
         .order-summary {
-            background: var(--white);
+            background: var(--bg-white);
             border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+            box-shadow: 0 10px 30px var(--shadow-md);
+            border: 2px solid var(--border-light);
             height: fit-content;
             position: sticky;
-            top: 90px;
+            top: 120px;
         }
 
         .order-summary h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: var(--village-green);
-            margin-bottom: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .summary-row:last-child {
@@ -406,76 +418,76 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .summary-label {
-            font-size: 0.95rem;
-            color: #666;
+            font-size: 15px;
+            color: var(--text-gray);
+            font-weight: 600;
         }
 
         .summary-value {
-            font-weight: 600;
-            color: var(--dark-text);
-        }
-
-        .discount-row {
-            color: var(--meat-red);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 16px;
         }
 
         .discount-row .summary-value {
-            color: var(--meat-red);
+            color: var(--red-primary);
         }
 
         .total-row {
-            padding: 20px 0 0;
-            margin-top: 15px;
-            border-top: 2px solid var(--village-green);
+            padding: 25px 0 0;
+            margin-top: 20px;
+            border-top: 3px solid var(--green-primary);
         }
 
         .total-row .summary-label {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--dark-text);
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-dark);
         }
 
         .total-row .summary-value {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--village-green);
+            font-size: 32px;
+            color: var(--green-primary);
         }
 
         .savings-banner {
-            background: linear-gradient(135deg, var(--golden-yellow) 0%, #FFD700 100%);
-            padding: 15px;
+            background: linear-gradient(135deg, var(--green-neon) 0%, var(--green-bright) 100%);
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
             font-weight: 700;
-            color: var(--dark-text);
+            color: var(--bg-white);
+            box-shadow: 0 4px 16px var(--glow-green);
         }
 
         .checkout-btn {
             width: 100%;
-            padding: 18px;
-            background: var(--meat-red);
-            color: var(--white);
+            padding: 20px;
+            background: var(--red-primary);
+            color: var(--bg-white);
             border: none;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
-            margin-top: 20px;
+            box-shadow: 0 6px 20px var(--glow-red);
+            margin-top: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .checkout-btn:hover {
-            background: #A01628;
+            background: var(--red-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 8px 25px var(--glow-red);
         }
 
         .checkout-btn:active {
@@ -483,200 +495,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .whatsapp-icon {
-            font-size: 1.5rem;
+            font-size: 20px;
         }
 
         .secure-checkout {
             text-align: center;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: #666;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+            font-weight: 600;
         }
 
         .secure-checkout::before {
             content: "✓ ";
-            color: var(--village-green);
+            color: var(--green-primary);
+            font-weight: 800;
         }
 
-        /* ========== EXIT INTENT POPUP ========== */
-        .exit-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-
-        .exit-popup-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .exit-popup {
-            position: relative;
-            max-width: 450px;
-            width: 90%;
-            padding: 40px 30px;
-            background: var(--white);
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-            animation: popupSlide 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        @keyframes popupSlide {
-            0% {
-                transform: scale(0.5) translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .popup-close:hover {
-            color: var(--meat-red);
-            transform: rotate(90deg);
-        }
-
-        .popup-icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-
-        .popup-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: var(--village-green);
-            margin-bottom: 15px;
-            line-height: 1.1;
-        }
-
-        .popup-discount {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: var(--meat-red);
-            margin: 20px 0;
-            line-height: 1;
-        }
-
-        .popup-subtitle {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--dark-text);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .timer-container {
-            background: var(--cream-bg);
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-
-        .timer-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .timer {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: var(--meat-red);
-            line-height: 1;
-        }
-
-        .popup-cta {
-            width: 100%;
-            padding: 18px;
-            background: var(--meat-red);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
-            margin-top: 10px;
-        }
-
-        .popup-cta:hover {
-            background: #A01628;
-            transform: translateY(-2px);
-        }
-
-        .popup-decline {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            color: #666;
-            border: none;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 10px;
-            text-decoration: underline;
-        }
-
-        .popup-terms {
-            margin-top: 15px;
-            font-size: 0.75rem;
-            color: #999;
-        }
-
-        /* ========== RESPONSIVE ========== */
+        /* Responsive */
         @media (min-width: 768px) {
             .cart-container {
-                grid-template-columns: 1fr 400px;
+                grid-template-columns: 1fr 420px;
             }
+        }
 
+        @media (max-width: 767px) {
             .cart-item {
-                grid-template-columns: 120px 1fr;
+                flex-direction: column;
             }
 
             .item-image {
-                width: 120px;
-                height: 120px;
+                width: 100%;
+                height: 200px;
             }
 
-            .item-controls {
-                flex-direction: row;
-                gap: 20px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .cart-header h1 {
-                font-size: 3.5rem;
+            .order-summary {
+                position: static;
             }
         }
     </style>
@@ -694,9 +548,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="logo-mark">
                     <img src="fm-logo.webp" alt="Farm Mutton Logo">
                 </div>
-                <span class="brand-name">FARM MUTTON</span>
+                <div class="logo-text">
+                    <div class="logo-title">Farm Mutton</div>
+                    <div class="logo-subtitle">100% Organic</div>
+                </div>
             </a>
-            <a href="pricing.html" class="back-btn">← Continue Shopping</a>
+            <a href="index.html" class="back-btn">← Continue Shopping</a>
         </div>
     </nav>
 
@@ -724,7 +581,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="empty-cart-icon">🛒</div>
                 <h3>Your Cart is Empty</h3>
                 <p>Add some delicious organic mutton to get started!</p>
-                <a href="pricing.html" class="checkout-btn" style="max-width: 300px; margin: 0 auto; display: block;">
+                <a href="index.html" class="checkout-btn" style="max-width: 300px; margin: 20px auto; display: flex;">
                     Browse Products
                 </a>
             </div>
@@ -740,18 +597,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
             <div class="summary-row">
-                <span class="summary-label">25% OFF Discount</span>
-                <span class="summary-value discount-row" id="discountValue">-₹0</span>
-            </div>
-
-            <div class="summary-row" id="exitDiscountRow" style="display: none;">
-                <span class="summary-label">Extra 5% OFF 🎉</span>
-                <span class="summary-value discount-row" id="exitDiscountValue">-₹0</span>
+                <span class="summary-label">Items</span>
+                <span class="summary-value" id="itemsCount">0</span>
             </div>
 
             <div class="summary-row">
-                <span class="summary-label">Delivery</span>
-                <span class="summary-value" id="deliveryValue">₹50</span>
+                <span class="summary-label">Delivery (Sunday)</span>
+                <span class="summary-value" id="deliveryValue">FREE</span>
             </div>
 
             <div class="summary-row total-row">
@@ -759,13 +611,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="summary-value" id="totalValue">₹0</span>
             </div>
 
-            <div class="savings-banner" id="savingsBanner">
-                🎉 You're saving ₹<span id="totalSavings">0</span> on this order!
+            <div class="savings-banner" id="savingsBanner" style="display: none;">
+                🎉 Your order total: ₹<span id="totalAmount">0</span>
             </div>
 
-            <button class="checkout-btn" onclick="proceedToWhatsApp()">
+            <button class="checkout-btn" onclick="proceedToWhatsApp()" id="checkoutBtn">
                 <span class="whatsapp-icon">📱</span>
-                COMPLETE ORDER ON WHATSAPP
+                Complete Order on WhatsApp
             </button>
 
             <div class="secure-checkout">
@@ -774,117 +626,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
 
-    <!-- Exit Intent Popup -->
-    <div class="exit-popup-overlay" id="exitPopup">
-        <div class="exit-popup">
-            <button class="popup-close" onclick="closeExitPopup()">×</button>
-
-            <div class="popup-icon">😮</div>
-            <h2 class="popup-title">WAIT! DON'T LEAVE YET!</h2>
-            <div class="popup-discount">EXTRA 5% OFF</div>
-            <p class="popup-subtitle">
-                Complete your order now and get an additional 5% discount on top of your existing 25% OFF!
-            </p>
-
-            <div class="timer-container">
-                <div class="timer-label">⏰ Offer Expires In</div>
-                <div class="timer" id="countdownTimer">15:00</div>
-            </div>
-
-            <button class="popup-cta" onclick="applyExitDiscount()">
-                YES! APPLY EXTRA 5% OFF
-            </button>
-            <button class="popup-decline" onclick="closeExitPopup()">
-                No thanks, I'll pay full price
-            </button>
-
-            <p class="popup-terms">
-                Valid for 15 minutes. Cannot be combined with other offers.
-            </p>
-        </div>
-    </div>
-
     <script>
         // WhatsApp number
         const WHATSAPP_NUMBER = '919494051840';
 
-        // Sample product data
-        const products = [
-            {
-                id: 1,
-                name: "Premium Curry Cut",
-                category: "THE CLASSIC",
-                image: "curry-cut-image.webp",
-                originalPrice: 1250,
-                discountPrice: 937,
-                pricePerKg: 937
-            },
-            {
-                id: 2,
-                name: "Tender Boneless",
-                category: "THE PREMIUM",
-                image: "bonless-mutton.webp",
-                originalPrice: 1400,
-                discountPrice: 1050,
-                pricePerKg: 1050
-            },
-            {
-                id: 3,
-                name: "Fresh Keema",
-                category: "THE GROUND",
-                image: "mutton-kheema.jpg",
-                originalPrice: 1200,
-                discountPrice: 900,
-                pricePerKg: 900
-            },
-            {
-                id: 4,
-                name: "Premium Liver",
-                category: "THE NUTRITIOUS",
-                image: "mutton-liver.jpg",
-                originalPrice: 800,
-                discountPrice: 600,
-                pricePerKg: 600
-            },
-            {
-                id: 5,
-                name: "Signature Chops",
-                category: "THE SIGNATURE",
-                image: "mutton-chops.webp",
-                originalPrice: 1218,
-                discountPrice: 975,
-                pricePerKg: 975
-            },
-            {
-                id: 6,
-                name: "Whole Goat",
-                category: "THE CELEBRATION",
-                image: "full-goat.jpg",
-                originalPrice: 11250,
-                discountPrice: 9000,
-                pricePerKg: 9000,
-                isWholeGoat: true
-            }
-        ];
+        // Product images mapping
+        const productImages = {
+            'Premium Curry Cut': 'curry-cut-image.webp',
+            'Tender Boneless': 'bonless-mutton.webp',
+            'Fresh Keema': 'mutton-kheema.jpg',
+            'Premium Liver': 'mutton-liver.jpg',
+            'Signature Chops': 'mutton-chops.webp',
+            'Whole Goat': 'full-goat.jpg'
+        };
 
         // Cart state
         let cart = [];
-        let exitDiscountApplied = false;
-        let exitPopupShown = false;
-        let timerInterval = null;
 
         // Initialize cart from localStorage
         function initializeCart() {
-            const savedCart = localStorage.getItem('cart');
+            const savedCart = localStorage.getItem('farmMuttonCart');
             if (savedCart) {
                 cart = JSON.parse(savedCart);
-                // Add default quality and weight if not present
-                cart = cart.map(item => ({
-                    ...item,
-                    quality: item.quality || 'Standard',
-                    weight: item.weight || 1,
-                    quantity: item.quantity || 1
-                }));
             }
             renderCart();
             updateSummary();
@@ -900,51 +663,129 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 container.style.display = 'none';
                 emptyCart.style.display = 'block';
                 itemCount.textContent = '0';
+                document.querySelector('.order-summary').style.display = 'none';
                 return;
             }
 
             container.style.display = 'block';
             emptyCart.style.display = 'none';
             itemCount.textContent = cart.length;
+            document.querySelector('.order-summary').style.display = 'block';
 
             container.innerHTML = cart.map((item, index) => {
-                const isWholeGoat = item.isWholeGoat || item.name === 'Whole Goat';
-                
+                const itemTotal = item.price * item.quantity;
+                const imageSrc = productImages[item.name] || 'fm-logo.webp';
+
                 return `
                 <div class="cart-item">
                     <div class="item-image">
-                        <img src="${item.image || 'placeholder.jpg'}" alt="${item.name}">
+                        <img src="${imageSrc}" alt="${item.name}" onerror="this.src='fm-logo.webp'">
                     </div>
                     <div class="item-details">
                         <div class="item-header">
                             <div>
-                                <div class="item-category">${item.category || 'PRODUCT'}</div>
+                                <div class="item-category">ORGANIC</div>
                                 <div class="item-name">${item.name}</div>
                             </div>
-                            <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                            <button class="remove-btn" onclick="removeItem(${index})" title="Remove item">×</button>
                         </div>
 
-                        <div class="item-controls">
-                            ${!isWholeGoat ? `
-                            <div class="control-group">
-                                <div class="control-label">Quality</div>
-                                <div class="quality-selector">
-                                    <button class="quality-btn ${item.quality === 'Standard' ? 'active' : ''}" 
-                                            onclick="updateQuality(${index}, 'Standard')">
-                                        Standard
-                                    </button>
-                                    <button class="quality-btn ${item.quality === 'Premium' ? 'active' : ''}" 
-                                            onclick="updateQuality(${index}, 'Premium')">
-                                        Premium
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="updateQuantity(${index}, -1)">−</button>
+                            <div class="qty-value">${item.quantity}</div>
+                            <button class="qty-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
 
-                            <div class="control-group">
-                                <div class="control-label">Weight</div>
-                                <div class="quantity-selector">
-                                    <button class="weight-btn ${item.weight === 0.5 ? 'active' : ''}" 
-                                            onclick="updateWeight(${index}, 0.5)">
-                                        500g
-                                    </button>
-                                    <button class="
+                        <div class="item-price">
+                            <div class="price-details">
+                                <div class="price-label">₹${item.price}/kg × ${item.quantity}kg</div>
+                                <div class="current-price">₹${itemTotal.toLocaleString('en-IN')}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Update quantity
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+
+            if (cart[index].quantity < 1) {
+                cart[index].quantity = 1;
+            }
+
+            if (cart[index].quantity > 50) {
+                cart[index].quantity = 50;
+            }
+
+            saveCart();
+            renderCart();
+            updateSummary();
+        }
+
+        // Remove item
+        function removeItem(index) {
+            if (confirm(`Remove ${cart[index].name} from cart?`)) {
+                cart.splice(index, 1);
+                saveCart();
+                renderCart();
+                updateSummary();
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('farmMuttonCart', JSON.stringify(cart));
+        }
+
+        // Update summary
+        function updateSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const deliveryFee = subtotal >= 500 ? 0 : 0; // Free delivery for all
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('subtotalValue').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            document.getElementById('itemsCount').textContent = totalItems;
+            document.getElementById('deliveryValue').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
+            document.getElementById('totalValue').textContent = `₹${total.toLocaleString('en-IN')}`;
+            document.getElementById('totalAmount').textContent = total.toLocaleString('en-IN');
+
+            if (cart.length > 0) {
+                document.getElementById('savingsBanner').style.display = 'block';
+            }
+        }
+
+        // Proceed to WhatsApp
+        function proceedToWhatsApp() {
+            if (cart.length === 0) {
+                alert('Your cart is empty! Please add items first.');
+                return;
+            }
+
+            const orderDetails = cart.map((item, index) => 
+                `${index + 1}. ${item.name}\n   Quantity: ${item.quantity}kg\n   Price: ₹${(item.price * item.quantity).toLocaleString('en-IN')}`
+            ).join('\n\n');
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            const message = `🛒 *NEW ORDER FROM FARM MUTTON WEBSITE*\n\n` +
+                `*ORDER DETAILS:*\n${orderDetails}\n\n` +
+                `━━━━━━━━━━━━━━━\n` +
+                `*Total Items:* ${totalItems}kg\n` +
+                `*Total Amount:* ₹${total.toLocaleString('en-IN')}\n` +
+                `*Delivery:* FREE (Sunday Only)\n\n` +
+                `Please confirm my order and provide delivery details. Thank you! 🙏`;
+
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', initializeCart);
+    </script>
+</body>
+</html>
