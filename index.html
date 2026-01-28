@@ -626,6 +626,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             overflow: hidden;
         }
 
+        .value-card.sunday-delivery {
+            background: var(--red-bright);
+            border-color: var(--red-primary);
+        }
+
+        .value-card.sunday-delivery .value-number {
+            color: var(--bg-white);
+            opacity: 0.3;
+        }
+
+        .value-card.sunday-delivery .value-title,
+        .value-card.sunday-delivery .value-description {
+            color: var(--bg-white);
+        }
+
         .value-card::before {
             content: '';
             position: absolute;
@@ -1131,7 +1146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="index.html" class="nav-btn">HOME</a>
                 <a href="about-us.html" class="nav-btn">ABOUT</a>
                 <a href="locations.html" class="nav-btn">LOCATIONS</a>
-                <a href="pricing.html" class="nav-btn primary">ORDER NOW</a>
+                <a href="cart.html" class="nav-btn primary">CART</a>
             </div>
 
             <button class="menu-toggle" onclick="toggleMenu()">
@@ -1148,7 +1163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
             <li><a href="about-us.html" onclick="toggleMenu()">About</a></li>
             <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
-            <li><a href="pricing.html" onclick="toggleMenu()">Order Now</a></li>
+            <li><a href="cart.html" onclick="toggleMenu()">Cart</a></li>
         </ul>
     </div>
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
@@ -1165,7 +1180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <p class="hero-subtitle">
                 Direct from 50 village farmers to your table. No chemicals. No middlemen. 
-                Just honest, organic mutton delivered fresh to West Hyderabad in 24 hours.
+                Just honest, organic mutton delivered fresh to West Hyderabad every Sunday.
             </p>
 
             <div class="hero-stats">
@@ -1210,10 +1225,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero steroids. Just traditional methods.</p>
             </div>
 
-            <div class="value-card">
-                <div class="value-number">24H</div>
-                <h3 class="value-title">Farm to Door</h3>
-                <p class="value-description">FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness delivered to you.</p>
+            <div class="value-card sunday-delivery">
+                <div class="value-number">SUN</div>
+                <h3 class="value-title">Sunday Delivery</h3>
+                <p class="value-description">Fresh deliveries every Sunday. FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness.</p>
             </div>
         </div>
     </section>
@@ -1237,7 +1252,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Premium Curry Cut</h3>
                     <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,200</span><span>₹937</span><span>/kg</span></div>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,250</span><span>₹937</span><span>/kg</span></div>
                         <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Curry Cut" data-price="937">ADD TO CART</button>
                     </div>
                 </div>
@@ -1254,8 +1269,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Tender Boneless</h3>
                     <p>Premium boneless cuts for quick cooking. Perfect for kebabs and grills.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,350</span><span>₹1,050</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1050">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,467</span><span>₹1,100</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1100">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1271,8 +1286,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Fresh Keema</h3>
                     <p>Freshly ground minced mutton. Perfect for authentic keema curry.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,125</span><span>₹900</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="900">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,267</span><span>₹950</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="950">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1288,8 +1303,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Premium Liver</h3>
                     <p>Nutrient-rich organ meat high in iron and protein.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹750</span><span>₹600</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="600">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹867</span><span>₹650</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="650">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1305,8 +1320,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Signature Chops</h3>
                     <p>Perfectly portioned chops. Ideal for grilling or weekend barbecues.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,218</span><span>₹975</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="975">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,367</span><span>₹1,025</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="1025">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1322,8 +1337,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <h3>Whole Goat</h3>
                     <p>Complete goat for special occasions. Cut as per your requirements.</p>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹11,250</span><span>₹9,000</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9000">PRE-ORDER</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹12,067</span><span>₹9,050</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9050">PRE-ORDER</button>
                     </div>
                 </div>
             </div>
