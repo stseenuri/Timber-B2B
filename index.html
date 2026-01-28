@@ -617,8 +617,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .value-card {
-            background: var(--bg-light);
-            border: 2px solid var(--border-light);
+            background: var(--red-bright);
+            border: 2px solid var(--red-primary);
             border-radius: 20px;
             padding: 50px;
             transition: all 0.4s ease;
@@ -626,18 +626,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             overflow: hidden;
         }
 
-        .value-card.sunday-delivery {
-            background: var(--red-bright);
-            border-color: var(--red-primary);
-        }
-
-        .value-card.sunday-delivery .value-number {
+        .value-card .value-number {
             color: var(--bg-white);
             opacity: 0.3;
         }
 
-        .value-card.sunday-delivery .value-title,
-        .value-card.sunday-delivery .value-description {
+        .value-card .value-title,
+        .value-card .value-description {
             color: var(--bg-white);
         }
 
@@ -659,10 +654,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .value-card:hover {
-            border-color: var(--green-primary);
+            border-color: var(--red-dark);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px var(--shadow-md);
-            background: var(--bg-white);
+            box-shadow: 0 20px 40px var(--glow-red);
+            background: var(--red-primary);
         }
 
         .value-number {
@@ -1100,6 +1095,94 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+
+        /* Quantity Selector */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quantity-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-light);
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: var(--green-primary);
+            color: var(--bg-white);
+            border-color: var(--green-primary);
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            border: none;
+            background: transparent;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+        }
+
+        /* Cart Counter Badge */
+        .cart-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--red-primary);
+            color: var(--bg-white);
+            border-radius: 50%;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px var(--glow-red);
+        }
+
+        .nav-btn.primary {
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -1225,7 +1308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <p class="value-description">100% natural farming. Free-grazing goats on organic grass. Zero steroids. Just traditional methods.</p>
             </div>
 
-            <div class="value-card sunday-delivery">
+            <div class="value-card">
                 <div class="value-number">SUN</div>
                 <h3 class="value-title">Sunday Delivery</h3>
                 <p class="value-description">Fresh deliveries every Sunday. FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness.</p>
@@ -1251,8 +1334,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="product-category">THE CLASSIC</div>
                     <h3>Premium Curry Cut</h3>
                     <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,250</span><span>₹937</span><span>/kg</span></div>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,200</span><span>₹937</span><span>/kg</span></div>
                         <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Curry Cut" data-price="937">ADD TO CART</button>
                     </div>
                 </div>
@@ -1268,9 +1360,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="product-category">THE PREMIUM</div>
                     <h3>Tender Boneless</h3>
                     <p>Premium boneless cuts for quick cooking. Perfect for kebabs and grills.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,467</span><span>₹1,100</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1100">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,350</span><span>₹1,050</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1050">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1285,9 +1386,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="product-category">THE GROUND</div>
                     <h3>Fresh Keema</h3>
                     <p>Freshly ground minced mutton. Perfect for authentic keema curry.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,267</span><span>₹950</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="950">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,125</span><span>₹900</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="900">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1302,9 +1412,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="product-category">THE NUTRITIOUS</div>
                     <h3>Premium Liver</h3>
                     <p>Nutrient-rich organ meat high in iron and protein.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹867</span><span>₹650</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="650">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹750</span><span>₹600</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="600">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1319,9 +1438,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="product-category">THE SIGNATURE</div>
                     <h3>Signature Chops</h3>
                     <p>Perfectly portioned chops. Ideal for grilling or weekend barbecues.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,367</span><span>₹1,025</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="1025">ADD TO CART</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,218</span><span>₹975</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="975">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -1335,10 +1463,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="product-content">
                     <div class="product-category">THE CELEBRATION</div>
                     <h3>Whole Goat</h3>
-                    <p>Complete goat for special occasions. Cut as per your requirements.</p>
+                    <p>Complete goat for special occasions. Cut as per your requirements. Contact us for final pricing based on size.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹12,067</span><span>₹9,050</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9050">PRE-ORDER</button>
+                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹11,250</span><span>₹9,000</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9000">PRE-ORDER</button>
                     </div>
                 </div>
             </div>
@@ -1530,5 +1667,125 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         updateClock();
         setInterval(updateClock, 1000);
     </script>
+
+    <script>
+        // Cart Management System
+        let cart = JSON.parse(localStorage.getItem('farmMuttonCart')) || [];
+
+        // Update cart counter on page load
+        window.addEventListener('DOMContentLoaded', updateCartCounter);
+
+        function updateCartCounter() {
+            const cartButtons = document.querySelectorAll('.nav-btn.primary');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            cartButtons.forEach(btn => {
+                const existingCounter = btn.querySelector('.cart-counter');
+                if (existingCounter) {
+                    existingCounter.remove();
+                }
+
+                if (totalItems > 0) {
+                    const counter = document.createElement('span');
+                    counter.className = 'cart-counter';
+                    counter.textContent = totalItems > 99 ? '99+' : totalItems;
+                    btn.appendChild(counter);
+                }
+            });
+        }
+
+        function incrementQuantity(btn) {
+            const input = btn.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value);
+            if (value < 50) {
+                input.value = value + 1;
+            }
+        }
+
+        function decrementQuantity(btn) {
+            const input = btn.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value);
+            if (value > 1) {
+                input.value = value - 1;
+            }
+        }
+
+        function addToCart(btn) {
+            const productCard = btn.closest('.product-card');
+            const productName = btn.getAttribute('data-name');
+            const productPrice = parseInt(btn.getAttribute('data-price'));
+            const quantityInput = productCard.querySelector('.quantity-input');
+            const quantity = parseInt(quantityInput.value);
+
+            const existingItemIndex = cart.findIndex(item => item.name === productName);
+
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity
+                });
+            }
+
+            localStorage.setItem('farmMuttonCart', JSON.stringify(cart));
+
+            btn.textContent = 'ADDED ✓';
+            btn.style.background = 'var(--green-neon)';
+            btn.style.borderColor = 'var(--green-neon)';
+
+            setTimeout(() => {
+                btn.textContent = 'ADD TO CART';
+                btn.style.background = '';
+                btn.style.borderColor = '';
+            }, 2000);
+
+            quantityInput.value = 1;
+            updateCartCounter();
+            showNotification(`${quantity}x ${productName} added to cart!`);
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 120px;
+                right: 40px;
+                background: var(--green-primary);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 12px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                box-shadow: 0 8px 24px var(--glow-green);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
 </body>
 </html>
