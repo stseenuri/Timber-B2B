@@ -1,0 +1,62 @@
+# Robots.txt for Farm Mutton Telangana
+# https://farmmutton.com
+# Last Updated: 2026-01-29
+
+# Sitemap location
+Sitemap: https://farmmutton.com/sitemap.xml
+
+# ---------------------------------------------------
+# GLOBAL RULES (Applies to Google, Bing, and all legitimate bots)
+# ---------------------------------------------------
+User-agent: *
+Allow: /
+
+# Prevent indexing of the cart/checkout flow
+Disallow: /cart.html
+Disallow: /checkout.html
+
+# Security & Backend cleanup
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Prevent Duplicate Content
+# (Only use this if your main pages NEVER use parameters like ?id=123)
+Disallow: /*?
+Disallow: /*&
+
+# ---------------------------------------------------
+# SPECIFIC BOT SETTINGS
+# ---------------------------------------------------
+
+# Bing & Yahoo (They respect Crawl-delay, Google does not)
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Slurp
+Crawl-delay: 1
+
+# ---------------------------------------------------
+# BLOCK BAD BOTS / SEO SCRAPERS (To save bandwidth)
+# ---------------------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
