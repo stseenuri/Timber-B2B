@@ -12,10 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO‑focused title -->
-    <title>Organic Farm Mutton Delivery in West Hyderabad | Fresh Sunday Mutton</title>
+    <title>Farm Mutton Telangana — Premium Organic Meat from Telangana Villages</title>
 
-    <!-- Meta description within ~70 characters -->
+    <!-- Meta description (~70 characters) -->
     <meta name="description" content="Organic farm mutton, fresh Sunday delivery in West Hyderabad.">
 
     <!-- Favicons for SERP -->
@@ -31,13 +30,20 @@
             --bg-white: #FFFFFF;
             --bg-cream: #FFFCF8;
             --bg-light: #F9F7F4;
+            
+            /* Red Palette - Meat */
             --red-primary: #C41E3A;
             --red-dark: #A01628;
             --red-bright: #E63950;
+            --red-light: #FFE8EC;
+            
+            /* Green Palette - Organic */
             --green-primary: #2D5016;
             --green-bright: #4A7C2C;
-            --green-mint: #E8F5E1;
+            --green-light: #6B9B4E;
             --green-neon: #7FD858;
+            --green-mint: #E8F5E1;
+            
             --text-dark: #1A1A1A;
             --text-gray: #666666;
             --text-light: #999999;
@@ -54,7 +60,9 @@
             box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -64,11 +72,15 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Subtle Pattern */
         body::before {
             content: '';
             position: fixed;
-            inset: 0;
-            background-image:
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
                 repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(45, 80, 22, 0.015) 2px, rgba(45, 80, 22, 0.015) 4px);
             pointer-events: none;
             z-index: 0;
@@ -82,7 +94,7 @@
             right: 0;
             background: var(--red-primary);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 5%;
+            padding: 10px 5%;
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             letter-spacing: 1.5px;
@@ -96,8 +108,35 @@
 
         .status-left {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green-neon);
+        }
+
+        .status-indicator::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--green-neon);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--green-neon);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .promo-tag {
+            color: var(--bg-white);
+            font-weight: 700;
         }
 
         .status-pill {
@@ -109,258 +148,309 @@
             gap: 6px;
         }
 
-        .status-indicator-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green-neon);
-            box-shadow: 0 0 8px var(--green-neon);
-        }
-
         .status-next {
             font-weight: 600;
         }
 
-        #liveTime {
-            font-weight: 500;
-        }
-
-        /* Service Notice */
+        /* Scrolling Service Notice */
         .service-notice {
             position: fixed;
-            top: 32px;
+            top: 36px;
             left: 0;
             right: 0;
             background: linear-gradient(90deg, var(--red-bright), var(--red-primary));
             color: var(--bg-white);
-            padding: 10px 5%;
+            padding: 12px 0;
+            overflow: hidden;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1000;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
         }
 
-        .service-notice span { white-space: nowrap; }
+        .service-notice-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-notice 20s linear infinite;
+        }
+
+        .service-notice-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-notice-item::before {
+            content: '⚠️';
+            font-size: 14px;
+        }
+
+        @keyframes scroll-notice {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .service-notice:hover .service-notice-content {
+            animation-play-state: paused;
+        }
 
         /* Navigation */
         nav {
             position: fixed;
-            top: 70px;
+            top: 84px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-light);
-            z-index: 999;
-            padding: 14px 5%;
+            z-index: 1000;
+            padding: 20px 5%;
             transition: all 0.3s ease;
         }
 
-        nav.scrolled { box-shadow: 0 4px 20px var(--shadow-sm); }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.99);
+            padding: 15px 5%;
+            box-shadow: 0 4px 20px var(--shadow-sm);
+        }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1800px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 16px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
             text-decoration: none;
         }
 
         .logo-mark {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 52px;
+            height: 52px;
             background: var(--bg-white);
-            border: 2px solid var(--border-light);
-            box-shadow: 0 4px 16px var(--shadow-md);
-            overflow: hidden;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 16px var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
         }
 
         .logo-mark img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 10px;
         }
 
-        .logo-text { display: flex; flex-direction: column; }
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background: var(--green-neon);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--green-neon);
+        }
+
+        .logo-mark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--glow-red);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
 
         .logo-title {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
             color: var(--text-dark);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            line-height: 1;
         }
 
         .logo-subtitle {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
+            font-size: 8px;
             color: var(--green-primary);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         .nav-menu {
             display: none;
             gap: 8px;
-            align-items: center;
         }
 
-        .nav-link {
-            padding: 8px 14px;
-            border-radius: 999px;
+        .nav-btn {
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid transparent;
+            border-radius: 8px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
-            color: var(--text-gray);
-            transition: all 0.2s ease;
+            display: inline-block;
         }
 
-        .nav-link:hover,
-        .nav-link.is-active {
+        .nav-btn:hover {
             background: var(--bg-light);
             color: var(--text-dark);
         }
 
-        .nav-cta {
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border: none;
+        .nav-btn.primary {
             background: var(--green-primary);
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px var(--glow-green);
+            color: var(--bg-white);
+            border-color: var(--green-primary);
+            position: relative;
         }
 
-        .nav-cta:hover {
+        .nav-btn.primary:hover {
             background: var(--green-bright);
+            box-shadow: 0 4px 16px var(--glow-green);
             transform: translateY(-1px);
-        }
-
-        .nav-cta span.counter {
-            padding: 2px 6px;
-            border-radius: 999px;
-            background: rgba(0,0,0,0.16);
-            font-size: 9px;
         }
 
         .menu-toggle {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
             cursor: pointer;
-            padding: 8px;
+            padding: 10px;
             background: transparent;
             border: none;
+            margin-left: auto;
         }
 
         .menu-toggle span {
-            width: 22px;
+            width: 24px;
             height: 2px;
             background: var(--text-dark);
             border-radius: 2px;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
-        }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(4px, -4px);
+            transform: rotate(45deg) translate(6px, 6px);
+            background: var(--red-primary);
         }
 
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+            background: var(--red-primary);
+        }
+
+        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
-            top: 70px;
+            top: 0;
             left: -100%;
-            width: 80%;
-            max-width: 320px;
-            height: calc(100vh - 70px);
-            background: #fff;
+            width: 90%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-white);
             border-right: 1px solid var(--border-light);
-            z-index: 998;
-            padding: 24px 24px 40px;
-            transition: left 0.3s ease;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+            padding: 120px 40px 40px;
             overflow-y: auto;
         }
 
-        .mobile-menu.active { left: 0; }
+        .mobile-menu.active {
+            left: 0;
+        }
 
-        .mobile-menu ul { list-style: none; }
-        .mobile-menu li { margin-bottom: 16px; }
+        .mobile-menu ul {
+            list-style: none;
+        }
 
-        .mobile-menu a {
+        .mobile-menu ul li {
+            margin-bottom: 30px;
+        }
+
+        .mobile-menu ul li a {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
             text-decoration: none;
-            text-transform: uppercase;
+            color: var(--text-dark);
+            font-size: 18px;
+            font-weight: 700;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--red-primary);
+            transform: translateX(10px);
         }
 
         .mobile-overlay {
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.4);
-            z-index: 997;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .mobile-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
+            transition: opacity 0.4s ease;
+            z-index: 1001;
         }
 
-        /* Hero */
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
-            padding: 160px 5% 80px;
-            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
+            padding: 200px 5% 80px;
+            position: relative;
             display: flex;
             align-items: center;
             z-index: 1;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
         }
 
-        .hero-inner {
-            max-width: 1200px;
+        .hero-content {
+            max-width: 1800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
+            width: 100%;
         }
 
         .hero-eyebrow {
@@ -369,96 +459,126 @@
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #fff;
+            color: var(--bg-white);
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 10px 24px;
             background: var(--green-primary);
-            padding: 8px 18px;
-            border-radius: 999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 18px;
+            border-radius: 50px;
+            animation: fadeInUp 0.8s ease;
+            box-shadow: 0 4px 16px var(--glow-green);
         }
 
-        .hero-eyebrow span.badge {
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: rgba(0,0,0,0.3);
-            font-size: 9px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        h1.hero-title {
+        .hero h1 {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(34px, 6vw, 60px);
+            font-size: clamp(40px, 8vw, 96px);
             line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 18px;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-weight: 900;
+            letter-spacing: -3px;
+            animation: fadeInUp 0.8s 0.2s ease backwards;
         }
 
-        .hero-title span.highlight {
+        .hero h1 .highlight {
             background: linear-gradient(135deg, var(--red-primary), var(--red-bright));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             display: block;
+            margin-top: 10px;
         }
 
         .hero-subtitle {
-            font-size: 16px;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.7;
             color: var(--text-gray);
-            margin-bottom: 24px;
-            max-width: 480px;
+            max-width: 650px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s 0.4s ease backwards;
         }
 
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 28px;
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 700px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s 0.6s ease backwards;
+        }
+
+        .stat-item {
+            padding: 25px 0;
+            border-top: 3px solid var(--green-primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-top-color: var(--red-primary);
+        }
+
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(32px, 5vw, 56px);
+            color: var(--red-primary);
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
-            color: var(--text-gray);
+            color: var(--green-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero-meta span {
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-        }
-
-        .hero-cta-row {
+        .hero-cta {
             display: flex;
+            gap: 16px;
             flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
+            animation: fadeInUp 0.8s 0.8s ease backwards;
         }
 
         .btn {
-            padding: 14px 26px;
-            border-radius: 999px;
+            padding: 18px 40px;
+            border-radius: 10px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
+            display: inline-block;
         }
 
         .btn-primary {
             background: var(--red-primary);
-            color: #fff;
-            box-shadow: 0 4px 14px var(--glow-red);
+            color: var(--bg-white);
+            box-shadow: 0 4px 16px var(--glow-red);
         }
+
         .btn-primary:hover {
             background: var(--red-dark);
-            transform: translateY(-1px);
+            box-shadow: 0 6px 24px var(--glow-red);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -466,67 +586,23 @@
             color: var(--green-primary);
             border: 2px solid var(--green-primary);
         }
+
         .btn-secondary:hover {
             background: var(--green-primary);
-            color: #fff;
+            color: var(--bg-white);
+            box-shadow: 0 4px 16px var(--glow-green);
         }
 
-        .hero-note {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 6px;
-        }
-
-        .hero-panel {
-            border-radius: 20px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 10px 30px var(--shadow-md);
-            padding: 20px 20px 18px;
-        }
-
-        .hero-panel h2 {
-            font-size: 16px;
-            margin-bottom: 6px;
-        }
-
-        .hero-panel p {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-bottom: 10px;
-        }
-
-        .hero-panel-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            font-size: 13px;
-        }
-
-        .hero-panel-list li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-
-        .hero-panel-list li span.bullet {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--green-primary);
-        }
-
-        /* Section base */
-        section {
-            padding: 80px 5%;
+        /* About Section */
+        .about-section {
+            padding: 120px 5%;
             position: relative;
             z-index: 1;
+            background: var(--bg-white);
         }
 
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
+        .section-header {
+            margin-bottom: 80px;
         }
 
         .section-eyebrow {
@@ -536,80 +612,136 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--green-primary);
-            margin-bottom: 12px;
+            margin-bottom: 20px;
             display: inline-block;
-            padding: 6px 14px;
+            padding: 8px 20px;
             background: var(--green-mint);
-            border-radius: 999px;
+            border-radius: 50px;
         }
 
-        h2.section-title {
+        .section-title {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(26px, 4vw, 40px);
-            letter-spacing: -1px;
-            line-height: 1.15;
-            margin-bottom: 16px;
+            font-size: clamp(32px, 6vw, 64px);
+            color: var(--text-dark);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -2px;
+            max-width: 900px;
         }
 
-        .section-lead {
-            font-size: 15px;
+        .values-grid {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .value-card {
+            background: var(--red-bright);
+            border: 2px solid var(--red-primary);
+            border-radius: 20px;
+            padding: 50px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card .value-number {
+            color: var(--bg-white);
+            opacity: 0.3;
+        }
+
+        .value-card .value-title,
+        .value-card .value-description {
+            color: var(--bg-white);
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red-primary), var(--green-primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover {
+            border-color: var(--red-dark);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--glow-red);
+            background: var(--red-primary);
+        }
+
+        .value-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(60px, 10vw, 120px);
+            color: var(--red-primary);
+            line-height: 1;
+            font-weight: 800;
+            opacity: 0.15;
+            margin-bottom: 20px;
+        }
+
+        .value-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .value-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
             line-height: 1.7;
             color: var(--text-gray);
-            max-width: 600px;
         }
 
-        /* Why section */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
-            margin-top: 32px;
-        }
-
-        .why-card {
-            border-radius: 18px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            padding: 20px 18px 18px;
-        }
-
-        .why-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .why-text {
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        /* Products */
+        /* Products Section */
         .products-section {
+            padding: 120px 5%;
             background: var(--bg-cream);
             border-top: 1px solid var(--border-light);
+            position: relative;
+            z-index: 1;
         }
 
         .products-grid {
-            margin-top: 32px;
+            max-width: 1800px;
+            margin: 80px auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 26px;
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
         .product-card {
-            background: #fff;
-            border-radius: 18px;
-            border: 1px solid var(--border-light);
+            background: var(--bg-white);
+            border: 2px solid var(--border-light);
+            border-radius: 20px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--red-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow-md);
         }
 
         .product-image {
-            height: 200px;
-            background: var(--bg-light);
+            height: 280px;
             overflow: hidden;
+            background: var(--bg-light);
             position: relative;
         }
 
@@ -617,58 +749,380 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.6s ease;
         }
 
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .product-badge {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 10px;
-            border-radius: 999px;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
             background: var(--green-primary);
-            color: #fff;
+            color: var(--bg-white);
             font-family: 'JetBrains Mono', monospace;
             font-size: 9px;
-            letter-spacing: 1px;
+            font-weight: 700;
+            border-radius: 50px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px var(--glow-green);
         }
 
         .product-content {
-            padding: 18px 18px 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            padding: 40px;
         }
 
         .product-category {
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-weight: 700;
             color: var(--red-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         .product-content h3 {
-            font-size: 18px;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .product-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 25px;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .product-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            color: var(--red-primary);
+            font-weight: 800;
+        }
+
+        .product-price span {
             font-size: 14px;
             color: var(--text-gray);
         }
 
+        .btn-add-cart {
+            padding: 14px 32px;
+            background: var(--green-primary);
+            color: var(--bg-white);
+            border: 2px solid var(--green-primary);
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--green-bright);
+            border-color: var(--green-bright);
+            box-shadow: 0 4px 16px var(--glow-green);
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 120px 5%;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-white);
+        }
+
+        .testimonials-grid {
+            max-width: 1800px;
+            margin: 80px auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--green-mint);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--green-primary);
+            background: var(--bg-white);
+            box-shadow: 0 12px 30px var(--shadow-md);
+        }
+
+        .testimonial-text {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red-primary), var(--green-primary));
+            color: var(--bg-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 800;
+            box-shadow: 0 4px 16px var(--glow-red);
+        }
+
+        .author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-location {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--green-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-dark) 100%);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--bg-white);
+        }
+
+        .cta-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn-primary {
+            background: var(--bg-white);
+            color: var(--red-primary);
+        }
+
+        .cta-buttons .btn-primary:hover {
+            background: var(--green-primary);
+            color: var(--bg-white);
+            box-shadow: 0 6px 24px var(--glow-green);
+        }
+
+        .cta-buttons .btn-secondary {
+            border-color: var(--bg-white);
+            color: var(--bg-white);
+        }
+
+        .cta-buttons .btn-secondary:hover {
+            background: var(--bg-white);
+            color: var(--red-primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 5% 40px;
+            background: var(--green-primary);
+            position: relative;
+            z-index: 1;
+            color: var(--bg-white);
+        }
+
+        .footer-content {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--green-neon);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-column p,
+        .footer-column ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--green-neon);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--bg-white);
+        }
+
+        /* Desktop Responsive */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+
+            .whatsapp-float {
+                right: 40px;
+                left: auto;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Quantity Selector */
         .quantity-selector {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 8px;
+            margin-top: 15px;
         }
 
         .quantity-label {
@@ -724,314 +1178,31 @@
             background: transparent;
         }
 
-        .quantity-input:focus { outline: none; }
-
-        .product-footer {
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
+        .quantity-input:focus {
+            outline: none;
         }
 
-        .product-price {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--red-primary);
-        }
-
-        .product-price span.old {
-            text-decoration: line-through;
-            color: var(--text-gray);
-            font-size: 18px;
-            margin-right: 15px;
-        }
-
-        .product-price span.unit {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-left: 6px;
-        }
-
-        .btn-add-cart {
-            padding: 10px 20px;
-            background: var(--green-primary);
+        /* Cart Counter Badge */
+        .cart-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--red-primary);
             color: var(--bg-white);
-            border: 2px solid var(--green-primary);
-            border-radius: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-add-cart:hover {
-            background: var(--green-bright);
-            border-color: var(--green-bright);
-            box-shadow: 0 4px 16px var(--glow-green);
-            transform: translateY(-2px);
-        }
-
-        /* Steps */
-        .steps-grid {
-            margin-top: 32px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
-        }
-
-        .step-card {
-            border-radius: 18px;
-            border: 1px solid var(--border-light);
-            padding: 18px 18px 16px;
-            background: #fff;
-        }
-
-        .step-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--green-primary);
-            margin-bottom: 8px;
-        }
-
-        .step-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .step-text {
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        /* Delivery areas */
-        .areas-wrapper {
-            margin-top: 24px;
-            display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-            gap: 30px;
-        }
-
-        .areas-list {
-            columns: 2;
-            column-gap: 18px;
-            list-style: none;
-            padding: 0;
-        }
-
-        .areas-list li {
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .areas-note {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 8px;
-        }
-
-        .areas-card {
-            border-radius: 18px;
-            border: 1px solid var(--border-light);
-            padding: 18px 18px 16px;
-            background: #fff;
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            margin-top: 28px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
-        }
-
-        .testimonial-card {
-            border-radius: 18px;
-            background: var(--green-mint);
-            border: 1px solid transparent;
-            padding: 20px 18px 18px;
-            transition: all 0.2s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--green-primary);
-            background: #fff;
-            box-shadow: 0 8px 24px var(--shadow-md);
-        }
-
-        .testimonial-text {
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .author-avatar {
-            width: 40px;
-            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--red-primary), var(--green-primary));
-            color: #fff;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            font-weight: 800;
+            font-size: 10px;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 2px 8px var(--glow-red);
         }
 
-        .author-info h3 {
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .author-location {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: var(--green-primary);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* CTA */
-        .cta-section {
-            background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(26px, 4vw, 40px);
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .cta-section p {
-            font-size: 15px;
-            color: rgba(255,255,255,0.9);
-            max-width: 560px;
-            margin: 0 auto 22px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--green-primary);
-            color: #fff;
-            padding: 40px 5% 26px;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        .footer-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--green-neon);
-            margin-bottom: 8px;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li { margin-bottom: 6px; }
-
-        .footer-links a {
-            font-size: 13px;
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover { color: var(--green-neon); }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.25);
-            padding-top: 10px;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
-        }
-
-        /* WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 26px;
-            right: 26px;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 22px rgba(37,211,102,0.45);
-            z-index: 996;
-            text-decoration: none;
-        }
-
-        .whatsapp-float svg {
-            width: 28px;
-            height: 28px;
-            fill: #fff;
-        }
-
-        .whatsapp-float:hover { transform: translateY(-2px); }
-
-        /* Responsive */
-        @media (min-width: 900px) {
-            .nav-menu { display: flex; }
-            .menu-toggle { display: none; }
-        }
-
-        @media (max-width: 899px) {
-            .hero-inner { grid-template-columns: minmax(0,1fr); }
-        }
-
-        @media (max-width: 640px) {
-            .service-notice {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .areas-wrapper {
-                grid-template-columns: minmax(0,1fr);
-            }
-            .areas-list { columns: 1; }
+        .nav-btn.primary {
+            position: relative;
         }
     </style>
 </head>
@@ -1039,525 +1210,463 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N37KNVQ9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Status bar -->
+    <!-- Status Bar -->
     <div class="status-bar">
         <div class="status-left">
-            <div class="status-pill">
-                <span class="status-indicator-dot"></span>
-                <span>100% ORGANIC • FSSAI</span>
-            </div>
-            <div class="status-pill status-next">
-                Next Sunday route · Orders close Friday 10 PM
-            </div>
+            <div class="status-indicator">100% ORGANIC</div>
+            <div class="promo-tag">Orders taken till Sunday 9 AM</div>
         </div>
-        <div id="liveTime">Loading…</div>
+        <div id="liveTime">Loading...</div>
     </div>
 
-    <!-- Sunday notice -->
+    <!-- Service Notice Banner -->
     <div class="service-notice">
-        <span>Serving only West Hyderabad neighbourhoods</span>
-        <span>Slaughtered Sunday morning · Delivered within 2 hours</span>
+        <div class="service-notice-content">
+            <span class="service-notice-item">Slaughtered Sunday morning • Delivery within 2 hours after slaughter</span>
+            <span class="service-notice-item">Serving only West Hyderabad neighbourhoods</span>
+            <span class="service-notice-item">Orders accepted till Sunday 9 AM • Pre-order required</span>
+            <span class="service-notice-item">Slaughtered Sunday morning • Delivery within 2 hours after slaughter</span>
+        </div>
     </div>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-mark">
                     <img src="fm-logo.png" alt="Farm Mutton Telangana organic meat logo">
                 </div>
                 <div class="logo-text">
                     <div class="logo-title">Farm Mutton</div>
-                    <div class="logo-subtitle">Telangana • Sundays Only</div>
+                    <div class="logo-subtitle">100% Organic</div>
                 </div>
             </a>
 
             <div class="nav-menu">
-                <a href="#hero" class="nav-link is-active">Home</a>
-                <a href="#cuts-pricing" class="nav-link">Cuts &amp; Pricing</a>
-                <a href="#sunday-process" class="nav-link">Sunday Process</a>
-                <a href="#delivery-areas" class="nav-link">Delivery Areas</a>
-                <a href="#recipes" class="nav-link">Recipes</a>
+                <a href="index.html" class="nav-btn">HOME</a>
+                <a href="about-us.html" class="nav-btn">ABOUT</a>
+                <a href="locations.html" class="nav-btn">LOCATIONS</a>
+                <a href="cart.html" class="nav-btn primary">CART<span class="cart-counter" id="cartCount">0</span></a>
             </div>
 
-            <a href="#cuts-pricing" class="nav-cta">
-                Pre‑Order Sunday
-                <span class="counter" id="cartCount">0</span>
-            </a>
-
-            <button class="menu-toggle" type="button" aria-label="Toggle menu" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#hero" onclick="toggleMenu()">Home</a></li>
-            <li><a href="#cuts-pricing" onclick="toggleMenu()">Cuts &amp; Pricing</a></li>
-            <li><a href="#sunday-process" onclick="toggleMenu()">Sunday Process</a></li>
-            <li><a href="#delivery-areas" onclick="toggleMenu()">Delivery Areas</a></li>
-            <li><a href="#recipes" onclick="toggleMenu()">Recipes</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="about-us.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
+            <li><a href="cart.html" onclick="toggleMenu()">Cart</a></li>
         </ul>
     </div>
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
 
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-inner">
-            <div>
-                <div class="hero-eyebrow">
-                    100% ORGANIC MUTTON
-                    <span class="badge">WEST HYDERABAD ONLY</span>
-                </div>
-                <h1 class="hero-title">
-                    Sunday farm mutton
-                    <span class="highlight">from Telangana villages to your home</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Pre‑order clean, organic goat meat from Telangana farmers.
-                    We slaughter on Sunday morning and deliver to West Hyderabad homes within 2 hours.
-                </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">100% ORGANIC • 0 STEROIDS</div>
+            
+            <h1>
+                PURE Farm Mutton
+                <span class="highlight">FROM TELANGANA FARMS</span>
+            </h1>
 
-                <div class="hero-meta">
-                    <span>Sunday only · Pre‑order required</span>
-                    <span>Freshness timestamp on every pack</span>
-                    <span>No steroids · Traditional feed</span>
-                </div>
-
-                <div class="hero-cta-row">
-                    <a href="#cuts-pricing" class="btn btn-primary">Pre‑Order for This Sunday</a>
-                    <a href="#sunday-process" class="btn btn-secondary">How it works</a>
-                </div>
-                <div class="hero-note">
-                    Try us for a few Sundays first · subscriptions will come later.
-                </div>
-            </div>
-
-            <aside class="hero-panel" aria-label="How Sunday delivery works">
-                <h2>How your Sunday order works</h2>
-                <p>Simple 3‑step process designed for busy West Hyderabad families.</p>
-                <ul class="hero-panel-list">
-                    <li><span class="bullet"></span>Place your pre‑order before Friday 10 PM.</li>
-                    <li><span class="bullet"></span>We slaughter and cut fresh on Sunday morning.</li>
-                    <li><span class="bullet"></span>We deliver within a 2‑hour window to your door.</li>
-                </ul>
-            </aside>
-        </div>
-    </section>
-
-    <!-- Why -->
-    <section>
-        <div class="section-inner">
-            <div class="section-eyebrow">WHY WEST HYDERABAD FAMILIES TRUST US</div>
-            <h2 class="section-title">A clean, predictable Sunday mutton ritual every week</h2>
-            <p class="section-lead">
-                We connect you directly to Telangana farmers, keep the route limited to West Hyderabad, and time everything around your Sunday cooking schedule.
+            <p class="hero-subtitle">
+                Direct from Telangana village farmers to your table. Orders accepted till Sunday 9 AM. 
+                We slaughter Sunday morning and deliver within 2 hours after slaughter to West Hyderabad.
             </p>
 
-            <div class="why-grid">
-                <article class="why-card">
-                    <h3 class="why-title">Farm‑to‑table in hours</h3>
-                    <p class="why-text">We slaughter only against orders, then deliver within 2 hours so your meat reaches the kitchen at peak freshness.</p>
-                </article>
-                <article class="why-card">
-                    <h3 class="why-title">Local Telangana farmers</h3>
-                    <p class="why-text">Village farmers supply goats raised on traditional feed, at fair prices that support rural families.</p>
-                </article>
-                <article class="why-card">
-                    <h3 class="why-title">West Hyderabad focus</h3>
-                    <p class="why-text">By serving only West Hyderabad, we keep routes short, temperatures controlled, and delivery windows reliable.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cuts & Pricing -->
-    <section class="products-section" id="cuts-pricing">
-        <div class="section-inner">
-            <div class="section-eyebrow">CUTS &amp; PRICING</div>
-            <h2 class="section-title">Choose the right organic cut for your Sunday menu</h2>
-            <p class="section-lead">Start with a simple choice: curry, boneless, keema, liver, chops or a full goat for celebrations.</p>
-
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="curry-cut-image.webp" alt="Organic mutton curry cut for Hyderabadi curries and biryani">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE CLASSIC</div>
-                        <h3>Premium Curry Cut</h3>
-                        <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹1,200</span><span>₹937</span><span class="unit">/kg</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Curry Cut" data-price="937">ADD TO CART</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 2 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="bonless-mutton.webp" alt="Tender boneless organic mutton pieces for grills and kebabs">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE PREMIUM</div>
-                        <h3>Tender Boneless</h3>
-                        <p>Premium boneless cuts for quick cooking. Perfect for kebabs and grills.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹1,350</span><span>₹1,050</span><span class="unit">/kg</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1050">ADD TO CART</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 3 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-kheema.jpg" alt="Fresh organic mutton keema for curry and cutlets">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE GROUND</div>
-                        <h3>Fresh Keema</h3>
-                        <p>Freshly ground minced mutton. Perfect for authentic keema curry.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹1,125</span><span>₹900</span><span class="unit">/kg</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="900">ADD TO CART</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 4 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-liver.jpg" alt="Premium organic mutton liver pieces">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE NUTRITIOUS</div>
-                        <h3>Premium Liver</h3>
-                        <p>Nutrient-rich organ meat high in iron and protein.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹750</span><span>₹600</span><span class="unit">/kg</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="600">ADD TO CART</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 5 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="mutton-chops.webp" alt="Organic mutton chops ready for grilling">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE SIGNATURE</div>
-                        <h3>Signature Chops</h3>
-                        <p>Perfectly portioned chops. Ideal for grilling or weekend barbecues.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹1,218</span><span>₹975</span><span class="unit">/kg</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="975">ADD TO CART</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 6 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="full-goat.jpg" alt="Whole organic goat cleaned and cut for celebrations">
-                        <div class="product-badge">ORGANIC</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">THE CELEBRATION</div>
-                        <h3>Whole Goat</h3>
-                        <p>Complete goat for special occasions. Cut as per your requirements. Contact us for final pricing based on size.</p>
-
-                        <div class="quantity-selector">
-                            <span class="quantity-label">Quantity:</span>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                                <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                                <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-footer">
-                            <div class="product-price">
-                                <span class="old">₹11,250</span><span>₹9,000</span>
-                            </div>
-                            <button class="btn-add-cart" onclick="addToCart(this)" data-name="Whole Goat" data-price="9000">PRE-ORDER</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sunday process -->
-    <section id="sunday-process">
-        <div class="section-inner">
-            <div class="section-eyebrow">SUNDAY DELIVERY PROCESS</div>
-            <h2 class="section-title">From farm to West Hyderabad kitchens in three clear steps</h2>
-            <p class="section-lead">We designed the flow around your Sunday routine, so you always know what will happen, when and where.</p>
-
-            <div class="steps-grid">
-                <article class="step-card">
-                    <div class="step-label">STEP 1 · BY FRIDAY 10 PM</div>
-                    <h3 class="step-title">Pre‑order your cut and quantity</h3>
-                    <p class="step-text">Pick your cut, quantity and delivery address in West Hyderabad. We only slaughter against confirmed pre‑orders.</p>
-                </article>
-                <article class="step-card">
-                    <div class="step-label">STEP 2 · SUNDAY MORNING</div>
-                    <h3 class="step-title">Slaughter, cut and chill once</h3>
-                    <p class="step-text">Our team slaughters, cleans and portion‑packs your order in an FSSAI‑certified facility, then chills for a single short transport window.</p>
-                </article>
-                <article class="step-card">
-                    <div class="step-label">STEP 3 · WITHIN 2 HOURS</div>
-                    <h3 class="step-title">Doorstep delivery in West Hyderabad</h3>
-                    <p class="step-text">We run tight Sunday routes only in West Hyderabad so your mutton reaches you within 2 hours of slaughter, with a clear time stamp.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Delivery areas -->
-    <section id="delivery-areas">
-        <div class="section-inner">
-            <div class="section-eyebrow">DELIVERY AREAS</div>
-            <h2 class="section-title">Exclusively serving West Hyderabad right now</h2>
-            <p class="section-lead">We focus on a small delivery radius so we can keep your Sunday meat genuinely fresh and on time.</p>
-
-            <div class="areas-wrapper">
-                <div>
-                    <ul class="areas-list" aria-label="Neighbourhoods we serve">
-                        <li>Narsingi</li>
-                        <li>Manikonda</li>
-                        <li>Kokapet</li>
-                        <li>Kondapur</li>
-                        <li>Gachibowli</li>
-                        <li>Financial District</li>
-                        <li>Tellapur</li>
-                        <li>Serilingampally</li>
-                        <li>Miyapur (selected blocks)</li>
-                        <li>Bandlaguda Jagir</li>
-                        <!-- add / adjust localities as needed -->
-                    </ul>
-                    <p class="areas-note">Don’t see your locality? Message us on WhatsApp to check if you fall inside the current Sunday route.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Farmers</div>
                 </div>
-                <aside class="areas-card">
-                    <strong>Why only West Hyderabad?</strong>
-                    <p>Shorter routes mean tighter control on temperature and timing. Until we can guarantee the same experience elsewhere, we’re keeping it to West Hyderabad only.</p>
-                </aside>
+                <div class="stat-item">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Families</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Organic</div>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="pricing.html" class="btn btn-primary">ORDER NOW</a>
+                <a href="about-us.html" class="btn btn-secondary">OUR STORY</a>
             </div>
         </div>
     </section>
 
-    <!-- Recipes / content teaser -->
-    <section id="recipes">
-        <div class="section-inner">
-            <div class="section-eyebrow">RECIPES &amp; TIPS</div>
-            <h2 class="section-title">Cook better mutton with simple Sunday‑ready recipes</h2>
-            <p class="section-lead">We’ll keep publishing short, no‑nonsense recipes tuned to our cuts, starting with Hyderabadi classics.</p>
-            <div class="why-grid">
-                <article class="why-card">
-                    <h3 class="why-title">Hyderabadi Mutton Curry</h3>
-                    <p class="why-text">Step‑by‑step curry recipe written for Premium Curry Cut, with timing and spice ratios that work for 1 kg.</p>
-                </article>
-                <article class="why-card">
-                    <h3 class="why-title">Sunday Keema Paratha</h3>
-                    <p class="why-text">Use leftover keema to create Monday breakfast that still tastes like Sunday.</p>
-                </article>
-                <article class="why-card">
-                    <h3 class="why-title">How to store Sunday mutton</h3>
-                    <p class="why-text">Guidelines for refrigerating, freezing and reheating so you don’t waste any of your farm‑fresh meat.</p>
-                </article>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="section-header">
+            <div class="section-eyebrow">OUR MISSION</div>
+            <h2 class="section-title">Building a Bridge Between Farms and Families</h2>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-number">50+</div>
+                <h3 class="value-title">Village Farmers</h3>
+                <p class="value-description">Direct partnerships across Telangana. No middlemen. Fair prices for farmers, fresh quality for you.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">2 HR</div>
+                <h3 class="value-title">Delivery within 2 hours after slaughter</h3>
+                <p class="value-description">We slaughter only against confirmed orders on Sunday morning, then deliver within 2 hours after slaughter so your meat reaches the kitchen at peak freshness.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">SUN</div>
+                <h3 class="value-title">Sunday Delivery</h3>
+                <p class="value-description">Fresh deliveries every Sunday. FSSAI-certified facilities. Complete cold chain. Vacuum-sealed freshness.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section>
-        <div class="section-inner">
-            <div class="section-eyebrow">FAMILIES OF WEST HYDERABAD</div>
-            <h2 class="section-title">“You can taste that it’s slaughtered for us, not from a freezer”</h2>
-            <div class="testimonials-grid">
-                <article class="testimonial-card">
-                    <p class="testimonial-text">“The curry cut has become our Sunday standard. Meat is tender, no smell, and delivery always lands before 11 AM.”</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SR</div>
-                        <div class="author-info">
-                            <h3>Srivani &amp; family</h3>
-                            <div class="author-location">NARSINGI, WEST HYDERABAD</div>
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="section-header">
+            <div class="section-eyebrow">PREMIUM CUTS</div>
+            <h2 class="section-title">Choose Your Perfect Cut</h2>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="curry-cut-image.webp" alt="Organic mutton curry cut for Hyderabadi dishes">
+                    <div class="product-badge">ORGANIC</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">THE CLASSIC</div>
+                    <h3>Premium Curry Cut</h3>
+                    <p>Bone-in pieces perfect for traditional Hyderabadi mutton curry and biryani.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
                         </div>
                     </div>
-                </article>
-                <article class="testimonial-card">
-                    <p class="testimonial-text">“We tried Farm Mutton for Eid and never went back to the old butcher. Whole goat was clean, neatly packed and on time.”</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">FA</div>
-                        <div class="author-info">
-                            <h3>Faisal &amp; Ayesha</h3>
-                            <div class="author-location">KONDAPUR, HYDERABAD</div>
+
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹899</span>
+                            ₹699 <span>/ kg</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Premium Curry Cut', 699, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="bonless-mutton.webp" alt="Tender boneless organic mutton pieces">
+                    <div class="product-badge">BESTSELLER</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">CHEF'S PICK</div>
+                    <h3>Premium Boneless</h3>
+                    <p>Succulent boneless pieces ideal for grills, kebabs, and rich gravies.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
                         </div>
                     </div>
-                </article>
-                <article class="testimonial-card">
-                    <p class="testimonial-text">“What we love most is the predictability. Same route, same timing, same quality every Sunday.”</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AK</div>
-                        <div class="author-info">
-                            <h3>Arif &amp; Khaleeda</h3>
-                            <div class="author-location">MANIKONDA, HYDERABAD</div>
+
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹1,099</span>
+                            ₹899 <span>/ kg</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Premium Boneless', 899, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mutton-kheema.jpg" alt="Fresh organic mutton keema mince">
+                    <div class="product-badge">NEW</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">KEEMA LOVERS</div>
+                    <h3>Fresh Mutton Keema</h3>
+                    <p>Fine minced keema for cutlets, keema curry, and stuffed parathas.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
                         </div>
                     </div>
-                </article>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹999</span>
+                            ₹799 <span>/ kg</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Fresh Mutton Keema', 799, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mutton-liver.jpg" alt="Premium organic mutton liver pieces">
+                    <div class="product-badge">LIMITED</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">OFFAL SPECIAL</div>
+                    <h3>Farm Fresh Liver</h3>
+                    <p>Rich, tender liver for classic fry, pepper liver, or traditional recipes.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹799</span>
+                            ₹649 <span>/ kg</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Farm Fresh Liver', 649, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mutton-chops.webp" alt="Organic mutton chops ready for grilling">
+                    <div class="product-badge">CHEF SPECIAL</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">GRILL FAVOURITE</div>
+                    <h3>Premium Mutton Chops</h3>
+                    <p>Perfect rib and loin chops for grills, tandoor, and party specials.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹1,099</span>
+                            ₹899 <span>/ kg</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Premium Mutton Chops', 899, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="full-goat.jpg" alt="Whole organic goat for family celebrations">
+                    <div class="product-badge">FESTIVE</div>
+                </div>
+                <div class="product-content">
+                    <div class="product-category">FAMILY FEAST</div>
+                    <h3>Whole Farm Goat</h3>
+                    <p>Perfect for functions, Eid, and special family gatherings, cut to your style.</p>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">Quantity:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="10" readonly>
+                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--text-light); font-size: 16px; margin-right: 8px;">₹10,999</span>
+                            ₹8,999 <span>/ goat</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart('Whole Farm Goat', 8999, this)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <div class="section-eyebrow">FAMILIES LOVE US</div>
+            <h2 class="section-title">What Our Families Say</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Best mutton we’ve had in years. You can taste the difference in every bite. The curry cut turned our Sunday lunch into a feast."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SR</div>
+                    <div class="author-info">
+                        <h4>Srivani &amp; Family</h4>
+                        <div class="author-location">NARSINGI, WEST HYDERABAD</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Super tender, no smell, and cooks faster than regular meat. Knowing it’s organic and farmer-sourced makes it even better."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <h4>Arif &amp; Khaleeda</h4>
+                        <div class="author-location">MANIKONDA, HYDERABAD</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Their team handled our Eid order so smoothly. Full goat, perfectly cleaned and cut. Entire family asked where we ordered from."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">FA</div>
+                    <div class="author-info">
+                        <h4>Faisal &amp; Ayesha</h4>
+                        <div class="author-location">KONDAPUR, HYDERABAD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="cta-section">
-        <div class="section-inner">
-            <h2>Ready to make Sunday mutton stress‑free?</h2>
-            <p>Pre‑order now for this Sunday’s West Hyderabad route. We’ll learn from the first few weeks before introducing any subscription plans.</p>
-            <div class="hero-cta-row" style="justify-content:center;">
-                <a href="#cuts-pricing" class="btn btn-primary">Pre‑Order This Sunday</a>
-                <a href="#sunday-process" class="btn btn-secondary">See Sunday Process</a>
+        <div class="cta-content">
+            <h2>Ready to Taste the Difference?</h2>
+            <p>Pre-book your organic mutton for this Sunday. Orders accepted till Sunday 9 AM, slaughtered fresh and delivered within 2 hours after slaughter.</p>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary">Pre-Book for Sunday</a>
+                <a href="locations.html" class="btn btn-secondary">Check Delivery Areas</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-title">ABOUT FARM MUTTON</div>
-                    <p class="footer-text">
-                        Farm Mutton connects West Hyderabad families with organic goat farmers across Telangana,
-                        delivering honest, fresh mutton on a predictable Sunday schedule.
-                    </p>
-                </div>
-                <div>
-                    <div class="footer-title">SITEMAP</div>
-                    <ul class="footer-links">
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#cuts-pricing">Cuts &amp; Pricing</a></li>
-                        <li><a href="#sunday-process">Sunday Process</a></li>
-                        <li><a href="#delivery-areas">Delivery Areas</a></li>
-                        <li><a href="#recipes">Recipes</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-title">SUPPORT</div>
-                    <ul class="footer-links">
-                        <li><a href="tel:+919000000000">Call: +91‑90000‑00000</a></li>
-                        <li><a href="mailto:hello@farmmutton.in">Email: hello@farmmutton.in</a></li>
-                        <li><a href="#">FAQ &amp; Help</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="footer-title">LEGAL</div>
-                    <ul class="footer-links">
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Refund &amp; Cancellation</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ABOUT FARM MUTTON</h3>
+                <p>Farm Mutton connects Hyderabad families with organic goat farmers across Telangana, delivering clean, honest meat every Sunday.</p>
             </div>
-            <div class="footer-bottom">
-                © 2026 Farm Mutton Telangana · Sundays Only · West Hyderabad
+
+            <div class="footer-column">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">Our Story</a></li>
+                    <li><a href="locations.html">Delivery Locations</a></li>
+                    <li><a href="pricing.html">Pricing &amp; Cuts</a></li>
+                </ul>
             </div>
+
+            <div class="footer-column">
+                <h3>CUSTOMER CARE</h3>
+                <ul>
+                    <li><a href="tel:+919000000000">Call: +91-90000-00000</a></li>
+                    <li><a href="mailto:hello@farmmutton.in">Email: hello@farmmutton.in</a></li>
+                    <li><a href="#">FAQ &amp; Help</a></li>
+                    <li><a href="#">WhatsApp Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>LEGAL</h3>
+                <ul>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund &amp; Cancellation</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Farm Mutton Telangana • All Rights Reserved
         </div>
     </footer>
 
-    <!-- WhatsApp -->
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/919000000000?text=Hi%20Farm%20Mutton%2C%20I%20want%20to%20pre-book%20organic%20mutton%20for%20Sunday."
        class="whatsapp-float"
-       aria-label="Chat with Farm Mutton on WhatsApp about Sunday orders">
+       aria-label="Chat with Farm Mutton on WhatsApp">
         <svg viewBox="0 0 32 32" aria-hidden="true">
             <path d="M16.04 2.003c-7.732 0-14 6.267-14 14 0 2.469.646 4.884 1.878 7.02L2 30l7.195-1.866a13.96 13.96 0 0 0 6.845 1.748h.007c7.732 0 14-6.267 14-14 0-3.741-1.457-7.257-4.103-9.896C23.297 3.46 19.78 2.003 16.04 2.003zm7.993 20.084c-.339.956-1.958 1.847-2.716 1.97-.695.117-1.57.166-2.539-.159-0.586-.187-1.34-.435-2.318-.849-4.089-1.771-6.74-5.917-6.94-6.194-.203-.277-1.66-2.21-1.66-4.217 0-2.006 1.053-2.99 1.427-3.401.374-.412.815-.515 1.087-.515.272 0 .543 0.003.781 0.014.251.011.589-.095.923.705.339.815 1.155 2.815 1.256 3.018.101.203.169.44.031.717-.135.277-.203.44-.398.677-.203.237-.428.53-.61.712-.203.203-.414.424-.178.835.237.398 1.053 1.732 2.262 2.802 1.555 1.387 2.864 1.817 3.262 2.02.398.203.627.169.864-.102.237-.271.999-1.165 1.266-1.563.267-.398.543-.339.923-.203.38.135 2.406 1.135 2.817 1.339.412.203.683.305.781.474.101.169.101.98-.237 1.936z"></path>
         </svg>
     </a>
 
     <script>
-        // Live time
+        // Live time in status bar
         function updateTime() {
             const now = new Date();
             const options = { weekday: 'short', hour: '2-digit', minute: '2-digit' };
-            const el = document.getElementById('liveTime');
-            if (el) el.textContent = now.toLocaleString('en-IN', options);
+            document.getElementById('liveTime').textContent = now.toLocaleString('en-IN', options);
         }
-        updateTime();
         setInterval(updateTime, 60000);
+        updateTime();
 
-        // Navbar scroll
+        // Nav scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Mobile menu
+        // Mobile menu toggle
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileOverlay = document.getElementById('mobileOverlay');
         const menuToggleBtn = document.querySelector('.menu-toggle');
@@ -1573,36 +1682,37 @@
             const input = button.parentElement.querySelector('.quantity-input');
             const max = parseInt(input.max, 10);
             let value = parseInt(input.value, 10);
-            if (value < max) input.value = value + 1;
+            if (value < max) {
+                input.value = value + 1;
+            }
         }
 
         function decrementQuantity(button) {
             const input = button.parentElement.querySelector('.quantity-input');
             const min = parseInt(input.min, 10);
             let value = parseInt(input.value, 10);
-            if (value > min) input.value = value - 1;
+            if (value > min) {
+                input.value = value - 1;
+            }
         }
 
         // Simple cart counter
         let cartCount = 0;
         const cartCountEl = document.getElementById('cartCount');
 
-        function addToCart(btn) {
-            const name = btn.getAttribute('data-name');
-            const price = btn.getAttribute('data-price');
-            const card = btn.closest('.product-card');
+        function addToCart(productName, price, button) {
+            const card = button.closest('.product-card');
             const qtyInput = card.querySelector('.quantity-input');
             const qty = qtyInput ? parseInt(qtyInput.value, 10) : 1;
 
             cartCount += qty;
-            if (cartCountEl) cartCountEl.textContent = cartCount;
-
-            const original = btn.textContent;
-            btn.textContent = 'ADDED';
-            setTimeout(() => { btn.textContent = original; }, 1200);
-
-            // Here you can integrate with your real cart logic
-            console.log('Added to cart:', { name, price, qty });
+            if (cartCountEl) {
+                cartCountEl.textContent = cartCount;
+            }
+            button.textContent = 'Added';
+            setTimeout(() => {
+                button.textContent = 'Add to Cart';
+            }, 1200);
         }
     </script>
 </body>
