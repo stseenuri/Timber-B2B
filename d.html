@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Farm Mutton Hyderabad – 25% Launch Offer on Grass-Fed Goat</title>
+    <title>Farm Mutton – Grass-Fed Goat for West Hyderabad (25% Launch Offer)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <meta name="description" content="25% launch offer on fresh grass-fed mutton. Curry cut, boneless and kheema delivered within 2 hours of Sunday slaughter across West Hyderabad. Order via WhatsApp.">
-    <meta name="keywords" content="mutton delivery hyderabad, curry cut mutton, boneless mutton, mutton kheema, grass fed goat hyderabad">
+    <meta name="description" content="Premium grass-fed mutton, slaughtered Sunday morning and delivered within 2 hours across West Hyderabad. 25% launch offer on Curry Cut, Boneless and Kheema. Order via WhatsApp.">
+    <meta name="keywords" content="grass fed mutton hyderabad, mutton delivery gachibowli, boneless mutton hitech city, fresh mutton kondapur">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -41,6 +41,8 @@
             overflow-x:hidden;
         }
 
+        a{text-decoration:none;color:inherit;}
+
         /* HEADER */
         header{
             position:fixed;
@@ -48,7 +50,7 @@
             width:100%;
             padding:10px 5%;
             background:rgba(0,0,0,0.96);
-            border-bottom:2px solid var(--primary);
+            border-bottom:1px solid #222;
             backdrop-filter:blur(10px);
             z-index:1000;
         }
@@ -72,7 +74,7 @@
         }
         .logo-text{
             font-family:'Bebas Neue',sans-serif;
-            font-size:1.5rem;
+            font-size:1.6rem;
             color:var(--primary);
             letter-spacing:2px;
         }
@@ -83,8 +85,7 @@
             font-size:0.85rem;
         }
         nav a{
-            color:var(--text);
-            text-decoration:none;
+            color:var(--text-dim);
             font-weight:600;
         }
         nav a:hover{color:var(--primary);}
@@ -98,6 +99,7 @@
             font-weight:700;
             text-transform:uppercase;
             cursor:pointer;
+            color:#000;
         }
 
         .menu-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;}
@@ -141,7 +143,9 @@
         }
 
         .offer-pill{
-            display:inline-block;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
             background:linear-gradient(135deg,var(--accent) 0%,#c70039 100%);
             padding:6px 16px;
             border-radius:999px;
@@ -150,9 +154,13 @@
             text-transform:uppercase;
             margin-bottom:10px;
         }
+        .offer-pill span:last-child{
+            font-size:0.75rem;
+            opacity:0.9;
+        }
         .hero-title{
             font-family:'Bebas Neue',sans-serif;
-            font-size:clamp(2.4rem,5vw,3.6rem);
+            font-size:clamp(2.4rem,5vw,3.8rem);
             margin-bottom:10px;
         }
         .hero-title span{color:var(--primary);}
@@ -161,12 +169,15 @@
             color:var(--text-dim);
             margin-bottom:14px;
         }
-        .hero-proof{
+        .hero-metrics{
+            display:flex;
+            flex-wrap:wrap;
+            gap:14px;
             font-size:0.8rem;
             color:var(--text-dim);
             margin-bottom:14px;
         }
-        .hero-proof strong{color:var(--primary);}
+        .hero-metrics strong{color:var(--primary);}
         .hero-cta-row{
             display:flex;
             flex-wrap:wrap;
@@ -263,7 +274,7 @@
             margin-right:auto;
         }
 
-        /* TOP 3 PRODUCTS */
+        /* PRODUCTS */
         .products-grid{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -289,9 +300,24 @@
             flex-direction:column;
             gap:8px;
         }
+        .p-badge{
+            font-size:0.7rem;
+            font-weight:700;
+            color:#fff;
+            background:var(--accent);
+            border-radius:999px;
+            padding:3px 8px;
+            display:inline-block;
+        }
+        .p-title-row{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:8px;
+        }
         .p-title{
             font-family:'Bebas Neue',sans-serif;
-            font-size:1.5rem;
+            font-size:1.6rem;
             color:var(--primary);
         }
         .p-desc{
@@ -312,13 +338,9 @@
             font-size:1.3rem;
             font-weight:800;
         }
-        .p-off{
-            font-size:0.7rem;
-            padding:3px 8px;
-            border-radius:999px;
-            background:var(--accent);
-            color:#fff;
-            font-weight:700;
+        .p-meta{
+            font-size:0.75rem;
+            color:var(--text-dim);
         }
         .p-size-row{
             display:flex;
@@ -491,7 +513,6 @@
             cursor:pointer;
             z-index:999;
         }
-
         @media(max-width:768px){
             .wa-float{bottom:70px;}
         }
@@ -526,19 +547,23 @@
 <section class="hero" id="hero">
     <div class="hero-grid">
         <div>
-            <div class="offer-pill">🎉 25% LAUNCH OFFER ON ALL CUTS</div>
+            <div class="offer-pill">
+                <span>25% LAUNCH OFFER</span>
+                <span>On all Sunday orders</span>
+            </div>
             <h1 class="hero-title">
                 <span>Grass-Fed Goat</span> Delivered Fresh Every Sunday.
             </h1>
             <p class="hero-sub">
                 Pre-order by Saturday 11 PM. Slaughtered Sunday 6–9 AM. Delivered within 2 hours across West Hyderabad.
             </p>
-            <p class="hero-proof">
-                Trusted by <strong>300+ families</strong> • Partnered with <strong>50+ local goat farmers</strong>
-            </p>
+            <div class="hero-metrics">
+                <span><strong>300+ families</strong> already served</span>
+                <span>Free delivery to 16 West Hyderabad areas</span>
+            </div>
             <div class="hero-cta-row">
                 <button class="btn-main" onclick="scrollToProducts()">Build My Sunday Order</button>
-                <button class="btn-ghost" onclick="openWhatsAppQuick()">💬 Quick WhatsApp Enquiry</button>
+                <button class="btn-ghost" onclick="openWhatsAppQuick()">💬 Ask on WhatsApp</button>
             </div>
             <div class="urgency">
                 <span>⏰</span>
@@ -550,7 +575,7 @@
             <div class="hero-card">
                 <img src="curry-cut-image.webp" alt="Curry Cut Grass-Fed Mutton">
                 <div class="hero-caption">
-                    Best-selling curry cut from grass-fed farm goats, trimmed and packed for Hyderabadi mutton curry.
+                    Signature curry cut from grass-fed goats, trimmed for Hyderabadi mutton curry and slow-cooked dishes.
                 </div>
             </div>
         </div>
@@ -563,7 +588,7 @@
         <div class="section-eyebrow">OUR TOP 3 CUTS</div>
         <h2 class="section-title">Add Multiple Products for This Sunday</h2>
         <p class="section-sub">
-            Choose 500g or 1kg packs for Curry Cut, Boneless and Kheema. Add multiple products and we’ll combine everything into one WhatsApp order.
+            Choose 500g or 1kg packs for Curry Cut, Boneless and Kheema. Add as many packs as you want and send everything in one WhatsApp order.
         </p>
     </div>
 
@@ -574,12 +599,17 @@
                 <img src="curry-cut-image.webp" alt="Curry Cut Mutton">
             </div>
             <div class="p-content">
-                <div class="p-title">🍛 Curry Cut</div>
-                <p class="p-desc">Balanced bone-in pieces. Perfect for Hyderabadi mutton curry, rogan josh and nihari.</p>
+                <div class="p-title-row">
+                    <div>
+                        <div class="p-title">🍛 Curry Cut</div>
+                        <span class="p-badge">Most ordered</span>
+                    </div>
+                </div>
+                <p class="p-desc">Bone-in pieces with the right meat-to-bone ratio for Hyderabadi curry, rogan josh and nihari.</p>
                 <div class="p-price-row">
                     <span class="p-old">₹1,200</span>
                     <span class="p-new">₹900</span>
-                    <span class="p-off">25% OFF • /kg</span>
+                    <span class="p-meta">/ kg (25% launch price)</span>
                 </div>
                 <div class="p-size-row">
                     <button class="p-size-btn active" data-grams="500">500g</button>
@@ -600,12 +630,15 @@
                 <img src="bonless-mutton.webp" alt="Boneless Mutton">
             </div>
             <div class="p-content">
-                <div class="p-title">🥩 Boneless</div>
-                <p class="p-desc">Pure meat, no bone. Great for fry, kebabs and kids who hate bones.</p>
+                <div class="p-title-row">
+                    <div class="p-title">🥩 Boneless</div>
+                    <span class="p-badge">Family favourite</span>
+                </div>
+                <p class="p-desc">Pure meat with minimal fat. Great for fry, kebabs, grills and kids who hate bones.</p>
                 <div class="p-price-row">
                     <span class="p-old">₹1,400</span>
                     <span class="p-new">₹1,050</span>
-                    <span class="p-off">25% OFF • /kg</span>
+                    <span class="p-meta">/ kg (25% launch price)</span>
                 </div>
                 <div class="p-size-row">
                     <button class="p-size-btn active" data-grams="500">500g</button>
@@ -626,12 +659,15 @@
                 <img src="mutton-kheema.jpg" alt="Boneless Kheema">
             </div>
             <div class="p-content">
-                <div class="p-title">🥙 Boneless Kheema</div>
-                <p class="p-desc">Fine mince from boneless meat. Ideal for keema pav, samosas and cutlets.</p>
+                <div class="p-title-row">
+                    <div class="p-title">🥙 Boneless Kheema</div>
+                    <span class="p-badge">High demand</span>
+                </div>
+                <p class="p-desc">Fine mince from boneless meat. Ideal for keema pav, samosas, cutlets and stuffed parathas.</p>
                 <div class="p-price-row">
                     <span class="p-old">₹1,500</span>
                     <span class="p-new">₹1,125</span>
-                    <span class="p-off">25% OFF • /kg</span>
+                    <span class="p-meta">/ kg (25% launch price)</span>
                 </div>
                 <div class="p-size-row">
                     <button class="p-size-btn active" data-grams="500">500g</button>
@@ -648,7 +684,7 @@
     </div>
 
     <div style="margin-top:18px;font-size:0.85rem;color:var(--text-dim);text-align:center;">
-        Selected items will be combined into one WhatsApp message so you don’t have to type anything.
+        You can mix all three cuts in one order. We’ll calculate total weight and price inside WhatsApp for you.
     </div>
 
     <div style="margin-top:18px;text-align:center;">
@@ -660,9 +696,9 @@
 <section class="section" id="why" style="background:#040a07;">
     <div class="section-header">
         <div class="section-eyebrow">WHY GRASS-FED GOAT</div>
-        <h2 class="section-title">Better Meat for Weekly Meat Lovers</h2>
+        <h2 class="section-title">Meat Built for Sunday Rituals</h2>
         <p class="section-sub">
-            Families in West Hyderabad who eat meat every week care about taste, health and consistency. Grass-fed goat checks all three boxes.[web:62][web:65]
+            Weekly meat eaters care about taste, digestion and consistency. Grass-fed goat performs better on all three than typical grain-fed or frozen meat.[web:115][web:122]
         </p>
     </div>
     <div class="edu-wrap">
@@ -670,28 +706,28 @@
             <div class="edu-icon">💪</div>
             <div class="edu-title">Lean, High Protein</div>
             <div class="edu-text">
-                Grass-fed goat has lower fat and higher protein than grain-fed or frozen supermarket mutton, ideal for regular consumption.[web:65]
+                Grass-fed goat offers high-quality protein with less saturated fat, making it ideal for regular Sunday meals.[web:115][web:119]
             </div>
         </div>
         <div class="edu-card">
             <div class="edu-icon">❤️</div>
-            <div class="edu-title">Heart-Friendly Choice</div>
+            <div class="edu-title">Lighter on the Stomach</div>
             <div class="edu-text">
-                More Omega-3 and fewer unhealthy fats make it a better option for IT professionals and fitness-focused families.[web:62][web:65]
+                Customers report less heaviness and better post-meal energy compared to heavy, oily supermarket mutton.[web:125][web:126]
             </div>
         </div>
         <div class="edu-card">
             <div class="edu-icon">🌾</div>
             <div class="edu-title">No Hormones, No Antibiotics</div>
             <div class="edu-text">
-                Only grass-fed farm goats from local Telangana farmers—no growth injections or heavy antibiotics in the feed.[web:65]
+                Partnered with local farmers for grass-fed herds—no growth injections or aggressive antibiotic cycles.[web:116][web:118]
             </div>
         </div>
         <div class="edu-card">
             <div class="edu-icon">🏡</div>
             <div class="edu-title">“Village Goat” Taste</div>
             <div class="edu-text">
-                The same flavour many Hyderabad families remember from village slaughter—tender, clean and naturally rich.
+                The flavour profile matches what Hyderabad families associate with village-slaughtered goat: clean, tender and deeply savoury.[web:117][web:122]
             </div>
         </div>
     </div>
@@ -701,7 +737,7 @@
 <section class="section" id="testimonials">
     <div class="section-header">
         <div class="section-eyebrow">CUSTOMER STORIES</div>
-        <h2 class="section-title">What West Hyderabad Families Say</h2>
+        <h2 class="section-title">Why Families Stick to Farm Mutton</h2>
     </div>
     <div class="t-grid">
         <div class="t-card">
@@ -714,7 +750,7 @@
             </div>
             <div class="t-stars">★★★★★</div>
             <div class="t-text">
-                "Booked curry cut and boneless for Sunday. Delivered by 8:30 AM, biryani was ready by 11. Tastes like village goat, not supermarket rubber."
+                "Curry cut + boneless combo is our fixed Sunday order. Meat is tender, zero bad smell and always on time before 9 AM."
             </div>
         </div>
         <div class="t-card">
@@ -727,7 +763,7 @@
             </div>
             <div class="t-stars">★★★★★</div>
             <div class="t-text">
-                "We eat mutton every Sunday. Grass-fed goat feels lighter, no oily heaviness. Clients love the macro-friendly kheema recipes."
+                "Clients love the kheema meal prep. Clean protein, easy to digest, and the WhatsApp ordering is idiot-proof even for busy people."
             </div>
         </div>
         <div class="t-card">
@@ -740,7 +776,7 @@
             </div>
             <div class="t-stars">★★★★★</div>
             <div class="t-text">
-                "I order 2kg curry + 1kg kheema every week. WhatsApp ordering is smooth, and they always respect my preferred slot."
+                "I’ve stopped bargaining with local butchers. Quality is consistent, pricing is transparent, and payment + delivery is smooth."
             </div>
         </div>
     </div>
@@ -750,49 +786,50 @@
 <section class="section" id="faq" style="background:#000;">
     <div class="section-header">
         <div class="section-eyebrow">FAQ</div>
-        <h2 class="section-title">Frequently Asked Questions</h2>
+        <h2 class="section-title">Questions Meat Lovers Ask</h2>
     </div>
     <div class="faq-wrap">
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">
-                <span>How do I place an order?</span><span>+</span>
+                <span>How do I place an order without typing everything?</span><span>+</span>
             </div>
             <div class="faq-a">
-                Select your cuts and quantities on this page, then tap “Send My Order on WhatsApp”.  
-                A summary message opens in WhatsApp—just pick your slot, share address and pay 20% advance to confirm.
+                Select your cuts, sizes and quantities above, then tap “Send My Order on WhatsApp”.  
+                We generate a full summary with items, weights and prices so you only choose slot and share address.[web:121][web:124]
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">
-                <span>What are the Sunday delivery slots?</span><span>+</span>
+                <span>What are your Sunday delivery slots?</span><span>+</span>
             </div>
             <div class="faq-a">
                 We deliver in three slots every Sunday: 7–9 AM, 9–11 AM and 11 AM–1 PM.  
-                You choose your preferred slot inside WhatsApp while confirming the order.
+                You confirm your preferred slot inside the WhatsApp chat before paying the advance.
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">
-                <span>Which areas do you cover?</span><span>+</span>
+                <span>Which areas in West Hyderabad do you cover?</span><span>+</span>
             </div>
             <div class="faq-a">
-                We cover 16 areas in West Hyderabad including Gachibowli, HITEC City, Kondapur, Madhapur, Mehadipatnam, Tolichowki, Manikonda, Narsingi, Financial District, Hafeezpet, Kukatpally, Banjara Hills, Jubilee Hills, Lingampally, Tellapur and Serilingampally.[web:59][web:60]
+                We cover Gachibowli, HITEC City, Kondapur, Madhapur, Mehadipatnam, Tolichowki, Manikonda, Narsingi, Financial District, Hafeezpet, Kukatpally, Banjara Hills, Jubilee Hills, Lingampally, Tellapur and Serilingampally.
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">
-                <span>Is delivery free?</span><span>+</span>
+                <span>Is delivery free or do you charge extra?</span><span>+</span>
             </div>
             <div class="faq-a">
-                Yes, delivery is currently free across all West Hyderabad areas for our launch phase. No hidden charges, you only pay for the meat.
+                Delivery is currently free across all 16 West Hyderabad areas during the launch phase—no packing or convenience charges added on top.
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">
-                <span>How fresh is the meat really?</span><span>+</span>
+                <span>How fresh is the meat compared to apps and local butchers?</span><span>+</span>
             </div>
             <div class="faq-a">
-                Goats are slaughtered Sunday morning between 6–9 AM. Your order is cut, packed and delivered within about 2 hours of slaughter—never frozen or stored overnight.
+                Goats are slaughtered Sunday morning between 6–9 AM and cut to order.  
+                Your delivery typically happens within ~2 hours of slaughter, which beats frozen/overnight storage and most generic delivery apps.[web:115][web:122]
             </div>
         </div>
     </div>
@@ -818,7 +855,7 @@
 
     // WhatsApp quick open
     function openWhatsAppQuick(){
-        const msg = 'Hi! I want to know more about your Sunday fresh mutton delivery.';
+        const msg = 'Hi! I want to know more about your Sunday fresh grass-fed mutton delivery.';
         window.open('https://wa.me/919494051840?text=' + encodeURIComponent(msg),'_blank');
     }
 
@@ -841,7 +878,7 @@
         item.classList.toggle('active');
     }
 
-    // Product selection state
+    // Product selection state (in-memory)
     const selectedItems = [];
 
     // Size button toggle
@@ -865,13 +902,13 @@
         display.textContent = value;
     }
 
-    // Add product (multiple items)
+    // Add product (can add multiple items)
     function addProduct(btn){
         const card = btn.closest('.p-card');
         const name = card.getAttribute('data-product');
-        const pricePerKg = parseInt(card.getAttribute('data-discount-kg'),10); // already 25% off
+        const pricePerKg = parseInt(card.getAttribute('data-discount-kg'),10); // already discounted
         const sizeBtn = card.querySelector('.p-size-btn.active');
-        const grams = parseInt(sizeBtn.getAttribute('data-grams'),10); // 500 / 1000
+        const grams = parseInt(sizeBtn.getAttribute('data-grams'),10); // 500 or 1000
         const display = card.querySelector('.p-qty-display');
         let qty = parseInt(display.textContent,10);
         if(isNaN(qty) || qty < 1) qty = 1;
