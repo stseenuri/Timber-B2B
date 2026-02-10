@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Farm Mutton Hyderabad – 25% Launch Offer on Grass-Fed Goat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Mutton Hyderabad - Fresh Grass-Fed Goat Delivered on Sundays</title>
 
-    <!-- SEO Meta -->
-    <meta name="description" content="Order fresh grass-fed mutton delivered within 2 hours of Sunday slaughter. Curry cut, boneless, kheema, chops, liver & full goat. West Hyderabad delivery.">
-    <meta name="keywords" content="mutton delivery hyderabad, fresh mutton gachibowli, halal meat kondapur, grass fed goat, mutton home delivery">
+    <!-- SEO -->
+    <meta name="description" content="25% launch offer on fresh grass-fed mutton. Curry cut, boneless and kheema delivered within 2 hours of Sunday slaughter across West Hyderabad. Order via WhatsApp.">
+    <meta name="keywords" content="mutton delivery hyderabad, curry cut mutton, boneless mutton, mutton kheema, grass fed goat hyderabad">
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -21,1035 +21,894 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *{margin:0;padding:0;box-sizing:border-box;}
 
-        :root {
-            --primary: #00d084;
-            --primary-dark: #00a86b;
-            --accent: #ff3b30;
-            --text: #fefefe;
-            --text-dim: #c0c0c0;
-            --bg-dark: #0a0a0a;
-            --bg-card: #101010;
+        :root{
+            --primary:#00d084;
+            --primary-dark:#00a86b;
+            --accent:#ff3b30;
+            --text:#fefefe;
+            --text-dim:#c0c0c0;
+            --bg:#050505;
+            --card:#101010;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
+        body{
+            font-family:'Inter',sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.6;
+            overflow-x:hidden;
         }
 
         /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.97);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary);
-            z-index: 2000;
-            padding: 10px 5%;
+        header{
+            position:fixed;
+            top:0;
+            width:100%;
+            padding:10px 5%;
+            background:rgba(0,0,0,0.96);
+            border-bottom:2px solid var(--primary);
+            backdrop-filter:blur(10px);
+            z-index:1000;
+        }
+        .header-inner{
+            max-width:1200px;
+            margin:0 auto;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+        }
+        .logo-wrap{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        .logo-img{
+            width:40px;
+            height:40px;
+            object-fit:contain;
+        }
+        .logo-text{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:1.5rem;
+            color:var(--primary);
+            letter-spacing:2px;
+        }
+        nav{
+            display:flex;
+            gap:20px;
+            align-items:center;
+            font-size:0.85rem;
+        }
+        nav a{
+            color:var(--text);
+            text-decoration:none;
+            font-weight:600;
+        }
+        nav a:hover{color:var(--primary);}
+
+        .header-cta{
+            background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+            border:none;
+            border-radius:999px;
+            padding:8px 18px;
+            font-size:0.8rem;
+            font-weight:700;
+            text-transform:uppercase;
+            cursor:pointer;
         }
 
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
+        .menu-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+        .menu-toggle span{width:24px;height:3px;background:var(--primary);border-radius:3px;}
 
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        .cart-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(0, 208, 132, 0.1);
-            border: 1px solid rgba(0, 208, 132, 0.5);
-            font-size: 0.8rem;
-        }
-
-        .cart-count {
-            background: var(--primary);
-            color: #000;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-
-        .header-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #fff;
-            border: none;
-            border-radius: 999px;
-            padding: 8px 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .menu-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
-        .menu-toggle span { width: 24px; height: 3px; background: var(--primary); border-radius: 3px; }
-
-        @media (max-width: 900px) {
-            nav {
-                position: fixed;
-                top: 64px;
-                right: -100%;
-                width: 70%;
-                height: calc(100vh - 64px);
-                background: #000;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 30px 20px;
-                gap: 18px;
-                border-left: 2px solid var(--primary);
-                transition: right 0.3s ease;
+        @media(max-width:900px){
+            nav{
+                position:fixed;
+                top:60px;
+                right:-100%;
+                width:70%;
+                height:calc(100vh - 60px);
+                flex-direction:column;
+                align-items:flex-start;
+                padding:24px 20px;
+                background:#000;
+                border-left:2px solid var(--primary);
+                transition:right 0.3s ease;
             }
-            nav.active { right: 0; }
-            .menu-toggle { display: flex; }
-            .header-cta { display: none; }
+            nav.active{right:0;}
+            .menu-toggle{display:flex;}
+            .header-cta{display:none;}
         }
 
         /* HERO */
-        .hero {
-            min-height: 85vh;
-            padding: 100px 5% 40px;
-            background: radial-gradient(ellipse at top, #1a0d00 0%, #000000 70%);
+        .hero{
+            padding:100px 5% 40px;
+            background:radial-gradient(ellipse at top,#1a0d00 0%,#000 70%);
+        }
+        .hero-grid{
+            max-width:1200px;
+            margin:0 auto;
+            display:grid;
+            grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+            gap:40px;
+            align-items:center;
+        }
+        @media(max-width:900px){
+            .hero-grid{grid-template-columns:1fr;}
+            .hero{padding-top:90px;}
         }
 
-        .hero-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
+        .offer-pill{
+            display:inline-block;
+            background:linear-gradient(135deg,var(--accent) 0%,#c70039 100%);
+            padding:6px 16px;
+            border-radius:999px;
+            font-size:0.8rem;
+            font-weight:700;
+            text-transform:uppercase;
+            margin-bottom:10px;
         }
-
-        @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero { padding-top: 90px; }
+        .hero-title{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:clamp(2.4rem,5vw,3.6rem);
+            margin-bottom:10px;
         }
-
-        .offer-banner {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--accent) 0%, #c70039 100%);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
+        .hero-title span{color:var(--primary);}
+        .hero-sub{
+            font-size:0.95rem;
+            color:var(--text-dim);
+            margin-bottom:14px;
         }
-
-        .hero-headline {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.4rem, 5vw, 3.6rem);
-            margin-bottom: 10px;
+        .hero-proof{
+            font-size:0.8rem;
+            color:var(--text-dim);
+            margin-bottom:14px;
         }
-
-        .hero-headline span { color: var(--primary); }
-
-        .hero-subtext {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            margin-bottom: 16px;
+        .hero-proof strong{color:var(--primary);}
+        .hero-cta-row{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-bottom:12px;
         }
-
-        .social-proof {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            margin-bottom: 18px;
+        .btn-main{
+            background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+            border:none;
+            border-radius:999px;
+            padding:12px 24px;
+            font-size:0.85rem;
+            font-weight:800;
+            text-transform:uppercase;
+            cursor:pointer;
+            color:#000;
         }
-
-        .social-proof strong { color: var(--primary); }
-
-        .hero-cta-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
+        .btn-ghost{
+            border-radius:999px;
+            border:1px solid var(--primary);
+            background:transparent;
+            color:var(--primary);
+            padding:10px 20px;
+            font-size:0.8rem;
+            font-weight:700;
+            text-transform:uppercase;
+            cursor:pointer;
         }
-
-        .btn-primary-lg {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border: none;
-            border-radius: 999px;
-            color: #000;
-            padding: 14px 28px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            cursor: pointer;
+        .urgency{
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+            margin-top:8px;
+            padding:6px 10px;
+            border-radius:10px;
+            border:1px solid rgba(255,59,48,0.4);
+            background:rgba(255,59,48,0.1);
+            font-size:0.75rem;
+            color:#ff9d9d;
         }
+        .urgency strong{color:var(--accent);}
 
-        .btn-secondary-lg {
-            border-radius: 999px;
-            border: 1px solid var(--primary);
-            background: transparent;
-            color: var(--primary);
-            padding: 12px 24px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
+        .hero-visual{
+            max-width:380px;
+            margin:0 auto;
         }
-
-        .urgency-box {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            padding: 8px 12px;
-            border-radius: 10px;
-            background: rgba(255, 59, 48, 0.1);
-            border: 1px solid rgba(255, 59, 48, 0.4);
-            color: #ff9d9d;
+        .hero-card{
+            background:radial-gradient(circle at top,rgba(0,208,132,0.25),rgba(0,0,0,0.9));
+            border-radius:22px;
+            padding:18px;
+            border:2px solid rgba(0,208,132,0.5);
+            box-shadow:0 18px 40px rgba(0,0,0,0.9);
         }
-
-        .urgency-box strong { color: var(--accent); }
-
-        .hero-visual {
-            max-width: 420px;
-            margin: 0 auto;
+        .hero-card img{
+            width:100%;
+            border-radius:16px;
+            display:block;
+            background:#fff;
         }
-
-        .hero-card {
-            background: radial-gradient(circle at top, rgba(0, 208, 132, 0.2), rgba(0, 0, 0, 0.8));
-            border-radius: 24px;
-            padding: 18px;
-            border: 2px solid rgba(0, 208, 132, 0.4);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-        }
-
-        .hero-card img {
-            width: 100%;
-            border-radius: 18px;
-            display: block;
-        }
-
-        .hero-label {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
+        .hero-caption{
+            font-size:0.8rem;
+            color:var(--text-dim);
+            margin-top:8px;
         }
 
         /* SECTIONS */
-        .section {
-            padding: 60px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+        .section{
+            max-width:1200px;
+            margin:0 auto;
+            padding:50px 5%;
+        }
+        .section-header{
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .section-eyebrow{
+            font-family:'JetBrains Mono',monospace;
+            font-size:0.75rem;
+            letter-spacing:3px;
+            text-transform:uppercase;
+            color:var(--primary);
+            margin-bottom:8px;
+        }
+        .section-title{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:clamp(2rem,4vw,3rem);
+        }
+        .section-sub{
+            font-size:0.9rem;
+            color:var(--text-dim);
+            margin-top:6px;
+            max-width:620px;
+            margin-left:auto;
+            margin-right:auto;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 35px;
+        /* TOP 3 PRODUCTS */
+        .products-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:20px;
+        }
+        .p-card{
+            background:var(--card);
+            border-radius:18px;
+            border:1px solid #222;
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+        }
+        .p-img-wrap img{
+            width:100%;
+            height:190px;
+            object-fit:cover;
+            background:#fff;
+        }
+        .p-content{
+            padding:14px 14px 16px;
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+        }
+        .p-title{
+            font-family:'Bebas Neue',sans-serif;
+            font-size:1.5rem;
+            color:var(--primary);
+        }
+        .p-desc{
+            font-size:0.8rem;
+            color:var(--text-dim);
+        }
+        .p-price-row{
+            display:flex;
+            align-items:baseline;
+            gap:8px;
+        }
+        .p-old{
+            font-size:0.85rem;
+            color:#666;
+            text-decoration:line-through;
+        }
+        .p-new{
+            font-size:1.3rem;
+            font-weight:800;
+        }
+        .p-off{
+            font-size:0.7rem;
+            padding:3px 8px;
+            border-radius:999px;
+            background:var(--accent);
+            color:#fff;
+            font-weight:700;
+        }
+        .p-size-row{
+            display:flex;
+            gap:8px;
+            margin-top:4px;
+        }
+        .p-size-btn{
+            flex:1;
+            font-size:0.75rem;
+            padding:6px 0;
+            border-radius:999px;
+            border:1px solid #333;
+            background:transparent;
+            color:var(--text-dim);
+            cursor:pointer;
+        }
+        .p-size-btn.active{
+            border-color:var(--primary);
+            background:rgba(0,208,132,0.1);
+            color:var(--primary);
+        }
+        .p-qty-row{
+            display:flex;
+            gap:8px;
+            margin-top:8px;
+        }
+        .p-qty-input{
+            width:54px;
+            text-align:center;
+            font-size:0.8rem;
+            padding:6px;
+            border-radius:8px;
+            border:1px solid #333;
+            background:#000;
+            color:var(--text);
+        }
+        .p-add-btn{
+            flex:1;
+            font-size:0.8rem;
+            font-weight:700;
+            text-transform:uppercase;
+            border-radius:999px;
+            border:none;
+            background:var(--primary);
+            color:#000;
+            padding:8px 10px;
+            cursor:pointer;
         }
 
-        .section-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--primary);
-            margin-bottom: 8px;
+        /* EDUCATION */
+        .edu-wrap{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+            gap:18px;
+        }
+        .edu-card{
+            background:#060f0b;
+            border-radius:14px;
+            border:1px solid rgba(0,208,132,0.3);
+            padding:18px 16px;
+            text-align:center;
+        }
+        .edu-icon{font-size:2.2rem;margin-bottom:6px;}
+        .edu-title{font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:4px;}
+        .edu-text{font-size:0.85rem;color:var(--text-dim);}
+
+        /* TESTIMONIALS */
+        .t-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:18px;
+        }
+        .t-card{
+            background:#080808;
+            border-radius:14px;
+            border:1px solid #222;
+            padding:16px 16px 18px;
+        }
+        .t-header{
+            display:flex;
+            gap:10px;
+            align-items:center;
+            margin-bottom:6px;
+        }
+        .t-avatar{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            background:var(--primary);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:#000;
+        }
+        .t-name{font-size:0.9rem;font-weight:600;}
+        .t-loc{font-size:0.75rem;color:var(--primary);}
+        .t-stars{font-size:0.8rem;color:#ffd700;margin-bottom:4px;}
+        .t-text{font-size:0.8rem;color:var(--text-dim);font-style:italic;}
+
+        /* FAQ */
+        .faq-wrap{
+            max-width:800px;
+            margin:0 auto;
+        }
+        .faq-item{
+            background:#080808;
+            border-radius:12px;
+            border:1px solid #222;
+            margin-bottom:10px;
+            overflow:hidden;
+        }
+        .faq-q{
+            padding:14px 16px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            cursor:pointer;
+            font-size:0.9rem;
+            font-weight:600;
+        }
+        .faq-q span:last-child{
+            font-size:1.2rem;
+            transition:transform 0.3s ease;
+        }
+        .faq-item.active .faq-q span:last-child{transform:rotate(45deg);}
+        .faq-a{
+            max-height:0;
+            overflow:hidden;
+            padding:0 16px;
+            font-size:0.85rem;
+            color:var(--text-dim);
+            transition:max-height 0.3s ease,padding-bottom 0.3s ease;
+        }
+        .faq-item.active .faq-a{
+            max-height:200px;
+            padding-bottom:12px;
         }
 
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            margin-top: 6px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* PRODUCTS + CART LAYOUT */
-        .products-cart-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 1000px) {
-            .products-cart-layout { grid-template-columns: 1fr; }
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--bg-card);
-            border-radius: 18px;
-            border: 1px solid #222;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-image-wrap {
-            position: relative;
-        }
-
-        .product-image-wrap img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #fff;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 999px;
-        }
-
-        .product-content {
-            padding: 16px 16px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .product-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .product-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .product-desc {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-        }
-
-        .product-price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-
-        .old-price {
-            font-size: 0.9rem;
-            color: #666;
-            text-decoration: line-through;
-        }
-
-        .new-price {
-            font-size: 1.3rem;
-            font-weight: 800;
-        }
-
-        .per-unit {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-
-        .size-row {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .size-btn {
-            flex: 1;
-            text-align: center;
-            padding: 6px 0;
-            border-radius: 999px;
-            border: 1px solid #333;
-            background: transparent;
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            cursor: pointer;
-        }
-
-        .size-btn.active {
-            border-color: var(--primary);
-            background: rgba(0, 208, 132, 0.1);
-            color: var(--primary);
-        }
-
-        .add-row {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .qty-input {
-            width: 60px;
-            padding: 6px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #000;
-            color: var(--text);
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        .add-btn {
-            flex: 1;
-            border-radius: 999px;
-            border: none;
-            background: var(--primary);
-            color: #000;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 8px 10px;
-            cursor: pointer;
-        }
-
-        /* CART PANEL */
-        .cart-panel {
-            background: #050505;
-            border-radius: 18px;
-            border: 1px solid #222;
-            padding: 16px 16px 18px;
-            position: sticky;
-            top: 90px;
-        }
-
-        .cart-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .cart-title {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .cart-mini-count {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-        }
-
-        .cart-items {
-            max-height: 260px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-
-        .cart-empty {
-            font-size: 0.8rem;
-            color: #777;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .cart-item-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 6px;
-            font-size: 0.8rem;
-            padding: 6px 0;
-            border-bottom: 1px dashed #222;
-        }
-
-        .cart-item-main {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 600;
-        }
-
-        .cart-item-meta {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-
-        .cart-item-amount {
-            font-weight: 700;
-        }
-
-        .cart-item-remove {
-            font-size: 0.7rem;
-            color: #f66;
-            cursor: pointer;
-        }
-
-        .cart-summary {
-            border-top: 1px solid #222;
-            padding-top: 8px;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .cart-summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-
-        .cart-summary-row strong { color: var(--primary); }
-
-        .cart-note {
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            margin-bottom: 10px;
-        }
-
-        .cart-cta {
-            width: 100%;
-            border-radius: 999px;
-            border: none;
-            background: var(--primary);
-            color: #000;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 10px 12px;
-            cursor: pointer;
-        }
-
-        .cart-cta:disabled {
-            background: #333;
-            color: #777;
-            cursor: not-allowed;
+        /* FOOTER */
+        footer{
+            padding:30px 5% 20px;
+            border-top:1px solid #222;
+            text-align:center;
+            font-size:0.8rem;
+            color:#777;
         }
 
         /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #25d366;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-            cursor: pointer;
-            z-index: 1500;
+        .wa-float{
+            position:fixed;
+            bottom:24px;
+            right:24px;
+            width:52px;
+            height:52px;
+            border-radius:50%;
+            background:#25d366;
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.7rem;
+            box-shadow:0 6px 20px rgba(0,0,0,0.6);
+            cursor:pointer;
+            z-index:999;
         }
 
-        @media (max-width: 768px) {
-            .whatsapp-float { bottom: 76px; }
+        @media(max-width:768px){
+            .wa-float{bottom:70px;}
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="header-container">
-            <div class="logo-wrap">
-                <img src="fm-logo.png" alt="Farm Mutton Logo" class="logo-img">
-                <div class="logo-text">Farm Mutton</div>
-            </div>
-
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
-
-            <nav id="navMenu">
-                <a href="#hero">Home</a>
-                <a href="#products">Products</a>
-                <a href="our-story.html">Our Story</a>
-                <a href="cut-guide.html">Cut Guide</a>
-                <a href="locations.html">Locations</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-
-            <div class="cart-indicator" onclick="scrollToCart()">
-                <span>Cart</span>
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
+<header>
+    <div class="header-inner">
+        <div class="logo-wrap">
+            <img src="fm-logo.png" alt="Farm Mutton Logo" class="logo-img">
+            <div class="logo-text">Farm Mutton</div>
         </div>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-        <div class="hero-grid">
-            <div>
-                <div class="offer-banner">25% LAUNCH OFFER ON ALL CUTS</div>
-                <h1 class="hero-headline">
-                    <span>Grass-Fed Goat</span> Delivered Fresh on Sundays.
-                </h1>
-                <p class="hero-subtext">
-                    Pre-order by Saturday 11 PM. Slaughtered Sunday 6–9 AM. Delivered within 2 hours across West Hyderabad. 
-                    Choose your cuts, we calculate everything, and you confirm on WhatsApp.
-                </p>
-                <div class="social-proof">
-                    <span><strong>300+ families</strong> already tried Farm Mutton</span>
-                    <span>Free delivery to 16 West Hyderabad areas</span>
-                </div>
-                <div class="hero-cta-row">
-                    <button class="btn-primary-lg" onclick="scrollToProducts()">Build My Sunday Order</button>
-                    <button class="btn-secondary-lg" onclick="openWhatsAppQuick()">Quick WhatsApp Enquiry</button>
-                </div>
-                <div class="urgency-box">
-                    <span>⏰ Slots fill fast. Only <strong id="heroSlots">30</strong> Sunday orders remaining.</span>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <img src="curry-cut-image.webp" alt="Curry Cut Mutton">
-                    <div class="hero-label">
-                        Best-selling curry cut, sourced from grass-fed farm goats, trimmed and packed for Hyderabadi mutton curry.
-                    </div>
-                </div>
-            </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
         </div>
-    </section>
 
-    <!-- PRODUCTS + CART -->
-    <section class="section" id="products" style="background:#000;">
-        <div class="section-header">
-            <div class="section-eyebrow">OUR SUNDAY MENU</div>
-            <h2 class="section-title">Add Products to Your Cart</h2>
-            <p class="section-subtitle">
-                Select 500g or 1kg packs. Add multiple products. We calculate your total and send it to WhatsApp in one click.
+        <nav id="navMenu">
+            <a href="#hero">Home</a>
+            <a href="#products">Products</a>
+            <a href="#why">Grass-Fed</a>
+            <a href="#testimonials">Stories</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+
+        <button class="header-cta" onclick="openWhatsAppQuick()">WhatsApp Us</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-grid">
+        <div>
+            <div class="offer-pill">🎉 25% LAUNCH OFFER ON ALL CUTS</div>
+            <h1 class="hero-title">
+                <span>Grass-Fed Goat</span> Delivered Fresh Every Sunday.
+            </h1>
+            <p class="hero-sub">
+                Pre-order by Saturday 11 PM. Slaughtered Sunday 6–9 AM. Delivered within 2 hours across West Hyderabad.
             </p>
+            <p class="hero-proof">
+                Trusted by <strong>300+ families</strong> • Partnered with <strong>50+ local goat farmers</strong>
+            </p>
+            <div class="hero-cta-row">
+                <button class="btn-main" onclick="scrollToProducts()">Build My Sunday Order</button>
+                <button class="btn-ghost" onclick="openWhatsAppQuick()">💬 Quick WhatsApp Enquiry</button>
+            </div>
+            <div class="urgency">
+                <span>⏰</span>
+                <span>Only <strong id="slotCount">30</strong> slots left for this Sunday.</span>
+            </div>
         </div>
 
-        <div class="products-cart-layout">
-            <!-- PRODUCTS GRID -->
-            <div class="products-grid">
-                <!-- CURRY CUT -->
-                <div class="product-card" data-product="Curry Cut" data-price-kg="1200" data-discount-kg="900">
-                    <div class="product-image-wrap">
-                        <img src="curry-cut-image.webp" alt="Curry Cut Mutton">
-                        <div class="product-badge">BEST SELLER</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🍛 Curry Cut</div>
-                        </div>
-                        <p class="product-desc">Balanced bone-in pieces for Hyderabadi mutton curry, rogan josh, nihari.</p>
-                        <div class="product-price-row">
-                            <span class="old-price">₹1,200</span>
-                            <span class="new-price">₹900</span>
-                            <span class="per-unit">/ kg (after 25% off)</span>
-                        </div>
-                        <div class="size-row">
-                            <button class="size-btn active" data-grams="500">500g</button>
-                            <button class="size-btn" data-grams="1000">1kg</button>
-                        </div>
-                        <div class="add-row">
-                            <input type="number" min="1" value="1" class="qty-input">
-                            <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BONELESS -->
-                <div class="product-card" data-product="Boneless" data-price-kg="1400" data-discount-kg="1050">
-                    <div class="product-image-wrap">
-                        <img src="bonless-mutton.webp" alt="Boneless Mutton">
-                        <div class="product-badge">PREMIUM</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🥩 Boneless</div>
-                        </div>
-                        <p class="product-desc">Pure meat, no bone. Perfect for fry, kebabs and kids who hate bones.</p>
-                        <div class="product-price-row">
-                            <span class="old-price">₹1,400</span>
-                            <span class="new-price">₹1,050</span>
-                            <span class="per-unit">/ kg (after 25% off)</span>
-                        </div>
-                        <div class="size-row">
-                            <button class="size-btn active" data-grams="500">500g</button>
-                            <button class="size-btn" data-grams="1000">1kg</button>
-                        </div>
-                        <div class="add-row">
-                            <input type="number" min="1" value="1" class="qty-input">
-                            <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BONELESS KHEEMA -->
-                <div class="product-card" data-product="Boneless Kheema" data-price-kg="1500" data-discount-kg="1125">
-                    <div class="product-image-wrap">
-                        <img src="mutton-kheema.jpg" alt="Mutton Kheema">
-                        <div class="product-badge">HOT</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🥙 Boneless Kheema</div>
-                        </div>
-                        <p class="product-desc">Fine mince from boneless meat. For keema pav, samosa, cutlets.</p>
-                        <div class="product-price-row">
-                            <span class="old-price">₹1,500</span>
-                            <span class="new-price">₹1,125</span>
-                            <span class="per-unit">/ kg (after 25% off)</span>
-                        </div>
-                        <div class="size-row">
-                            <button class="size-btn active" data-grams="500">500g</button>
-                            <button class="size-btn" data-grams="1000">1kg</button>
-                        </div>
-                        <div class="add-row">
-                            <input type="number" min="1" value="1" class="qty-input">
-                            <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MUTTON CHOPS -->
-                <div class="product-card" data-product="Mutton Chops" data-price-kg="1200" data-discount-kg="900">
-                    <div class="product-image-wrap">
-                        <img src="mutton-chops.webp" alt="Mutton Chops">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🔥 Mutton Chops</div>
-                        </div>
-                        <p class="product-desc">Rib and loin chops for grills, tandoor and barbecues.</p>
-                        <div class="product-price-row">
-                            <span class="old-price">₹1,200</span>
-                            <span class="new-price">₹900</span>
-                            <span class="per-unit">/ kg (after 25% off)</span>
-                        </div>
-                        <div class="size-row">
-                            <button class="size-btn active" data-grams="500">500g</button>
-                            <button class="size-btn" data-grams="1000">1kg</button>
-                        </div>
-                        <div class="add-row">
-                            <input type="number" min="1" value="1" class="qty-input">
-                            <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LIVER -->
-                <div class="product-card" data-product="Liver" data-price-kg="750" data-discount-kg="563">
-                    <div class="product-image-wrap">
-                        <img src="mutton-liver.jpg" alt="Mutton Liver">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🫀 Liver</div>
-                        </div>
-                        <p class="product-desc">Fresh mutton liver for fry, pepper liver and traditional gravies.</p>
-                        <div class="product-price-row">
-                            <span class="old-price">₹750</span>
-                            <span class="new-price">₹563</span>
-                            <span class="per-unit">/ kg (after 25% off)</span>
-                        </div>
-                        <div class="size-row">
-                            <button class="size-btn active" data-grams="500">500g</button>
-                            <button class="size-btn" data-grams="1000">1kg</button>
-                        </div>
-                        <div class="add-row">
-                            <input type="number" min="1" value="1" class="qty-input">
-                            <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FULL GOAT -->
-                <div class="product-card" data-product="Full Goat" data-price-kg="9000" data-discount-kg="9000">
-                    <div class="product-image-wrap">
-                        <img src="full-goat.jpg" alt="Full Goat">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-title-row">
-                            <div class="product-title">🐐 Full Goat (Pre-Order)</div>
-                        </div>
-                        <p class="product-desc">Whole dressed goat. 9,000+ depending on weight. Ideal for big families & parties.</p>
-                        <div class="product-price-row">
-                            <span class="new-price">From ₹9,000</span>
-                            <span class="per-unit"> (20% advance)</span>
-                        </div>
-                        <div class="add-row">
-                            <button class="add-btn" onclick="orderFullGoat()">Discuss Full Goat on WhatsApp</button>
-                        </div>
-                    </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <img src="curry-cut-image.webp" alt="Curry Cut Grass-Fed Mutton">
+                <div class="hero-caption">
+                    Best-selling curry cut from grass-fed farm goats, trimmed and packed for Hyderabadi mutton curry.
                 </div>
             </div>
-
-            <!-- CART PANEL -->
-            <aside class="cart-panel" id="cartPanel">
-                <div class="cart-title-row">
-                    <div class="cart-title">Your Cart</div>
-                    <div class="cart-mini-count"><span id="cartItemsCount">0</span> items</div>
-                </div>
-                <div class="cart-items" id="cartItems">
-                    <div class="cart-empty">No items yet. Add products on the left.</div>
-                </div>
-                <div class="cart-summary" id="cartSummary" style="display:none;">
-                    <div class="cart-summary-row">
-                        <span>Total Weight</span>
-                        <strong id="cartTotalWeight">0 kg</strong>
-                    </div>
-                    <div class="cart-summary-row">
-                        <span>Total Amount (after 25% off)</span>
-                        <strong id="cartTotalAmount">₹0</strong>
-                    </div>
-                </div>
-                <p class="cart-note">
-                    Next step: choose your delivery slot & address in WhatsApp. We take 20% advance to confirm your Sunday slot.
-                </p>
-                <button class="cart-cta" id="cartCheckoutBtn" onclick="checkoutWhatsApp()" disabled>
-                    Send Order on WhatsApp
-                </button>
-            </aside>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- WHATSAPP FLOAT -->
-    <div class="whatsapp-float" onclick="openWhatsAppQuick()">💬</div>
+<!-- TOP 3 PRODUCTS -->
+<section class="section" id="products" style="background:#000;">
+    <div class="section-header">
+        <div class="section-eyebrow">OUR TOP 3 CUTS</div>
+        <h2 class="section-title">Add Multiple Products for This Sunday</h2>
+        <p class="section-sub">
+            Choose 500g or 1kg packs for Curry Cut, Boneless and Kheema. Add multiple products and we’ll combine everything into one WhatsApp order.
+        </p>
+    </div>
 
-    <script>
-        // MENU
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
+    <div class="products-grid">
+        <!-- CURRY CUT -->
+        <div class="p-card" data-product="Curry Cut" data-price-kg="1200" data-discount-kg="900">
+            <div class="p-img-wrap">
+                <img src="curry-cut-image.webp" alt="Curry Cut Mutton">
+            </div>
+            <div class="p-content">
+                <div class="p-title">🍛 Curry Cut</div>
+                <p class="p-desc">Balanced bone-in pieces. Perfect for Hyderabadi mutton curry, rogan josh and nihari.</p>
+                <div class="p-price-row">
+                    <span class="p-old">₹1,200</span>
+                    <span class="p-new">₹900</span>
+                    <span class="p-off">25% OFF • /kg</span>
+                </div>
+                <div class="p-size-row">
+                    <button class="p-size-btn active" data-grams="500">500g</button>
+                    <button class="p-size-btn" data-grams="1000">1kg</button>
+                </div>
+                <div class="p-qty-row">
+                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button class="p-add-btn" onclick="addProduct(this)">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BONELESS -->
+        <div class="p-card" data-product="Boneless" data-price-kg="1400" data-discount-kg="1050">
+            <div class="p-img-wrap">
+                <img src="bonless-mutton.webp" alt="Boneless Mutton">
+            </div>
+            <div class="p-content">
+                <div class="p-title">🥩 Boneless</div>
+                <p class="p-desc">Pure meat, no bone. Great for fry, kebabs and kids who hate bones.</p>
+                <div class="p-price-row">
+                    <span class="p-old">₹1,400</span>
+                    <span class="p-new">₹1,050</span>
+                    <span class="p-off">25% OFF • /kg</span>
+                </div>
+                <div class="p-size-row">
+                    <button class="p-size-btn active" data-grams="500">500g</button>
+                    <button class="p-size-btn" data-grams="1000">1kg</button>
+                </div>
+                <div class="p-qty-row">
+                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button class="p-add-btn" onclick="addProduct(this)">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KHEEMA -->
+        <div class="p-card" data-product="Boneless Kheema" data-price-kg="1500" data-discount-kg="1125">
+            <div class="p-img-wrap">
+                <img src="mutton-kheema.jpg" alt="Boneless Kheema">
+            </div>
+            <div class="p-content">
+                <div class="p-title">🥙 Boneless Kheema</div>
+                <p class="p-desc">Fine mince from boneless meat. Ideal for keema pav, samosas and cutlets.</p>
+                <div class="p-price-row">
+                    <span class="p-old">₹1,500</span>
+                    <span class="p-new">₹1,125</span>
+                    <span class="p-off">25% OFF • /kg</span>
+                </div>
+                <div class="p-size-row">
+                    <button class="p-size-btn active" data-grams="500">500g</button>
+                    <button class="p-size-btn" data-grams="1000">1kg</button>
+                </div>
+                <div class="p-qty-row">
+                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button class="p-add-btn" onclick="addProduct(this)">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:18px;font-size:0.85rem;color:var(--text-dim);text-align:center;">
+        Selected items will be combined into one WhatsApp message so you don’t have to type anything.
+    </div>
+
+    <div style="margin-top:18px;text-align:center;">
+        <button class="btn-main" onclick="sendOrderWhatsApp()">Send My Order on WhatsApp</button>
+    </div>
+</section>
+
+<!-- GRASS-FED EDUCATION -->
+<section class="section" id="why" style="background:#040a07;">
+    <div class="section-header">
+        <div class="section-eyebrow">WHY GRASS-FED GOAT</div>
+        <h2 class="section-title">Better Meat for Weekly Meat Lovers</h2>
+        <p class="section-sub">
+            Families in West Hyderabad who eat meat every week care about taste, health and consistency. Grass-fed goat checks all three boxes.[web:62][web:65]
+        </p>
+    </div>
+    <div class="edu-wrap">
+        <div class="edu-card">
+            <div class="edu-icon">💪</div>
+            <div class="edu-title">Lean, High Protein</div>
+            <div class="edu-text">
+                Grass-fed goat has lower fat and higher protein than grain-fed or frozen supermarket mutton, ideal for regular consumption.[web:65]
+            </div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-icon">❤️</div>
+            <div class="edu-title">Heart-Friendly Choice</div>
+            <div class="edu-text">
+                More Omega-3 and fewer unhealthy fats make it a better option for IT professionals and fitness-focused families.[web:62][web:65]
+            </div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-icon">🌾</div>
+            <div class="edu-title">No Hormones, No Antibiotics</div>
+            <div class="edu-text">
+                Only grass-fed farm goats from local Telangana farmers—no growth injections or heavy antibiotics in the feed.[web:65]
+            </div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-icon">🏡</div>
+            <div class="edu-title">“Village Goat” Taste</div>
+            <div class="edu-text">
+                The same flavour many Hyderabad families remember from village slaughter—tender, clean and naturally rich.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+    <div class="section-header">
+        <div class="section-eyebrow">CUSTOMER STORIES</div>
+        <h2 class="section-title">What West Hyderabad Families Say</h2>
+    </div>
+    <div class="t-grid">
+        <div class="t-card">
+            <div class="t-header">
+                <div class="t-avatar">RK</div>
+                <div>
+                    <div class="t-name">Rajesh Kumar</div>
+                    <div class="t-loc">Gachibowli • IT Manager</div>
+                </div>
+            </div>
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">
+                "Booked curry cut and boneless for Sunday. Delivered by 8:30 AM, biryani was ready by 11. Tastes like village goat, not supermarket rubber."
+            </div>
+        </div>
+        <div class="t-card">
+            <div class="t-header">
+                <div class="t-avatar">PM</div>
+                <div>
+                    <div class="t-name">Priya Menon</div>
+                    <div class="t-loc">HITEC City • Fitness Coach</div>
+                </div>
+            </div>
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">
+                "We eat mutton every Sunday. Grass-fed goat feels lighter, no oily heaviness. Clients love the macro-friendly kheema recipes."
+            </div>
+        </div>
+        <div class="t-card">
+            <div class="t-header">
+                <div class="t-avatar">SA</div>
+                <div>
+                    <div class="t-name">Shaik Ahmed</div>
+                    <div class="t-loc">Madhapur • Entrepreneur</div>
+                </div>
+            </div>
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">
+                "I order 2kg curry + 1kg kheema every week. WhatsApp ordering is smooth, and they always respect my preferred slot."
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background:#000;">
+    <div class="section-header">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-wrap">
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <span>How do I place an order?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+                Select your cuts and quantities on this page, then tap “Send My Order on WhatsApp”.  
+                A summary message opens in WhatsApp—just pick your slot, share address and pay 20% advance to confirm.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <span>What are the Sunday delivery slots?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+                We deliver in three slots every Sunday: 7–9 AM, 9–11 AM and 11 AM–1 PM.  
+                You choose your preferred slot inside WhatsApp while confirming the order.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <span>Which areas do you cover?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+                We cover 16 areas in West Hyderabad including Gachibowli, HITEC City, Kondapur, Madhapur, Mehadipatnam, Tolichowki, Manikonda, Narsingi, Financial District, Hafeezpet, Kukatpally, Banjara Hills, Jubilee Hills, Lingampally, Tellapur and Serilingampally.[web:59][web:60]
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <span>Is delivery free?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+                Yes, delivery is currently free across all West Hyderabad areas for our launch phase. No hidden charges, you only pay for the meat.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                <span>How fresh is the meat really?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+                Goats are slaughtered Sunday morning between 6–9 AM. Your order is cut, packed and delivered within about 2 hours of slaughter—never frozen or stored overnight.
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    Grass-fed goat every Sunday for West Hyderabad. Orders via WhatsApp: 9494051840.
+</footer>
+
+<!-- WhatsApp Float -->
+<div class="wa-float" onclick="openWhatsAppQuick()">💬</div>
+
+<script>
+    // Mobile menu
+    function toggleMenu(){
+        document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    // Scroll helper
+    function scrollToProducts(){
+        document.getElementById('products').scrollIntoView({behavior:'smooth'});
+    }
+
+    // WhatsApp quick open
+    function openWhatsAppQuick(){
+        const msg = 'Hi! I want to know more about your Sunday fresh mutton delivery.';
+        window.open('https://wa.me/919494051840?text=' + encodeURIComponent(msg),'_blank');
+    }
+
+    // Slot urgency counter (visual only)
+    let slots = 30;
+    const slotEl = document.getElementById('slotCount');
+    slotEl.textContent = slots;
+    setInterval(() => {
+        if (slots > 12){
+            slots -= Math.floor(Math.random()*2); // 0 or 1
+            slotEl.textContent = slots;
         }
+    }, 240000); // every 4 minutes
 
-        // SCROLL HELPERS
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        }
-        function scrollToCart() {
-            document.getElementById('cartPanel').scrollIntoView({ behavior: 'smooth' });
-        }
+    // FAQ toggle
+    function toggleFaq(qEl){
+        const item = qEl.parentElement;
+        const all = document.querySelectorAll('.faq-item');
+        all.forEach(i => { if(i !== item) i.classList.remove('active'); });
+        item.classList.toggle('active');
+    }
 
-        // WHATSAPP
-        function openWhatsAppQuick() {
-            window.open(
-                'https://wa.me/919494051840?text=' +
-                encodeURIComponent('Hi! I want to know more about your Sunday fresh mutton delivery.'),
-                '_blank'
-            );
-        }
+    // Product selection state (in-memory array)
+    const selectedItems = [];
 
-        function orderFullGoat() {
-            window.open(
-                'https://wa.me/919494051840?text=' +
-                encodeURIComponent('Hi! I want to pre-order a FULL GOAT for this Sunday. Please share available weights, price and slots.'),
-                '_blank'
-            );
-        }
-
-        // CART LOGIC
-        let cart = [];
-
-        function updateCartUI() {
-            const cartItemsEl = document.getElementById('cartItems');
-            const cartCountEl = document.getElementById('cartCount');
-            const cartItemsCountEl = document.getElementById('cartItemsCount');
-            const cartSummaryEl = document.getElementById('cartSummary');
-            const totalWeightEl = document.getElementById('cartTotalWeight');
-            const totalAmountEl = document.getElementById('cartTotalAmount');
-            const checkoutBtn = document.getElementById('cartCheckoutBtn');
-
-            if (cart.length === 0) {
-                cartItemsEl.innerHTML = '<div class="cart-empty">No items yet. Add products on the left.</div>';
-                cartCountEl.textContent = '0';
-                cartItemsCountEl.textContent = '0';
-                cartSummaryEl.style.display = 'none';
-                checkoutBtn.disabled = true;
-                return;
+    // Size button toggle
+    document.querySelectorAll('.p-size-row').forEach(row => {
+        row.addEventListener('click', e => {
+            if(e.target.classList.contains('p-size-btn')){
+                row.querySelectorAll('.p-size-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
             }
+        });
+    });
 
-            let html = '';
-            let totalWeightKg = 0;
-            let totalAmount = 0;
-            let totalItems = 0;
+    // Add product (multiple items)
+    function addProduct(btn){
+        const card = btn.closest('.p-card');
+        const name = card.getAttribute('data-product');
+        const pricePerKg = parseInt(card.getAttribute('data-discount-kg'),10); // already discounted
+        const sizeBtn = card.querySelector('.p-size-btn.active');
+        const grams = parseInt(sizeBtn.getAttribute('data-grams'),10); // 500 / 1000
+        const qtyInput = card.querySelector('.p-qty-input');
+        let qty = parseInt(qtyInput.value,10);
+        if(isNaN(qty) || qty < 1) qty = 1;
 
-            cart.forEach((item, index) => {
-                const lineWeightKg = (item.grams / 1000) * item.qty;
-                const lineTotal = item.pricePerKg * lineWeightKg;
-
-                totalWeightKg += lineWeightKg;
-                totalAmount += lineTotal;
-                totalItems += item.qty;
-
-                html += `
-                    <div class="cart-item-row">
-                        <div class="cart-item-main">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-meta">
-                                ${item.grams}g x ${item.qty} = ${(lineWeightKg).toFixed(2)} kg @ ₹${item.pricePerKg}/kg
-                            </div>
-                        </div>
-                        <div style="text-align:right;">
-                            <div class="cart-item-amount">₹${Math.round(lineTotal)}</div>
-                            <div class="cart-item-remove" onclick="removeFromCart(${index})">remove</div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            cartItemsEl.innerHTML = html;
-            cartCountEl.textContent = totalItems;
-            cartItemsCountEl.textContent = totalItems;
-            totalWeightEl.textContent = totalWeightKg.toFixed(2) + ' kg';
-            totalAmountEl.textContent = '₹' + Math.round(totalAmount);
-            cartSummaryEl.style.display = 'block';
-            checkoutBtn.disabled = false;
+        // merge same product+size
+        const existing = selectedItems.find(i => i.name === name && i.grams === grams);
+        if(existing){
+            existing.qty += qty;
+        }else{
+            selectedItems.push({name, grams, qty, pricePerKg});
         }
 
-        function addToCart(btn) {
-            const card = btn.closest('.product-card');
-            const name = card.getAttribute('data-product');
-            const priceDiscountKg = parseInt(card.getAttribute('data-discount-kg'), 10);
-            const sizeBtn = card.querySelector('.size-btn.active');
-            const grams = parseInt(sizeBtn.getAttribute('data-grams'), 10);
-            const qtyInput = card.querySelector('.qty-input');
-            let qty = parseInt(qtyInput.value, 10);
+        // feedback
+        btn.textContent = 'Added';
+        setTimeout(()=>{ btn.textContent = 'Add'; },800);
+        qtyInput.value = 1;
+    }
 
-            if (isNaN(qty) || qty < 1) qty = 1;
-
-            // If same product+size already in cart, increase qty
-            const existing = cart.find(item => item.name === name && item.grams === grams);
-            if (existing) {
-                existing.qty += qty;
-            } else {
-                cart.push({
-                    name,
-                    grams,
-                    qty,
-                    pricePerKg: priceDiscountKg
-                });
-            }
-
-            qtyInput.value = 1;
-            updateCartUI();
+    // Build WhatsApp message from selectedItems
+    function sendOrderWhatsApp(){
+        if(selectedItems.length === 0){
+            alert('Please add at least one product before sending the order.');
+            return;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
+        let lines = [];
+        let totalWeight = 0;
+        let totalAmount = 0;
 
-        // Toggle size buttons
-        document.querySelectorAll('.size-row').forEach(row => {
-            row.addEventListener('click', function(e) {
-                if (e.target.classList.contains('size-btn')) {
-                    this.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
-                    e.target.classList.add('active');
-                }
-            });
+        selectedItems.forEach((item, idx) => {
+            const lineKg = (item.grams/1000) * item.qty;
+            const lineTotal = item.pricePerKg * lineKg;
+            totalWeight += lineKg;
+            totalAmount += lineTotal;
+            lines.push(
+                `${idx+1}) ${item.name} - ${item.grams}g x ${item.qty} = ${lineKg.toFixed(2)} kg @ ₹${item.pricePerKg}/kg → ₹${Math.round(lineTotal)}`
+            );
         });
 
-        // Checkout to WhatsApp
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return;
+        const msg =
+`Hi! I want to pre-order fresh grass-fed mutton for this Sunday.
 
-            let lines = [];
-            let totalWeightKg = 0;
-            let totalAmount = 0;
+Order Summary:
+${lines.join('\n')}
 
-            cart.forEach((item, idx) => {
-                const lineWeightKg = (item.grams / 1000) * item.qty;
-                const lineTotal = item.pricePerKg * lineWeightKg;
-                totalWeightKg += lineWeightKg;
-                totalAmount += lineTotal;
+Total Weight: ${totalWeight.toFixed(2)} kg
+Total Amount (after 25% off): ₹${Math.round(totalAmount)}
 
-                lines.push(
-                    `${idx + 1}) ${item.name} - ${item.grams}g x ${item.qty} = ${lineWeightKg.toFixed(2)} kg @ ₹${item.pricePerKg}/kg → ₹${Math.round(lineTotal)}`
-                );
-            });
+Preferred Delivery Slot:
+7–9 AM / 9–11 AM / 11 AM–1 PM
 
-            const msg =
-                'Hi! I want to pre-order fresh mutton for this Sunday.\n\n' +
-                'Order Summary:\n' +
-                lines.join('\n') +
-                '\n\nTotal Weight: ' + totalWeightKg.toFixed(2) + ' kg' +
-                '\nTotal Amount (after 25% off): ₹' + Math.round(totalAmount) +
-                '\n\nPreferred Delivery Slot:\n7–9 AM / 9–11 AM / 11 AM–1 PM' +
-                '\n\nDelivery Address:\n[Type your address]' +
-                '\n\nPayment:\nI will pay 20% advance now via UPI to confirm the slot.';
+Delivery Address:
+[Type your full address here]
 
-            window.open(
-                'https://wa.me/919494051840?text=' + encodeURIComponent(msg),
-                '_blank'
-            );
-        }
+Payment:
+I will pay 20% advance now via UPI to confirm the slot.`;
 
-        // Simple hero slots decreasing (visual only)
-        let heroSlots = 30;
-        const heroSlotsEl = document.getElementById('heroSlots');
-        heroSlotsEl.textContent = heroSlots;
-        setInterval(() => {
-            if (heroSlots > 12) {
-                heroSlots -= Math.floor(Math.random() * 2);
-                heroSlotsEl.textContent = heroSlots;
-            }
-        }, 240000); // every 4 minutes
-    </script>
+        window.open('https://wa.me/919494051840?text=' + encodeURIComponent(msg),'_blank');
+    }
+</script>
+
 </body>
 </html>
