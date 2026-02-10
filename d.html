@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Mutton Hyderabad - Grass-Fed Goat Delivered in 2 Hours | Sunday Pre-Order</title>
+    <title>Farm Mutton Hyderabad - Fresh Grass-Fed Goat Delivered in 2 Hours | Sunday Pre-Order</title>
 
     <!-- SEO Meta -->
-    <meta name="description" content="Grass-fed goat meat delivered within 2 hours of Sunday slaughter. West Hyderabad only. 482 families ordered last week. Pre-order closes Saturday 8 PM.">
-    <meta name="keywords" content="grass fed goat meat, sunday mutton delivery, fresh halal mutton hyderabad, gachibowli meat delivery, hitec city mutton">
+    <meta name="description" content="Order fresh grass-fed mutton delivered within 2 hours of Sunday slaughter. Curry cut, boneless, kheema. West Hyderabad delivery. 300+ happy customers. Pre-order now!">
+    <meta name="keywords" content="mutton delivery hyderabad, fresh mutton gachibowli, halal meat kondapur, grass fed goat, mutton home delivery">
 
-    <!-- Favicon -->
-    <link rel="icon" href="https://farmmutton.com/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://farmmutton.com/favicon-32x32.png">
+    <!-- Favicon (Multiple Sizes) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="144x144" href="favicon-144x144.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon-144x144.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         * {
@@ -28,24 +27,34 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #00d084;
+            --primary-dark: #00a86b;
+            --accent: #ff3b30;
+            --text: #fefefe;
+            --text-dim: #c0c0c0;
+            --bg-dark: #0a0a0a;
+            --bg-card: #0d0d0d;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #fefefe;
+            background: var(--bg-dark);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* STICKY HEADER */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.97);
             backdrop-filter: blur(12px);
-            border-bottom: 2px solid #00d084;
+            border-bottom: 2px solid var(--primary);
             z-index: 2000;
-            padding: 10px 5%;
+            padding: 12px 5%;
         }
 
         .header-container {
@@ -59,27 +68,45 @@
         .logo-wrap {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             object-fit: contain;
         }
 
         .logo-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            color: #00d084;
+            font-size: 1.6rem;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
         .header-cta {
-            background: linear-gradient(135deg, #00d084 0%, #00a86b 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border: none;
             border-radius: 999px;
             font-weight: 700;
@@ -96,30 +123,63 @@
             box-shadow: 0 6px 20px rgba(0, 208, 132, 0.6);
         }
 
-        @media (max-width: 768px) {
-            .logo-text {
-                font-size: 1.2rem;
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                position: fixed;
+                top: 76px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.98);
+                width: 75%;
+                height: calc(100vh - 76px);
+                padding: 40px 30px;
+                transition: right 0.4s ease;
+                border-left: 2px solid var(--primary);
+                align-items: flex-start;
             }
+
+            nav.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
             .header-cta {
-                padding: 8px 14px;
-                font-size: 0.75rem;
+                display: none;
             }
         }
 
-        /* HERO SECTION - OPTIMIZED FOR CONVERSION */
+        /* HERO SECTION */
         .hero {
-            min-height: 92vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
-            padding: 100px 5% 40px;
+            padding: 110px 5% 50px;
             background: radial-gradient(ellipse at top, #1a0d00 0%, #000000 70%);
             position: relative;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
             max-width: 1300px;
             margin: 0 auto;
             align-items: center;
@@ -128,18 +188,38 @@
         @media (max-width: 900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 35px;
+            }
+
+            .hero {
+                padding: 100px 5% 40px;
             }
         }
 
-        .hero-content {
-            z-index: 10;
+        /* OFFER BANNER */
+        .offer-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, #c70039 100%);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 16px;
+            animation: pulse 2s infinite;
         }
 
-        /* TRUST BADGE ROW */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        /* TRUST BADGES */
         .trust-badges {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
             margin-bottom: 14px;
         }
@@ -154,32 +234,31 @@
             padding: 6px 12px;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #00d084;
+            color: var(--primary);
             letter-spacing: 0.5px;
         }
 
         .hero-headline {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.2rem);
-            line-height: 1.08;
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            line-height: 1.1;
             color: #ffffff;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: 1px;
         }
 
         .hero-headline .highlight {
-            color: #00d084;
-            position: relative;
+            color: var(--primary);
         }
 
         .hero-subtext {
             font-size: 1.05rem;
-            color: #d0d0d0;
-            margin-bottom: 16px;
+            color: var(--text-dim);
+            margin-bottom: 18px;
             line-height: 1.7;
         }
 
-        /* SOCIAL PROOF LINE */
+        /* SOCIAL PROOF */
         .social-proof {
             display: flex;
             align-items: center;
@@ -200,10 +279,10 @@
         }
 
         .proof-item strong {
-            color: #00d084;
+            color: var(--primary);
         }
 
-        /* PRIMARY CTA */
+        /* CTA BUTTONS */
         .hero-cta-wrap {
             display: flex;
             gap: 14px;
@@ -212,7 +291,7 @@
         }
 
         .btn-primary-lg {
-            background: linear-gradient(135deg, #00d084 0%, #00a86b 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #fff;
             padding: 18px 36px;
             border: none;
@@ -224,7 +303,6 @@
             letter-spacing: 1.2px;
             box-shadow: 0 8px 24px rgba(0, 208, 132, 0.5);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .btn-primary-lg:hover {
@@ -234,9 +312,9 @@
 
         .btn-secondary-lg {
             background: transparent;
-            color: #00d084;
+            color: var(--primary);
             padding: 16px 28px;
-            border: 2px solid #00d084;
+            border: 2px solid var(--primary);
             border-radius: 999px;
             font-weight: 700;
             text-transform: uppercase;
@@ -250,7 +328,7 @@
             background: rgba(0, 208, 132, 0.1);
         }
 
-        /* URGENCY TIMER */
+        /* URGENCY BOX */
         .urgency-box {
             margin-top: 16px;
             background: rgba(255, 59, 48, 0.1);
@@ -262,10 +340,6 @@
             gap: 10px;
         }
 
-        .urgency-box .icon {
-            font-size: 1.2rem;
-        }
-
         .urgency-text {
             font-size: 0.85rem;
             color: #ff9d9d;
@@ -273,8 +347,8 @@
         }
 
         .urgency-text strong {
-            color: #ff3b30;
-            font-size: 1.1rem;
+            color: var(--accent);
+            font-size: 1.05rem;
         }
 
         /* HERO VISUAL */
@@ -282,7 +356,7 @@
             position: relative;
         }
 
-        .hero-product-showcase {
+        .hero-product-card {
             background: radial-gradient(circle at top, rgba(0, 208, 132, 0.2) 0%, rgba(0, 0, 0, 0.6) 60%);
             border-radius: 24px;
             padding: 20px;
@@ -290,7 +364,7 @@
             border: 2px solid rgba(0, 208, 132, 0.3);
         }
 
-        .hero-product-showcase img {
+        .hero-product-card img {
             width: 100%;
             border-radius: 16px;
             display: block;
@@ -300,7 +374,7 @@
             position: absolute;
             top: 30px;
             right: 30px;
-            background: #ff3b30;
+            background: var(--accent);
             color: #fff;
             padding: 8px 16px;
             border-radius: 999px;
@@ -308,12 +382,6 @@
             font-weight: 700;
             letter-spacing: 1px;
             box-shadow: 0 4px 12px rgba(255, 59, 48, 0.6);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         /* SECTIONS */
@@ -331,7 +399,7 @@
         .section-eyebrow {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            color: #00d084;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 10px;
@@ -347,14 +415,147 @@
 
         .section-subtitle {
             font-size: 1rem;
-            color: #a0a0a0;
+            color: var(--text-dim);
             margin-top: 10px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* GRASS-FED EDUCATION SECTION */
+        /* PRODUCTS GRID */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 2px solid #222;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            border-color: var(--primary);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .product-content {
+            padding: 24px;
+        }
+
+        .product-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .product-pricing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .product-price-old {
+            font-size: 1.2rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .product-price-new {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .product-savings {
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .product-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .product-cta {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 999px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .product-cta:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 208, 132, 0.5);
+        }
+
+        /* WHY GRASS-FED SECTION */
         .education-section {
             background: linear-gradient(135deg, #001a0e 0%, #000000 100%);
             border-top: 1px solid rgba(0, 208, 132, 0.2);
@@ -390,169 +591,20 @@
         .edu-title {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #00d084;
+            color: var(--primary);
             margin-bottom: 8px;
         }
 
         .edu-text {
             font-size: 0.9rem;
-            color: #c0c0c0;
+            color: var(--text-dim);
             line-height: 1.6;
-        }
-
-        /* MENU / PRICING - SIMPLIFIED 3 OPTIONS */
-        .menu-section {
-            background: #000000;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .menu-card {
-            background: linear-gradient(145deg, #0d0d0d 0%, #000000 100%);
-            border: 2px solid #222;
-            border-radius: 20px;
-            padding: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .menu-card.popular {
-            border-color: #00d084;
-            box-shadow: 0 0 30px rgba(0, 208, 132, 0.3);
-        }
-
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #00d084;
-            color: #000;
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            z-index: 10;
-        }
-
-        .menu-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            background: #fff;
-        }
-
-        .menu-content {
-            padding: 26px 24px;
-        }
-
-        .menu-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            color: #00d084;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .menu-price {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-
-        .menu-desc {
-            font-size: 0.9rem;
-            color: #999;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .menu-features {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .menu-features li {
-            font-size: 0.85rem;
-            color: #c0c0c0;
-            margin-bottom: 6px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .menu-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #00d084;
-            font-weight: bold;
-        }
-
-        .quantity-selector {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .qty-btn {
-            flex: 1;
-            padding: 10px;
-            background: rgba(0, 208, 132, 0.1);
-            border: 1px solid rgba(0, 208, 132, 0.3);
-            border-radius: 8px;
-            color: #00d084;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .qty-btn.active,
-        .qty-btn:hover {
-            background: #00d084;
-            color: #000;
-        }
-
-        .menu-cta {
-            width: 100%;
-            background: linear-gradient(135deg, #00d084 0%, #00a86b 100%);
-            color: #fff;
-            padding: 14px;
-            border: none;
-            border-radius: 999px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-cta:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 208, 132, 0.5);
         }
 
         /* TESTIMONIALS */
-        .testimonials-section {
-            background: linear-gradient(180deg, #0a0a0a 0%, #001a0e 50%, #0a0a0a 100%);
-        }
-
-        .testimonial-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
 
@@ -574,7 +626,7 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: #00d084;
+            background: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -591,7 +643,7 @@
 
         .testimonial-info .location {
             font-size: 0.8rem;
-            color: #00d084;
+            color: var(--primary);
         }
 
         .testimonial-stars {
@@ -602,75 +654,61 @@
 
         .testimonial-text {
             font-size: 0.9rem;
-            color: #c0c0c0;
+            color: var(--text-dim);
             line-height: 1.7;
             font-style: italic;
         }
 
-        /* LOCATIONS */
-        .locations-section {
-            background: #000000;
-        }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 14px;
-            max-width: 900px;
+        /* FAQ ACCORDION */
+        .faq-container {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .location-item {
-            background: linear-gradient(135deg, rgba(0, 208, 132, 0.15) 0%, rgba(0, 208, 132, 0.05) 100%);
-            border: 1px solid rgba(0, 208, 132, 0.3);
+        .faq-item {
+            background: rgba(0, 208, 132, 0.05);
+            border: 1px solid rgba(0, 208, 132, 0.2);
             border-radius: 12px;
-            padding: 14px;
-            text-align: center;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 18px 22px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
-            font-size: 0.85rem;
-            color: #00d084;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        .location-item:hover {
-            background: rgba(0, 208, 132, 0.2);
-            transform: translateY(-3px);
+        .faq-question:hover {
+            background: rgba(0, 208, 132, 0.1);
         }
 
-        /* GUARANTEE SECTION */
-        .guarantee-section {
-            background: linear-gradient(135deg, #001a0e 0%, #000a05 100%);
-            border-top: 2px solid #00d084;
-            border-bottom: 2px solid #00d084;
-            text-align: center;
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
 
-        .guarantee-box {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(0, 208, 132, 0.05);
-            border: 2px solid rgba(0, 208, 132, 0.3);
-            border-radius: 20px;
-            padding: 40px 30px;
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
         }
 
-        .guarantee-icon {
-            font-size: 4rem;
-            margin-bottom: 16px;
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 22px;
+            color: var(--text-dim);
+            line-height: 1.7;
         }
 
-        .guarantee-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.4rem;
-            color: #00d084;
-            margin-bottom: 14px;
-            letter-spacing: 2px;
-        }
-
-        .guarantee-text {
-            font-size: 1.05rem;
-            color: #d0d0d0;
-            line-height: 1.8;
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 22px 18px;
         }
 
         /* FOOTER */
@@ -681,15 +719,10 @@
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         .footer-logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2rem;
-            color: #00d084;
+            color: var(--primary);
             margin-bottom: 14px;
             letter-spacing: 3px;
         }
@@ -709,7 +742,7 @@
         }
 
         .footer-links a {
-            color: #00d084;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.85rem;
@@ -758,7 +791,7 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* STICKY BOTTOM CTA BAR (MOBILE) */
+        /* STICKY CTA BAR (MOBILE) */
         .sticky-cta-bar {
             display: none;
             position: fixed;
@@ -766,7 +799,7 @@
             left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.95);
-            border-top: 2px solid #00d084;
+            border-top: 2px solid var(--primary);
             padding: 12px 5%;
             z-index: 1900;
             backdrop-filter: blur(10px);
@@ -786,16 +819,16 @@
 
         .sticky-text {
             font-size: 0.85rem;
-            color: #d0d0d0;
+            color: var(--text-dim);
         }
 
         .sticky-text strong {
-            color: #00d084;
+            color: var(--primary);
             font-size: 1rem;
         }
 
         .sticky-btn {
-            background: #00d084;
+            background: var(--primary);
             color: #000;
             padding: 10px 20px;
             border: none;
@@ -810,34 +843,6 @@
             .sticky-cta-bar {
                 display: block;
             }
-        }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 90px 5% 30px;
-            }
-
-            .hero-headline {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtext {
-                font-size: 0.95rem;
-            }
-
-            .btn-primary-lg {
-                padding: 14px 24px;
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 50px 5%;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
 
             .whatsapp-float {
                 bottom: 80px;
@@ -851,10 +856,26 @@
     <header>
         <div class="header-container">
             <div class="logo-wrap">
-                <img src="images/logo-farm-mutton.png" alt="Farm Mutton" class="logo-img">
+                <img src="fm-logo.png" alt="Farm Mutton Logo" class="logo-img">
                 <div class="logo-text">Farm Mutton</div>
             </div>
-            <button class="header-cta" onclick="scrollToMenu()">View Menu</button>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="cut-guide.html">Cut Guide</a>
+                <a href="locations.html">Locations</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+
+            <button class="header-cta" onclick="openWhatsApp()">Order Now</button>
         </div>
     </header>
 
@@ -862,72 +883,165 @@
     <section class="hero">
         <div class="hero-grid">
             <div class="hero-content">
-                <!-- Trust Badges -->
-                <div class="trust-badges">
-                    <span class="trust-badge">✓ Grass-Fed Only</span>
-                    <span class="trust-badge">✓ 2-Hour Delivery</span>
-                    <span class="trust-badge">✓ Sunday Fresh</span>
+                <div class="offer-banner">
+                    🎉 LAUNCH OFFER: 25% OFF ON ALL PRODUCTS
                 </div>
 
-                <!-- Headline -->
+                <div class="trust-badges">
+                    <span class="trust-badge">✓ Grass-Fed Only</span>
+                    <span class="trust-badge">✓ Same-Day Fresh</span>
+                    <span class="trust-badge">✓ Free Delivery</span>
+                </div>
+
                 <h1 class="hero-headline">
-                    <span class="highlight">Grass-Fed Goat</span> Delivered in 2 Hours.<br>
-                    Slaughtered Sunday 6 AM.
+                    <span class="highlight">Grass-Fed Goat</span> Delivered Fresh.<br>
+                    Slaughtered Sunday Morning.
                 </h1>
 
-                <!-- Subtext -->
                 <p class="hero-subtext">
-                    The only Hyderabad mutton service delivering within 2 hours of slaughter. 
-                    Farm-raised goats, grass-fed, no hormones. West Hyderabad only.
+                    Pre-order by Saturday 11 PM. Choose your slot (7-11 AM). Slaughtered 6-9 AM Sunday. 
+                    Delivered within 2 hours. West Hyderabad only.
                 </p>
 
-                <!-- Social Proof -->
                 <div class="social-proof">
                     <div class="proof-item">
                         <span class="star">★★★★★</span>
-                        <span><strong>4.8</strong> (327 reviews)</span>
+                        <span><strong>4.9</strong> Rating</span>
                     </div>
                     <div class="proof-item">
-                        <span><strong>482 families</strong> ordered last Sunday</span>
+                        <span><strong>300+ families</strong> served</span>
+                    </div>
+                    <div class="proof-item">
+                        <span><strong>50+ farmers</strong> partnered</span>
                     </div>
                 </div>
 
-                <!-- CTA Buttons -->
                 <div class="hero-cta-wrap">
-                    <button class="btn-primary-lg" onclick="scrollToMenu()">
-                        Reserve This Sunday's Goat →
+                    <button class="btn-primary-lg" onclick="scrollToProducts()">
+                        View Menu & Order →
                     </button>
                     <button class="btn-secondary-lg" onclick="openWhatsApp()">
-                        💬 WhatsApp Us
+                        💬 WhatsApp Order
                     </button>
                 </div>
 
-                <!-- Urgency Box -->
                 <div class="urgency-box">
-                    <span class="icon">⏰</span>
+                    <span style="font-size: 1.2rem;">⏰</span>
                     <div class="urgency-text">
-                        Orders close <strong>Saturday 8 PM</strong> • Only <strong id="slotsLeft">47</strong> slots left
+                        Orders close <strong>Saturday 11 PM</strong> • Only <strong id="slotsLeft">23</strong> slots left
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Visual -->
             <div class="hero-visual">
-                <div class="hero-product-showcase">
-                    <img src="images/products/full-goat-hero.jpg" alt="Fresh Grass-Fed Goat">
-                    <div class="live-badge">🔴 LIVE: Slaughtered 6:45 AM Today</div>
+                <div class="hero-product-card">
+                    <img src="curry-cut-image.webp" alt="Fresh Curry Cut Mutton">
+                    <div class="live-badge">🔴 Fresh Sunday Slaughter</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GRASS-FED EDUCATION SECTION -->
+    <!-- PRODUCTS SECTION -->
+    <section class="section" id="products" style="background: #000;">
+        <div class="section-header">
+            <div class="section-eyebrow">OUR MENU</div>
+            <h2 class="section-title">Choose Your Cut. Reserve Your Slot.</h2>
+            <p class="section-subtitle">
+                All products grass-fed, halal-cut, delivered fresh. 25% launch discount applied automatically.
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: Curry Cut -->
+            <div class="product-card">
+                <div class="product-badge">BEST SELLER</div>
+                <img src="curry-cut-image.webp" alt="Curry Cut Mutton" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">🍛 Curry Cut</h3>
+                    <div class="product-pricing">
+                        <span class="product-price-old">₹1,200</span>
+                        <span class="product-price-new">₹900/kg</span>
+                        <span class="product-savings">SAVE ₹300</span>
+                    </div>
+                    <p class="product-desc">
+                        Balanced bone-in pieces. Perfect for Hyderabadi mutton curry, rogan josh, nihari.
+                    </p>
+                    <ul class="product-features">
+                        <li>500g serves 2-3 people</li>
+                        <li>Ideal meat-to-bone ratio</li>
+                        <li>Slow-cooking friendly</li>
+                    </ul>
+                    <button class="product-cta" onclick="orderProduct('Curry Cut', 900)">
+                        Order Curry Cut via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2: Boneless -->
+            <div class="product-card">
+                <img src="bonless-mutton.webp" alt="Boneless Mutton" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">🥩 Boneless</h3>
+                    <div class="product-pricing">
+                        <span class="product-price-old">₹1,400</span>
+                        <span class="product-price-new">₹1,050/kg</span>
+                        <span class="product-savings">SAVE ₹350</span>
+                    </div>
+                    <p class="product-desc">
+                        Pure meat, no bone, minimal fat. Quick cooking for kebabs, fry, stir-fry.
+                    </p>
+                    <ul class="product-features">
+                        <li>100% meat, zero waste</li>
+                        <li>High protein (28g/100g)</li>
+                        <li>Cooks in 20 minutes</li>
+                    </ul>
+                    <button class="product-cta" onclick="orderProduct('Boneless', 1050)">
+                        Order Boneless via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3: Boneless Kheema -->
+            <div class="product-card">
+                <div class="product-badge">HIGH DEMAND</div>
+                <img src="mutton-kheema.jpg" alt="Boneless Kheema" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">🥙 Boneless Kheema</h3>
+                    <div class="product-pricing">
+                        <span class="product-price-old">₹1,500</span>
+                        <span class="product-price-new">₹1,125/kg</span>
+                        <span class="product-savings">SAVE ₹375</span>
+                    </div>
+                    <p class="product-desc">
+                        Freshly minced boneless meat. Ideal for keema pav, samosas, stuffed parathas.
+                    </p>
+                    <ul class="product-features">
+                        <li>Fine mince, restaurant-grade</li>
+                        <li>Lean protein, low fat</li>
+                        <li>Versatile ingredient</li>
+                    </ul>
+                    <button class="product-cta" onclick="orderProduct('Boneless Kheema', 1125)">
+                        Order Kheema via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="products.html" style="color: var(--primary); font-weight: 700; font-size: 1.1rem; text-decoration: none; border: 2px solid var(--primary); padding: 14px 32px; border-radius: 999px; display: inline-block; transition: all 0.3s ease;">
+                View All 6 Products →
+            </a>
+        </div>
+    </section>
+
+    <!-- WHY GRASS-FED SECTION -->
     <section class="education-section section">
         <div class="section-header">
             <div class="section-eyebrow">WHY GRASS-FED MATTERS</div>
-            <h2 class="section-title">Why 2,000+ Hyderabad Families Switched</h2>
+            <h2 class="section-title">Why 300+ Families Switched to Farm Mutton</h2>
             <p class="section-subtitle">
-                Not all mutton is equal. Here's why grass-fed goat is the healthiest choice for your family.
+                Not all mutton is equal. Here's why grass-fed goat is healthier for your family.
             </p>
         </div>
 
@@ -936,7 +1050,7 @@
                 <div class="edu-icon">💪</div>
                 <h3 class="edu-title">40% Less Fat</h3>
                 <p class="edu-text">
-                    Grass-fed goat has significantly lower fat than supermarket mutton. Lean protein for your family.
+                    Grass-fed goat has significantly lower fat than grain-fed. Lean protein for health-conscious families.
                 </p>
             </div>
 
@@ -944,7 +1058,7 @@
                 <div class="edu-icon">❤️</div>
                 <h3 class="edu-title">Heart-Healthy</h3>
                 <p class="edu-text">
-                    2x more Omega-3 fatty acids. Lower cholesterol than chicken. Perfect for health-conscious families.
+                    2x more Omega-3 fatty acids. Lower cholesterol than chicken. Perfect for fitness enthusiasts.
                 </p>
             </div>
 
@@ -952,7 +1066,7 @@
                 <div class="edu-icon">🌾</div>
                 <h3 class="edu-title">No Hormones</h3>
                 <p class="edu-text">
-                    Our goats eat only grass. No antibiotics, no growth hormones, no grain feed. Just natural.
+                    Our goats eat only grass from Telangana farms. No antibiotics, no growth hormones, 100% natural.
                 </p>
             </div>
 
@@ -960,119 +1074,31 @@
                 <div class="edu-icon">🏡</div>
                 <h3 class="edu-title">"Village Goat" Taste</h3>
                 <p class="edu-text">
-                    Remember the mutton from your grandparents' village? This is exactly that. Tender, flavorful, authentic.
+                    Remember mutton from your grandparents' village? This is exactly that. Tender, flavorful, authentic.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- MENU / PRICING SECTION -->
-    <section class="menu-section section" id="menu">
-        <div class="section-header">
-            <div class="section-eyebrow">SUNDAY MENU</div>
-            <h2 class="section-title">Pick Your Cut. Reserve Your Slot.</h2>
-            <p class="section-subtitle">
-                Simplified menu. Three perfect cuts. All grass-fed, all delivered within 2 hours of slaughter.
-            </p>
-        </div>
-
-        <div class="menu-grid">
-            <!-- Option 1: Full Goat -->
-            <div class="menu-card">
-                <img src="images/products/full-goat.jpg" alt="Full Goat" class="menu-image">
-                <div class="menu-content">
-                    <h3 class="menu-title">🐐 Full Goat</h3>
-                    <div class="menu-price">₹650/kg</div>
-                    <p class="menu-desc">
-                        Whole dressed carcass (6-8 kg). Best value for families. Cut as per your preference.
-                    </p>
-                    <ul class="menu-features">
-                        <li>Complete goat, freshly dressed</li>
-                        <li>You choose the cuts</li>
-                        <li>₹3,900 - ₹5,200 total</li>
-                    </ul>
-                    <div class="quantity-selector">
-                        <button class="qty-btn active">1 Goat</button>
-                        <button class="qty-btn">2 Goats</button>
-                    </div>
-                    <button class="menu-cta" onclick="selectProduct('Full Goat', 650)">
-                        Reserve Full Goat
-                    </button>
-                </div>
-            </div>
-
-            <!-- Option 2: Biryani Cut (MOST POPULAR) -->
-            <div class="menu-card popular">
-                <div class="popular-badge">⭐ MOST ORDERED</div>
-                <img src="images/products/biryani-cut.jpg" alt="Biryani Cut" class="menu-image">
-                <div class="menu-content">
-                    <h3 class="menu-title">🍚 Biryani Cut</h3>
-                    <div class="menu-price">₹750/kg</div>
-                    <p class="menu-desc">
-                        Premium leg & shoulder pieces with bone. Perfect for Hyderabadi dum biryani.
-                    </p>
-                    <ul class="menu-features">
-                        <li>Choice leg + shoulder pieces</li>
-                        <li>Ideal meat-to-bone ratio</li>
-                        <li>1kg serves 3-4 people</li>
-                    </ul>
-                    <div class="quantity-selector">
-                        <button class="qty-btn">1 kg</button>
-                        <button class="qty-btn active">2 kg</button>
-                        <button class="qty-btn">3 kg</button>
-                    </div>
-                    <button class="menu-cta" onclick="selectProduct('Biryani Cut', 750)">
-                        Reserve Biryani Cut
-                    </button>
-                </div>
-            </div>
-
-            <!-- Option 3: Boneless -->
-            <div class="menu-card">
-                <img src="images/products/boneless.jpg" alt="Boneless Mutton" class="menu-image">
-                <div class="menu-content">
-                    <h3 class="menu-title">🥩 Boneless</h3>
-                    <div class="menu-price">₹900/kg</div>
-                    <p class="menu-desc">
-                        Pure meat, no bone, minimal fat. Quick-cooking for kebabs, fry, and curries.
-                    </p>
-                    <ul class="menu-features">
-                        <li>100% meat, no waste</li>
-                        <li>Cooks in 20 minutes</li>
-                        <li>High protein (28g per 100g)</li>
-                    </ul>
-                    <div class="quantity-selector">
-                        <button class="qty-btn">500g</button>
-                        <button class="qty-btn active">1 kg</button>
-                        <button class="qty-btn">2 kg</button>
-                    </div>
-                    <button class="menu-cta" onclick="selectProduct('Boneless', 900)">
-                        Reserve Boneless
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- TESTIMONIALS -->
-    <section class="testimonials-section section">
+    <section class="section" style="background: linear-gradient(180deg, #0a0a0a 0%, #001a0e 50%, #0a0a0a 100%);">
         <div class="section-header">
             <div class="section-eyebrow">CUSTOMER STORIES</div>
-            <h2 class="section-title">What Hyderabad Families Are Saying</h2>
+            <h2 class="section-title">What West Hyderabad Families Are Saying</h2>
         </div>
 
-        <div class="testimonial-grid">
+        <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">RK</div>
                     <div class="testimonial-info">
-                        <div class="name">Rahul Kumar</div>
-                        <div class="location">Gachibowli • IT Professional</div>
+                        <div class="name">Rajesh Kumar</div>
+                        <div class="location">Gachibowli • IT Manager</div>
                     </div>
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
                 <p class="testimonial-text">
-                    "Finally found mutton that tastes like my village. Delivered at 8:30 AM Sunday, was making biryani by 10 AM. Never going back to frozen meat."
+                    "Finally found mutton that tastes like my village in Karimnagar. Delivered at 8:30 AM, cooked biryani by 11 AM. Never buying frozen again!"
                 </p>
             </div>
 
@@ -1080,13 +1106,13 @@
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">PM</div>
                     <div class="testimonial-info">
-                        <div class="name">Priya Mehta</div>
-                        <div class="location">HITEC City • Marketing Manager</div>
+                        <div class="name">Priya Menon</div>
+                        <div class="location">HITEC City • Fitness Coach</div>
                     </div>
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
                 <p class="testimonial-text">
-                    "My husband is a fitness trainer. He checked the nutrition—grass-fed goat has more protein and less fat than chicken. We order every Sunday now."
+                    "I track macros for clients. Grass-fed goat has more protein and less fat than supermarket chicken. Quality is restaurant-grade. Highly recommend!"
                 </p>
             </div>
 
@@ -1100,140 +1126,184 @@
                 </div>
                 <div class="testimonial-stars">★★★★★</div>
                 <p class="testimonial-text">
-                    "Ordered full goat for family gathering. They cut it exactly how I asked. Quality is 10/10. WhatsApp support is super responsive."
+                    "Ordered full goat for Eid. They cut it exactly how I asked. WhatsApp support replied in 2 minutes. Quality = 10/10. Will be a regular customer."
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- LOCATIONS -->
-    <section class="locations-section section">
+    <!-- FAQ -->
+    <section class="section" style="background: #000;">
         <div class="section-header">
-            <div class="section-eyebrow">DELIVERY COVERAGE</div>
-            <h2 class="section-title">We Deliver Across West Hyderabad</h2>
-            <p class="section-subtitle">
-                Sunday delivery within 2 hours of slaughter. Pre-order closes Saturday 8 PM.
-            </p>
+            <div class="section-eyebrow">HAVE QUESTIONS?</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
         </div>
 
-        <div class="locations-grid">
-            <div class="location-item">Gachibowli</div>
-            <div class="location-item">HITEC City</div>
-            <div class="location-item">Kondapur</div>
-            <div class="location-item">Madhapur</div>
-            <div class="location-item">Mehadipatnam</div>
-            <div class="location-item">Tolichowki</div>
-            <div class="location-item">Manikonda</div>
-            <div class="location-item">Narsingi</div>
-            <div class="location-item">Financial District</div>
-            <div class="location-item">Hafeezpet</div>
-            <div class="location-item">Kukatpally</div>
-            <div class="location-item">Banjara Hills</div>
-            <div class="location-item">Jubilee Hills</div>
-            <div class="location-item">Lingampally</div>
-            <div class="location-item">Tellapur</div>
-            <div class="location-item">Serilingampally</div>
-        </div>
-    </section>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I know the mutton is really fresh?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Your mutton is slaughtered Sunday morning between 6-9 AM and delivered to your door within 2 hours. We send live updates via WhatsApp with slaughter timestamp. You can even visit our facility (by appointment).
+                </div>
+            </div>
 
-    <!-- GUARANTEE SECTION -->
-    <section class="guarantee-section section">
-        <div class="guarantee-box">
-            <div class="guarantee-icon">🛡️</div>
-            <h2 class="guarantee-title">100% Freshness Guarantee</h2>
-            <p class="guarantee-text">
-                If your mutton isn't the freshest you've ever had—full refund, no questions asked. 
-                We're that confident. Slaughtered Sunday 6 AM. Delivered by 8 AM. That's our promise.
-            </p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What are the delivery slots?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We have 3 slots every Sunday: 7-9 AM (30 orders), 9-11 AM (30 orders), 11 AM-1 PM (30 orders). You choose your slot when pre-ordering. Orders close Saturday 11 PM.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I place an order?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Click any "Order via WhatsApp" button → Chat opens → Tell us product + quantity + delivery slot → Pay 20% advance (UPI/GPay) → Slot confirmed! Remaining 80% paid on delivery (cash/UPI).
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you deliver to my area?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We deliver to 16 areas in West Hyderabad: Gachibowli, HITEC City, Kondapur, Madhapur, Mehadipatnam, Tolichowki, Manikonda, Narsingi, Financial District, Hafeezpet, Kukatpally, Banjara Hills, Jubilee Hills, Lingampally, Tellapur, Serilingampally. <a href="locations.html" style="color: var(--primary);">Check locations page</a>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What's the minimum order quantity?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Minimum 500g per product. You can order multiple products (e.g., 1kg curry + 500g boneless + 500g liver). No maximum limit!
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="faq.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">
+                View All 20+ FAQs →
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">Farm Mutton Telangana</div>
-            <p class="footer-text">
-                Grass-fed goat delivered fresh every Sunday. West Hyderabad's trusted meat delivery service.
-            </p>
-            <div class="footer-links">
-                <a href="#menu">Menu</a>
-                <a href="tel:+919876543210">📞 Call</a>
-                <a href="https://wa.me/919876543210">💬 WhatsApp</a>
-                <a href="#locations">Locations</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Farm Mutton Telangana. All Rights Reserved.</p>
-            </div>
+        <div class="footer-logo">Farm Mutton</div>
+        <p class="footer-text">
+            Grass-fed goat delivered fresh every Sunday. West Hyderabad's trusted meat delivery service.
+        </p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="cut-guide.html">Cut Guide</a>
+            <a href="locations.html">Locations</a>
+            <a href="faq.html">FAQ</a>
+            <a href="tel:+919494051840">📞 Call</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Farm Mutton Telangana. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
+    <!-- FLOATING WHATSAPP -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
         💬
     </div>
 
-    <!-- STICKY BOTTOM CTA (MOBILE) -->
+    <!-- STICKY CTA BAR (MOBILE) -->
     <div class="sticky-cta-bar" id="stickyCTA">
         <div class="sticky-cta-content">
             <div class="sticky-text">
-                <strong>47 slots left</strong> • Closes Sat 8 PM
+                <strong id="slotsLeftSticky">23</strong> slots left • Saturday 11 PM cutoff
             </div>
-            <button class="sticky-btn" onclick="scrollToMenu()">
-                Reserve Now
+            <button class="sticky-btn" onclick="openWhatsApp()">
+                Order Now
             </button>
         </div>
     </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- CUSTOM JS -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Scroll to menu
-        function scrollToMenu() {
-            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        // Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Scroll to products
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         }
 
         // WhatsApp redirect
         function openWhatsApp() {
-            window.open('https://wa.me/919876543210?text=Hi! I want to pre-order mutton for this Sunday.', '_blank');
+            window.open('https://wa.me/919494051840?text=Hi! I want to pre-order fresh mutton for this Sunday.', '_blank');
         }
 
-        // Product selection (sends to WhatsApp with pre-filled message)
-        function selectProduct(product, price) {
-            const message = `Hi! I want to reserve *${product}* (₹${price}/kg) for this Sunday's delivery.`;
-            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+        // Product-specific WhatsApp order
+        function orderProduct(productName, pricePerKg) {
+            const message = `Hi! I want to order *${productName}* (₹${pricePerKg}/kg) for this Sunday.%0A%0APlease confirm:%0A- Quantity (500g / 1kg / 2kg)%0A- Delivery slot (7-9 AM / 9-11 AM / 11 AM-1 PM)%0A- Delivery address`;
+            window.open(`https://wa.me/919494051840?text=${message}`, '_blank');
         }
 
-        // Quantity selector toggle
-        document.querySelectorAll('.qty-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.parentElement.querySelectorAll('.qty-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const allFaqs = document.querySelectorAll('.faq-item');
+            
+            // Close others
+            allFaqs.forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
             });
-        });
 
-        // Show sticky CTA bar on scroll (mobile)
+            // Toggle current
+            faqItem.classList.toggle('active');
+        }
+
+        // Sticky CTA bar on scroll (mobile)
         window.addEventListener('scroll', function() {
             const stickyCTA = document.getElementById('stickyCTA');
-            if (window.scrollY > 600) {
+            if (window.scrollY > 700) {
                 stickyCTA.classList.add('show');
             } else {
                 stickyCTA.classList.remove('show');
             }
         });
 
-        // Random slots countdown (psychological urgency)
-        let slotsLeft = Math.floor(Math.random() * 20) + 35; // Random 35-55
+        // Dynamic slots counter (creates urgency)
+        let slotsLeft = Math.floor(Math.random() * 15) + 18; // Random 18-32
         document.getElementById('slotsLeft').textContent = slotsLeft;
+        document.getElementById('slotsLeftSticky').textContent = slotsLeft;
 
-        // Decrease slots every 3 minutes (creates urgency)
+        // Decrease slots every 4 minutes (psychological urgency)
         setInterval(() => {
-            if (slotsLeft > 20) {
-                slotsLeft -= Math.floor(Math.random() * 3) + 1;
+            if (slotsLeft > 15) {
+                slotsLeft -= Math.floor(Math.random() * 2) + 1;
                 document.getElementById('slotsLeft').textContent = slotsLeft;
+                document.getElementById('slotsLeftSticky').textContent = slotsLeft;
             }
-        }, 180000); // 3 minutes
+        }, 240000); // 4 minutes
 
         // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
