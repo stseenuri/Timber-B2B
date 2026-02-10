@@ -342,18 +342,24 @@
         }
         .p-qty-row{
             display:flex;
-            gap:8px;
+            gap:6px;
+            align-items:center;
             margin-top:8px;
         }
-        .p-qty-input{
-            width:54px;
-            text-align:center;
-            font-size:0.8rem;
-            padding:6px;
-            border-radius:8px;
+        .p-qty-btn{
+            width:26px;
+            height:26px;
+            border-radius:50%;
             border:1px solid #333;
             background:#000;
             color:var(--text);
+            font-size:0.9rem;
+            cursor:pointer;
+        }
+        .p-qty-display{
+            min-width:18px;
+            text-align:center;
+            font-size:0.85rem;
         }
         .p-add-btn{
             flex:1;
@@ -580,7 +586,9 @@
                     <button class="p-size-btn" data-grams="1000">1kg</button>
                 </div>
                 <div class="p-qty-row">
-                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, -1)">−</button>
+                    <span class="p-qty-display">1</span>
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, 1)">+</button>
                     <button class="p-add-btn" onclick="addProduct(this)">Add</button>
                 </div>
             </div>
@@ -604,7 +612,9 @@
                     <button class="p-size-btn" data-grams="1000">1kg</button>
                 </div>
                 <div class="p-qty-row">
-                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, -1)">−</button>
+                    <span class="p-qty-display">1</span>
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, 1)">+</button>
                     <button class="p-add-btn" onclick="addProduct(this)">Add</button>
                 </div>
             </div>
@@ -628,7 +638,9 @@
                     <button class="p-size-btn" data-grams="1000">1kg</button>
                 </div>
                 <div class="p-qty-row">
-                    <input type="number" min="1" value="1" class="p-qty-input">
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, -1)">−</button>
+                    <span class="p-qty-display">1</span>
+                    <button type="button" class="p-qty-btn" onclick="changeQty(this, 1)">+</button>
                     <button class="p-add-btn" onclick="addProduct(this)">Add</button>
                 </div>
             </div>
@@ -791,7 +803,7 @@
 </footer>
 
 <!-- WhatsApp Float -->
-<div class="wa-float" onclick="openWhatsAppQuick()">💬</div>
+<div class="wa-float" onclick="openWhatsAppQuick()">🟢</div>
 
 <script>
     // Mobile menu
@@ -829,7 +841,7 @@
         item.classList.toggle('active');
     }
 
-    // Product selection state (in-memory array)
+    // Product selection state
     const selectedItems = [];
 
     // Size button toggle
@@ -842,18 +854,28 @@
         });
     });
 
+    // Change qty with +/−
+    function changeQty(btn, delta){
+        const row = btn.closest('.p-qty-row');
+        const display = row.querySelector('.p-qty-display');
+        let value = parseInt(display.textContent,10);
+        if(isNaN(value)) value = 1;
+        value += delta;
+        if(value < 1) value = 1;
+        display.textContent = value;
+    }
+
     // Add product (multiple items)
     function addProduct(btn){
         const card = btn.closest('.p-card');
         const name = card.getAttribute('data-product');
-        const pricePerKg = parseInt(card.getAttribute('data-discount-kg'),10); // already discounted
+        const pricePerKg = parseInt(card.getAttribute('data-discount-kg'),10); // already 25% off
         const sizeBtn = card.querySelector('.p-size-btn.active');
         const grams = parseInt(sizeBtn.getAttribute('data-grams'),10); // 500 / 1000
-        const qtyInput = card.querySelector('.p-qty-input');
-        let qty = parseInt(qtyInput.value,10);
+        const display = card.querySelector('.p-qty-display');
+        let qty = parseInt(display.textContent,10);
         if(isNaN(qty) || qty < 1) qty = 1;
 
-        // merge same product+size
         const existing = selectedItems.find(i => i.name === name && i.grams === grams);
         if(existing){
             existing.qty += qty;
@@ -861,10 +883,9 @@
             selectedItems.push({name, grams, qty, pricePerKg});
         }
 
-        // feedback
         btn.textContent = 'Added';
         setTimeout(()=>{ btn.textContent = 'Add'; },800);
-        qtyInput.value = 1;
+        display.textContent = '1';
     }
 
     // Build WhatsApp message from selectedItems
