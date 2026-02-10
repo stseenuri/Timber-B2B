@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm Mutton Telangana - Fresh Halal Mutton Delivery in West Hyderabad</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Farm-fresh halal mutton delivered same-day in Gachibowli, HITEC City, Kondapur, Madhapur & West Hyderabad. Pre-order for Sunday delivery.">
     <meta name="keywords" content="farm mutton, halal mutton, fresh mutton delivery, Gachibowli, HITEC City, Kondapur, Madhapur, Hyderabad mutton">
-    
+
+    <!-- Favicon (for browser tab + Google SERP) -->
+    <!-- Make sure this URL exists: https://farmmutton.com/favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="https://farmmutton.com/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://farmmutton.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://farmmutton.com/favicon-16x16.png">
+    <!-- Google uses the site favicon when it appears in mobile search results if this is correctly set and crawlable.[web:43][web:50][web:53] -->
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+
     <style>
-        /* ============================================
-           RESET & BASE STYLES
-        ============================================ */
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +41,6 @@
             line-height: 1.6;
         }
 
-        /* Film Grain Texture Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -56,9 +60,7 @@
             z-index: 2;
         }
 
-        /* ============================================
-           HEADER & NAVIGATION
-        ============================================ */
+        /* HEADER & NAV */
         header {
             position: fixed;
             top: 0;
@@ -67,7 +69,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 2px solid #ff1744;
             z-index: 1000;
-            padding: 20px 5%;
+            padding: 12px 5%;
         }
 
         .header-container {
@@ -76,21 +78,37 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            gap: 16px;
         }
 
-        .logo {
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Uses your existing logo path */
+        .logo-img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+        }
+
+        .logo-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #ffd700;
             text-transform: uppercase;
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            white-space: nowrap;
         }
 
         nav ul {
             display: flex;
-            gap: 35px;
+            gap: 28px;
             list-style: none;
         }
 
@@ -98,7 +116,7 @@
             color: #fefefe;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: all 0.3s ease;
@@ -127,15 +145,17 @@
         .cta-button {
             background: linear-gradient(135deg, #ff1744 0%, #c70039 100%);
             color: #fefefe;
-            padding: 12px 28px;
+            padding: 10px 18px;
             border: none;
-            border-radius: 50px;
+            border-radius: 999px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(255, 23, 68, 0.4);
             letter-spacing: 1px;
+            font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .cta-button:hover {
@@ -143,7 +163,6 @@
             box-shadow: 0 12px 30px rgba(255, 23, 68, 0.7);
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -160,14 +179,22 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 10px 5%;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
             nav ul {
                 position: fixed;
-                top: 80px;
+                top: 64px;
                 right: -100%;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.98);
                 width: 70%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 64px);
                 padding: 40px 30px;
                 transition: right 0.4s ease;
                 border-left: 2px solid #ff1744;
@@ -181,29 +208,40 @@
                 display: flex;
             }
 
-            .logo {
-                font-size: 1.5rem;
+            .cta-button {
+                display: none;
             }
         }
 
-        /* ============================================
-           HERO SECTION
-        ============================================ */
+        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 5% 60px;
+            padding: 110px 5% 60px;
             position: relative;
             overflow: hidden;
             background: radial-gradient(ellipse at center, #3d0000 0%, #000000 70%);
         }
 
-        .hero-content {
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 40px;
             max-width: 1200px;
-            text-align: center;
-            z-index: 10;
+            width: 100%;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-content {
+            text-align: left;
         }
 
         .hero-eyebrow {
@@ -212,99 +250,148 @@
             color: #ff1744;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .hero-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(3rem, 8vw, 7rem);
-            line-height: 1.1;
+            font-size: clamp(3rem, 7vw, 4.8rem);
+            line-height: 1.05;
             color: #ffd700;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 25px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
             text-shadow: 
                 0 0 30px rgba(255, 215, 0, 0.8),
                 0 0 60px rgba(255, 23, 68, 0.6);
-            animation: titleGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 23, 68, 0.6); }
-            50% { text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 23, 68, 0.9); }
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: 1rem;
             color: #e0e0e0;
-            margin-bottom: 40px;
+            margin-bottom: 26px;
             line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+
+        .hero-badge {
+            border-radius: 999px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255, 215, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            justify-content: center;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #ff1744 0%, #c70039 100%);
             color: #fefefe;
-            padding: 18px 45px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 50px;
+            border-radius: 999px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(255, 23, 68, 0.5);
-            font-size: 1rem;
-            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-4px) scale(1.03);
             box-shadow: 0 15px 35px rgba(255, 23, 68, 0.8);
         }
 
         .btn-secondary {
             background: transparent;
             color: #ffd700;
-            padding: 18px 45px;
-            border: 2px solid #ffd700;
-            border-radius: 50px;
+            padding: 14px 24px;
+            border: 1px solid #ffd700;
+            border-radius: 999px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
-            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
         }
 
         .btn-secondary:hover {
             background: #ffd700;
             color: #000;
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-4px) scale(1.03);
             box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
         }
 
-        /* ============================================
-           SECTION HEADERS (COMMON)
-        ============================================ */
+        /* HERO PRODUCT IMAGE – uses your product image path */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-product-card {
+            position: relative;
+            width: 100%;
+            max-width: 360px;
+            border-radius: 26px;
+            padding: 14px;
+            background: radial-gradient(circle at top, #ff1744 0%, #1b0000 55%, #000000 100%);
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.95),
+                0 0 24px rgba(255, 23, 68, 0.8);
+            transform-style: preserve-3d;
+        }
+
+        .hero-product-inner {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-product-inner img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-product-label {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 215, 0, 0.8);
+        }
+
+        /* SECTIONS */
         .section {
-            padding: 80px 5%;
+            padding: 70px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-eyebrow {
@@ -313,35 +400,33 @@
             color: #ff1744;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
             color: #ffd700;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
         }
 
-        /* ============================================
-           WHY CHOOSE US SECTION
-        ============================================ */
+        /* WHY CHOOSE US */
         .why-section {
             background: linear-gradient(180deg, #000000 0%, #1a0000 50%, #000000 100%);
         }
 
         .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
         }
 
         .why-card {
             position: relative;
-            padding: 40px 30px;
+            padding: 32px 24px;
             border-radius: 18px;
             background: radial-gradient(circle at top, #ff1744 0%, #1b0000 55%, #000000 100%);
             box-shadow:
@@ -364,27 +449,26 @@
         }
 
         .why-card-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
+            font-size: 2.4rem;
+            margin-bottom: 14px;
         }
 
         .why-card-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #ffd700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .why-card-text {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #e0e0e0;
             line-height: 1.7;
         }
 
-        /* Mobile: Square cards + Swiper carousel */
+        /* Mobile: square cards + Swiper */
         @media (max-width: 768px) {
             .why-grid {
                 display: none;
@@ -397,12 +481,11 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 25px 15px;
+                padding: 22px 16px;
             }
 
             .why-card-icon {
-                font-size: 2.4rem;
-                margin-bottom: 12px;
+                font-size: 2.2rem;
             }
 
             .why-card-title {
@@ -414,23 +497,21 @@
             }
         }
 
-        /* ============================================
-           PRODUCTS / PRICES SECTION
-        ============================================ */
+        /* PRICES / PRODUCTS */
         .prices-section {
             background: #000000;
         }
 
         .prices-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
         }
 
         .price-card {
             position: relative;
-            padding: 50px 35px;
-            border-radius: 20px;
+            padding: 16px 16px 24px;
+            border-radius: 18px;
             background: linear-gradient(145deg, #1a0000 0%, #000000 100%);
             border: 2px solid #ff1744;
             box-shadow:
@@ -450,52 +531,58 @@
                 0 0 25px rgba(255, 23, 68, 0.9);
         }
 
+        .price-image-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        /* Uses your existing product image folder paths */
+        .price-image-wrap img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
         .price-cut {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: #ffd700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 6px;
         }
 
         .price-rate {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             color: #ff1744;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .price-note {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #b0b0b0;
             line-height: 1.6;
         }
 
-        /* Mobile: Swiper carousel for prices */
         @media (max-width: 768px) {
             .prices-grid {
                 display: none;
             }
-
-            .price-card {
-                padding: 40px 25px;
-            }
         }
 
-        /* ============================================
-           LOCATIONS SECTION
-        ============================================ */
+        /* LOCATIONS */
         .locations-section {
             background: linear-gradient(180deg, #000000 0%, #0d0d0d 50%, #000000 100%);
-            padding: 80px 5%;
+            padding-bottom: 80px;
         }
 
         .locations-text {
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #e0e0e0;
             line-height: 1.9;
         }
@@ -503,18 +590,18 @@
         .locations-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 28px;
         }
 
         .location-badge {
             background: linear-gradient(135deg, #ff1744 0%, #c70039 100%);
             color: #fefefe;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 25px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(255, 23, 68, 0.4);
@@ -522,17 +609,15 @@
         }
 
         .location-badge:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 23, 68, 0.7);
         }
 
-        /* ============================================
-           FOOTER
-        ============================================ */
+        /* FOOTER */
         footer {
             background: #000000;
             border-top: 2px solid #ff1744;
-            padding: 60px 5% 30px;
+            padding: 50px 5% 30px;
             text-align: center;
         }
 
@@ -543,27 +628,27 @@
 
         .footer-logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.1rem;
             color: #ffd700;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
         }
 
         .footer-text {
             color: #b0b0b0;
-            font-size: 1rem;
-            margin-bottom: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 22px;
             line-height: 1.7;
         }
 
         .footer-links {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
 
         .footer-links a {
@@ -572,6 +657,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.8rem;
             transition: color 0.3s ease;
         }
 
@@ -581,61 +667,46 @@
 
         .footer-bottom {
             border-top: 1px solid #333;
-            padding-top: 20px;
+            padding-top: 18px;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* ============================================
-           SWIPER CUSTOMIZATION
-        ============================================ */
+        /* SWIPER */
         .swiper {
             width: 100%;
-            padding-bottom: 50px;
+            padding-bottom: 40px;
         }
 
         .swiper-slide {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
         }
 
         .swiper-pagination-bullet {
             background: #ff1744;
             opacity: 0.5;
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
         }
 
         .swiper-pagination-bullet-active {
             opacity: 1;
             background: #ffd700;
-            width: 12px;
-            height: 12px;
+            width: 11px;
+            height: 11px;
         }
 
-        /* Hide carousel on desktop */
-        .mobile-only {
-            display: none;
-        }
-
-        .desktop-only {
-            display: block;
-        }
+        .mobile-only { display: none; }
+        .desktop-only { display: block; }
 
         @media (max-width: 768px) {
-            .mobile-only {
-                display: block;
-            }
-
-            .desktop-only {
-                display: none;
-            }
+            .mobile-only { display: block; }
+            .desktop-only { display: none; }
         }
 
-        /* ============================================
-           FLOATING ANIMATIONS
-        ============================================ */
+        /* FLOATING */
         @keyframes cardFloat {
             0%   { transform: translate3d(0, 0, 0); }
             50%  { transform: translate3d(0, -6px, 10px); }
@@ -649,13 +720,15 @@
 </head>
 <body>
 
-    <!-- ============================================
-         HEADER & NAVIGATION
-    ============================================ -->
+    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">🥩 Farm Mutton</div>
-            
+            <div class="logo-wrap">
+                <!-- Existing logo path from your previous version -->
+                <img src="images/logo-farm-mutton.png" alt="Farm Mutton Telangana Logo" class="logo-img">
+                <div class="logo-text">Farm Mutton</div>
+            </div>
+
             <nav>
                 <div class="menu-toggle" onclick="toggleMenu()">
                     <span></span>
@@ -670,31 +743,45 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            
-            <button class="cta-button" onclick="location.href='#contact'">Pre-Order Now</button>
+
+            <button class="cta-button" onclick="location.href='#contact'">Pre-Order</button>
         </div>
     </header>
 
-    <!-- ============================================
-         HERO SECTION
-    ============================================ -->
+    <!-- HERO -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-eyebrow">🔪 SUNDAY FRESH DELIVERY</div>
-            <h1 class="hero-title">Farm-Fresh Halal Mutton</h1>
-            <p class="hero-subtitle">
-                Same-day slaughter. Zero freezing. Delivered within 2 hours to your doorstep across West Hyderabad. Pre-order for Sunday delivery.
-            </p>
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="location.href='#prices'">View Prices</button>
-                <button class="btn-secondary" onclick="location.href='#locations'">Check Delivery</button>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-eyebrow">🔪 SUNDAY FRESH DELIVERY</div>
+                <h1 class="hero-title">Farm-Fresh Halal Mutton</h1>
+                <p class="hero-subtitle">
+                    Same-day slaughter, zero freezing, delivered within 2 hours to your doorstep across West Hyderabad.
+                    Pre-order every week for guaranteed Sunday delivery.
+                </p>
+                <div class="hero-badges">
+                    <span class="hero-badge">Same-Day Slaughter</span>
+                    <span class="hero-badge">West Hyderabad Only</span>
+                    <span class="hero-badge">Farm-Raised Goats</span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="location.href='#prices'">View Prices</button>
+                    <button class="btn-secondary" onclick="location.href='#locations'">Check Delivery</button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-product-card floating-element">
+                    <div class="hero-product-inner">
+                        <!-- Hero product image using your product folder -->
+                        <img src="images/products/full-goat-hero.jpg" alt="Full Goat Fresh Farm Mutton">
+                    </div>
+                    <div class="hero-product-label">Full Goat • 6–8 kg • Farm Fresh</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         WHY CHOOSE US SECTION
-    ============================================ -->
+    <!-- WHY CHOOSE US -->
     <section class="why-section section" id="why">
         <div class="section-header">
             <div class="section-eyebrow">WHY CHOOSE US</div>
@@ -711,7 +798,6 @@
                         <p class="why-card-text">Freshly cut every Sunday morning, never frozen, delivered within hours of slaughter.</p>
                     </div>
                 </div>
-
                 <div class="swiper-slide">
                     <div class="why-card">
                         <div class="why-card-icon">🌾</div>
@@ -719,36 +805,32 @@
                         <p class="why-card-text">Sourced from trusted Telangana farmers who raise goats naturally with quality feed.</p>
                     </div>
                 </div>
-
                 <div class="swiper-slide">
                     <div class="why-card">
                         <div class="why-card-icon">🩸</div>
                         <h3 class="why-card-title">Clean Halal Cut</h3>
-                        <p class="why-card-text">Hygienic, ritual-friendly Islamic slaughter process supervised by certified butchers.</p>
+                        <p class="why-card-text">Hygienic Islamic slaughter process supervised by experienced butchers.</p>
                     </div>
                 </div>
-
                 <div class="swiper-slide">
                     <div class="why-card">
                         <div class="why-card-icon">🚚</div>
                         <h3 class="why-card-title">West Hyderabad Focus</h3>
-                        <p class="why-card-text">Specialized delivery network covering Gachibowli, HITEC City, Kondapur, Madhapur and 11 more locations.</p>
+                        <p class="why-card-text">Gachibowli, HITEC City, Kondapur, Madhapur and 11+ more locations covered.</p>
                     </div>
                 </div>
-
                 <div class="swiper-slide">
                     <div class="why-card">
                         <div class="why-card-icon">💎</div>
                         <h3 class="why-card-title">Premium Quality</h3>
-                        <p class="why-card-text">Young goats (6-8 months), tender meat, balanced fat, perfect for Hyderabadi biryani and curries.</p>
+                        <p class="why-card-text">Young goats (6–8 months), tender meat, balanced fat, perfect for biryani & curry.</p>
                     </div>
                 </div>
-
                 <div class="swiper-slide">
                     <div class="why-card">
                         <div class="why-card-icon">📦</div>
                         <h3 class="why-card-title">Custom Cuts</h3>
-                        <p class="why-card-text">Choose curry cut, biryani cut, boneless, or full carcass. We cut exactly as you need.</p>
+                        <p class="why-card-text">Curry cut, biryani cut, boneless or full carcass—cut exactly as you need.</p>
                     </div>
                 </div>
             </div>
@@ -762,42 +844,35 @@
                 <h3 class="why-card-title">Same-Day Slaughter</h3>
                 <p class="why-card-text">Freshly cut every Sunday morning, never frozen, delivered within hours of slaughter.</p>
             </div>
-
             <div class="why-card floating-element">
                 <div class="why-card-icon">🌾</div>
                 <h3 class="why-card-title">Farm-Raised</h3>
                 <p class="why-card-text">Sourced from trusted Telangana farmers who raise goats naturally with quality feed.</p>
             </div>
-
             <div class="why-card floating-element">
                 <div class="why-card-icon">🩸</div>
                 <h3 class="why-card-title">Clean Halal Cut</h3>
-                <p class="why-card-text">Hygienic, ritual-friendly Islamic slaughter process supervised by certified butchers.</p>
+                <p class="why-card-text">Hygienic Islamic slaughter process supervised by experienced butchers.</p>
             </div>
-
             <div class="why-card floating-element">
                 <div class="why-card-icon">🚚</div>
                 <h3 class="why-card-title">West Hyderabad Focus</h3>
-                <p class="why-card-text">Specialized delivery network covering Gachibowli, HITEC City, Kondapur, Madhapur and 11 more locations.</p>
+                <p class="why-card-text">Gachibowli, HITEC City, Kondapur, Madhapur and 11+ more locations covered.</p>
             </div>
-
             <div class="why-card floating-element">
                 <div class="why-card-icon">💎</div>
                 <h3 class="why-card-title">Premium Quality</h3>
-                <p class="why-card-text">Young goats (6-8 months), tender meat, balanced fat, perfect for Hyderabadi biryani and curries.</p>
+                <p class="why-card-text">Young goats (6–8 months), tender meat, balanced fat, perfect for biryani & curry.</p>
             </div>
-
             <div class="why-card floating-element">
                 <div class="why-card-icon">📦</div>
                 <h3 class="why-card-title">Custom Cuts</h3>
-                <p class="why-card-text">Choose curry cut, biryani cut, boneless, or full carcass. We cut exactly as you need.</p>
+                <p class="why-card-text">Curry cut, biryani cut, boneless or full carcass—cut exactly as you need.</p>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         PRICES SECTION
-    ============================================ -->
+    <!-- PRICES / PRODUCTS -->
     <section class="prices-section section" id="prices">
         <div class="section-header">
             <div class="section-eyebrow">SUNDAY PRICING</div>
@@ -809,22 +884,31 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/full-goat.jpg" alt="Full Goat Mutton">
+                        </div>
                         <h3 class="price-cut">🐐 Full Goat</h3>
                         <p class="price-rate">₹650/kg</p>
-                        <p class="price-note">Whole dressed carcass (6-8 kg), cut as per your request. Best value for families.</p>
+                        <p class="price-note">Whole dressed carcass (6–8 kg), cut as per your request. Best value for families.</p>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/curry-cut.jpg" alt="Curry Cut Mutton">
+                        </div>
                         <h3 class="price-cut">🍛 Curry Cut</h3>
                         <p class="price-rate">₹700/kg</p>
-                        <p class="price-note">Balanced mix of bone, fat and meat. Perfect for traditional Hyderabadi mutton curry.</p>
+                        <p class="price-note">Balanced mix of bone, fat and meat. Perfect for Hyderabadi mutton curry.</p>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/biryani-cut.jpg" alt="Biryani Cut Mutton">
+                        </div>
                         <h3 class="price-cut">🍚 Biryani Cut</h3>
                         <p class="price-rate">₹750/kg</p>
                         <p class="price-note">Premium leg & shoulder pieces with bone. Ideal for dum biryani and pulao.</p>
@@ -833,14 +917,20 @@
 
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/boneless.jpg" alt="Boneless Mutton">
+                        </div>
                         <h3 class="price-cut">🥩 Boneless</h3>
                         <p class="price-rate">₹900/kg</p>
-                        <p class="price-note">Pure meat, no bone, minimal fat. Quick cooking for kebabs, fry, and roasts.</p>
+                        <p class="price-note">Pure meat, no bone, minimal fat. Quick cooking for kebabs, fry and roasts.</p>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/bones.jpg" alt="Mutton Bones">
+                        </div>
                         <h3 class="price-cut">🦴 Bones & Soup</h3>
                         <p class="price-rate">₹250/kg</p>
                         <p class="price-note">Rich marrow bones for authentic paya soup and nihari base.</p>
@@ -849,9 +939,12 @@
 
                 <div class="swiper-slide">
                     <div class="price-card">
+                        <div class="price-image-wrap">
+                            <img src="images/products/organs.jpg" alt="Mutton Liver and Heart">
+                        </div>
                         <h3 class="price-cut">🫀 Organs (Liver/Heart)</h3>
                         <p class="price-rate">₹400/kg</p>
-                        <p class="price-note">Fresh organ meat. Limited availability, pre-order required.</p>
+                        <p class="price-note">Fresh organ meat. Limited availability, strictly pre-order.</p>
                     </div>
                 </div>
             </div>
@@ -861,46 +954,62 @@
         <!-- DESKTOP GRID -->
         <div class="prices-grid desktop-only">
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/full-goat.jpg" alt="Full Goat Mutton">
+                </div>
                 <h3 class="price-cut">🐐 Full Goat</h3>
                 <p class="price-rate">₹650/kg</p>
-                <p class="price-note">Whole dressed carcass (6-8 kg), cut as per your request. Best value for families.</p>
+                <p class="price-note">Whole dressed carcass (6–8 kg), cut as per your request. Best value for families.</p>
             </div>
 
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/curry-cut.jpg" alt="Curry Cut Mutton">
+                </div>
                 <h3 class="price-cut">🍛 Curry Cut</h3>
                 <p class="price-rate">₹700/kg</p>
-                <p class="price-note">Balanced mix of bone, fat and meat. Perfect for traditional Hyderabadi mutton curry.</p>
+                <p class="price-note">Balanced mix of bone, fat and meat. Perfect for Hyderabadi mutton curry.</p>
             </div>
 
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/biryani-cut.jpg" alt="Biryani Cut Mutton">
+                </div>
                 <h3 class="price-cut">🍚 Biryani Cut</h3>
                 <p class="price-rate">₹750/kg</p>
                 <p class="price-note">Premium leg & shoulder pieces with bone. Ideal for dum biryani and pulao.</p>
             </div>
 
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/boneless.jpg" alt="Boneless Mutton">
+                </div>
                 <h3 class="price-cut">🥩 Boneless</h3>
                 <p class="price-rate">₹900/kg</p>
-                <p class="price-note">Pure meat, no bone, minimal fat. Quick cooking for kebabs, fry, and roasts.</p>
+                <p class="price-note">Pure meat, no bone, minimal fat. Quick cooking for kebabs, fry and roasts.</p>
             </div>
 
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/bones.jpg" alt="Mutton Bones">
+                </div>
                 <h3 class="price-cut">🦴 Bones & Soup</h3>
                 <p class="price-rate">₹250/kg</p>
                 <p class="price-note">Rich marrow bones for authentic paya soup and nihari base.</p>
             </div>
 
             <div class="price-card floating-element">
+                <div class="price-image-wrap">
+                    <img src="images/products/organs.jpg" alt="Mutton Liver and Heart">
+                </div>
                 <h3 class="price-cut">🫀 Organs (Liver/Heart)</h3>
                 <p class="price-rate">₹400/kg</p>
-                <p class="price-note">Fresh organ meat. Limited availability, pre-order required.</p>
+                <p class="price-note">Fresh organ meat. Limited availability, strictly pre-order.</p>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         LOCATIONS SECTION
-    ============================================ -->
+    <!-- LOCATIONS -->
     <section class="locations-section section" id="locations">
         <div class="section-header">
             <div class="section-eyebrow">DELIVERY COVERAGE</div>
@@ -908,7 +1017,10 @@
         </div>
 
         <div class="locations-text">
-            <p>We deliver fresh farm mutton every Sunday across premium neighborhoods in West Hyderabad. Pre-order by Saturday evening for guaranteed delivery.</p>
+            <p>
+                We deliver fresh farm mutton every Sunday across premium neighborhoods in West Hyderabad.
+                Pre-order by Saturday evening for guaranteed slot.
+            </p>
         </div>
 
         <div class="locations-list">
@@ -931,14 +1043,12 @@
         </div>
     </section>
 
-    <!-- ============================================
-         FOOTER
-    ============================================ -->
+    <!-- FOOTER / CONTACT -->
     <footer id="contact">
         <div class="footer-content">
-            <div class="footer-logo">🥩 Farm Mutton Telangana</div>
+            <div class="footer-logo">Farm Mutton Telangana</div>
             <p class="footer-text">
-                Fresh halal mutton delivery every Sunday across West Hyderabad. 
+                Fresh halal mutton delivery every Sunday across West Hyderabad.
                 Pre-order by Saturday for same-day slaughter delivery.
             </p>
 
@@ -947,42 +1057,34 @@
                 <a href="#why">Why Us</a>
                 <a href="#prices">Prices</a>
                 <a href="#locations">Locations</a>
-                <a href="tel:+919876543210">📞 Call Us</a>
+                <a href="tel:+919876543210">📞 Call</a>
                 <a href="https://wa.me/919876543210">💬 WhatsApp</a>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Farm Mutton Telangana. All Rights Reserved. | Fresh. Halal. Local.</p>
+                <p>&copy; 2026 Farm Mutton Telangana. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         SWIPER JS LIBRARY
-    ============================================ -->
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- ============================================
-         CUSTOM SCRIPTS
-    ============================================ -->
+    <!-- JS -->
     <script>
-        // Mobile Menu Toggle
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
         }
 
-        // Close menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navMenu').classList.remove('active');
             });
         });
 
-        // Initialize Swipers when DOM is loaded
         document.addEventListener('DOMContentLoaded', function () {
-            // WHY CHOOSE US SWIPER
-            const valuesSwiper = new Swiper('.valuesSwiper', {
+            new Swiper('.valuesSwiper', {
                 slidesPerView: 1.15,
                 spaceBetween: 16,
                 centeredSlides: true,
@@ -995,14 +1097,13 @@
                 breakpoints: {
                     769: {
                         slidesPerView: 3,
-                        spaceBetween: 30,
+                        spaceBetween: 26,
                         centeredSlides: false
                     }
                 }
             });
 
-            // PRICES SWIPER
-            const pricesSwiper = new Swiper('.pricesSwiper', {
+            new Swiper('.pricesSwiper', {
                 slidesPerView: 1.1,
                 spaceBetween: 18,
                 loop: true,
@@ -1014,26 +1115,22 @@
                 breakpoints: {
                     769: {
                         slidesPerView: 3,
-                        spaceBetween: 35
+                        spaceBetween: 30
                     }
                 }
             });
         });
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const id = this.getAttribute('href');
+                const target = document.querySelector(id);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
     </script>
-
 </body>
 </html>
