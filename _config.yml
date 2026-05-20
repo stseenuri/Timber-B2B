@@ -1,0 +1,10 @@
+# Jekyll config for GitHub Pages
+permalink: pretty
+
+# Exclude non-page files from Jekyll build
+exclude:
+  - LOCATION_DATA.json
+  - LOCATION_PAGES_GENERATOR.md
+  - README.md
+  - boneless-mutton.webp
+  - curry-cut-image.webp
