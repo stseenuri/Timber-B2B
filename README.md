@@ -27,7 +27,7 @@ Simply open the application in a web browser to start using Timber-B2B. The inte
 your-website/
 ├── index.html (updated from index-5.html)
 ├── about-us.html
-├── locations.html  
+├── locations/  
 ├── pricing.html
 └── [all image files]
 
