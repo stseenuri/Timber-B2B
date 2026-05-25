@@ -27,14 +27,14 @@
     <meta property="og:title" content="Best Mutton Shop Near Me Hyderabad | Fresh Organic Mutton Delivery">
     <meta property="og:description" content="Fresh organic mutton delivered every Sunday within 2 hours in West Hyderabad. Premium curry cut ₹937/kg. Order online now!">
     <meta property="og:url" content="https://www.farmmutton.in/">
-    <meta property="og:image" content="https://www.farmmutton.in/og-image.jpg">
+    <meta property="og:image" content="https://www.farmmutton.in/curry-cut-image.webp">
     <meta property="og:locale" content="en_IN">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Best Mutton Shop Near Me Hyderabad | Organic Mutton Delivery">
     <meta name="twitter:description" content="Fresh organic mutton delivered every Sunday within 2 hours in West Hyderabad. Order online now!">
-    <meta name="twitter:image" content="https://www.farmmutton.in/twitter-image.jpg">
+    <meta name="twitter:image" content="https://www.farmmutton.in/curry-cut-image.webp">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -75,9 +75,11 @@
     }
     </script>
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="https://farmmutton.com/favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="https://farmmutton.com/favicon-192x192.png">
+    <!-- Favicons - Multiple sizes for compatibility -->
+    <link rel="icon" type="image/x-icon" href="https://www.farmmutton.in/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.farmmutton.in/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="https://www.farmmutton.in/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.farmmutton.in/apple-touch-icon.png">
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -212,6 +214,14 @@
             box-shadow: 0 4px 16px var(--shadow-md);
             transition: all 0.3s ease;
             border: 2px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 4px;
         }
 
         .logo-title {
@@ -435,116 +445,140 @@
             margin-bottom: 20px;
         }
 
-        /* Products Section */
-        .products-section {
+        /* Mutton Cuts Section */
+        .cuts-section {
             padding: 100px 5%;
             background: var(--bg-cream);
         }
 
-        .products-grid {
+        .cuts-grid {
             max-width: 1800px;
             margin: 60px auto 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .product-card {
+        .cut-card {
             background: var(--bg-white);
             border: 2px solid var(--border-light);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
-        .product-card:hover {
+        .cut-card:hover {
             border-color: var(--red-primary);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px var(--shadow-md);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow-md);
         }
 
-        .product-image {
-            height: 240px;
+        .cut-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
             background: var(--bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
         }
 
-        .product-content {
+        .cut-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cut-card:hover .cut-image img {
+            transform: scale(1.08);
+        }
+
+        .cut-content {
             padding: 30px;
         }
 
-        .product-category {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--red-primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .product-content h3 {
+        .cut-content h3 {
             font-family: 'Inter', sans-serif;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--text-dark);
             margin-bottom: 12px;
             font-weight: 800;
         }
 
-        .product-content p {
+        .cut-content p {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-gray);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
+        .cut-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            color: var(--red-primary);
+            font-weight: 800;
+            display: block;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 2px solid var(--border-light);
         }
 
-        .product-price {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 28px;
-            color: var(--red-primary);
-            font-weight: 800;
-        }
-
-        .product-price span {
+        .cut-price span {
             font-size: 12px;
             color: var(--text-gray);
         }
 
-        .btn-add {
-            padding: 12px 24px;
-            background: var(--green-primary);
-            color: var(--bg-white);
-            border: none;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
+        /* Quality Assurance Section */
+        .quality-section {
+            padding: 100px 5%;
+            background: var(--bg-white);
+        }
+
+        .quality-grid {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .quality-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--green-mint);
+            border-radius: 16px;
+            border: 2px solid transparent;
             transition: all 0.3s ease;
         }
 
-        .btn-add:hover {
-            background: var(--green-bright);
-            transform: translateY(-2px);
+        .quality-item:hover {
+            border-color: var(--green-primary);
+            background: var(--bg-white);
+            box-shadow: 0 8px 24px var(--shadow-sm);
+        }
+
+        .quality-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .quality-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .quality-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-gray);
         }
 
         /* Delivery Areas Section */
         .delivery-section {
             padding: 100px 5%;
-            background: var(--bg-white);
+            background: var(--bg-cream);
         }
 
         .delivery-areas {
@@ -557,16 +591,15 @@
 
         .area-card {
             padding: 25px;
-            background: var(--green-mint);
+            background: var(--bg-white);
             border-radius: 12px;
-            border: 2px solid transparent;
+            border: 2px solid var(--border-light);
             transition: all 0.3s ease;
             text-align: center;
         }
 
         .area-card:hover {
             border-color: var(--green-primary);
-            background: var(--bg-white);
             box-shadow: 0 8px 20px var(--shadow-sm);
         }
 
@@ -699,7 +732,7 @@
         <div class="nav-container">
             <a href="/" class="logo">
                 <div class="logo-mark">
-                    <span style="font-size: 24px;">🥩</span>
+                    <img src="https://www.farmmutton.in/fm-logo.png" alt="Farm Mutton Telangana Logo - Best Mutton Shop in Hyderabad">
                 </div>
                 <div class="logo-text">
                     <div class="logo-title">FARM MUTTON</div>
@@ -707,7 +740,7 @@
                 </div>
             </a>
             <div class="nav-menu">
-                <a href="#products" class="nav-btn">Products</a>
+                <a href="#cuts" class="nav-btn">Cuts & Prices</a>
                 <a href="#delivery" class="nav-btn">Delivery</a>
                 <a href="#about" class="nav-btn">About</a>
                 <a href="https://wa.me/919494051840" class="nav-btn primary">Order Now</a>
@@ -724,7 +757,7 @@
                 <span class="highlight">Home Delivery in Hyderabad</span>
             </h1>
             <p class="hero-subtitle">
-                Looking for the <strong>best mutton shop near me</strong>? Order 100% organic <strong>mutton online in Hyderabad</strong> and get fresh farm mutton delivered to your doorstep every Sunday. Sourced from Telangana villages, delivered within 2 hours in Gachibowli, Kondapur, Manikonda, and all West Hyderabad areas.
+                Looking for the <strong>best mutton shop near me</strong>? Order 100% organic <strong>mutton online in Hyderabad</strong> and get fresh farm mutton delivered to your doorstep every Sunday. Sourced from Telangana villages, delivered within 2 hours in Gachibowli, Kondapur, Manikonda, Narsingi, and all West Hyderabad areas.
             </p>
 
             <div class="hero-stats">
@@ -744,7 +777,7 @@
 
             <div class="hero-cta">
                 <a href="https://wa.me/919494051840" class="btn btn-primary">Order Mutton Online</a>
-                <a href="#products" class="btn btn-secondary">View Prices</a>
+                <a href="#cuts" class="btn btn-secondary">View All Cuts</a>
             </div>
         </div>
     </section>
@@ -767,94 +800,150 @@
         </p>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section" id="products">
+    <!-- Mutton Cuts Section -->
+    <section class="cuts-section" id="cuts">
         <div class="section-eyebrow">Mutton Price in Hyderabad Today</div>
-        <h2 class="section-title">Premium Mutton Cuts Available for Online Delivery</h2>
+        <h2 class="section-title">Premium Mutton Cuts & Specialty Pieces Available Online</h2>
 
-        <div class="products-grid">
-            <!-- Product 1: Curry Cut -->
-            <div class="product-card">
-                <div class="product-image">🍖</div>
-                <div class="product-content">
-                    <div class="product-category">Best Seller</div>
-                    <h3>Premium Curry Cut Mutton Hyderabad</h3>
-                    <p>Perfect bone-in cuts for traditional Hyderabadi biryani and curry. Fresh <strong>mutton pieces</strong> expertly cut and cleaned.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹937<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+        <div class="cuts-grid">
+            <!-- Curry Cut -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/curry-cut-image.webp" alt="Curry Cut Mutton Hyderabad - Fresh Bone-in Mutton Pieces for Biryani" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Curry Cut Mutton</h3>
+                    <p>Perfect bone-in <strong>mutton pieces</strong> for traditional Hyderabadi biryani and curry. Our signature <strong>curry cut mutton</strong> includes the best parts.</p>
+                    <span class="cut-price">₹937<span>/kg</span></span>
                 </div>
             </div>
 
-            <!-- Product 2: Boneless -->
-            <div class="product-card">
-                <div class="product-image">🥩</div>
-                <div class="product-content">
-                    <div class="product-category">Premium Cut</div>
-                    <h3>Fresh Boneless Mutton Online Hyderabad</h3>
-                    <p><strong>Boneless mutton</strong> ideal for grills, kebabs, and quick cooking. Best <strong>mutton pieces</strong> without bones.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹1,050<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+            <!-- Boneless -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/bonless-mutton.webp" alt="Boneless Mutton Online Hyderabad - Premium Mutton without Bones" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Boneless Mutton</h3>
+                    <p><strong>Boneless mutton</strong> ideal for grills, kebabs, and stir-fry. Premium <strong>mutton pieces</strong> without any bones for easy cooking.</p>
+                    <span class="cut-price">₹1,050<span>/kg</span></span>
                 </div>
             </div>
 
-            <!-- Product 3: Keema -->
-            <div class="product-card">
-                <div class="product-image">🍲</div>
-                <div class="product-content">
-                    <div class="product-category">Fresh Ground</div>
-                    <h3>Mutton Keema Hyderabad</h3>
-                    <p>Fresh ground <strong>mutton keema</strong> for keema curry, samosas, and parathas. Ground Sunday morning.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹900<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+            <!-- Keema -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/mutton-kheema.jpg" alt="Mutton Keema Hyderabad - Fresh Ground Mutton Mince" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Mutton Keema</h3>
+                    <p>Fresh ground <strong>mutton keema</strong> perfect for keema curry, parathas, and samosas. Ground fresh on Sunday morning.</p>
+                    <span class="cut-price">₹900<span>/kg</span></span>
                 </div>
             </div>
 
-            <!-- Product 4: Liver -->
-            <div class="product-card">
-                <div class="product-image">🫀</div>
-                <div class="product-content">
-                    <div class="product-category">Organ Meat</div>
-                    <h3>Organic Mutton Liver Hyderabad</h3>
-                    <p>Nutrient-rich <strong>mutton liver</strong> perfect for fry and curry. High in iron and protein.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹600<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+            <!-- Nalli & Paya -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/curry-cut-image.webp" alt="Mutton Nalli and Paya Hyderabad - Bone Marrow for Soup" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Mutton Nalli & Paya</h3>
+                    <p><strong>Mutton nalli pieces</strong>, <strong>mutton paya raw</strong>, and <strong>mutton bone marrow</strong> for authentic paya soup and bone broth.</p>
+                    <span class="cut-price">₹850<span>/kg</span></span>
                 </div>
             </div>
 
-            <!-- Product 5: Chops -->
-            <div class="product-card">
-                <div class="product-image">🍗</div>
-                <div class="product-content">
-                    <div class="product-category">Premium</div>
-                    <h3>Mutton Chops Hyderabad</h3>
-                    <p><strong>Mutton ribs</strong> and chops perfect for grilling and BBQ. Tender and flavorful cuts.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹975<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+            <!-- Ribs & Chops -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/mutton-chops.webp" alt="Mutton Ribs and Chops Hyderabad - Perfect for Grilling BBQ" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Mutton Ribs & Chops</h3>
+                    <p><strong>Mutton ribs</strong> and chops perfect for grilling and BBQ. Tender <strong>mutton leg pieces</strong> with excellent marbling.</p>
+                    <span class="cut-price">₹975<span>/kg</span></span>
                 </div>
             </div>
 
-            <!-- Product 6: Nalli/Paya -->
-            <div class="product-card">
-                <div class="product-image">🦴</div>
-                <div class="product-content">
-                    <div class="product-category">Specialty</div>
-                    <h3>Mutton Nalli & Paya Hyderabad</h3>
-                    <p><strong>Mutton nalli pieces</strong>, <strong>mutton paya raw</strong>, and <strong>mutton bone marrow</strong> for traditional paya and soup.</p>
-                    <div class="product-footer">
-                        <div class="product-price">₹850<span>/kg</span></div>
-                        <button class="btn-add">Order Now</button>
-                    </div>
+            <!-- Liver -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/mutton-liver.jpg" alt="Mutton Liver Hyderabad - Nutrient Rich Organ Meat High in Iron" loading="lazy">
                 </div>
+                <div class="cut-content">
+                    <h3>Mutton Liver</h3>
+                    <p>Nutrient-rich <strong>mutton liver</strong> high in iron and protein. Great for liver fry and traditional recipes. <strong>Mutton liver nutrition</strong> packed.</p>
+                    <span class="cut-price">₹600<span>/kg</span></span>
+                </div>
+            </div>
+
+            <!-- Leg Cuts -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/curry-cut-image.webp" alt="Mutton Leg Pieces Hyderabad - Premium Mutton Legs for Roasts" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Mutton Leg Cuts</h3>
+                    <p>Premium <strong>mutton leg pieces</strong> and <strong>mutton legs</strong> perfect for slow-cooked dishes and roasts. Best <strong>mutton pieces</strong> for special occasions.</p>
+                    <span class="cut-price">₹1,000<span>/kg</span></span>
+                </div>
+            </div>
+
+            <!-- Whole Goat -->
+            <div class="cut-card">
+                <div class="cut-image">
+                    <img src="https://www.farmmutton.in/full-goat.jpg" alt="Whole Goat Hyderabad - Complete Goat for Weddings and Celebrations" loading="lazy">
+                </div>
+                <div class="cut-content">
+                    <h3>Whole Goat</h3>
+                    <p>Complete <strong>whole goat</strong> for celebrations, weddings, and festivals. All cuts included. Order in advance for Sunday delivery.</p>
+                    <span class="cut-price">₹9,000<span>/whole</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Assurance Section -->
+    <section class="quality-section">
+        <div class="section-eyebrow">Quality Standards</div>
+        <h2 class="section-title">Why We're the Best Mutton Shop in Hyderabad</h2>
+
+        <div class="quality-grid">
+            <div class="quality-item">
+                <span class="quality-icon">🌿</span>
+                <h4>100% Organic</h4>
+                <p>Our <strong>organic mutton</strong> comes from goats raised without hormones, antibiotics, or chemicals. Pure grass-fed <strong>mutton meat</strong>.</p>
+            </div>
+
+            <div class="quality-item">
+                <span class="quality-icon">⚡</span>
+                <h4>Fresh Within 2 Hours</h4>
+                <p>Slaughtered Sunday morning, delivered to your door within 2 hours. <strong>Fresh mutton</strong> guarantee every time.</p>
+            </div>
+
+            <div class="quality-item">
+                <span class="quality-icon">✅</span>
+                <h4>FSSAI Certified</h4>
+                <p>All our facilities are FSSAI certified. <strong>Quality mutton shop</strong> standards maintained at every step.</p>
+            </div>
+
+            <div class="quality-item">
+                <span class="quality-icon">🏆</span>
+                <h4>Expert Butchery</h4>
+                <p>Professional <strong>mutton cuts</strong> done by experienced butchers. Every <strong>mutton piece</strong> expertly cleaned and portioned.</p>
+            </div>
+
+            <div class="quality-item">
+                <span class="quality-icon">❄️</span>
+                <h4>Cold Chain Maintained</h4>
+                <p>Temperature-controlled delivery ensures <strong>fresh mutton delivery</strong> maintains freshness from farm to your kitchen.</p>
+            </div>
+
+            <div class="quality-item">
+                <span class="quality-icon">💰</span>
+                <h4>Transparent Pricing</h4>
+                <p>Check <strong>mutton price in Hyderabad today</strong> online. No hidden charges. <strong>Mutton rate</strong> clearly displayed.</p>
             </div>
         </div>
     </section>
@@ -864,8 +953,8 @@
         <div class="section-eyebrow">Mutton Home Delivery Near Me</div>
         <h2 class="section-title">Fresh Mutton Delivery Areas in West Hyderabad</h2>
 
-        <p class="section-description">
-            We provide <strong>mutton home delivery near me</strong> across all West Hyderabad localities. Order <strong>fresh mutton near me</strong> and get Sunday delivery within 2 hours.
+        <p class="section-description" style="max-width: 900px; margin: 0 auto 40px;">
+            We provide <strong>mutton home delivery near me</strong> across all West Hyderabad localities. Order <strong>fresh mutton near me</strong> and get Sunday delivery within 2 hours. Looking for "<strong>mutton delivery near me</strong>" or "<strong>online mutton delivery near me</strong>"? We've got you covered.
         </p>
 
         <div class="delivery-areas">
@@ -892,10 +981,10 @@
                     Whether you're searching for "<strong>mutton shop near me</strong>", "<strong>fresh mutton near me</strong>", or "<strong>online mutton delivery near me</strong>", we deliver premium quality <strong>organic mutton</strong> every Sunday to Gachibowli, Kondapur, Manikonda, Narsingi, and all West Hyderabad areas.
                 </p>
                 <p>
-                    Our <strong>mutton cuts</strong> include <strong>curry cut mutton</strong>, <strong>boneless mutton</strong>, <strong>mutton keema</strong>, <strong>mutton liver</strong>, <strong>mutton chops</strong>, <strong>nalli pieces</strong>, <strong>mutton paya</strong>, <strong>mutton ribs</strong>, <strong>mutton leg pieces</strong>, and <strong>whole goat</strong> for special occasions.
+                    Our <strong>mutton cuts</strong> include <strong>curry cut mutton</strong>, <strong>boneless mutton</strong>, <strong>mutton keema</strong>, <strong>mutton liver</strong>, <strong>mutton chops</strong>, <strong>nalli pieces</strong>, <strong>mutton paya</strong>, <strong>mutton ribs</strong>, <strong>mutton leg pieces</strong>, <strong>mutton bone marrow</strong>, and <strong>whole goat</strong> for special occasions.
                 </p>
                 <p class="footer-keywords">
-                    Check <strong>mutton price in Hyderabad today</strong>: Premium Curry Cut ₹937/kg, <strong>Boneless Mutton ₹1,050/kg</strong>, <strong>Mutton Keema ₹900/kg</strong>. <strong>1 kg mutton price</strong>, <strong>half kg mutton price</strong>, and bulk orders available. We are your <strong>quality mutton shop</strong> offering <strong>fresh mutton shop</strong> quality with <strong>online mutton delivery</strong> convenience. Pre-order now for fresh Sunday delivery!
+                    Check <strong>mutton price in Hyderabad today</strong>: Premium Curry Cut ₹937/kg, <strong>Boneless Mutton ₹1,050/kg</strong>, <strong>Mutton Keema ₹900/kg</strong>, <strong>Mutton Liver ₹600/kg</strong>. <strong>1 kg mutton price</strong>, <strong>half kg mutton price</strong>, and bulk orders available. We offer <strong>mutton by kilo</strong>, <strong>mutton per kg</strong> pricing. Best <strong>mutton pieces names</strong> and cuts explained. <strong>Types of mutton</strong> available: <strong>khasi mutton</strong>, <strong>goat vs mutton</strong> explained. <strong>Mutton is lamb or goat</strong>? We use goat meat. <strong>Mutton red meat</strong> rich in protein. Order <strong>chicken and mutton</strong> together. We are your <strong>quality mutton shop</strong>, <strong>quality mutton stall</strong>, <strong>fresh mutton shop</strong>, <strong>indian mutton shop</strong>, and the <strong>nearest mutton shop near me</strong>. Pre-order now for fresh Sunday <strong>online mutton delivery</strong>!
                 </p>
             </div>
         </div>
@@ -923,19 +1012,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                }
-            });
-        });
-
-        // Order button functionality
-        const orderButtons = document.querySelectorAll('.btn-add, .btn-primary');
-        orderButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (!this.href) {
-                    e.preventDefault();
-                    const productName = this.closest('.product-card')?.querySelector('h3')?.textContent || 'mutton';
-                    const whatsappUrl = `https://wa.me/919494051840?text=Hi, I want to order ${productName} in Hyderabad`;
-                    window.open(whatsappUrl, '_blank');
                 }
             });
         });
