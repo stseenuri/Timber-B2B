@@ -6,5 +6,4 @@ exclude:
   - LOCATION_DATA.json
   - LOCATION_PAGES_GENERATOR.md
   - README.md
-  - boneless-mutton.webp
-  - curry-cut.webp
+
