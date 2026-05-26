@@ -1,5 +1,4 @@
 # Jekyll config for GitHub Pages
-permalink: pretty
 
 # Exclude non-page files from Jekyll build
 exclude:
