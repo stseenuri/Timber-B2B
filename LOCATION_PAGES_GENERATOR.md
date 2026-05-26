@@ -122,7 +122,7 @@ Each location page includes:
 ## Next Steps
 
 1. **Generate remaining 15 pages** using the automated method or template
-2. **Update locations/** to link to all 16 individual location pages
+2. **Update locations.html** to link to all 16 individual location pages
 3. **Submit sitemap** to Google Search Console with all location pages
 4. **Monitor rankings** for local keywords like "mutton [area name] Hyderabad"
 5. **Update Google My Business** with address and hours for each service area
