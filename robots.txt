@@ -11,7 +11,7 @@ Sitemap: https://farmmutton.com/sitemap.xml
 User-agent: *
 Allow: /
 
-# Prevent indexing of the cart/checkout flow
+# Prevent indexing of the cart.htmlcheckout flow
 Disallow: /cart.html
 Disallow: /checkout.html
 
