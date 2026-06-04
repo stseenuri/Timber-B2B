@@ -1,52 +1,145 @@
-# Robots.txt for Farm Mutton Telangana
+# ==================================================
+# robots.txt — Farm Mutton Telangana
 # https://farmmutton.com
 # Last Updated: 2026-06-04
+# ==================================================
 
-# Sitemap
+# Sitemap declaration (required by all major crawlers)
 Sitemap: https://farmmutton.com/sitemap.xml
 
-# --------------------------------
-# GLOBAL RULES
-# --------------------------------
+# ==================================================
+# GLOBAL RULES — All crawlers welcome by default
+# ==================================================
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# --------------------------------
-# AI CRAWLERS — ALLOWED
-# --------------------------------
+# Block cart from indexing (session-based UI — not useful for search)
+User-agent: *
+Disallow: /cart.html
+
+# ==================================================
+# GOOGLE
+# ==================================================
+User-agent: Googlebot
+Allow: /
+Disallow: /cart.html
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Google Extended (Gemini / AI training)
+User-agent: Google-Extended
+Allow: /
+
+# ==================================================
+# BING / MICROSOFT
+# ==================================================
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: adidxbot
+Allow: /
+
+# ==================================================
+# AI CRAWLERS — ALL EXPLICITLY ALLOWED
+# ==================================================
+
+# OpenAI (ChatGPT, GPT search, browse mode)
 User-agent: GPTBot
 Allow: /
+Disallow: /cart.html
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: ChatGPT-User
 Allow: /
 
+# Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
 User-agent: FacebookBot
 Allow: /
 
+User-agent: meta-externalagent
+Allow: /
+
+# Apple (Siri / Spotlight / Apple Intelligence)
 User-agent: Applebot
 Allow: /
 
-# --------------------------------
-# SPECIFIC BOT SETTINGS
-# --------------------------------
-User-agent: Bingbot
-Crawl-delay: 1
+User-agent: Applebot-Extended
+Allow: /
 
-User-agent: Slurp
-Crawl-delay: 1
+# Amazon Alexa
+User-agent: Amazonbot
+Allow: /
 
-# --------------------------------
-# BLOCK BAD / AGGRESSIVE BOTS
-# --------------------------------
+# DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+
+# Brave AI
+User-agent: Brave
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Mistral / LeChat
+User-agent: MistralBot
+Allow: /
+
+# Common Crawl (feeds many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Bytespider (ByteDance / TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# ==================================================
+# SOCIAL / PREVIEW BOTS — ALLOWED
+# (Rich link previews on WhatsApp, Instagram, Telegram etc.)
+# ==================================================
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+# ==================================================
+# SEO AUDIT TOOLS — BLOCKED
+# (Aggressive crawlers that waste bandwidth)
+# ==================================================
 User-agent: AhrefsBot
 Disallow: /
 
@@ -62,8 +155,26 @@ Disallow: /
 User-agent: BLEXBot
 Disallow: /
 
-User-agent: Bytespider
+User-agent: PetalBot
 Disallow: /
 
-User-agent: CCBot
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: seoscannerbot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: python-requests
+Disallow: /
+
+User-agent: wget
+Disallow: /
+
+User-agent: curl
 Disallow: /
