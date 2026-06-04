@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ================================================================
-  SITEMAP: farmmutton.com
-  Version: 2.0 (rebuilt — fixes XML tag mismatch error in v1)
-  Generated: 2026-06-04
-  Standard: https://www.sitemaps.org/protocol.html
-  Image extension: http://www.google.com/schemas/sitemap-image/1.1
-
-  PAGES CONFIRMED LIVE (200 OK):
-  - / (index.html)
-  - /about-us.html
-  - /locations.html
-  - /pricing.html
-  - /faq.html
-  - /blog.html
-  - /cart.html
-  - /terms.html
-  - /privacy.html
-  - /refund.html
-
-  LOCATION PAGES (linked from /locations.html — in progress):
-  - /gachibowli.html through /tolichowki.html (16 pages)
-
-  AI CONTEXT: See https://farmmutton.com/llms.txt
-  ================================================================
--->
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -35,16 +9,13 @@
     http://www.google.com/schemas/sitemap-image/1.1
     http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
-  <!-- ============================================================
-       TIER 1 — CORE TRANSACTIONAL PAGES
-       Highest crawl priority. Update frequently.
-       ============================================================ -->
+  <!-- TIER 1 — CORE TRANSACTIONAL PAGES -->
 
   <!-- Homepage -->
   <url>
-    oc>https://farmmutton.com/</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>weekly</changefreq>
+    <loc>https://farmmutton.com/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://farmmutton.com/assets/images/hero-goat.jpg</image:loc>
@@ -53,11 +24,11 @@
     </image:image>
   </url>
 
-  <!-- Pricing and Order Page — highest commercial intent -->
+  <!-- Pricing and Order Page -->
   <url>
-    oc>https://farmmutton.com/pricing.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>weekly</changefreq>
+    <loc>https://farmmutton.com/pricing.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.98</priority>
     <image:image>
       <image:loc>https://farmmutton.com/assets/images/curry-cut.jpg</image:loc>
@@ -78,206 +49,197 @@
 
   <!-- Delivery Locations Hub -->
   <url>
-    oc>https://farmmutton.com/locations.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/locations.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <!-- About Us -->
   <url>
-    oc>https://farmmutton.com/about-us.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/about-us.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- FAQ and Help — strong AEO page with 21 Q&As -->
+  <!-- FAQ -->
   <url>
-    oc>https://farmmutton.com/faq.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/faq.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Blog — content being added -->
+  <!-- Blog -->
   <url>
-    oc>https://farmmutton.com/blog.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>weekly</changefreq>
+    <loc>https://farmmutton.com/blog.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
 
-  <!-- ============================================================
-       TIER 2 — POLICY AND LEGAL PAGES
-       Important for trust signals. Low crawl frequency.
-       ============================================================ -->
+  <!-- TIER 2 — POLICY AND LEGAL PAGES -->
 
   <!-- Refund and Cancellation Policy -->
   <url>
-    oc>https://farmmutton.com/refund.html</loc>
-    astmod>2026-05-20</lastmod>
-    hangefreq>yearly</changefreq>
+    <loc>https://farmmutton.com/refund.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
 
   <!-- Terms and Conditions -->
   <url>
-    oc>https://farmmutton.com/terms.html</loc>
-    astmod>2026-05-26</lastmod>
-    hangefreq>yearly</changefreq>
+    <loc>https://farmmutton.com/terms.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.40</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    oc>https://farmmutton.com/privacy.html</loc>
-    astmod>2026-05-26</lastmod>
-    hangefreq>yearly</changefreq>
+    <loc>https://farmmutton.com/privacy.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.40</priority>
   </url>
 
-  <!-- Cart — excluded from Google index via robots.txt but
-       included here for completeness and AI bot awareness -->
+  <!-- Cart (noindex via robots.txt, included for completeness) -->
   <url>
-    oc>https://farmmutton.com/cart.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>never</changefreq>
+    <loc>https://farmmutton.com/cart.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>never</changefreq>
     <priority>0.10</priority>
   </url>
 
-  <!-- ============================================================
-       TIER 3 — LOCATION PAGES (West Hyderabad — 16 localities)
-       High local SEO value. Priority reflects population density
-       and search volume of each zone.
-       Note: Pages in progress — priority preserved for when live.
-       ============================================================ -->
+  <!-- TIER 3 — LOCATION PAGES (West Hyderabad — 16 localities) -->
 
-  <!-- Gachibowli — DLF Cyber City, Nanakramguda, Gopanpally, Silicon Valley -->
+  <!-- Gachibowli -->
   <url>
-    oc>https://farmmutton.com/gachibowli.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/gachibowli.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
 
-  <!-- HITEC City — Cyber Towers, Raheja Mindspace, Inorbit Mall -->
+  <!-- HITEC City -->
   <url>
-    oc>https://farmmutton.com/hitec-city.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/hitec-city.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
 
-  <!-- Kondapur — Aparna Towers, Ayyappa Society, Kothaguda -->
+  <!-- Kondapur -->
   <url>
-    oc>https://farmmutton.com/kondapur.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/kondapur.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
 
-  <!-- Madhapur — HITEC City Main Road, Kavuri Hills, Image Gardens -->
+  <!-- Madhapur -->
   <url>
-    oc>https://farmmutton.com/madhapur.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/madhapur.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- Financial District — Gachibowli-Kokapet Road, Nanakramguda -->
+  <!-- Financial District -->
   <url>
-    oc>https://farmmutton.com/financial-district.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/financial-district.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- Manikonda — Lanco Hills, Puppalaguda, Nakshatra Colony -->
+  <!-- Manikonda -->
   <url>
-    oc>https://farmmutton.com/manikonda.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/manikonda.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- Narsingi — Kollur, Nanakramguda Junction, Kokapet -->
+  <!-- Narsingi -->
   <url>
-    oc>https://farmmutton.com/narsingi.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/narsingi.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- Banjara Hills — Road No 12, Jubilee Hills Border, Film Nagar -->
+  <!-- Banjara Hills -->
   <url>
-    oc>https://farmmutton.com/banjara-hills.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/banjara-hills.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.86</priority>
   </url>
 
-  <!-- Jubilee Hills — Road No 36, Journalist Colony, Peddamma Temple -->
+  <!-- Jubilee Hills -->
   <url>
-    oc>https://farmmutton.com/jubilee-hills.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/jubilee-hills.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.86</priority>
   </url>
 
-  <!-- Kukatpally — KPHB Colony, Moosapet, Balanagar, JNTU -->
+  <!-- Kukatpally -->
   <url>
-    oc>https://farmmutton.com/kukatpally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/kukatpally.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.84</priority>
   </url>
 
-  <!-- Hafeezpet — Chandanagar, Miyapur Border, Allwyn Colony -->
+  <!-- Hafeezpet -->
   <url>
-    oc>https://farmmutton.com/hafeezpet.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/hafeezpet.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.84</priority>
   </url>
 
-  <!-- Lingampally — Botanical Garden Road, Osman Nagar, Nallagandla -->
+  <!-- Lingampally -->
   <url>
-    oc>https://farmmutton.com/lingampally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/lingampally.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
 
-  <!-- Serilingampally — Nallagandla, Gowlidoddy, BHEL Area -->
+  <!-- Serilingampally -->
   <url>
-    oc>https://farmmutton.com/serilingampally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/serilingampally.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
 
-  <!-- Mehadipatnam — Asif Nagar, Humayun Nagar, Shaikpet -->
+  <!-- Mehadipatnam -->
   <url>
-    oc>https://farmmutton.com/mehadipatnam.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/mehadipatnam.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- Tolichowki — Langar Houz, Noor Khan Bazar, Attapur Road -->
+  <!-- Tolichowki -->
   <url>
-    oc>https://farmmutton.com/tolichowki.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/tolichowki.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- Tellapur — Kollur Village, Gopanpally Extension -->
+  <!-- Tellapur -->
   <url>
-    oc>https://farmmutton.com/tellapur.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
+    <loc>https://farmmutton.com/tellapur.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.78</priority>
   </url>
 
