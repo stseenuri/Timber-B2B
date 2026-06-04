@@ -1,45 +1,52 @@
 # Robots.txt for Farm Mutton Telangana
 # https://farmmutton.com
-# Last Updated: 2026-01-29
+# Last Updated: 2026-06-04
 
-# Sitemap location
+# Sitemap
 Sitemap: https://farmmutton.com/sitemap.xml
 
-# ---------------------------------------------------
-# GLOBAL RULES (Applies to Google, Bing, and all legitimate bots)
-# ---------------------------------------------------
+# --------------------------------
+# GLOBAL RULES
+# --------------------------------
 User-agent: *
 Allow: /
 
-# Prevent indexing of the cart.htmlcheckout flow
-Disallow: /cart.html
-Disallow: /checkout.html
+# --------------------------------
+# AI CRAWLERS — ALLOWED
+# --------------------------------
+User-agent: GPTBot
+Allow: /
 
-# Security & Backend cleanup
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /private/
+User-agent: OAI-SearchBot
+Allow: /
 
-# Prevent Duplicate Content
-# (Only use this if your main pages NEVER use parameters like ?id=123)
-Disallow: /*?
-Disallow: /*&
+User-agent: PerplexityBot
+Allow: /
 
-# ---------------------------------------------------
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --------------------------------
 # SPECIFIC BOT SETTINGS
-# ---------------------------------------------------
-
-# Bing & Yahoo (They respect Crawl-delay, Google does not)
+# --------------------------------
 User-agent: Bingbot
 Crawl-delay: 1
 
 User-agent: Slurp
 Crawl-delay: 1
 
-# ---------------------------------------------------
-# BLOCK BAD BOTS / SEO SCRAPERS (To save bandwidth)
-# ---------------------------------------------------
+# --------------------------------
+# BLOCK BAD / AGGRESSIVE BOTS
+# --------------------------------
 User-agent: AhrefsBot
 Disallow: /
 
@@ -55,8 +62,8 @@ Disallow: /
 User-agent: BLEXBot
 Disallow: /
 
-User-agent: DataForSeoBot
+User-agent: Bytespider
 Disallow: /
 
-User-agent: PetalBot
+User-agent: CCBot
 Disallow: /
