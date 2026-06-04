@@ -2,19 +2,28 @@
 # robots.txt — Farm Mutton Telangana
 # https://farmmutton.com
 # Last Updated: 2026-06-04
+# Version: 3.0
 # ==================================================
 
-# Sitemap declaration (required by all major crawlers)
+# Sitemap — updated v2.0 (XML error fixed, all 26 URLs)
 Sitemap: https://farmmutton.com/sitemap.xml
+
+# LLMs.txt — AI context file (GEO + AEO optimised)
+# Standard: https://llmstxt.org
+LLMs: https://farmmutton.com/llms.txt
 
 # ==================================================
 # GLOBAL RULES — All crawlers welcome by default
 # ==================================================
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /robots.txt
 Crawl-delay: 1
 
-# Block cart from indexing (session-based UI — not useful for search)
+# Cart is a session-based WhatsApp checkout UI
+# No indexable content — block all bots
 User-agent: *
 Disallow: /cart.html
 
@@ -23,103 +32,161 @@ Disallow: /cart.html
 # ==================================================
 User-agent: Googlebot
 Allow: /
+Allow: /sitemap.xml
+Allow: /llms.txt
 Disallow: /cart.html
 
 User-agent: Googlebot-Image
 Allow: /
 
-# Google Extended (Gemini / AI training)
+User-agent: Googlebot-Video
+Allow: /
+
+# Google Extended — Gemini AI and Google AI training
 User-agent: Google-Extended
 Allow: /
+Allow: /llms.txt
+
+# Google AdsBot
+User-agent: AdsBot-Google
+Disallow: /cart.html
 
 # ==================================================
 # BING / MICROSOFT
 # ==================================================
 User-agent: Bingbot
 Allow: /
+Allow: /sitemap.xml
+Allow: /llms.txt
 Crawl-delay: 1
 
 User-agent: adidxbot
 Allow: /
 
-# ==================================================
-# AI CRAWLERS — ALL EXPLICITLY ALLOWED
-# ==================================================
-
-# OpenAI (ChatGPT, GPT search, browse mode)
+# Microsoft Copilot AI
 User-agent: GPTBot
 Allow: /
+Allow: /llms.txt
+Disallow: /cart.html
+
+# ==================================================
+# AI CRAWLERS — ALL EXPLICITLY ALLOWED
+# llms.txt explicitly allowed for all AI bots
+# ==================================================
+
+# OpenAI — ChatGPT browse, GPT search, API
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
 Disallow: /cart.html
 
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /llms.txt
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /llms.txt
 
-# Anthropic (Claude)
+# Anthropic — Claude AI
 User-agent: ClaudeBot
 Allow: /
+Allow: /llms.txt
 
 User-agent: anthropic-ai
 Allow: /
+Allow: /llms.txt
 
 User-agent: Claude-Web
 Allow: /
+Allow: /llms.txt
 
 # Perplexity AI
 User-agent: PerplexityBot
 Allow: /
+Allow: /llms.txt
 
-# Meta AI
+# Meta AI — Llama, Meta AI assistant
 User-agent: FacebookBot
 Allow: /
+Allow: /llms.txt
 
 User-agent: meta-externalagent
 Allow: /
+Allow: /llms.txt
 
-# Apple (Siri / Spotlight / Apple Intelligence)
+User-agent: meta-externalfetcher
+Allow: /
+Allow: /llms.txt
+
+# Apple — Siri, Spotlight, Apple Intelligence
 User-agent: Applebot
 Allow: /
+Allow: /llms.txt
 
 User-agent: Applebot-Extended
 Allow: /
+Allow: /llms.txt
 
-# Amazon Alexa
+# Amazon — Alexa AI
 User-agent: Amazonbot
 Allow: /
+Allow: /llms.txt
 
 # DuckDuckGo AI
 User-agent: DuckAssistBot
 Allow: /
+Allow: /llms.txt
 
 # You.com AI
 User-agent: YouBot
 Allow: /
+Allow: /llms.txt
 
-# Brave AI
+# Brave AI (Leo)
 User-agent: Brave
 Allow: /
+Allow: /llms.txt
 
 # Cohere AI
 User-agent: cohere-ai
 Allow: /
+Allow: /llms.txt
 
-# Mistral / LeChat
+# Mistral AI / LeChat
 User-agent: MistralBot
 Allow: /
+Allow: /llms.txt
 
-# Common Crawl (feeds many AI training datasets)
+# Groq AI
+User-agent: Groq
+Allow: /
+Allow: /llms.txt
+
+# Common Crawl — feeds GPT, Claude, Llama training datasets
 User-agent: CCBot
 Allow: /
+Allow: /llms.txt
 
-# Bytespider (ByteDance / TikTok AI)
+# ByteDance / TikTok AI
 User-agent: Bytespider
 Allow: /
+Allow: /llms.txt
+
+# Diffbot — used by many AI knowledge graph systems
+User-agent: Diffbot
+Allow: /
+Allow: /llms.txt
+
+# Webz.io — AI data pipelines
+User-agent: Webzio-Extended
+Allow: /
+Allow: /llms.txt
 
 # ==================================================
-# SOCIAL / PREVIEW BOTS — ALLOWED
-# (Rich link previews on WhatsApp, Instagram, Telegram etc.)
+# SOCIAL PREVIEW BOTS — ALLOWED
+# Critical for WhatsApp link previews, Instagram
+# shares, and Telegram cards — core to ordering flow
 # ==================================================
 User-agent: Twitterbot
 Allow: /
@@ -136,9 +203,18 @@ Allow: /
 User-agent: Slackbot
 Allow: /
 
+User-agent: Discordbot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: Iframely
+Allow: /
+
 # ==================================================
 # SEO AUDIT TOOLS — BLOCKED
-# (Aggressive crawlers that waste bandwidth)
+# Aggressive scrapers with no indexing value
 # ==================================================
 User-agent: AhrefsBot
 Disallow: /
@@ -167,14 +243,48 @@ Disallow: /
 User-agent: seoscannerbot
 Disallow: /
 
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: SEOkicks
+Disallow: /
+
+User-agent: Neevabot
+Disallow: /
+
+# ==================================================
+# GENERIC SCRAPERS AND BOTS — BLOCKED
+# No indexing or AI value — pure bandwidth waste
+# ==================================================
 User-agent: Scrapy
 Disallow: /
 
 User-agent: python-requests
 Disallow: /
 
+User-agent: python-httpx
+Disallow: /
+
 User-agent: wget
 Disallow: /
 
 User-agent: curl
+Disallow: /
+
+User-agent: Go-http-client
+Disallow: /
+
+User-agent: Java
+Disallow: /
+
+User-agent: libwww-perl
+Disallow: /
+
+User-agent: zgrab
+Disallow: /
+
+User-agent: masscan
 Disallow: /
