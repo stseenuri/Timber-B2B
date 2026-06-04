@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ====================================================================
+  ================================================================
   SITEMAP: farmmutton.com
+  Version: 2.0 (rebuilt — fixes XML tag mismatch error in v1)
   Generated: 2026-06-04
-  Purpose: Full crawl sitemap for search engines + AI bots
-           (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.)
-  Coverage: All confirmed live pages + future location pages
-  ====================================================================
+  Standard: https://www.sitemaps.org/protocol.html
+  Image extension: http://www.google.com/schemas/sitemap-image/1.1
+
+  PAGES CONFIRMED LIVE (200 OK):
+  - / (index.html)
+  - /about-us.html
+  - /locations.html
+  - /pricing.html
+  - /faq.html
+  - /blog.html
+  - /cart.html
+  - /terms.html
+  - /privacy.html
+  - /refund.html
+
+  LOCATION PAGES (linked from /locations.html — in progress):
+  - /gachibowli.html through /tolichowki.html (16 pages)
+
+  AI CONTEXT: See https://farmmutton.com/llms.txt
+  ================================================================
 -->
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
   xsi:schemaLocation="
     http://www.sitemaps.org/schemas/sitemap/0.9
-    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
-  <!-- =============================================
-       CORE PAGES — HIGH PRIORITY
-       ============================================= -->
+  <!-- ============================================================
+       TIER 1 — CORE TRANSACTIONAL PAGES
+       Highest crawl priority. Update frequently.
+       ============================================================ -->
 
   <!-- Homepage -->
   <url>
@@ -27,20 +46,34 @@
     astmod>2026-06-04</lastmod>
     hangefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <!-- AI Context: Primary landing page. Fresh organic mutton delivery in West Hyderabad, Telangana. FSSAI certified. Sunday delivery. -->
     <image:image>
       <image:loc>https://farmmutton.com/assets/images/hero-goat.jpg</image:loc>
-      <image:title>Farm Mutton Telangana - Fresh Organic Mutton Delivery West Hyderabad</image:title>
+      <image:title>Farm Mutton Telangana — Fresh Organic Mutton West Hyderabad</image:title>
+      <image:caption>100% organic grass-fed goat meat. Freshly slaughtered every Sunday. Delivered within 2 hours across West Hyderabad.</image:caption>
     </image:image>
   </url>
 
-  <!-- Pricing / Order Page -->
+  <!-- Pricing and Order Page — highest commercial intent -->
   <url>
     oc>https://farmmutton.com/pricing.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <!-- AI Context: Product catalog and pricing. Curry cut, boneless mutton, keema, liver, chops, whole goat. WhatsApp ordering. -->
+    <priority>0.98</priority>
+    <image:image>
+      <image:loc>https://farmmutton.com/assets/images/curry-cut.jpg</image:loc>
+      <image:title>Premium Curry Cut Mutton — ₹937/kg — Farm Mutton Telangana</image:title>
+      <image:caption>Organic bone-in curry cut. Best for Hyderabadi biryani and mutton curry. Sunday delivery West Hyderabad.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://farmmutton.com/assets/images/boneless.jpg</image:loc>
+      <image:title>Tender Boneless Mutton — ₹1,100/kg — Farm Mutton Telangana</image:title>
+      <image:caption>Organic boneless goat meat. Perfect for kebabs and grills. Sunday delivery West Hyderabad.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://farmmutton.com/assets/images/keema.jpg</image:loc>
+      <image:title>Fresh Mutton Keema — ₹950/kg — Farm Mutton Telangana</image:title>
+      <image:caption>Freshly ground organic goat keema. Made to order. Sunday delivery West Hyderabad.</image:caption>
+    </image:image>
   </url>
 
   <!-- Delivery Locations Hub -->
@@ -48,8 +81,7 @@
     oc>https://farmmutton.com/locations.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.90</priority>
-    <!-- AI Context: Delivery area hub covering 16+ West Hyderabad localities. Sunday delivery only. Pre-order required. -->
+    <priority>0.95</priority>
   </url>
 
   <!-- About Us -->
@@ -58,196 +90,195 @@
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <!-- AI Context: Farm story. Connecting Telangana village farms to West Hyderabad kitchens. Grass-fed, no hormones, no steroids. -->
   </url>
 
-  <!-- FAQ & Help -->
+  <!-- FAQ and Help — strong AEO page with 21 Q&As -->
   <url>
     oc>https://farmmutton.com/faq.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <!-- AI Context: Help center answering questions about organic lamb, fresh mutton delivery, ordering process, and pricing in Hyderabad. -->
+    <priority>0.85</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog — content being added -->
   <url>
     oc>https://farmmutton.com/blog.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>weekly</changefreq>
     <priority>0.70</priority>
-    <!-- AI Context: Mutton recipes and organic meat guides. Blog section. -->
   </url>
 
-  <!-- Shopping Cart -->
+  <!-- ============================================================
+       TIER 2 — POLICY AND LEGAL PAGES
+       Important for trust signals. Low crawl frequency.
+       ============================================================ -->
+
+  <!-- Refund and Cancellation Policy -->
   <url>
-    oc>https://farmmutton.com/cart.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>never</changefreq>
-    <priority>0.30</priority>
-    <!-- AI Context: Cart page for reviewing order before completing via WhatsApp. Not a traditional e-commerce checkout. -->
+    oc>https://farmmutton.com/refund.html</loc>
+    astmod>2026-05-20</lastmod>
+    hangefreq>yearly</changefreq>
+    <priority>0.50</priority>
   </url>
 
-  <!-- =============================================
-       LEGAL PAGES — STANDARD PRIORITY
-       ============================================= -->
-
+  <!-- Terms and Conditions -->
   <url>
     oc>https://farmmutton.com/terms.html</loc>
     astmod>2026-05-26</lastmod>
     hangefreq>yearly</changefreq>
     <priority>0.40</priority>
-    <!-- AI Context: Terms & Conditions for Farm Mutton Telangana. Covers ordering, slaughter scheduling, payments, refunds. Region: India (Telangana, West Hyderabad). -->
   </url>
 
+  <!-- Privacy Policy -->
   <url>
     oc>https://farmmutton.com/privacy.html</loc>
     astmod>2026-05-26</lastmod>
     hangefreq>yearly</changefreq>
     <priority>0.40</priority>
-    <!-- AI Context: Privacy Policy. Data collected during WhatsApp ordering. Plain-English privacy for West Hyderabad customers. -->
   </url>
 
+  <!-- Cart — excluded from Google index via robots.txt but
+       included here for completeness and AI bot awareness -->
   <url>
-    oc>https://farmmutton.com/refund.html</loc>
-    astmod>2026-05-20</lastmod>
-    hangefreq>yearly</changefreq>
-    <priority>0.45</priority>
-    <!-- AI Context: Refund & Cancellation Policy. Pre-order only model. Fresh slaughter on Sunday morning. Saturday 8 PM cutoff. Quality guarantee and full refund on errors. -->
+    oc>https://farmmutton.com/cart.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>never</changefreq>
+    <priority>0.10</priority>
   </url>
 
-  <!-- =============================================
-       LOCATION PAGES — WEST HYDERABAD DELIVERY AREAS
-       (Linked from locations.html — create these HTML files
-        to activate full local SEO for each area)
-       ============================================= -->
+  <!-- ============================================================
+       TIER 3 — LOCATION PAGES (West Hyderabad — 16 localities)
+       High local SEO value. Priority reflects population density
+       and search volume of each zone.
+       Note: Pages in progress — priority preserved for when live.
+       ============================================================ -->
 
+  <!-- Gachibowli — DLF Cyber City, Nanakramguda, Gopanpally, Silicon Valley -->
   <url>
     oc>https://farmmutton.com/gachibowli.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Gachibowli - DLF Cyber City, Nanakramguda, Gopanpally, Silicon Valley. Sunday delivery. -->
+    <priority>0.92</priority>
   </url>
 
+  <!-- HITEC City — Cyber Towers, Raheja Mindspace, Inorbit Mall -->
   <url>
     oc>https://farmmutton.com/hitec-city.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in HITEC City - Cyber Towers, Raheja Mindspace, Inorbit Mall area. Sunday delivery. -->
+    <priority>0.92</priority>
   </url>
 
+  <!-- Kondapur — Aparna Towers, Ayyappa Society, Kothaguda -->
   <url>
     oc>https://farmmutton.com/kondapur.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Kondapur - Aparna Towers, Ayyappa Society, Kothaguda. Sunday delivery. -->
+    <priority>0.92</priority>
   </url>
 
+  <!-- Madhapur — HITEC City Main Road, Kavuri Hills, Image Gardens -->
   <url>
     oc>https://farmmutton.com/madhapur.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Madhapur - HITEC City Main Road, Kavuri Hills, Image Gardens. Sunday delivery. -->
+    <priority>0.90</priority>
   </url>
 
+  <!-- Financial District — Gachibowli-Kokapet Road, Nanakramguda -->
+  <url>
+    oc>https://farmmutton.com/financial-district.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Manikonda — Lanco Hills, Puppalaguda, Nakshatra Colony -->
+  <url>
+    oc>https://farmmutton.com/manikonda.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- Narsingi — Kollur, Nanakramguda Junction, Kokapet -->
+  <url>
+    oc>https://farmmutton.com/narsingi.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- Banjara Hills — Road No 12, Jubilee Hills Border, Film Nagar -->
+  <url>
+    oc>https://farmmutton.com/banjara-hills.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+
+  <!-- Jubilee Hills — Road No 36, Journalist Colony, Peddamma Temple -->
+  <url>
+    oc>https://farmmutton.com/jubilee-hills.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+
+  <!-- Kukatpally — KPHB Colony, Moosapet, Balanagar, JNTU -->
+  <url>
+    oc>https://farmmutton.com/kukatpally.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <!-- Hafeezpet — Chandanagar, Miyapur Border, Allwyn Colony -->
+  <url>
+    oc>https://farmmutton.com/hafeezpet.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <!-- Lingampally — Botanical Garden Road, Osman Nagar, Nallagandla -->
+  <url>
+    oc>https://farmmutton.com/lingampally.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- Serilingampally — Nallagandla, Gowlidoddy, BHEL Area -->
+  <url>
+    oc>https://farmmutton.com/serilingampally.html</loc>
+    astmod>2026-06-04</lastmod>
+    hangefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- Mehadipatnam — Asif Nagar, Humayun Nagar, Shaikpet -->
   <url>
     oc>https://farmmutton.com/mehadipatnam.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Mehadipatnam - Asif Nagar, Humayun Nagar, Shaikpet. Sunday delivery. -->
   </url>
 
+  <!-- Tolichowki — Langar Houz, Noor Khan Bazar, Attapur Road -->
   <url>
     oc>https://farmmutton.com/tolichowki.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Tolichowki - Langar Houz, Noor Khan Bazar, New Malakpet. Sunday delivery. -->
   </url>
 
-  <url>
-    oc>https://farmmutton.com/manikonda.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Manikonda - Lanco Hills, Puppalaguda, Nakshatra Colony. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/narsingi.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Narsingi - Kollur, Nanakramguda Junction, Kokapet. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/financial-district.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <!-- AI Context: Organic mutton delivery in Financial District - Gachibowli-Kokapet Road, Nanakramguda. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/hafeezpet.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Hafeezpet - Chandanagar, Miyapur, Allwyn Colony. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/kukatpally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Kukatpally - KPHB, Moosapet, Balanagar. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/banjara-hills.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Banjara Hills - Road No 12, Jubilee Hills Border, Film Nagar. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/jubilee-hills.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Jubilee Hills - Road No 36, Journalist Colony, Peddamma Temple. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/lingampally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.80</priority>
-    <!-- AI Context: Organic mutton delivery in Lingampally - Botanical Garden, Osman Nagar, Nallagandla. Sunday delivery. -->
-  </url>
-
+  <!-- Tellapur — Kollur Village, Gopanpally Extension -->
   <url>
     oc>https://farmmutton.com/tellapur.html</loc>
     astmod>2026-06-04</lastmod>
     hangefreq>monthly</changefreq>
     <priority>0.78</priority>
-    <!-- AI Context: Organic mutton delivery in Tellapur - Kollur Village, Gopanpally Extension. Sunday delivery. -->
-  </url>
-
-  <url>
-    oc>https://farmmutton.com/serilingampally.html</loc>
-    astmod>2026-06-04</lastmod>
-    hangefreq>monthly</changefreq>
-    <priority>0.78</priority>
-    <!-- AI Context: Organic mutton delivery in Serilingampally - Nallagandla, Gowlidoddy, BHEL Area. Sunday delivery. -->
   </url>
 
 </urlset>
