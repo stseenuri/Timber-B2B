@@ -111,52 +111,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-weight: 700;
         }
 
-        /* Service Notice */
-        .service-notice {
-            position: fixed;
-            top: 36px;
-            left: 0;
-            right: 0;
-            background: linear-gradient(90deg, var(--red-bright), var(--red-primary));
-            color: var(--bg-white);
-            padding: 12px 0;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-        }
 
-        .service-notice-content {
-            display: flex;
-            white-space: nowrap;
-            animation: scroll-notice 20s linear infinite;
-        }
-
-        .service-notice-item {
+        .status-notice {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 0 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            color: rgba(255,255,255,0.85);
         }
 
-        .service-notice-item::before {
-            content: '⚠️';
-            font-size: 14px;
-        }
+        /* Service Notice (removed) */
+        
 
-        @keyframes scroll-notice {
-            0% { transform: translateX(0); }
+        
+
+        
+
+        
+
+        
             100% { transform: translateX(-50%); }
         }
 
         /* Navigation */
         nav {
             position: fixed;
-            top: 84px;
+            top: 36px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
@@ -408,7 +389,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         /* Page Header */
         .page-header {
-            padding: 180px 5% 60px;
+            padding: 140px 5% 60px;
             text-align: center;
             background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-cream) 100%);
         }
@@ -691,25 +672,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Status Bar -->
+    <!-- Top Banner -->
     <div class="status-bar">
         <div class="status-left">
             <div class="status-indicator">100% ORGANIC</div>
-            <div class="promo-tag">25% OFF + FREE DELIVERY ₹500+</div>
+            <div class="status-notice">Currently Serving Sundays Only &bull; Pre-Order Required</div>
         </div>
-        <div id="liveTime">Loading...</div>
-    </div>
-
-    <!-- Service Notice Banner -->
-    <div class="service-notice">
-        <div class="service-notice-content">
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-            <span class="service-notice-item">Currently Serving Sundays Only • Pre-Order Required</span>
-        </div>
+        <div id="liveTime"></div>
     </div>
 
     <!-- Navigation -->
@@ -781,7 +750,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,300</span><span>₹1049</span><span>/kg</span></div>
+                        <div class="product-price"><span>₹1,049</span><span>/kg</span></div>
                         <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Curry Cut" data-price="1049">ADD TO CART</button>
                     </div>
                 </div>
@@ -806,8 +775,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,500</span><span>₹1,199</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1199">ADD TO CART</button>
+                        <div class="product-price"><span>₹1,350</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Tender Boneless" data-price="1350">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -831,8 +800,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,500</span><span>₹1,199</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="119">ADD TO CART</button>
+                        <div class="product-price"><span>₹1,400</span><span>/kg</span></div>
+                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Fresh Keema" data-price="1400">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -856,33 +825,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                     </div>
                     <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1249</span><span>₹999</span><span>/kg</span></div>
+                        <div class="product-price"><span>₹999</span><span>/kg</span></div>
                         <button class="btn-add-cart" onclick="addToCart(this)" data-name="Premium Liver" data-price="999">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="mutton-chops.webp" alt="Signature Chops">
-                    <div class="product-badge">ORGANIC</div>
-                </div>
-                <div class="product-content">
-                    <div class="product-category">THE SIGNATURE</div>
-                    <h3>Signature Chops</h3>
-                    <p>Perfectly portioned chops. Ideal for grilling or weekend barbecues.</p>
-                    <div class="quantity-selector">
-                        <span class="quantity-label">Quantity:</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-btn" onclick="decrementQuantity(this)">−</button>
-                            <input type="number" class="quantity-input" value="1" min="1" max="50" readonly>
-                            <button class="quantity-btn" onclick="incrementQuantity(this)">+</button>
-                        </div>
-                    </div>
-                    <div class="product-footer">
-                        <div class="product-price"><span style="text-decoration: line-through; color: var(--text-gray); font-size: 18px; margin-right: 15px;">₹1,400</span><span>₹1,050</span><span>/kg</span></div>
-                        <button class="btn-add-cart" onclick="addToCart(this)" data-name="Signature Chops" data-price="1050">ADD TO CART</button>
                     </div>
                 </div>
             </div>
